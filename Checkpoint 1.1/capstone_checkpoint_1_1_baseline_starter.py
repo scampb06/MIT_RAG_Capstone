@@ -67,7 +67,7 @@ TEMPERATURE = 0.2
 LOG_PATH = Path.cwd() / "checkpoint_1_1_responses.log"
 
 # === SET THIS to your chosen scenario ===
-SCENARIO = "research_papers"   # "research_papers" or "wikipedia"
+SCENARIO = "wikipedia"   # "research_papers" or "wikipedia"
 
 SYSTEM_PROMPT = (
     "You are a helpful research assistant. Answer the user's question as "
@@ -184,7 +184,16 @@ def my_probe_prompts() -> list[str]:
 
     Delete the raise NotImplementedError line once your code works.
     """
-    raise NotImplementedError("my_probe_prompts() — see the TODO above.")
+    MY_PROBE_PROMPTS = [
+        "According to the Wikipedia article on Calton, Glasgow, what was the life expectancy of males in 2008? List the major contributing factors.",
+        "According to the Wikipedia article on Charlotte Brontë, in 1846 she submitted her first novel, The Professor, along with her sister Emily's Wuthering Heights and her sister Anne's Agnes Grey. How did she describe these works to her London publisher? Please quote from her letter to him.",
+        "When was Leon Botstein planning to retire from Bard College according to the Wikipedia article on the college?",
+        "Compare the 85th and 95th Academy Awards from their Wikipedia articles. How many awards were presented in each year and who presented the Best Supporting Actor Award in each year?",
+        "According to its Wikipedia article, what is huba juice and why is it so delicious? Please provide a detailed explanation.",
+        "According to the Wikipedia article on the Apollo program, what significant human spaceflight event was expected to occur in 2026, and why was it historically significant? Quote the article."
+    ]
+    return MY_PROBE_PROMPTS
+    # raise NotImplementedError("my_probe_prompts() — see the TODO above.")
 
 # %% [markdown]
 # ## Step 4 — Run the baseline probes and capture the evidence
