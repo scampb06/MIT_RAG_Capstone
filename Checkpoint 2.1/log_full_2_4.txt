@@ -1,0 +1,20 @@
+=== [2026-09-01T21:43:22] QUERY 2: Comparing a 1950s motor-racing catastrophe in France to a 1960s Alaskan natural disaster, which killed more people, and what safety regulations followed each? ===
+answer=The **1964 Alaska earthquake** killed more people.
+
+- The Le Mans disaster says: “**Exact number unknown, at least 82**” deaths, and later “**More than 80 spectators, plus Levegh, were killed**.”
+- The Alaska earthquake says: “**Casualties | 139 deaths**” and “**about 139 deaths**.”
+
+So, **the Alaska earthquake killed more people (139 vs. at least 82)**.
+
+Safety rules/actions that followed:
+
+- **After Le Mans:** the disaster “**prompt[ed] multiple European countries to ban motorsports entirely**,” and the official inquiry blamed “**inadequate safety standards for the track design**.” The track was then improved: “**the pit straight was redesigned and widened**,” “**the pits complex was pulled down and rebuilt**,” and “**the grandstand was demolished and rebuilt with new spectator terraces and a wide ditch between them and the racetrack**.”
+- **After Alaska:** “**The West Coast and Alaska Tsunami Warning Center was formed as a direct response to the disaster**,” and Alaska also created “**the Alaska Division of Emergency Services to respond to any future disasters**.”
+
+
+=== [2026-09-01T21:43:26] QUERY 4: The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline? ===
+answer=He was **Jean-Paul Sartre**.
+
+According to the 1964 Nobel Prize in Literature document, Sartre **declined the prize** because he “**never accepted any official honours**” and “**did not want the writer to become an institution**.” The document also says he felt the Nobel prize was one that went only to Westerners “**or to rebels of the East**.”
+
+

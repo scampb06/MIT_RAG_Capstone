@@ -1,0 +1,16 @@
+=== [2026-09-01T21:43:20] QUERY 1: Which London physician traced a deadly waterborne gastrointestinal epidemic to a single contaminated public water pump, and how did he visually prove the connection? ===
+answer=The physician was **John Snow**. The documents say he “identified the outbreak's source as the public water pump on Broad Street” and later “used a dot map to illustrate how cases of cholera occurred around this pump.”
+
+He visually proved the connection by mapping the deaths near the pump: “**Snow later used a dot map to illustrate how cases of cholera occurred around this pump**,” and his map showed that “**the section of Snow's map representing areas in the city where the closest available source of water was the Broad Street pump had the highest incidence of cholera**.”
+
+
+=== [2026-09-01T21:43:25] QUERY 3: In the year Ronald Reagan was first elected U.S. president, which player was the first overall pick in the NFL's college draft, and which team chose him? ===
+answer=The documents say that in **1980** the first overall pick in the NFL draft was **Billy Sims, a running back**, and he was chosen by the **Detroit Lions**: “**With the first overall pick of the draft, the Detroit Lions selected running back Billy Sims.**”
+
+So, in the year Ronald Reagan was first elected president, the player was **Billy Sims**, and the team was the **Detroit Lions**.
+
+
+=== [2026-09-01T21:43:28] QUERY 5: What was the final score of the men's curling gold-medal match at the 1998 Winter Olympics in Nagano? ===
+answer=The provided documents do **not** contain the final score of the **men’s curling gold-medal match at the 1998 Winter Olympics in Nagano**.
+
+They do say that curling was “**since 1998**” in the Winter Olympics sports list, but they do not give the Nagano men’s curling final result.

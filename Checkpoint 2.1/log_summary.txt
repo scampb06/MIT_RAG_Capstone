@@ -1,0 +1,40 @@
+
+[2026-09-01T20:33:06] QUERY 1: What was the title of Orhan Pamuk's Nobel lecture, in what language was it delivered, and what personal relationship did he use to discuss Eastern and Western civilizations?
+  retrieved: [('2006_Nobel_Prize_in_Literature.html', '1.0'), ('Nobel_Prize.html', '0.15868039552030877'), ('Milton_Friedman.html', '0.08905599331495032')]
+  answer=Orhan Pamuk’s Nobel lecture was entitled **“Babamın Bavulu” (“My Father's Suitcase”)**. It **“was given in Turkish.”** In it, he **“allegorically spoke of relations between Eastern and Western civilizations using the theme of his relationship with his father.”**
+
+[2026-09-01T20:33:09] QUERY 2: A major Japanese disaster in 2011 slightly accelerated the planet's rotation. By how much did it shorten each day?
+  retrieved: [('2011_Tōhoku_earthquake_and_tsunami.html', '1.0'), ('Pluto.html', '0.48907639281982124'), ('Moon.html', '0.25155728147786655')]
+  answer=The 2011 Tōhoku earthquake and tsunami “increased Earth’s rotational speed by **1.8 μs per day**,” and “shorten[ed] the day by **1.8 microseconds**.”
+
+[2026-09-01T20:33:11] QUERY 3: Compare the Academy Awards ceremonies held a decade apart: who hosted the 85th and 95th ceremonies, and which film won Best Picture at each?
+  retrieved: [('Academy_Award_for_Best_Director.html', '0.9018163190498443'), ('Academy_Award_for_Best_Picture.html', '0.8543518738734207'), ('Academy_Award_for_Best_Actor.html', '0.7670955147955798')]
+  answer=The provided documents do **not** state who hosted the **85th** or **95th Academy Awards ceremonies**, so I can’t answer that part from the documents.
+
+[2026-09-01T20:33:13] QUERY 4: The yacht that Mohammed bin Salman bought from its original owner for approximately 500 million euros provides the first clue. Who was that original owner, what company does he own, which vodka brand is it best known for, and what did the Dutch Supreme Court rule about that brand's rights in 2020?
+  retrieved: [('Yuri_Shefler.html', '0.7528966858738645'), ('Serene_(yacht).html', '0.5'), ('Abu_Dhabi_United_Group.html', '0.12497404370142284')]
+  answer=The original owner was **Yuri Shefler**. The documents say he is the **“owner of SPI Group”**, and SPI is “most notably the **Stolichnaya vodka brand**.”
+
+[2026-09-01T20:33:15] QUERY 5: For each of the 1996, 2004, and 2008 Summer Olympics, list every city mentioned as having submitted a bid but not winning that edition's hosting contest.
+  retrieved: [('1984_Summer_Olympics.html', '0.665318771979444'), ('Summer_Olympic_Games.html', '0.6453988331415996'), ('List_of_Olympic_Games_host_cities.html', '0.4308266205420751')]
+  answer=The documents do **not** provide the cities that submitted losing bids for the **1996, 2004, and 2008 Summer Olympics**.
+
+[2026-09-01T21:43:20] QUERY 1: Which London physician traced a deadly waterborne gastrointestinal epidemic to a single contaminated public water pump, and how did he visually prove the connection?
+  retrieved: [('1854_Broad_Street_cholera_outbreak.html', '1.0'), ('John_Snow.html', '0.6931001233689196'), ('Typhoid_fever.html', '0.6573698316113556')]
+  answer=The physician was **John Snow**. The documents say he “identified the outbreak's source as the public water pump on Broad Street” and later “used a dot map to illustrate how cases of cholera occurred around this pump.”
+
+[2026-09-01T21:43:22] QUERY 2: Comparing a 1950s motor-racing catastrophe in France to a 1960s Alaskan natural disaster, which killed more people, and what safety regulations followed each?
+  retrieved: [('1955_Le_Mans_disaster.html', '1.0'), ('History_of_Formula_One.html', '0.7325682252812001'), ('1964_Alaska_earthquake.html', '0.26820123910766686')]
+  answer=The **1964 Alaska earthquake** killed more people.
+
+[2026-09-01T21:43:25] QUERY 3: In the year Ronald Reagan was first elected U.S. president, which player was the first overall pick in the NFL's college draft, and which team chose him?
+  retrieved: [('Philadelphia_Eagles.html', '0.5'), ('1980_NFL_draft.html', '0.5'), ('Washington_Commanders.html', '0.46334754754251345')]
+  answer=The documents say that in **1980** the first overall pick in the NFL draft was **Billy Sims, a running back**, and he was chosen by the **Detroit Lions**: “**With the first overall pick of the draft, the Detroit Lions selected running back Billy Sims.**”
+
+[2026-09-01T21:43:26] QUERY 4: The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?
+  retrieved: [('Nobel_Prize.html', '1.0'), ('1964_Nobel_Prize_in_Literature.html', '0.36288577805448324'), ('John_Muir.html', '0.3028910981043024')]
+  answer=He was **Jean-Paul Sartre**.
+
+[2026-09-01T21:43:28] QUERY 5: What was the final score of the men's curling gold-medal match at the 1998 Winter Olympics in Nagano?
+  retrieved: [('Winter_Olympic_Games.html', '0.7730108197212173'), ('Ice_hockey_at_the_2010_Winter_Olympics_–_Men_s_tournament.html', '0.5'), ('1992_Winter_Olympics.html', '0.34818537325759874')]
+  answer=The provided documents do **not** contain the final score of the **men’s curling gold-medal match at the 1998 Winter Olympics in Nagano**.
