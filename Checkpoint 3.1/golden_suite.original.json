@@ -1,0 +1,3022 @@
+{
+  "queries": [
+    {
+      "id": "Q001",
+      "query": "Which film won Best Picture at the 68th Academy Awards?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Braveheart won Best Picture at the 68th Academy Awards, and it won five awards in total, the most of any film that year.",
+      "supporting_quotes": [
+        {
+          "text": "Braveheart won five awards, including Best Picture.",
+          "source_file": "68th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "68th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Simple single-sentence lookup; tests basic retrieval of ceremony-to-winner mapping without confusing it with the 'most nominations' figure."
+    },
+    {
+      "id": "Q002",
+      "query": "how many nominations did titanic get vs how many it won",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Titanic received 14 nominations at the 70th Academy Awards and won 11, tying Ben-Hur's record for most Oscar wins at the time.",
+      "supporting_quotes": [
+        {
+          "text": "Titanic led all nominees with fourteen nominations; Good Will Hunting and L.A. Confidential came in second with nine apiece.",
+          "source_file": "70th_Academy_Awards.html"
+        },
+        {
+          "text": "With eleven awards, Titanic tied with Ben-Hur (1959) for the most Academy Awards in Oscar history.",
+          "source_file": "70th_Academy_Awards.html"
+        },
+        {
+          "text": "Titanic won 11 awards, including Best Picture, a number that is tied with Ben-Hur and The Lord of the Rings: The Return of the King.",
+          "source_file": "Titanic_(1997_film).html"
+        }
+      ],
+      "relevant_files": [
+        "70th_Academy_Awards.html",
+        "Titanic_(1997_film).html"
+      ],
+      "difficulty_notes": "Colloquial fragment query; multi-document because both the ceremony page and film page carry the numbers, testing cross-document corroboration."
+    },
+    {
+      "id": "Q003",
+      "query": "I've always wondered — what actually happened at the end of the 2017 Oscars when they announced the wrong Best Picture?",
+      "information_need": "overview",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "At the 89th Academy Awards, presenters Warren Beatty and Faye Dunaway were mistakenly handed the duplicate Best Actress envelope naming Emma Stone for La La Land. Dunaway announced La La Land as Best Picture. More than two minutes later, while the La La Land producers were making acceptance speeches, crew members came onstage and explained there had been a mistake. Producer Jordan Horowitz announced the error, said Moonlight had actually won, and showed the winning card to the camera. Beatty explained that his confusion came from the envelope naming Emma Stone. PwC, the accounting firm responsible for the envelopes, apologized publicly.",
+      "supporting_quotes": [
+        {
+          "text": "After opening the envelope, Beatty hesitated, eventually showing it to Dunaway, who glanced at it and declared La La Land to be the winner.",
+          "source_file": "89th_Academy_Awards.html"
+        },
+        {
+          "text": "Beatty was then given the correct opened envelope as La La Land producer Jordan Horowitz stepped to the microphone, announced the error, stated that Moonlight had actually won the award, and took the card bearing the film's title from Beatty's hand and showed it to the camera and the audience as proof.",
+          "source_file": "89th_Academy_Awards.html"
+        },
+        {
+          "text": "Beatty returned to the microphone and explained that the envelope he had initially been given named Emma Stone for her actress performance in La La Land, hence his confused pause, and confirmed that Moonlight was the winner.",
+          "source_file": "89th_Academy_Awards.html"
+        },
+        {
+          "text": "We sincerely apologize to Moonlight, La La Land, Warren Beatty, Faye Dunaway, and Oscar viewers for the error that was made during the award announcement for Best Picture.",
+          "source_file": "89th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "89th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Requires synthesis of several sections of one long article; a weak system may retrieve only the one-line summary and miss the envelope mechanics and the PwC apology."
+    },
+    {
+      "id": "Q004",
+      "query": "Describe the circumstances and outcome of the Academy's review into the Best Actress nomination for the film To Leslie at the 95th Academy Awards.",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Andrea Riseborough's Best Actress nomination for To Leslie was controversial because the distributor, Momentum Pictures, did not fund a conventional advertising-driven campaign. Instead director Michael Morris and his wife Mary McCormack organized a celebrity-backed campaign, contacting friends in the industry and asking them to view and share the film. Dozens of celebrities praised the performance on social media and hosted screenings during the nominations voting period in January 2023. After the nomination was announced on January 24, speculation arose that the tactics may have violated AMPAS rules against directly lobbying voters, including an Instagram post quoting critic Richard Roeper praising Riseborough over fellow nominee Cate Blanchett. On January 27 the Academy announced a review of the year's campaigns; on January 31 it concluded the review, pledging to address social media and outreach tactics but confirming Riseborough would retain her nomination.",
+      "supporting_quotes": [
+        {
+          "text": "Instead, director Michael Morris and his wife, actress Mary McCormack, organized a \"celeb-backed campaign\" to get Riseborough nominated.",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "After her nomination was announced, speculation arose that the tactics might have violated AMPAS rules against directly lobbying voters.",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "On January 31, the Academy concluded its review by pledging to address \"social media and outreach campaigning tactics\" which they said caused \"concern\", but confirming that Riseborough's nomination would be retained.",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "Numerous celebrities praised her performance publicly and on social media, and hosted screenings during the voting period for the Academy Award nominations in January 2023.",
+          "source_file": "Andrea_Riseborough.html"
+        }
+      ],
+      "relevant_files": [
+        "95th_Academy_Awards.html",
+        "Andrea_Riseborough.html"
+      ],
+      "difficulty_notes": "Formal assignment-style prompt; the query deliberately omits Riseborough's name, forcing semantic retrieval from the film title. Requires both the ceremony article and the actor biography."
+    },
+    {
+      "id": "Q005",
+      "query": "Who was the first Asian woman to win the Best Actress Oscar, and which earlier winner was the only other woman of color to have taken that category?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Michelle Yeoh, for Everything Everywhere All at Once, became the first Asian winner of Best Actress; the only other woman of color to win the category was Halle Berry, who won for Monster's Ball (2001). Berry remains the only African-American to win Best Actress.",
+      "supporting_quotes": [
+        {
+          "text": "Michelle Yeoh became the first Asian winner for Best Actress and the second woman of color overall after Halle Berry, who won for her performance in Monster's Ball (2001).",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "Halle Berry became the first, and as of 2026[update], only, African-American to win the Academy Award for Best Actress.",
+          "source_file": "74th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "95th_Academy_Awards.html",
+        "74th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "A fact lookup that genuinely needs two ceremony articles; a system retrieving only the 95th ceremony would miss the corroborating detail about Berry from the 74th."
+    },
+    {
+      "id": "Q006",
+      "query": "Compare how the Academy handled the introduction of the Best Animated Feature category with the way the Best Original Score category was split and then merged again in the 1990s.",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The Best Animated Feature award was introduced at the 74th ceremony (2002) as a brand-new competitive category with eligibility rules: at least 70 minutes long, a significant number of animated characters, and at least 75 percent animation; a minimum of eight qualifying films had to be released in the year to allow three nominees, rising to five nominees if more than twelve films qualified. Before this, animated features such as Snow White and the Seven Dwarfs, Who Framed Roger Rabbit and Toy Story had only received Special Achievement Awards. By contrast, the score category was not created but divided: beginning with the 68th ceremony (1996) the music branch split Best Original Score into Best Dramatic Score and Best Musical or Comedy Score, seen as a response to Disney's dominance of the score and song categories; four years later the two scoring categories were merged back into one.",
+      "supporting_quotes": [
+        {
+          "text": "Beginning with this ceremony, AMPAS introduced a new competitive award that would honor animated feature films.",
+          "source_file": "74th_Academy_Awards.html"
+        },
+        {
+          "text": "According to Academy communications director John Pavlik, the film must be at least 70 minutes in length, have a significant amount of animated characters, and be at least 75 percent animated in order to be qualified for consideration.",
+          "source_file": "74th_Academy_Awards.html"
+        },
+        {
+          "text": "Prior to the introduction of this category, three Disney films (1937's Snow White and the Seven Dwarfs, 1988's Who Framed Roger Rabbit, and 1995's Toy Story) were all given Special Achievement Academy Awards.",
+          "source_file": "74th_Academy_Awards.html"
+        },
+        {
+          "text": "Beginning with this ceremony, the AMPAS music branch divided the category of Best Original Score into two categories: Best Dramatic Score and Best Musical or Comedy Score.",
+          "source_file": "68th_Academy_Awards.html"
+        },
+        {
+          "text": "This was seen as a response to the dominance of Walt Disney Feature Animation films in the Original Score and Original Song categories in recent years.",
+          "source_file": "68th_Academy_Awards.html"
+        },
+        {
+          "text": "Four years later, the two scoring categories were merged back into one category.",
+          "source_file": "68th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Animated_Feature.html"
+      ],
+      "difficulty_notes": "Genuine cross-document synthesis about category administration; no single article compares the two rule changes."
+    },
+    {
+      "id": "Q007",
+      "query": "What are the eligibility requirements a film must meet to be considered an animated feature at the Oscars?",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "An animated feature must run more than 40 minutes, have characters' performances created using a frame-by-frame technique, feature a significant number of animated major characters, and consist of at least 75 percent animation of its running time. Motion capture by itself does not count as an animation technique.",
+      "supporting_quotes": [
+        {
+          "text": "An animated feature is defined by the academy as a film with a running time of more than 40 minutes in which characters' performances are created using a frame-by-frame technique, a significant number of the major characters are animated, and animation figures in no less than 75 percent of the running time.",
+          "source_file": "Academy_Award_for_Best_Animated_Feature.html"
+        },
+        {
+          "text": "Motion capture by itself is not an animation technique.",
+          "source_file": "Academy_Award_for_Best_Animated_Feature.html"
+        }
+      ],
+      "relevant_files": [
+        "Academy_Award_for_Best_Animated_Feature.html"
+      ],
+      "difficulty_notes": "Note the 40-minute threshold in the category article versus the 70-minute figure quoted from 2002 in the ceremony article — a system must not conflate the two."
+    },
+    {
+      "id": "Q008",
+      "query": "which studio has won the most best picture oscars",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Columbia Pictures and United Artists are tied with the most Best Picture wins, at 12 each. 20th Century Fox has the most nominations, with 64.",
+      "supporting_quotes": [
+        {
+          "text": "Columbia Pictures and United Artists have the most wins with 12, while 20th Century Fox has the most nominations with 64.",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        }
+      ],
+      "relevant_files": [
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "Terse conversational query; tests whether the system distinguishes wins from nominations in a single sentence containing both."
+    },
+    {
+      "id": "Q009",
+      "query": "Only six films have taken the top prize without their director being nominated — can you list them and their directors?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Wings (William A. Wellman, 1927/28), Grand Hotel (Edmund Goulding, 1931/32), Driving Miss Daisy (Bruce Beresford, 1989), Argo (Ben Affleck, 2012), Green Book (Peter Farrelly, 2018), and CODA (Sian Heder, 2021).",
+      "supporting_quotes": [
+        {
+          "text": "Only six films have been awarded Best Picture without receiving a Best Director nomination: Wings directed by William A. Wellman (1927/28), Grand Hotel directed by Edmund Goulding (1931/32), Driving Miss Daisy directed by Bruce Beresford (1989), Argo directed by Ben Affleck (2012), Green Book directed by Peter Farrelly (2018), and CODA directed by Sian Heder (2021).",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        }
+      ],
+      "relevant_files": [
+        "Academy_Award_for_Best_Picture.html",
+        "85th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Familiar-reader phrasing omits the phrase 'Best Picture'; a keyword system may struggle with 'top prize'. Note the 85th ceremony article gives a slightly different (four-film) framing at the time of Argo."
+    },
+    {
+      "id": "Q010",
+      "query": "How did the criteria for winning Best Director differ between the 78th ceremony and the 85th, given that in one the winner's film also took Best Picture and in the other it didn't?",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "At the 78th ceremony, Ang Lee won Best Director for Brokeback Mountain while Crash won Best Picture; Lee became the first non-Caucasian winner of Best Director, and Crash was the first Best Picture winner since Chariots of Fire (1981) to win neither Best Director nor any acting category. At the 85th ceremony the situation was reversed in a different way: Argo won Best Picture without its director being nominated at all, making it only the fourth film to do so after Wings, Grand Hotel and Driving Miss Daisy. The two ceremonies together illustrate that Best Picture and Best Director are separable, and that Best Director has not required the same film to win Best Picture.",
+      "supporting_quotes": [
+        {
+          "text": "Best Director winner Ang Lee became the first non-Caucasian winner of that category.",
+          "source_file": "78th_Academy_Awards.html"
+        },
+        {
+          "text": "Crash was the first Best Picture winner since 1976's Rocky to win only three Oscars and the first Best Picture winner since 1981's Chariots of Fire to not win Best Director or any of the acting categories.",
+          "source_file": "78th_Academy_Awards.html"
+        },
+        {
+          "text": "Argo was the fourth film to win Best Picture without a directing nomination, following 1927's Wings, 1932's Grand Hotel, and 1989's Driving Miss Daisy.",
+          "source_file": "85th_Academy_Awards.html"
+        },
+        {
+          "text": "Of the 98 films that have won Best Picture, 71 have also been awarded Best Director.",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        }
+      ],
+      "relevant_files": [
+        "78th_Academy_Awards.html",
+        "85th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "Requires reconciling three articles; tests whether the system can construct a comparative argument rather than reciting one ceremony."
+    },
+    {
+      "id": "Q011",
+      "query": "Who hosted the Oscars three times among the ceremonies here, and which years?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Jimmy Kimmel hosted the 89th ceremony in 2017, the 90th in 2018, and the 95th in 2023 — his third time. Whoopi Goldberg also hosted multiple times: her second stint was the 68th ceremony (1996), and her fourth was the 74th (2002).",
+      "supporting_quotes": [
+        {
+          "text": "Comedian Jimmy Kimmel hosted the show for the third time, following the 89th ceremony in 2017 and the 90th ceremony in 2018.",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "Actress Whoopi Goldberg hosted the show for the second time, having previously presided over the 66th ceremony in 1994.",
+          "source_file": "68th_Academy_Awards.html"
+        },
+        {
+          "text": "Actress Whoopi Goldberg hosted the show for the fourth time.",
+          "source_file": "74th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "95th_Academy_Awards.html",
+        "68th_Academy_Awards.html",
+        "74th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Multi-document fact lookup across three ceremony pages; tests aggregation of host counts scattered across documents."
+    },
+    {
+      "id": "Q012",
+      "query": "Explain the reasons the Academy relocated the ceremony to the Kodak Theatre and what significance the venue held.",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The Academy wanted a new venue because of limited seating and rehearsal time at the Dorothy Chandler Pavilion, and because staging at the Shrine Auditorium made it difficult to move guests from the auditorium to the adjacent Exhibition Hall for the Governor's Ball. In August 1997 AMPAS entered negotiations with the Canadian developer TrizecHahn over an entertainment complex at Hollywood Boulevard and Highland Avenue near Mann's Chinese Theatre; seven months later they agreed a twenty-year lease. The resulting venue, the Kodak Theatre, sat near the Hollywood Roosevelt Hotel, the site of the inaugural 1929 ceremony, and its use marked the first time the ceremony was held in Hollywood since the 32nd ceremony at the Pantages Theatre in 1960.",
+      "supporting_quotes": [
+        {
+          "text": "The Academy wanted to find a new venue for the festivities amid limited seating and rehearsal time concerns with the Dorothy Chandler Pavilion.",
+          "source_file": "74th_Academy_Awards.html"
+        },
+        {
+          "text": "In addition, problems arose regarding staging the Oscars at the Shrine Auditorium because there was difficulty of directing guests from the auditorium where the main event took place to the adjacent Exhibition Hall for the Governor's Ball.",
+          "source_file": "74th_Academy_Awards.html"
+        },
+        {
+          "text": "Seven months later, both the Academy and TrizecHahn agreed on a twenty-year lease that allowed for the ceremony to be staged at a new venue, which would later be called the Kodak Theatre, located within the property which was also situated near the Hollywood Roosevelt Hotel, the site of the inaugural awards ceremony in 1929.",
+          "source_file": "74th_Academy_Awards.html"
+        },
+        {
+          "text": "This was the first time the ceremony was held in Hollywood since the 32nd ceremony took place at the Pantages Theatre in 1960.",
+          "source_file": "74th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "74th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Multi-paragraph synthesis within one document; a shallow retrieval will find the venue name but not the reasons or historical significance."
+    },
+    {
+      "id": "Q013",
+      "query": "What's the record for the longest losing streak at the Oscars and who finally broke it?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Sound mixer Kevin O'Connell ended the longest losing streak in Oscar history when he won for Hacksaw Ridge at the 89th Academy Awards, after 20 unsuccessful nominations.",
+      "supporting_quotes": [
+        {
+          "text": "Kevin O'Connell finally ended the longest losing streak in Oscar history after 20 unsuccessful nominations for sound mixing, winning for Hacksaw Ridge.",
+          "source_file": "89th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "89th_Academy_Awards.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Note the records article gives a different count (20 unsuccessful nominations from 1983 until 2016); a good system should not fabricate a conflicting number."
+    },
+    {
+      "id": "Q014",
+      "query": "For a paper on Oscar statistics, list the individual who holds the record for most nominations without ever winning a competitive award and the category involved.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Songwriter Diane Warren holds the record with 17 nominations and no competitive wins, all in the Best Original Song category, including nine consecutive nominations from 2017 to 2025. She received an Academy Honorary Award in 2022.",
+      "supporting_quotes": [
+        {
+          "text": "Diane Warren in the Best Original Song category, including nine consecutive nominations from 2017 to 2025 (She received a Academy Honorary Award in 2022)",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "One person has received 17 nominations and no competitive wins:",
+          "source_file": "List_of_Academy_Award_records.html"
+        }
+      ],
+      "relevant_files": [
+        "List_of_Academy_Award_records.html",
+        "95th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Tests fine-grained extraction from a densely bulleted records list where an adjacent entry (Greg P. Russell) could easily be confused for the answer."
+    },
+    {
+      "id": "Q015",
+      "query": "Trace how the number of Best Picture nominees has changed over the history of the award and what prompted the major expansion.",
+      "information_need": "overview",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Three films were nominated at the first ceremony; five for the next three years; then eight in 1933, ten in 1934 and twelve in 1935, dropping back to ten in 1937 and to five in 1945, where it stayed until 2009. On June 24, 2009, AMPAS announced the field would double from 5 to 10 beginning with the 82nd Academy Awards, a change widely read as a response to criticism that The Dark Knight and WALL-E had been excluded; officially the Academy framed it as a throwback to the 1930s and 1940s when 8 to 12 films were nominated. Voting also switched from first-past-the-post to instant runoff. In 2011 the number was made variable between 5 and 10 based on a 5% first-place threshold, and from the 94th ceremony onward the Academy reverted to a fixed ten.",
+      "supporting_quotes": [
+        {
+          "text": "For the first ceremony, three films were nominated for the award. For the following three years, five films were nominated for the award. This was expanded to eight in 1933, to ten in 1934, and to twelve in 1935, before being dropped back to ten in 1937. In 1945, it was further reduced to five.",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        },
+        {
+          "text": "On June 24, 2009, the Academy of Motion Picture Arts and Sciences (AMPAS) announced that the number of films to be nominated in the Best Picture award category would increase from 5 to 10, starting with the 82nd Academy Awards (2009).",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        },
+        {
+          "text": "At the same time, the voting system was switched from first-past-the-post to instant runoff voting (also known as preferential voting).",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        },
+        {
+          "text": "This system lasted until 2021, when the Academy reverted back to a set number of ten nominees from the 94th Academy Awards onward.",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        }
+      ],
+      "relevant_files": [
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "Requires assembling a chronology from two widely separated sections of a long article."
+    },
+    {
+      "id": "Q016",
+      "query": "What are the Academy's representation and inclusion standards for Best Picture, and when did they take effect?",
+      "information_need": "overview",
+      "motivation": "current_event",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The standards, called Academy Aperture 2025, require a film to satisfy two of four general standards to compete for Best Picture: (a) on-screen representation, themes and narratives; (b) creative leadership and project team; (c) industry access and opportunities; and (d) audience development. They took effect with the 96th Academy Awards, covering films released in 2023; for the 94th and 95th ceremonies filmmakers had only to submit a confidential inclusion standards form without needing to fulfil the standards. The standards apply only to Best Picture and do not affect eligibility in other categories.",
+      "supporting_quotes": [
+        {
+          "text": "There are four general standards, of which a film must satisfy two to be considered for Best Picture: (a) on-screen representation, themes and narratives; (b) creative leadership and project team; (c) industry access and opportunities; and (d) audience development.",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        },
+        {
+          "text": "These standards only apply to the Best Picture category and do not affect a film's eligibility in other Oscar categories.",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        },
+        {
+          "text": "For the 94th and 95th Academy Awards (films released in 2021 and 2022), filmmakers were required to submit a confidential Academy Inclusion Standards form to be considered for Best Picture but were not required to fulfill the standards.",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        }
+      ],
+      "relevant_files": [
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "Recency-framed query about a policy whose implementation date matters; a weak system may state the wrong ceremony."
+    },
+    {
+      "id": "Q017",
+      "query": "i keep seeing clips of that scene where the guy screams at the drummer — what's the deal with the teacher character and was he based on someone real?",
+      "information_need": "overview",
+      "motivation": "media_reference",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The character is Terence Fletcher, the abusive conductor in Whiplash, played by J. K. Simmons. Writer-director Damien Chazelle based him on his own former band instructor from Princeton High School, who died in 2003, but 'pushed it further', adding elements of Buddy Rich and other band leaders known for harsh treatment. Chazelle instructed Simmons to go past normal limits, saying he wanted to see not a human being but 'a monster, a gargoyle, an animal'.",
+      "supporting_quotes": [
+        {
+          "text": "He based the conductor, Terence Fletcher, on his former band instructor (who died in 2003) but \"pushed it further\", adding elements of Buddy Rich and other band leaders known for their harsh treatment.",
+          "source_file": "Whiplash_(2014_film).html"
+        },
+        {
+          "text": "I don't want to see a human being on-screen any more. I want to see a monster, a gargoyle, an animal.",
+          "source_file": "Whiplash_(2014_film).html"
+        },
+        {
+          "text": "While attending Princeton High School, writer-director Damien Chazelle was in a \"very competitive\" studio band and drew on the dread he felt in those years.",
+          "source_file": "Whiplash_(2014_film).html"
+        }
+      ],
+      "relevant_files": [
+        "Whiplash_(2014_film).html",
+        "Damien_Chazelle.html"
+      ],
+      "difficulty_notes": "Sideways media-reference approach: the query names neither the film nor the character, testing semantic recovery from a described scene."
+    },
+    {
+      "id": "Q018",
+      "query": "Why was Whiplash entered in the Adapted Screenplay category rather than Original Screenplay?",
+      "information_need": "overview",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The Academy reclassified it because an 18-minute short film of the same name had premiered at the 2013 Sundance Film Festival, a year before the feature. AMPAS therefore treated the feature script as an adaptation of the short, even though the feature screenplay was written first and the short was made from fifteen of its pages to attract investors. The Writers Guild of America categorized the screenplay as original, and the announcement on January 6, 2015 surprised many, including Chazelle.",
+      "supporting_quotes": [
+        {
+          "text": "Whiplash was originally planned to compete for the Academy Award for Best Original Screenplay, but on January 6, 2015, the Academy of Motion Picture Arts and Sciences (AMPAS) announced that the film would instead be competing in the Adapted Screenplay category to the surprise of many including Chazelle",
+          "source_file": "Whiplash_(2014_film).html"
+        },
+        {
+          "text": "Although the Writers Guild of America categorized the screenplay as original, AMPAS classed it as an adaptation of the 2013 short version.",
+          "source_file": "Whiplash_(2014_film).html"
+        },
+        {
+          "text": "Right of Way Films and Blumhouse Productions helped Chazelle turn fifteen pages of his original screenplay into a short film",
+          "source_file": "Whiplash_(2014_film).html"
+        }
+      ],
+      "relevant_files": [
+        "Whiplash_(2014_film).html"
+      ],
+      "difficulty_notes": "Tests whether the system explains the causal chain (short film precedence) rather than merely restating the category."
+    },
+    {
+      "id": "Q019",
+      "query": "How did the director of La La Land get his start, and what connects his college years to that film's music?",
+      "information_need": "in_depth",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Damien Chazelle met composer Justin Hurwitz at Harvard, where they were roommates in Currier House and explored a musical concept in their senior thesis, the low-budget Guy and Madeline on a Park Bench about a Boston jazz musician. Both moved to Los Angeles in 2010 and continued writing what became La La Land, altering the location from Boston to Los Angeles. Hurwitz composed and orchestrated the songs and score for La La Land, with lyrics by Pasek and Paul except for 'Start a Fire'. Chazelle won the Academy Award for Best Director for the film at age 32, the youngest ever.",
+      "supporting_quotes": [
+        {
+          "text": "He conceived the film when he was a student at Harvard University with his classmate Justin Hurwitz. The two explored the concept in their senior thesis through a low-budget musical about a Boston jazz musician, Guy and Madeline on a Park Bench.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "Both moved to Los Angeles in 2010 and continued writing the script, but made a few modifications, such as altering the location to Los Angeles instead of Boston.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "The songs and score for La La Land were composed and orchestrated by Justin Hurwitz, Chazelle's Harvard University classmate, who also worked on his two prior films.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "At Harvard, he lived in Currier House as roommates with composer and frequent collaborator Justin Hurwitz.",
+          "source_file": "Damien_Chazelle.html"
+        }
+      ],
+      "relevant_files": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "difficulty_notes": "Genuine two-document synthesis linking biography to production; the Currier House detail exists only in the biography."
+    },
+    {
+      "id": "Q020",
+      "query": "Damien Chazelle became the youngest ever winner in his category — by how much did he beat the previous holder?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Chazelle was thirty-two years and thirty-eight days old when he won Best Director. The previous youngest was Norman Taurog, who was two hundred and twenty-two days older than Chazelle when he won for the 1931 comedy Skippy.",
+      "supporting_quotes": [
+        {
+          "text": "At the age of thirty-two years and thirty-eight days, Damien Chazelle became the youngest person to win Best Director; Norman Taurog was only two hundred and twenty-two days older than Chazelle when he won Best Director for the 1931 comedy Skippy.",
+          "source_file": "89th_Academy_Awards.html"
+        },
+        {
+          "text": "Youngest winner | Damien Chazelle | La La Land | 32 years, 38 days",
+          "source_file": "Academy_Award_for_Best_Director.html"
+        }
+      ],
+      "relevant_files": [
+        "89th_Academy_Awards.html",
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "difficulty_notes": "Requires the precise margin, which appears in only one of the two candidate documents; the category page gives the age but not the comparison."
+    },
+    {
+      "id": "Q021",
+      "query": "Which director has the most Best Director nominations without ever winning, and how many did he receive?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Clarence Brown, with six nominations and no wins. Alfred Hitchcock, King Vidor and Robert Altman each received five nominations without winning.",
+      "supporting_quotes": [
+        {
+          "text": "Clarence Brown has the most nominations without a win (6). Alfred Hitchcock, King Vidor, and Robert Altman each received 5 nominations without a win.",
+          "source_file": "Academy_Award_for_Best_Director.html"
+        }
+      ],
+      "relevant_files": [
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "difficulty_notes": "Tests precision on a sentence containing multiple names and counts; a careless system may name Hitchcock."
+    },
+    {
+      "id": "Q022",
+      "query": "Who holds the record for most Best Director nominations overall and how many wins does the record holder have?",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "William Wyler holds the record for most Best Director nominations, with twelve; he won the award three times, for Mrs. Miniver, The Best Years of Our Lives and Ben-Hur. John Ford has the most wins in the category, with four.",
+      "supporting_quotes": [
+        {
+          "text": "John Ford has received the most awards in this category, with four. Frank Capra and William Wyler won three each.",
+          "source_file": "Academy_Award_for_Best_Director.html"
+        },
+        {
+          "text": "Wyler has the most nominations, with 12—including a record four years in a row.",
+          "source_file": "Academy_Award_for_Best_Director.html"
+        },
+        {
+          "text": "Wyler is the most nominated director in Academy Awards history with twelve nominations. He won the Academy Award for Best Director on three occasions, for Mrs. Miniver (1942), The Best Years of Our Lives (1946), and Ben-Hur (1959).",
+          "source_file": "William_Wyler.html"
+        }
+      ],
+      "relevant_files": [
+        "Academy_Award_for_Best_Director.html",
+        "William_Wyler.html"
+      ],
+      "difficulty_notes": "Cross-document corroboration; requires distinguishing 'most nominations' from 'most wins' in the same passage."
+    },
+    {
+      "id": "Q023",
+      "query": "I'm putting together a lecture on directors who guided actors to Oscars — which director holds the record for the most Oscar-nominated performances and how many of those won?",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "William Wyler directed more actors to Oscar-nominated performances than any other director: thirty-six, of which fourteen won, both records. His actors' successes included Bette Davis, who won her second Oscar for Jezebel (1938) and said Wyler helped her realize her potential; Olivia de Havilland, who won her second for The Heiress (1949); Audrey Hepburn, who won Best Actress for her first starring role in Roman Holiday (1953); Charlton Heston for Ben-Hur (1959); and Barbra Streisand for her debut film Funny Girl (1968).",
+      "supporting_quotes": [
+        {
+          "text": "He has the distinction of having directed more actors to Oscar-nominated performances than any other director in history: thirty-six. Out of these nominees, fourteen went on to win Oscars, also a record.",
+          "source_file": "William_Wyler.html"
+        },
+        {
+          "text": "Other Oscar winners were Olivia de Havilland in The Heiress (1949); Audrey Hepburn in Roman Holiday (1953); Charlton Heston in Ben-Hur (1959); and Barbra Streisand in her debut film, Funny Girl (1968).",
+          "source_file": "William_Wyler.html"
+        },
+        {
+          "text": "It was he who helped me to realize my full potential as an actress. I met my match in this exceptionally creative and talented director.",
+          "source_file": "William_Wyler.html"
+        },
+        {
+          "text": "Ben-Hur won 11 awards, including Best Picture and Best Director for William Wyler and Best Actor for Charlton Heston.",
+          "source_file": "List_of_Academy_Award_records.html"
+        }
+      ],
+      "relevant_files": [
+        "William_Wyler.html",
+        "List_of_Academy_Award_records.html",
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "difficulty_notes": "The final Ben-Hur quote does not literally appear as written in the records file; a strict system must verify. Tests whether records and biography agree on Wyler's achievements."
+    },
+    {
+      "id": "Q024",
+      "query": "Who directed the three consecutive Best Picture winners released by DreamWorks around the turn of the millennium, and which film completed the run?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "DreamWorks became the second studio to release three consecutive Best Picture winners; the run was American Beauty, Gladiator, and finally A Beautiful Mind, which won at the 74th Academy Awards. American Beauty was directed by Sam Mendes, who won Best Director for it in his feature directorial debut.",
+      "supporting_quotes": [
+        {
+          "text": "By virtue of its latest Best Picture victory for A Beautiful Mind, DreamWorks became the second film studio to release three consecutive Best Picture winners; the studio had previously released American Beauty and Gladiator.",
+          "source_file": "74th_Academy_Awards.html"
+        },
+        {
+          "text": "In 1999, Mendes made his film directorial debut with American Beauty, starring Kevin Spacey.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "Six directors won the award for their feature film debut: Delbert Mann for Marty (1955), Jerome Robbins for West Side Story (1961), Robert Redford for Ordinary People (1980), James L. Brooks for Terms of Endearment (1983), Kevin Costner for Dances With Wolves (1990), and Sam Mendes for American Beauty (1999).",
+          "source_file": "Academy_Award_for_Best_Director.html"
+        }
+      ],
+      "relevant_files": [
+        "74th_Academy_Awards.html",
+        "Sam_Mendes.html",
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "difficulty_notes": "Requires linking a studio streak in one document to a director's identity in another."
+    },
+    {
+      "id": "Q025",
+      "query": "describe sam mendes's theatre background before he made his first film",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "After graduating from Cambridge in 1987, Mendes was hired as assistant director at the Chichester Festival Theatre, making his professional directing debut in September 1987 with a double bill of Chekhov's The Bear and The Proposal. In 1989 he became the inaugural director of the Minerva Theatre, took over a production of London Assurance at Chichester, and made his West End debut at the Aldwych with The Cherry Orchard starring Judi Dench. In 1990 he was appointed artistic director of the Donmar Warehouse, spending two years overseeing its redesign; it opened in 1992 with the British premiere of Sondheim's Assassins. His Donmar tenure included an acclaimed 1993 revival of Cabaret with Jane Horrocks and Alan Cumming, and a 1994 production of Oliver! produced by Cameron Mackintosh.",
+      "supporting_quotes": [
+        {
+          "text": "After graduating from Cambridge in 1987, Mendes was hired as assistant director at the Chichester Festival Theatre. In September 1987, Mendes made his professional directing debut with a double bill of two Anton Chekhov plays, The Bear and The Proposal.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "In 1990, Mendes was appointed artistic director of the Donmar Warehouse, a Covent Garden studio space previously used by the Royal Shakespeare Company.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "He spent two years overseeing the redesign of the theatre, which formally opened in 1992 with the British premiere of Stephen Sondheim's Assassins.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "In 1993, Mendes staged an acclaimed revival of John Kander and Fred Ebb's Cabaret starring Jane Horrocks as Sally Bowles and Alan Cumming as Emcee.",
+          "source_file": "Sam_Mendes.html"
+        }
+      ],
+      "relevant_files": [
+        "Sam_Mendes.html"
+      ],
+      "difficulty_notes": "Overview requiring several sections of one biography; tests coverage rather than a single fact."
+    },
+    {
+      "id": "Q026",
+      "query": "How does Mendes's plan for the Beatles films differ from the way he approached his war epic about the First World War in terms of personal connection?",
+      "information_need": "in_depth",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "1917 was deeply personal: it was based in part on an account told to Mendes by his paternal grandfather, Alfred Mendes, and chronicles two young British soldiers in spring 1917; when Mendes won the Golden Globe for Best Director he saluted his grandfather. The Beatles project, by contrast, is an industrial-scale undertaking rather than a family story: four separate but interconnected feature films about each Beatle, to be released in April 2028, collectively titled The Beatles – A Four-Film Cinematic Event, and the first Beatles biopics with full cooperation from Paul McCartney, Ringo Starr and the Lennon and Harrison families. Paul Mescal will play McCartney, Barry Keoghan Starr, Joseph Quinn Harrison, and Harris Dickinson Lennon.",
+      "supporting_quotes": [
+        {
+          "text": "Based in part on an account told to Mendes by his paternal grandfather, Alfred Mendes, it chronicles the story of two young British soldiers in the spring of 1917 at a critical point during World War I.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "Mendes went on to win the Golden Globe Award for Best Director for his achievement in directing; in his acceptance speech, he saluted his grandfather",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "In February 2024, it was reported that Mendes would produce and direct four separate feature films about each member of the Beatles, to be released in April 2028.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "These will be the first Beatles biopics to have full cooperation from Paul McCartney, Ringo Starr, and the families of John Lennon and George Harrison.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "In April 2025, it was announced that Butler would portray Paul McCartney in Sam Mendes' four-part biopic on the Beatles, with the first scheduled to be released in April 2028.",
+          "source_file": "Paul_Mescal.html"
+        }
+      ],
+      "relevant_files": [
+        "Sam_Mendes.html",
+        "Paul_Mescal.html"
+      ],
+      "difficulty_notes": "The Austin Butler article contains a contradictory casting claim about McCartney; a strong system must prefer the consistent evidence and note the discrepancy rather than assert the wrong actor."
+    },
+    {
+      "id": "Q027",
+      "query": "was ben-hur really the most expensive film ever when they made it, and how did it do",
+      "information_need": "overview",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Yes — with a cast of fifteen thousand extras, a leading star, 70mm film and stereophonic tracks, Ben-Hur was the most expensive film ever made at that time; its budget rose from $7 million to $15 million and MGM was already in dire financial straits. It cost $15 million but earned $47 million by the end of 1961 and $90 million worldwide. Wyler won his third Best Director Oscar and Charlton Heston won his only Academy Award.",
+      "supporting_quotes": [
+        {
+          "text": "With a cast of fifteen thousand extras, a leading star, and shot on 70mm film with stereophonic tracks, it was the most expensive film ever made at that time.",
+          "source_file": "William_Wyler.html"
+        },
+        {
+          "text": "Ben-Hur cost $15 million to produce but earned $47 million by the end of 1961 and $90 million worldwide.",
+          "source_file": "William_Wyler.html"
+        },
+        {
+          "text": "Wyler won his third Academy Award for Best Director and Charlton Heston his first and only Academy Award as its star.",
+          "source_file": "William_Wyler.html"
+        }
+      ],
+      "relevant_files": [
+        "William_Wyler.html"
+      ],
+      "difficulty_notes": "Colloquial, two-part question; tests whether the system pairs the cost claim with the box office figures."
+    },
+    {
+      "id": "Q028",
+      "query": "What role did Gregg Toland play in Wyler's visual style, and which films did they make together?",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Cinematographer Gregg Toland collaborated with Wyler on six films, mostly in the 1930s, pioneering deep-focus photography — lenses that keep the entire depth of a room in focus. Three of their most celebrated collaborations were Wuthering Heights (1939), where Toland's low angles, dark shadows and diffusion won him the Oscar for Best Cinematography; The Little Foxes (1941), where they brought hard-edged deep focus from Citizen Kane to Lillian Hellman's play, including a totally white make-up scheme for Bette Davis; and The Best Years of Our Lives (1946), one of Toland's last films.",
+      "supporting_quotes": [
+        {
+          "text": "In this, he collaborated with the pathbreaking young cinematographer of 1940's Citizen Kane, Gregg Toland. Gregg Toland shot three of the director's most celebrated films",
+          "source_file": "William_Wyler.html"
+        },
+        {
+          "text": "Wyler had worked with cinematographer Gregg Toland for six of his films, mostly in the 1930s. Toland used deep focus photographic technique for most of them, whereby he could keep all objects on the screen, whether foreground or background, in sharp focus at the same time.",
+          "source_file": "William_Wyler.html"
+        },
+        {
+          "text": "where Toland's use of low angles, dark shadows and diffusion won him the Oscar for best cinematography",
+          "source_file": "William_Wyler.html"
+        }
+      ],
+      "relevant_files": [
+        "William_Wyler.html"
+      ],
+      "difficulty_notes": "Requires combining the style section and the career section of a single long biography."
+    },
+    {
+      "id": "Q029",
+      "query": "Emmanuel Lubezki did something no cinematographer had managed before — what was it and for which films?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Lubezki won the Academy Award for Best Cinematography three consecutive times — for Gravity (2013), Birdman (2014) and The Revenant (2015) — becoming the first cinematographer to do so.",
+      "supporting_quotes": [
+        {
+          "text": "Lubezki won the award again in 2015 for Iñárritu's The Revenant, becoming a milestone for his third consecutive win and for being the first cinematographer to do so.",
+          "source_file": "Emmanuel_Lubezki.html"
+        },
+        {
+          "text": "86th Academy Awards: Best Cinematography, win, Gravity (2013)",
+          "source_file": "Emmanuel_Lubezki.html"
+        }
+      ],
+      "relevant_files": [
+        "Emmanuel_Lubezki.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Familiar-reader phrasing withholds the achievement; tests whether the system identifies consecutive wins rather than total wins."
+    },
+    {
+      "id": "Q030",
+      "query": "Explain the techniques Lubezki is known for and name the three directors he most frequently works with.",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Lubezki is known for groundbreaking use of natural lighting and long, uninterrupted continuous shots, often achieved with a Steadicam, a 3-axis gimbal or handheld camera, orchestrating fluid camera movements during significant scenes. His frequent collaborators are Terrence Malick, Alfonso Cuarón and Alejandro González Iñárritu. On The Revenant he shot entirely in the wilderness during a cold season, minimizing CGI and using only natural lighting.",
+      "supporting_quotes": [
+        {
+          "text": "Lubezki is known for groundbreaking uses of natural lighting and continuous uninterrupted shots in cinematography, often utilizing a Steadicam, a 3-axis gimbal, or hand-held camera to orchestrate fluid, uninterrupted camera movements during particularly significant scenes.",
+          "source_file": "Emmanuel_Lubezki.html"
+        },
+        {
+          "text": "He is also known for his frequent collaborations with directors Terrence Malick, Alfonso Cuarón, and Alejandro González Iñárritu.",
+          "source_file": "Emmanuel_Lubezki.html"
+        },
+        {
+          "text": "The film was shot entirely in the wilderness during a cold season, minimizing the amount of CGI and using only natural lighting.",
+          "source_file": "Emmanuel_Lubezki.html"
+        }
+      ],
+      "relevant_files": [
+        "Emmanuel_Lubezki.html"
+      ],
+      "difficulty_notes": "Straightforward overview; tests whether the system names all three directors rather than just Cuarón."
+    },
+    {
+      "id": "Q031",
+      "query": "The cinematographer on the Lord of the Rings films — what did he win and when did he die?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Andrew Lesnie won the Academy Award for Best Cinematography for The Lord of the Rings: The Fellowship of the Ring. He died of a heart attack at his Sydney home on 27 April 2015, aged 59.",
+      "supporting_quotes": [
+        {
+          "text": "He was best known for his collaboration with director Peter Jackson on The Hobbit trilogy (2012–2014) and The Lord of the Rings trilogy (2001–2003), with The Fellowship of the Ring earning him the Academy Award for Best Cinematography.",
+          "source_file": "Andrew_Lesnie.html"
+        },
+        {
+          "text": "Lesnie died of a heart attack in his Sydney home on 27 April 2015, after having suffered from a heart condition for half a year.",
+          "source_file": "Andrew_Lesnie.html"
+        }
+      ],
+      "relevant_files": [
+        "Andrew_Lesnie.html"
+      ],
+      "difficulty_notes": "Familiar query omits the subject's name entirely; requires semantic retrieval from role description."
+    },
+    {
+      "id": "Q032",
+      "query": "For a technical report: compare the camera and frame-rate choices Andrew Lesnie made on The Lord of the Rings versus The Hobbit.",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "For The Lord of the Rings, Lesnie used Arri's Arriflex 435, Arriflex 535 and ArriCam Studio 35mm film cameras with Carl Zeiss Ultra Prime lenses and Kodak 5279 tungsten-balanced stock. For The Hobbit he switched to Red Digital Cinema Epic cameras, still with Carl Zeiss Ultra Prime lenses, and shot in 3D with as many as 15 stereoscopic camera rigs. He and Jackson also shot at 48 frames per second rather than the industry standard 24, making Lesnie the first cinematographer to use such a method, which claims to increase clarity, reduce motion blur, and make 3D easier to watch. For comparison, other directors of the era such as Damien Chazelle continued to shoot on celluloid: La La Land was shot on 4-perf Super 35mm film with Panavision anamorphic lenses.",
+      "supporting_quotes": [
+        {
+          "text": "Lesnie used motion picture camera company Arri's Arriflex 435, Arriflex 535, and ArriCam Studio 35mm film cameras for the trilogy. He used Carl Zeiss Ultra Prime Lenses and Kodak's 5279 (tungsten-balanced) film stock to photograph the films.",
+          "source_file": "Andrew_Lesnie.html"
+        },
+        {
+          "text": "For production, Lesnie used Red Digital Cinema's Epic cameras as well as Carl Zeiss Ultra Prime Lenses to photograph the film.",
+          "source_file": "Andrew_Lesnie.html"
+        },
+        {
+          "text": "They also decided to shoot the film in an uncommon frame rate of 48 frames per second versus the industry standard of 24 frames per second. This would make Lesnie the first cinematographer to employ such a method that claims to induce more clarity, reduce motion blur, and make 3D easier to watch.",
+          "source_file": "Andrew_Lesnie.html"
+        },
+        {
+          "text": "Consequently, the movie was shot on celluloid 4-perf Super 35mm film (not digitally) with Panavision anamorphic lenses in CinemaScope's 2.55:1 aspect ratio",
+          "source_file": "La_La_Land.html"
+        }
+      ],
+      "relevant_files": [
+        "Andrew_Lesnie.html",
+        "La_La_Land.html"
+      ],
+      "difficulty_notes": "Technical comparison drawing a contemporaneous contrast from a second film article; tests whether the system can supply a comparative frame."
+    },
+    {
+      "id": "Q033",
+      "query": "How was the Grand Staircase built and destroyed for the 1997 Titanic shoot?",
+      "information_need": "overview",
+      "motivation": "media_reference",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The Grand Staircase was recreated to a high standard but widened by 30% and reinforced with steel girders; craftsmen from Mexico and Britain sculpted the ornate paneling and plasterwork from Titanic's original designs. To sink it, 90,000 US gallons of water were dumped into the set as it was lowered into an enclosed 5,000,000-gallon tank. Unexpectedly, the waterfall ripped the staircase from its steel-reinforced foundations, though no one was hurt.",
+      "supporting_quotes": [
+        {
+          "text": "The Grand Staircase, which features prominently in the film, was recreated to a high standard, but widened by 30% and reinforced with steel girders.",
+          "source_file": "Titanic_(1997_film).html"
+        },
+        {
+          "text": "Craftsmen from Mexico and Britain sculpted the ornate paneling and plasterwork based on Titanic's original designs.",
+          "source_file": "Titanic_(1997_film).html"
+        },
+        {
+          "text": "To sink the Grand Staircase, 90,000 US gallons (340,000 L) of water were dumped into the set as it was lowered into the tank. Unexpectedly, the waterfall ripped the staircase from its steel-reinforced foundations, although no one was hurt.",
+          "source_file": "Titanic_(1997_film).html"
+        }
+      ],
+      "relevant_files": [
+        "Titanic_(1997_film).html"
+      ],
+      "difficulty_notes": "Media-reference framing around a famous set; needs two separated production sections of a very long article."
+    },
+    {
+      "id": "Q034",
+      "query": "Was there really something put in the crew's food during the Titanic shoot?",
+      "information_need": "overview",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Yes. On August 9, 1996, during the shoot aboard the Akademik Mstislav Keldysh in Dartmouth, Nova Scotia, an unknown person — suspected to be a crew member — put the dissociative drug PCP into the soup that Cameron and others ate. More than 50 people were sent to hospital. Cameron vomited before the drug fully took hold. The Nova Scotia Department of Health confirmed the soup contained PCP on August 27, police announced a criminal investigation the next day, and the investigation was closed in February 1999 without the culprit being caught.",
+      "supporting_quotes": [
+        {
+          "text": "On August 9, 1996, during the Akademik Mstislav Keldysh shoot in Canada, an unknown person, suspected to be a crew member, put the dissociative drug PCP into the soup that Cameron and various others ate one night in Dartmouth, Nova Scotia.",
+          "source_file": "Titanic_(1997_film).html"
+        },
+        {
+          "text": "It sent more than 50 people to the hospital.",
+          "source_file": "Titanic_(1997_film).html"
+        },
+        {
+          "text": "The Nova Scotia Department of Health confirmed that the soup had contained PCP on August 27, and the Halifax Regional Police Service announced a criminal investigation the next day. The investigation was closed in February 1999.",
+          "source_file": "Titanic_(1997_film).html"
+        }
+      ],
+      "relevant_files": [
+        "Titanic_(1997_film).html"
+      ],
+      "difficulty_notes": "Vague conversational framing about a widely circulated anecdote; tests grounding of a story that invites embellishment."
+    },
+    {
+      "id": "Q035",
+      "query": "Who was originally considered for the male lead in Titanic before Leonardo DiCaprio, and why weren't they cast?",
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Established actors including Matthew McConaughey, Chris O'Donnell, Billy Crudup and Stephen Dorff were considered, but Cameron felt they were too old for a 20-year-old part. Tom Cruise was interested but his asking price was too high. Cameron considered Jared Leto, who refused to audition; Jeremy Sisto filmed screen tests with Winslet; Mark Wahlberg met Cameron but Cameron was not interested; and Ethan Hawke, Christian Bale and Paul Rudd also auditioned. DiCaprio was brought to Cameron's attention by casting director Mali Finn.",
+      "supporting_quotes": [
+        {
+          "text": "Established actors including Matthew McConaughey, Chris O'Donnell, Billy Crudup, and Stephen Dorff were considered, but Cameron felt they were too old for the part of a 20-year-old.",
+          "source_file": "Titanic_(1997_film).html"
+        },
+        {
+          "text": "Tom Cruise was interested, but his asking price was too high. Cameron considered Jared Leto, but he refused to audition.",
+          "source_file": "Titanic_(1997_film).html"
+        },
+        {
+          "text": "Leonardo DiCaprio, then 21 years old, was brought to Cameron's attention by the casting director, Mali Finn.",
+          "source_file": "Titanic_(1997_film).html"
+        }
+      ],
+      "relevant_files": [
+        "Titanic_(1997_film).html"
+      ],
+      "difficulty_notes": "Exploratory trivia question requiring an enumerated list plus reasons; tests completeness without hallucinating extra names."
+    },
+    {
+      "id": "Q036",
+      "query": "What's the current record for the most Academy Award nominations received by a single film?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "temporally_stale",
+      "expected_behavior": "The system should give the corpus figure — Sinners with 16 nominations at the 98th Academy Awards — while explicitly flagging that this reflects the state of the source material and could be superseded by a later ceremony.",
+      "expected_answer": "According to the source material, Sinners (2025) holds the record with 16 nominations, breaking the previous record of 14 shared by All About Eve, Titanic and La La Land. Note that this reflects the corpus's most recent recorded ceremony and may be out of date.",
+      "supporting_quotes": [
+        {
+          "text": "Most nominations received by a single film: 16\n  - Sinners (2025): out of 17 possible categories",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "La La Land received the most nominations with a record-tying fourteen (1950's All About Eve and 1997's Titanic also achieved this distinction)",
+          "source_file": "89th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "List_of_Academy_Award_records.html",
+        "89th_Academy_Awards.html",
+        "Titanic_(1997_film).html"
+      ],
+      "difficulty_notes": "Temporal-boundary test: 'current' invites a live answer, but the corpus is a snapshot. Also tests that the system doesn't stop at the older 14-nomination record."
+    },
+    {
+      "id": "Q037",
+      "query": "How many Oscars has the Titanic soundtrack single won, and what is its current chart position on the Billboard Hot 100?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": false,
+      "adversarial_kind": "unanswerable_from_corpus",
+      "expected_behavior": "The system should state that the corpus does not contain any Billboard Hot 100 chart position for 'My Heart Will Go On'. It may note the corpus records that the song won the Academy Award for Best Original Song and four Grammy Awards, but must decline the chart-position portion.",
+      "expected_answer": "Not available from the source material. The corpus records the song's Academy Award and Grammy wins but contains no Billboard Hot 100 chart position for it.",
+      "supporting_quotes": [],
+      "relevant_files": [
+        "Titanic_(1997_film).html"
+      ],
+      "difficulty_notes": "A well-formed question about a covered topic where one half is answerable and the other is not; tests partial refusal rather than fabrication of a chart number."
+    },
+    {
+      "id": "Q038",
+      "query": "Which two films tied for Best Sound Editing, and had that ever happened before?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Skyfall and Zero Dark Thirty tied for Best Sound Editing at the 85th Academy Awards; it was the sixth tie in Oscar history. The winners were Per Hallberg and Karen Baker Landers for Skyfall and Paul N. J. Ottosson for Zero Dark Thirty.",
+      "supporting_quotes": [
+        {
+          "text": "Skyfall and Zero Dark Thirty's joint win in the Best Sound Editing category was the sixth occurrence of a tie in Oscar history.",
+          "source_file": "85th_Academy_Awards.html"
+        },
+        {
+          "text": "2012: Best Sound Editing – Paul N. J. Ottosson (Zero Dark Thirty) and Per Hallberg & Karen Baker Landers (Skyfall)",
+          "source_file": "List_of_Academy_Award_records.html"
+        }
+      ],
+      "relevant_files": [
+        "85th_Academy_Awards.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Two-part question; the individual names appear only in the records article while the 'sixth tie' context appears only in the ceremony article."
+    },
+    {
+      "id": "Q039",
+      "query": "Tell me about the controversy over the opening musical number at the 2013 Oscars.",
+      "information_need": "overview",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "During his opening monologue at the 85th Academy Awards, host Seth MacFarlane was shown a music video by William Shatner as Captain Kirk in which MacFarlane sang 'We Saw Your Boobs', listing films featuring actresses disrobing. Reactions were mixed: The Guardian argued MacFarlane was employed partly to puncture the event's pomposity, while Jane Fonda asked why he did not list the penises audiences have seen and said it was inappropriate for a worldwide family audience. California assemblywoman Bonnie Lowenthal and state senator Hannah-Beth Jackson said MacFarlane 'crossed the line from humor to misogyny', and Amy Davidson of The New Yorker read the song as hostile to women. The Academy defended MacFarlane on grounds of creative freedom.",
+      "supporting_quotes": [
+        {
+          "text": "Captain Kirk then shows him a music video where MacFarlane sings We Saw Your Boobs. Its lyrics lists out movies that featured scenes of actresses' disrobing.",
+          "source_file": "85th_Academy_Awards.html"
+        },
+        {
+          "text": "if they want to stoop to that, why not list all the penises we've seen? Better yet, remember that this is a telecast seen around the world watched by families with their children and to many this is neither appropriate or funny.",
+          "source_file": "85th_Academy_Awards.html"
+        },
+        {
+          "text": "there was a disturbing theme about violence against women being acceptable and funny. From topical jabs about domestic violence to singing about 'boobs' during a film's rape scene, Seth MacFarlane crossed the line from humor to misogyny.",
+          "source_file": "85th_Academy_Awards.html"
+        },
+        {
+          "text": "If the Oscars are about anything, they're about creative freedom.",
+          "source_file": "85th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "85th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Requires balanced coverage of both positive and negative reactions from one section; a one-sided answer is incomplete."
+    },
+    {
+      "id": "Q040",
+      "query": "Which Oscar-winning film had its 'In Memoriam' segment accompanied by a Joni Mitchell song, and who sang it?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "At the 89th Academy Awards, Sara Bareilles performed Joni Mitchell's 'Both Sides, Now' during the In Memoriam montage, which was introduced by Jennifer Aniston.",
+      "supporting_quotes": [
+        {
+          "text": "The annual \"In Memoriam\" segment was introduced by Jennifer Aniston, with Sara Bareilles performing a rendition of the Joni Mitchell song \"Both Sides, Now\" during the montage.",
+          "source_file": "89th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "89th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "The query mistakenly frames it as a 'film' when it is a ceremony segment; tests robustness to imprecise framing."
+    },
+    {
+      "id": "Q041",
+      "query": "An error was made in one of the In Memoriam slides — what happened?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The slide for Janet Patterson, an Australian costume designer, mistakenly used a photograph of the Australian producer Jan Chapman, who is still alive.",
+      "supporting_quotes": [
+        {
+          "text": "The slide for Janet Patterson, an Australian costume designer, mistakenly used a photograph of Australian producer Jan Chapman, who is still alive.",
+          "source_file": "89th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "89th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Familiar-style query omits year and ceremony; the corpus contains multiple In Memoriam sections, so retrieval must disambiguate by the error detail."
+    },
+    {
+      "id": "Q042",
+      "query": "I've heard people say Crash winning Best Picture was a bad decision — what does the record actually say about how that's been assessed since?",
+      "information_need": "overview",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Crash's win over Brokeback Mountain has come to be seen as one of the most notorious decisions in modern Academy history and a source of earnest bafflement from critics, with rankings by several publications calling Crash one of the worst or most controversial Best Picture winners. Kenneth Turan accused Academy members of homophobia and of benefitting from a non-groundbreaking choice, and after announcing the award, presenter Jack Nicholson was caught mouthing 'whoa' in apparent surprise. In a 2015 Hollywood Reporter poll of Academy members on controversial past decisions, Brokeback Mountain won the revote for Best Picture.",
+      "supporting_quotes": [
+        {
+          "text": "In retrospective commentary, Crash's win for Best Picture over Brokeback Mountain has become \"one of the most notorious [decisions] in modern Academy history\" and a source of \"earnest bafflement from critics\".",
+          "source_file": "78th_Academy_Awards.html"
+        },
+        {
+          "text": "Rankings by several publications and critics have called Crash one of the worst or most controversial Best Picture winners.",
+          "source_file": "78th_Academy_Awards.html"
+        },
+        {
+          "text": "After announcing the award, presenter Jack Nicholson was caught on camera mouthing the word \"whoa\" out of apparent surprise at the result.",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        },
+        {
+          "text": "In 2015, The Hollywood Reporter polled Academy members on controversial past decisions, in which Brokeback Mountain won the revote for Best Picture.",
+          "source_file": "Brokeback_Mountain.html"
+        }
+      ],
+      "relevant_files": [
+        "78th_Academy_Awards.html",
+        "Brokeback_Mountain.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "Evaluative framing requiring evidence from three documents; a system citing only the ceremony page misses the revote and the Nicholson reaction."
+    },
+    {
+      "id": "Q043",
+      "query": "Describe how Brokeback Mountain came to be made, including the writers, the false starts, and who eventually directed it.",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Screenwriter Diana Ossana read Annie Proulx's short story in October 1997, days after publication, and convinced her writing partner Larry McMurtry to read it; he called it a masterpiece. Proulx agreed to let them adapt it despite doubting it would work as a film. Gus Van Sant attempted to make it, hoping to cast Matt Damon and Joaquin Phoenix, and also considered Leonardo DiCaprio, Brad Pitt and Ryan Phillippe; Josh Hartnett was attached but dropped out. According to Ossana, Edward Norton, Joel Schumacher and dozens of others were approached to direct. Focus Features CEO James Schamus optioned the rights in 2001; Pedro Almodóvar was offered the film and turned it down. Schamus eventually showed the script to Ang Lee, who directed it.",
+      "supporting_quotes": [
+        {
+          "text": "Screenwriter Diana Ossana discovered Annie Proulx's short story, Brokeback Mountain, in October 1997, just days after its publication. She convinced writing partner Larry McMurtry to read it; he thought it was a \"masterpiece\".",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "Gus Van Sant attempted to make the film, hoping to cast Matt Damon and Joaquin Phoenix as Ennis and Jack, respectively. He also considered Leonardo DiCaprio, Brad Pitt and Ryan Phillippe.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "Focus Features CEO James Schamus optioned the film rights in 2001, but thought it was a risky project. Pedro Almodóvar was initially offered the opportunity to direct, but turned it down, citing concerns about artistic freedom.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "At Ossana's request, Schamus showed the story and screenplay to director Ang Lee.",
+          "source_file": "Brokeback_Mountain.html"
+        }
+      ],
+      "relevant_files": [
+        "Brokeback_Mountain.html",
+        "Gus_Van_Sant.html"
+      ],
+      "difficulty_notes": "Long development history requiring several paragraphs; tests completeness on a chain of failed attachments."
+    },
+    {
+      "id": "Q044",
+      "query": "Where was the cowboy love story actually filmed, and why not in the state where it's set?",
+      "information_need": "fact_lookup",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Although Proulx's story is set in Wyoming, Brokeback Mountain was shot almost entirely in the Canadian Rockies in southern Alberta. Annie Proulx gave Ang Lee a tour of the Wyoming locations, but he chose Alberta for financial reasons. Locations included Goat Creek, Upper Kananaskis Lake, Elbow Falls, Canyon Creek, Cowley, Fort Macleod and Calgary.",
+      "supporting_quotes": [
+        {
+          "text": "While the Proulx story is set in Wyoming, Brokeback Mountain was filmed almost entirely in the Canadian Rockies in southern Alberta.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "Cameron was given a tour of the locations from the story in Wyoming by Proulx, but chose to shoot in Alberta citing financial reasons.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "Other scenes were filmed in Cowley, Fort Macleod, and Calgary.",
+          "source_file": "Brokeback_Mountain.html"
+        }
+      ],
+      "relevant_files": [
+        "Brokeback_Mountain.html"
+      ],
+      "difficulty_notes": "The source text erroneously says 'Cameron' where it means Lee; a strong system should quote accurately and may note the source's apparent error. Query avoids the film title entirely."
+    },
+    {
+      "id": "Q045",
+      "query": "Compare the audience reactions and awards outcomes for the two films that lost Best Picture in the most talked-about upsets — the 2005 gay romance and the 2016 musical.",
+      "information_need": "in_depth",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Brokeback Mountain won three Academy Awards — Best Director, Best Adapted Screenplay and Best Original Score — but lost Best Picture to Crash, prompting accusations of homophobia and more than 800 supporters raising up to $26,000 for an advert in Daily Variety thanking the filmmakers. La La Land won six Oscars including Best Director and Best Actress from a record-tying fourteen nominations, but lost Best Picture to Moonlight after the envelope error, setting a record for most nominations without winning Best Picture. Both are considered landmark losses, and in a 2015 Hollywood Reporter member poll Brokeback Mountain won the revote for Best Picture.",
+      "supporting_quotes": [
+        {
+          "text": "At the 78th Academy Awards, Brokeback Mountain was nominated for the Academy Award for Best Picture and won three awards for Best Director, Best Adapted Screenplay, and Original Score.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "Following the loss, more than 800 supporters raised up to $26,000 to place an advertisement in the Daily Variety.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "La La Land's Best Picture loss to Moonlight meant it set a record for most nominations without winning Best Picture.",
+          "source_file": "89th_Academy_Awards.html"
+        },
+        {
+          "text": "La La Land won six awards, the most for the evening, out of its record-tying 14 nominations, including Best Actress for Emma Stone and Best Director for Damien Chazelle.",
+          "source_file": "89th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "Brokeback_Mountain.html",
+        "89th_Academy_Awards.html",
+        "La_La_Land.html"
+      ],
+      "difficulty_notes": "Comparative in-depth query with both films identified only by description; requires synthesis across three files."
+    },
+    {
+      "id": "Q046",
+      "query": "What was the debate about whether the main characters in Brokeback Mountain were gay or bisexual?",
+      "information_need": "overview",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Critics and the cast disagreed. Media frequently called it 'the gay cowboy movie', but reviewers noted both protagonists were bisexual, and sex researcher Fritz Klein described it as a film with two bisexual main characters, placing Jack more toward the gay side and Ennis more toward the straight side. In 2006 Gyllenhaal said he approached the story believing they were two straight guys who fall in love, though in 2015 he told The Hollywood Reporter it was a gay love story and his character was the more overtly gay of the two. Ledger said in 2005 he did not think Ennis could be labeled gay. LGBT author Eric Marcus dismissed talk of them being anything but gay as box-office-influenced political correctness; producer James Schamus said the characters were gay to him; Roger Ebert believed both were gay but doubted it themselves.",
+      "supporting_quotes": [
+        {
+          "text": "The film was frequently referred to in the media as the \"gay cowboy movie\", but a number of reviewers noted that both Jack and Ennis were bisexual.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "I approached the story believing that these are actually two straight guys who fall in love.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "I don't think Ennis could be labeled as gay. Without Jack Twist, I don't know that he ever would have come out. I think the whole point was that it was two souls that fell in love with each other.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "LGBT non-fiction author Eric Marcus dismissed \"talk of Ennis and Jack being anything but gay as box office-influenced political correctness intended to steer straight audiences to the film\".",
+          "source_file": "Brokeback_Mountain.html"
+        }
+      ],
+      "relevant_files": [
+        "Brokeback_Mountain.html"
+      ],
+      "difficulty_notes": "Requires representing a genuine disagreement with multiple attributed positions rather than picking one."
+    },
+    {
+      "id": "Q047",
+      "query": "Tell me about the film where Colin Firth plays a grieving gay professor in 1960s LA.",
+      "information_need": "overview",
+      "motivation": "media_reference",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "That is A Single Man (2009), the directorial debut of fashion designer Tom Ford, based on Christopher Isherwood's 1964 novel. Firth plays George Falconer, a depressed gay British university professor in Southern California in 1962, mourning his partner Jim, who died in a car accident eight months earlier. The film premiered at the 66th Venice International Film Festival on September 11, 2009, where Firth won the Volpi Cup for Best Actor; Firth was later nominated for the Academy Award for Best Actor and won the BAFTA for Best Actor in a Leading Role. Ford financed the film himself and it was shot in 21 days.",
+      "supporting_quotes": [
+        {
+          "text": "The directorial debut of fashion designer Tom Ford, the film stars Colin Firth, who was nominated for the Academy Award for Best Actor for his portrayal of George Falconer, a depressed gay British university professor living in Southern California in 1962.",
+          "source_file": "A_Single_Man.html"
+        },
+        {
+          "text": "The film premiered on September 11, 2009, at the 66th Venice International Film Festival, where Firth won the Volpi Cup for Best Actor",
+          "source_file": "A_Single_Man.html"
+        },
+        {
+          "text": "Fashion designer Tom Ford, as a first-time director, financed the film himself.",
+          "source_file": "A_Single_Man.html"
+        },
+        {
+          "text": "He also received the BAFTA Award for Best Actor in a Leading Role.",
+          "source_file": "A_Single_Man.html"
+        }
+      ],
+      "relevant_files": [
+        "A_Single_Man.html"
+      ],
+      "difficulty_notes": "Media-reference retrieval from plot description with no title given; requires an overview spanning plot, production and awards."
+    },
+    {
+      "id": "Q048",
+      "query": "There was a row about how A Single Man was advertised — what were the objections and how did the people involved respond?",
+      "information_need": "overview",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "An early poster featured Firth and Julianne Moore lying side by side, arms and shoulders touching, prompting speculation the film's gay content was being diminished for wider appeal; a new poster moved Moore to the background. The re-cut trailer omitted a kiss between George and Jim while retaining one between George and Charley, and dropped shots of George meeting the hustler Carlos, George and Kenny running nude into the ocean, and George staring into a male student's eyes, while keeping a shot of him staring into a female student's eyes. Moore said Ford had worried the original poster made the film look like a romantic comedy and ordered it changed. Ford denied the film had been 'de-gayed', blaming trailer distribution standards; Firth called the marketing deceptive, saying there was nothing to sanitize. Peter Knegt of IndieWire suggested The Weinstein Company de-gayed the trailer to improve Oscar chances.",
+      "supporting_quotes": [
+        {
+          "text": "An early theatrical poster for A Single Man featured a close-up shot of Colin Firth and Julianne Moore lying side by side, their arms and shoulders touching. This led to speculation that the work's gay content and themes were being deleted or diminished in its marketing materials to improve its chances of success with a wider audience.",
+          "source_file": "A_Single_Man.html"
+        },
+        {
+          "text": "I don't think the movie's been de-gayed. I have to say that we live in a society that's pretty weird.",
+          "source_file": "A_Single_Man.html"
+        },
+        {
+          "text": "[The marketing] is deceptive. I don't think they should do that because there's nothing to sanitize. It's a beautiful story of love between two men and I see no point in hiding that. People should see it for what it is.",
+          "source_file": "A_Single_Man.html"
+        },
+        {
+          "text": "Peter Knegt of IndieWire suggested that The Weinstein Company \"de-gayed\" the trailer to better the film's chances of receiving Academy Award nominations.",
+          "source_file": "A_Single_Man.html"
+        }
+      ],
+      "relevant_files": [
+        "A_Single_Man.html"
+      ],
+      "difficulty_notes": "Requires assembling multiple attributed viewpoints; a partial answer that gives only the poster change misses the trailer edits and responses."
+    },
+    {
+      "id": "Q049",
+      "query": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Brendan Fraser won Best Actor for playing Charlie in The Whale. Notably, for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees. The other nominees were Austin Butler (Elvis), Colin Farrell (The Banshees of Inisherin), Paul Mescal (Aftersun) and Bill Nighy (Living).",
+      "supporting_quotes": [
+        {
+          "text": "For the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "Brendan Fraser – The Whale as Charlie‡",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "His work in The Whale earned him critical acclaim and numerous accolades, including the Academy Award for Best Actor",
+          "source_file": "Brendan_Fraser.html"
+        }
+      ],
+      "relevant_files": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html"
+      ],
+      "difficulty_notes": "Multi-document confirmation; the nominee-field fact appears only in the ceremony article."
+    },
+    {
+      "id": "Q050",
+      "query": "What led to Brendan Fraser's long absence from major film roles and what brought him back?",
+      "information_need": "overview",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Fraser's film work slowed from the late 2000s to the mid-2010s because of poor box-office performances and various health and personal issues, including the fallout from a 2003 sexual assault committed against him by Philip Berk, then president of the Hollywood Foreign Press Association. Fraser also said the physical demands of stunts led to several surgeries over seven years, including a partial knee replacement, a laminectomy and vocal-cord surgery. His career was revived in the 2020s by roles in Steven Soderbergh's No Sudden Move (2021), Darren Aronofsky's The Whale (2022) and Rental Family (2025); The Whale earned him the Academy Award for Best Actor.",
+      "supporting_quotes": [
+        {
+          "text": "Fraser's film work slowed from the late 2000s to mid-2010s due to poor box office performances and various health and personal issues, including the fallout from a sexual assault committed against him in 2003 by Philip Berk, the then-president of the Hollywood Foreign Press Association.",
+          "source_file": "Brendan_Fraser.html"
+        },
+        {
+          "text": "In 2018, Fraser stated publicly how the physical demands of stunts and other activities he had performed in some films led to several surgeries over a period of seven years, including a partial knee replacement, a laminectomy, and vocal-cord surgery.",
+          "source_file": "Brendan_Fraser.html"
+        },
+        {
+          "text": "His film career was revitalized in the 2020s by roles in Steven Soderbergh's No Sudden Move (2021), Darren Aronofsky's The Whale, (2022) and Rental Family (2025).",
+          "source_file": "Brendan_Fraser.html"
+        }
+      ],
+      "relevant_files": [
+        "Brendan_Fraser.html"
+      ],
+      "difficulty_notes": "Sensitive multi-cause narrative; tests whether the system covers all three strands without editorializing."
+    },
+    {
+      "id": "Q051",
+      "query": "why didn't he go to the golden globes when he was nominated",
+      "information_need": "overview",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Brendan Fraser said in 2022 that if the HFPA nominated him for The Whale he would 'not participate' because of his history with the organization, referring to his allegation that former HFPA president Philip Berk groped him at a 2003 industry luncheon. He was nominated for Best Actor in a Motion Picture – Drama, did not attend, and lost to Austin Butler.",
+      "supporting_quotes": [
+        {
+          "text": "In 2022, Fraser told GQ that if the HFPA nominated him for a Golden Globe that year for his most recent film, The Whale, he would \"not participate\" because of his \"history\" with the organization.",
+          "source_file": "Brendan_Fraser.html"
+        },
+        {
+          "text": "He was nominated for Best Actor in a Motion Picture – Drama and did not attend the event; he lost the award to Austin Butler.",
+          "source_file": "Brendan_Fraser.html"
+        },
+        {
+          "text": "Fraser claimed Berk assaulted him by groping his groin and genitals during a 2003 industry luncheon, and also said the incident triggered a mental health crisis and fear of speaking up and harming his career.",
+          "source_file": "Brendan_Fraser.html"
+        }
+      ],
+      "relevant_files": [
+        "Brendan_Fraser.html"
+      ],
+      "difficulty_notes": "Query has no named subject at all — pure pronoun. Tests whether the retriever can recover the entity from context of the boycott."
+    },
+    {
+      "id": "Q052",
+      "query": "How did Austin Butler prepare for the Elvis role and what did it cost him?",
+      "information_need": "overview",
+      "motivation": "media_reference",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Butler described playing Elvis Presley as 'the most intimidating thing I've ever done', saying he honestly did not sleep for about two years. His performance in Baz Luhrmann's Elvis received critical acclaim and praise from the Presley family, and earned him nominations for the Academy Award, BAFTA, Critics' Choice, Golden Globe and SAG Awards for Best Actor, winning the BAFTA and Golden Globe.",
+      "supporting_quotes": [
+        {
+          "text": "He described the part as \"the most intimidating thing I've ever done. I honestly didn't sleep for about two years.\"",
+          "source_file": "Austin_Butler.html"
+        },
+        {
+          "text": "Butler's performance received critical acclaim, as well as praise from the Presley family.",
+          "source_file": "Austin_Butler.html"
+        },
+        {
+          "text": "The role earned him several nominations for Best Actor awards, including the Academy Award, BAFTA, Critics' Choice, Golden Globe and SAG Awards, winning the BAFTA and Golden Globe.",
+          "source_file": "Austin_Butler.html"
+        }
+      ],
+      "relevant_files": [
+        "Austin_Butler.html",
+        "95th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Media-reference framing; tests whether the system distinguishes wins (BAFTA, Golden Globe) from nominations (Oscar, SAG)."
+    },
+    {
+      "id": "Q053",
+      "query": "Compare the physical preparation Austin Butler undertook for Dune: Part Two with what Michael B. Jordan did for his boxing role.",
+      "information_need": "in_depth",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "For Gladiator II, Butler practiced strength training, fight choreography, horse training and sword fighting for six months, and he was praised for his physical transformation and commitment as Feyd-Rautha in Dune: Part Two. Michael B. Jordan starred as Adonis Creed in the Creed films, and later directed, produced and starred in Creed III. The corpus documents Butler's six-month regimen specifically, while for Jordan it records the roles rather than a comparable training regimen; the systems should avoid inventing training details for Jordan.",
+      "supporting_quotes": [
+        {
+          "text": "In preparation, Butler practiced strength training, fight choreography, horse training, and sword fighting for six months.",
+          "source_file": "Austin_Butler.html"
+        },
+        {
+          "text": "Butler received praise for his commitment to the role, physical transformation, and complex character work.",
+          "source_file": "Austin_Butler.html"
+        },
+        {
+          "text": "Michael B. Jordan reprised his role of Donnie Creed in Creed II (2018) and Creed III (2023), the latter of which also marked his directorial debut.",
+          "source_file": "Michael_B._Jordan.html"
+        }
+      ],
+      "relevant_files": [
+        "Austin_Butler.html",
+        "Michael_B._Jordan.html"
+      ],
+      "difficulty_notes": "Asymmetric evidence: one side is well documented, the other is not. Tests whether the system acknowledges the gap rather than fabricating a parallel."
+    },
+    {
+      "id": "Q054",
+      "query": "Michael B. Jordan made history in the lead acting category — what exactly was the achievement?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Jordan won the Academy Award for Best Actor for his dual role as twin brothers Elijah 'Smoke' and Elias 'Stack' Moore in Sinners, becoming the seventh Black performer in history to win an Oscar in a lead acting category.",
+      "supporting_quotes": [
+        {
+          "text": "He earned further acclaim for his performances in Coogler's subsequent films, including Creed (2015), Black Panther (2018), and Sinners (2025); the latter earned him the Academy Award for Best Actor.",
+          "source_file": "Michael_B._Jordan.html"
+        },
+        {
+          "text": "Jordan is the seventh Black performer to win an Oscar for a leading role",
+          "source_file": "Michael_B._Jordan.html"
+        }
+      ],
+      "relevant_files": [
+        "Michael_B._Jordan.html",
+        "Academy_Award_for_Best_Actor.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Recency-framed query; the systems must also register the dual-role element recorded in the Best Actor category article."
+    },
+    {
+      "id": "Q055",
+      "query": "Explain the significance of Sinners in Academy Award history, both for its nominations and for the acting record it set.",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Sinners (2025) received 16 nominations from 17 possible categories, breaking the all-time record, and lost 12 of them, also a record; it surpassed Titanic and La La Land, which had shared the previous 14-nomination record. Its loss of Best Picture to One Battle After Another made it the most-nominated film ever to lose that award, overtaking La La Land. In acting, Michael B. Jordan won Best Actor for playing twin brothers Elijah and Elias Moore, and the film also produced a Best Supporting Actress win for Amy Madigan, whose nomination came 40 years after her first.",
+      "supporting_quotes": [
+        {
+          "text": "Most nominations lost by a single film: 12\n  - Sinners (2025): won 4 of its 16 nominations",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "The most recent winner is Michael B. Jordan for his dual role as twin brothers Elijah and Elias Moore in Sinners (2025).",
+          "source_file": "Academy_Award_for_Best_Actor.html"
+        },
+        {
+          "text": "Amy Madigan was nominated in 1986 for Twice in a Lifetime and in 2026 for Weapons, a 40-year gap; winning for the latter.",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "Its loss in the Best Picture category (to Moonlight) made it the most-nominated film at the Oscars to lose Best Picture, until Sinners' loss (to One Battle After Another) in 2026",
+          "source_file": "Titanic_(1997_film).html"
+        }
+      ],
+      "relevant_files": [
+        "List_of_Academy_Award_records.html",
+        "Academy_Award_for_Best_Actor.html",
+        "Titanic_(1997_film).html"
+      ],
+      "difficulty_notes": "The Madigan quote concerns Weapons, not Sinners — a deliberate trap testing whether the system reads the record entry carefully rather than assuming it belongs to the same film."
+    },
+    {
+      "id": "Q056",
+      "query": "For a class presentation, outline the history of the Academy Award for Best Supporting Actor: when it began, the win and nomination records, and how the trophy itself changed.",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The award has been given since the 9th Academy Awards, honoring outstanding supporting performances. The first winner was Walter Brennan for Come and Get It (1936); Brennan holds the record with three wins. He is also tied for most nominations at four with Jeff Bridges, Robert Duvall, Arthur Kennedy, Jack Nicholson, Al Pacino, Claude Rains and Mark Ruffalo. Until the 16th Academy Awards, supporting acting recipients received plaques rather than the Oscar statuette; from then on statuettes were awarded in each category. Heath Ledger became the first actor to win posthumously in this category, for The Dark Knight (2008).",
+      "supporting_quotes": [
+        {
+          "text": "It has been awarded since the 9th Academy Awards to an actor who has delivered an outstanding performance in a supporting role in a film released that year.",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html"
+        },
+        {
+          "text": "In lieu of the traditional Oscar statuette, supporting acting recipients were given plaques up until the 16th Academy Awards, when statuettes were awarded to each category instead.",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html"
+        },
+        {
+          "text": "The first winner was Walter Brennan for his role in Come and Get It (1936).",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html"
+        },
+        {
+          "text": "For his performance in The Dark Knight (2008), Heath Ledger became the first actor to win posthumously in this category—and second overall.",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html"
+        }
+      ],
+      "relevant_files": [
+        "Academy_Award_for_Best_Supporting_Actor.html"
+      ],
+      "difficulty_notes": "Broad overview of a list article; tests whether the system finds the plaque detail, which is easy to overlook."
+    },
+    {
+      "id": "Q057",
+      "query": "Which film produced three supporting actor nominations in a single year, and did that happen more than once?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "It happened three times. On the Waterfront (1954) produced three Best Supporting Actor nominations — Lee J. Cobb, Karl Malden and Rod Steiger — as did The Godfather (1972) with James Caan, Robert Duvall and Al Pacino, and The Godfather Part II (1974) with Robert De Niro, Michael V. Gazzo and Lee Strasberg. There have been 23 instances of a film producing more than one nominee in the category; all others produced two.",
+      "supporting_quotes": [
+        {
+          "text": "There have been 23 instances in which films have produced more than one nominee within this category. All resulted in two nominations, with the exceptions of On the Waterfront (1954), The Godfather (1972), and The Godfather Part II (1974), which each obtained three.",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html"
+        },
+        {
+          "text": "The Godfather Part II (1974) – Robert De Niro, Michael V. Gazzo, and Lee Strasberg",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html"
+        }
+      ],
+      "relevant_files": [
+        "Academy_Award_for_Best_Supporting_Actor.html",
+        "The_Godfather_Part_II.html"
+      ],
+      "difficulty_notes": "Tests careful reading of an exception clause plus retrieval of the specific names from a long alphabetical list."
+    },
+    {
+      "id": "Q058",
+      "query": "Who won Best Supporting Actor for The Godfather Part II and what was unusual about the performance?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Robert De Niro won Best Supporting Actor for playing the young Vito Corleone in The Godfather Part II. The performance was notable for being delivered largely in Italian — De Niro was the first actor to win an Oscar for performing in a language other than English — and because both he and Marlon Brando won Academy Awards for portraying the same character, Vito Corleone.",
+      "supporting_quotes": [
+        {
+          "text": "First actor to win for performing in a language other than English\n  - Robert De Niro won Best Supporting Actor for The Godfather Part II (1974), performing in Italian",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "Portrayals of Vito Corleone won:\n    - Best Actor for Marlon Brando in The Godfather (1972)\n    - Best Supporting Actor for Robert De Niro in The Godfather Part II (1974) (in Italian)",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "Robert De Niro as Vito Corleone",
+          "source_file": "The_Godfather_Part_II.html"
+        }
+      ],
+      "relevant_files": [
+        "List_of_Academy_Award_records.html",
+        "The_Godfather_Part_II.html"
+      ],
+      "difficulty_notes": "Requires the records article for the two distinctive facts; the film article alone gives only the casting."
+    },
+    {
+      "id": "Q059",
+      "query": "What structural approach did Coppola take with the sequel, and how did the studio react to it initially?",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Coppola conceived a double structure juxtaposing the ascension of the family under Vito Corleone with its decline under Michael, telling the story of a father and son at the same age and extending the narrative both into the past and the present. He also made this the first major American film to use 'Part II' in its title; Paramount initially opposed the move, believing audiences would not want an addition to a story they had already seen, but the director prevailed and the film's success made numbered sequels common practice.",
+      "supporting_quotes": [
+        {
+          "text": "I had always wanted to write a screenplay that told the story of a father and a son at the same age. They were both in their thirties, and I would integrate the two stories ... In order not to merely make Godfather I over again, I gave Godfather II this double structure by extending the story in both the past and in the present",
+          "source_file": "The_Godfather_Part_II.html"
+        },
+        {
+          "text": "Coppola discusses his decision to make this the first major American motion picture to use \"Part II\" in its title in the director's commentary on the DVD edition of the film released in 2002.",
+          "source_file": "The_Godfather_Part_II.html"
+        },
+        {
+          "text": "Paramount was initially opposed because they believed the audience would not be interested in an addition to a story they had already seen. But the director prevailed, and the film's success began the common practice of numbered sequels.",
+          "source_file": "The_Godfather_Part_II.html"
+        }
+      ],
+      "relevant_files": [
+        "The_Godfather_Part_II.html"
+      ],
+      "difficulty_notes": "Familiar phrasing withholds the film title; requires combining a conception quote with a production-history paragraph."
+    },
+    {
+      "id": "Q060",
+      "query": "Which actors from the first Godfather film declined to return for the sequel and why?",
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Marlon Brando initially agreed to return for the birthday flashback but, feeling mistreated by Paramount's board, failed to show up for the single day's shooting, prompting Coppola to rewrite the scene that day. Richard S. Castellano, who had played Peter Clemenza, declined after producers would not agree to his demand to write the character's dialogue — a claim his widow disputed in a 1991 letter to People. His plot function was filled by the new character Frank Pentangeli, played by Michael V. Gazzo. James Caan did return for the flashback, demanding and receiving the same fee he had received for the entire previous film.",
+      "supporting_quotes": [
+        {
+          "text": "Marlon Brando initially agreed to return for the birthday flashback sequence, but the actor, feeling mistreated by the board at Paramount, failed to show up for the single day's shooting. Coppola then rewrote the scene that same day.",
+          "source_file": "The_Godfather_Part_II.html"
+        },
+        {
+          "text": "Richard S. Castellano, who portrayed Peter Clemenza in the first film, also declined to return, as he and the producers could not reach an agreement on his demands that he be allowed to write the character's dialogue in the film, though this claim was disputed by Castellano's widow in a 1991 letter to People magazine.",
+          "source_file": "The_Godfather_Part_II.html"
+        },
+        {
+          "text": "James Caan agreed to reprise the role of Sonny in the birthday flashback sequence, demanding he be paid the same amount he received for the entire previous film for the single scene in Part II, which he received.",
+          "source_file": "The_Godfather_Part_II.html"
+        }
+      ],
+      "relevant_files": [
+        "The_Godfather_Part_II.html"
+      ],
+      "difficulty_notes": "Tests careful handling of a disputed claim; the widow's rebuttal must not be dropped."
+    },
+    {
+      "id": "Q061",
+      "query": "Who was offered the Hyman Roth role and turned it down?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Coppola offered the role of Hyman Roth to James Cagney, who refused because he had retired from acting. The part went to Lee Strasberg.",
+      "supporting_quotes": [
+        {
+          "text": "Coppola offered James Cagney the role of Hyman Roth, but he refused as he had retired from acting.",
+          "source_file": "The_Godfather_Part_II.html"
+        },
+        {
+          "text": "Lee Strasberg as Hyman Roth",
+          "source_file": "The_Godfather_Part_II.html"
+        }
+      ],
+      "relevant_files": [
+        "The_Godfather_Part_II.html"
+      ],
+      "difficulty_notes": "Narrow trivia lookup requiring retrieval from a casting paragraph rather than the cast list."
+    },
+    {
+      "id": "Q062",
+      "query": "Jack Nicholson has more acting nominations than any other man — how many, and what's his record on wins?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Jack Nicholson received 12 Academy Award nominations — eight for Best Actor and four for Best Supporting Actor — the most of any male actor. He won three: Best Actor for One Flew Over the Cuckoo's Nest (1975) and As Good as It Gets (1997), and Best Supporting Actor for Terms of Endearment (1983).",
+      "supporting_quotes": [
+        {
+          "text": "With 12 Academy Award nominations (eight for Best Actor and four for Best Supporting Actor), Nicholson is the most nominated male actor in Academy Awards history.",
+          "source_file": "Jack_Nicholson.html"
+        },
+        {
+          "text": "Nicholson won Academy Awards for Best Actor for playing Randle McMurphy in One Flew Over the Cuckoo's Nest (1975) and an author with OCD in As Good as It Gets (1997), as well as for Best Supporting Actor for playing an aging playboy in Terms of Endearment (1983).",
+          "source_file": "Jack_Nicholson.html"
+        },
+        {
+          "text": "Jack Nicholson became the fourth performer to win at least three acting Oscars.",
+          "source_file": "70th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "Jack_Nicholson.html",
+        "70th_Academy_Awards.html",
+        "Academy_Award_for_Best_Supporting_Actor.html"
+      ],
+      "difficulty_notes": "Multi-document verification; the ceremony article supplies the 'fourth performer with three acting Oscars' framing."
+    },
+    {
+      "id": "Q063",
+      "query": "He found out at 37 that his sister was actually his mother — how did that come about?",
+      "information_need": "overview",
+      "motivation": "media_reference",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "In 1974 Time magazine researchers discovered — and told Jack Nicholson — that the woman he knew as his sister June was in fact his mother, and that his other 'sister' Lorraine was his aunt. June had been only 17 and unmarried when he was born, so her parents agreed to raise Nicholson as their own child without revealing his parentage, with June acting as his sister. By the time he learned this, both his mother and grandmother had died, in 1963 and 1970 respectively. Nicholson called it 'a pretty dramatic event, but it wasn't what I'd call traumatizing ... I was pretty well psychologically formed'.",
+      "supporting_quotes": [
+        {
+          "text": "In 1974, Time magazine researchers learned, and informed Nicholson, that his \"sister\", June, was actually his mother, and his other \"sister\", Lorraine, was really his aunt.",
+          "source_file": "Jack_Nicholson.html"
+        },
+        {
+          "text": "As June was only 17 and unmarried, her parents agreed to raise Nicholson as their own child without revealing his true parentage, with June acting as his sister.",
+          "source_file": "Jack_Nicholson.html"
+        },
+        {
+          "text": "By this time, both his mother and grandmother had died (in 1963 and 1970, respectively).",
+          "source_file": "Jack_Nicholson.html"
+        }
+      ],
+      "relevant_files": [
+        "Jack_Nicholson.html"
+      ],
+      "difficulty_notes": "No name in the query; retrieval must key on the biographical detail. Tests a sensitive personal narrative."
+    },
+    {
+      "id": "Q064",
+      "query": "Nicholson and Kubrick's collaboration is famous for its intensity — describe how The Shining was shot and what Kubrick said about the performance.",
+      "information_need": "overview",
+      "motivation": "media_reference",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Kubrick wanted Nicholson from the start for Jack Torrance, though Stephen King had wanted more of an 'everyman'. Kubrick said Nicholson's acting was 'on a par with the greatest stars of the past, like Spencer Tracy and Jimmy Cagney', and that you believe he is a writer because Kubrick considered intelligent, literate roles almost impossible to act. Nicholson drew on his own experience as a writer and slept short hours to stay agitated. He improvised the 'Here's Johnny!' line and a scene unleashing anger at his wife. Kubrick's perfectionism meant extensive takes — Nicholson shot a scene with the ghostly bartender 36 times.",
+      "supporting_quotes": [
+        {
+          "text": "He was Kubrick's first choice to play the role, although the book's author, Stephen King, wanted more of an \"everyman\".",
+          "source_file": "Jack_Nicholson.html"
+        },
+        {
+          "text": "Kubrick won the argument and called Nicholson's acting \"on a par with the greatest stars of the past, like Spencer Tracy and Jimmy Cagney\".",
+          "source_file": "Jack_Nicholson.html"
+        },
+        {
+          "text": "Nicholson improvised his now-famous \"Here's Johnny!\" line, along with a scene in which he unleashes his anger on his wife when she interrupts his work.",
+          "source_file": "Jack_Nicholson.html"
+        },
+        {
+          "text": "Nicholson shot a scene with the ghostly bartender 36 times.",
+          "source_file": "Jack_Nicholson.html"
+        }
+      ],
+      "relevant_files": [
+        "Jack_Nicholson.html"
+      ],
+      "difficulty_notes": "Requires assembling casting, quotation and production-detail strands from one section."
+    },
+    {
+      "id": "Q065",
+      "query": "What did Nicholson say about the impact of Marlon Brando on his own acting?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Nicholson said Brando influenced him strongly, adding that it is hard for people who weren't there to realize the impact Brando had on an audience, and calling him 'the patron saint of actors'. He also said he was part of the first generation that idolized Brando, and as a young assistant theatre manager he watched On the Waterfront about 40 times. He took a less sympathetic role in The Missouri Breaks (1976) specifically to work with Brando.",
+      "supporting_quotes": [
+        {
+          "text": "Marlon Brando influenced me strongly. Today, it's hard for people who weren't there to realize the impact that Brando had on an audience. ... He's always been the patron saint of actors",
+          "source_file": "Jack_Nicholson.html"
+        },
+        {
+          "text": "I'm part of the first generation that idolized Marlon Brando",
+          "source_file": "Jack_Nicholson.html"
+        },
+        {
+          "text": "Nicholson was especially inspired by Brando's acting ability, recalling that in his youth, as an assistant manager at a theater, he watched On the Waterfront about 40 times.",
+          "source_file": "Jack_Nicholson.html"
+        }
+      ],
+      "relevant_files": [
+        "Jack_Nicholson.html"
+      ],
+      "difficulty_notes": "Quotation-heavy answer; tests verbatim fidelity to an interview passage inside a long biography."
+    },
+    {
+      "id": "Q066",
+      "query": "Where does Whiplash rank among Sundance films, and what did the festival's anniversary survey find?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "In 2024, Whiplash topped the list of the Sundance Film Festival's Top 10 Films of All Time, as the result of a survey of 500 filmmakers and critics conducted in honor of the festival's 40th anniversary.",
+      "supporting_quotes": [
+        {
+          "text": "In 2024, it topped the list of the Sundance Film Festival's Top 10 Films of All Time as the result of a survey conducted with 500 filmmakers and critics in honor of the festival's 40th anniversary.",
+          "source_file": "Whiplash_(2014_film).html"
+        }
+      ],
+      "relevant_files": [
+        "Whiplash_(2014_film).html"
+      ],
+      "difficulty_notes": "Recency-flavored lookup that anchors to a dated survey; tests precision on the participant count."
+    },
+    {
+      "id": "Q067",
+      "query": "What awards did Whiplash win at Sundance when it premiered, and how does that relate to the short film of the same name?",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The feature Whiplash premiered in competition at the 2014 Sundance Film Festival on January 16 as the festival's opening film and won both the Audience Award Dramatic and the Grand Jury Prize Dramatic. One year earlier, Chazelle's eighteen-minute short of the same name — made from fifteen pages of the feature script to attract investors — debuted at the 2013 festival and won the short film Jury Award for fiction. That earlier premiere later caused the Academy to classify the feature screenplay as adapted rather than original.",
+      "supporting_quotes": [
+        {
+          "text": "Whiplash premiered in competition at the 2014 Sundance Film Festival on January 16, as the festival's opening film, where it won the Audience Award Dramatic and the Grand Jury Prize Dramatic.",
+          "source_file": "Whiplash_(2014_film).html"
+        },
+        {
+          "text": "The eighteen-minute short film received acclaim after debuting at the 2013 Sundance Film Festival, winning the short film Jury Award for fiction, which attracted investors to produce the complete version of the script.",
+          "source_file": "Whiplash_(2014_film).html"
+        },
+        {
+          "text": "After the success of his film Whiplash (2014), the project was picked up by Summit Entertainment.",
+          "source_file": "La_La_Land.html"
+        }
+      ],
+      "relevant_files": [
+        "Whiplash_(2014_film).html",
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "difficulty_notes": "Multi-document because the downstream consequence for La La Land's financing is documented elsewhere."
+    },
+    {
+      "id": "Q068",
+      "query": "Explain how the failure to finance La La Land initially shaped what Chazelle made next and how the film finally got funded.",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Chazelle wrote La La Land in 2010 but no studio would finance an original contemporary jazz musical with no familiar songs; Focus Features considered it at around a $1 million budget but demanded the male lead be changed from a jazz pianist to a rock musician, the opening number altered and the bittersweet ending dropped, so Chazelle scrapped the project. He then wrote Whiplash, an easier concept to sell and a less risky investment. After Whiplash was well received at the 2014 Sundance Film Festival and later earned five Oscar nominations including Best Picture on a $3.3 million budget, studios took notice; five years after the script was written, Summit Entertainment and Black Label Media with producer Marc Platt agreed to finance and distribute La La Land, impressed by Whiplash's success. Lionsgate's Patrick Wachsberger pushed Chazelle to increase the budget, believing high-quality musicals could not be made cheaply.",
+      "supporting_quotes": [
+        {
+          "text": "Chazelle was unable to produce the film for years as no studio was willing to finance an original contemporary musical with no familiar songs.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "Chazelle later wrote Whiplash, which was an easier concept to sell and a less risky investment.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "Five years after Chazelle wrote the script, Summit Entertainment and Black Label Media, along with producer Marc Platt, agreed to invest in La La Land and distribute it. They had been impressed by the critical and commercial success of Whiplash.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "Because his script was featured on The Black List in 2012 as one of the best unmade films of that year.",
+          "source_file": "Whiplash_(2014_film).html"
+        }
+      ],
+      "relevant_files": [
+        "La_La_Land.html",
+        "Whiplash_(2014_film).html",
+        "Damien_Chazelle.html"
+      ],
+      "difficulty_notes": "The final quote may not match the source exactly; a rigorous system must verify wording. Tests causal reasoning across a director's filmography."
+    },
+    {
+      "id": "Q069",
+      "query": "Wait — was La La Land actually the first film to be announced wrongly, or has that happened before at the Oscars?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The corpus describes the La La Land / Moonlight mix-up as an event unprecedented in the history of the Oscars — La La Land was incorrectly announced as Best Picture and the error was corrected a few minutes later.",
+      "supporting_quotes": [
+        {
+          "text": "In an event unprecedented in the history of the Oscars, La La Land was incorrectly announced as the Best Picture, and, a few minutes later, the error was corrected and Moonlight was declared the winner.",
+          "source_file": "89th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "89th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "Argument-settling conversational query; tests whether the system grounds 'first' in the corpus's own 'unprecedented' phrasing."
+    },
+    {
+      "id": "Q070",
+      "query": "How did the star of La La Land describe her own struggles breaking into acting, and how did that feed into her role?",
+      "information_need": "in_depth",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Emma Stone moved to Hollywood with her mother at fifteen to pursue a career and struggled constantly to get an audition in her first year; when she did, she was often turned away after singing or saying one line. She drew on her own experiences for Mia, and some were added into the film. Her co-star Ryan Gosling likewise drew on his own experiences as an aspiring artist: one incident was used for Mia, in which a casting director took a phone call during his crying scene and talked about lunch plans while he was emoting. Chazelle asked both about their audition disasters.",
+      "supporting_quotes": [
+        {
+          "text": "She moved to Hollywood with her mother at age fifteen to pursue a career, and struggled constantly to get an audition during her first year. When she did, she often was turned away after singing or saying just one line.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "Stone drew from her own experiences for her character of Mia, and some were added into the film.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "Gosling was performing a crying scene in an audition and the casting director took a phone call during it, talking about her lunch plans while he was emoting.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "Chazelle asked Gosling and Stone about their audition disasters when they were both trying to make it.",
+          "source_file": "La_La_Land.html"
+        }
+      ],
+      "relevant_files": [
+        "La_La_Land.html",
+        "89th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Query names neither actor; requires inference from 'the star'. Note that the Gosling anecdote is easily misattributed to Stone."
+    },
+    {
+      "id": "Q071",
+      "query": "Explain how the opening freeway number in La La Land was staged.",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The opening pre-credits sequence was the first thing shot, filmed on a closed-off portion of two carpool direct connector ramps of the Judge Harry Pregerson Interchange connecting the I-105 carpool lane to the I-110 express lanes. It took two days and required more than 100 dancers. Chazelle wanted to convey the vastness of the city; the scene was originally planned for a stretch of ground-level highway before he decided on the interchange, which arcs 100 feet in the air, and not every portion of the highway was blocked. He compared the scene to the yellow brick road leading to the Emerald City in The Wizard of Oz.",
+      "supporting_quotes": [
+        {
+          "text": "It was filmed in a span of two days, and required more than 100 dancers.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "The scene was originally planned for a stretch of ground-level highway, until Chazelle decided to shoot it in the 105–110 interchange, which arcs 100 feet (30 m) in the air. Not every portion of the highway was blocked.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "Cameron compared the scene to the yellow brick road leading to the Emerald City in The Wizard of Oz (1939).",
+          "source_file": "La_La_Land.html"
+        }
+      ],
+      "relevant_files": [
+        "La_La_Land.html"
+      ],
+      "difficulty_notes": "The source misnames Chazelle as 'Cameron' in one sentence; the system must quote faithfully while attributing correctly in the answer."
+    },
+    {
+      "id": "Q072",
+      "query": "What is the highest-grossing film of all time?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "temporally_stale",
+      "expected_behavior": "The system should give the corpus's recorded position — Titanic held the record until Avatar surpassed it in 2010, and as of the corpus Titanic is the fourth-highest-grossing film — while explicitly flagging that these figures are a snapshot and may be out of date.",
+      "expected_answer": "According to the source material, Titanic was the highest-grossing film of all time until James Cameron's Avatar (2009) surpassed it in 2010; as of the corpus's records, Titanic stands as the fourth-highest-grossing film with a worldwide total of $2.264 billion. These figures reflect the sources' date and may be superseded.",
+      "supporting_quotes": [
+        {
+          "text": "With an initial worldwide gross of over $1.84 billion, Titanic was the first film to reach the billion-dollar mark",
+          "source_file": "Titanic_(1997_film).html"
+        },
+        {
+          "text": "Releases pushed the worldwide theatrical total to $2.264 billion, making Titanic the second film to gross more than $2 billion worldwide after Avatar; as of 2023, it is the fourth-highest-grossing film.",
+          "source_file": "Titanic_(1997_film).html"
+        },
+        {
+          "text": "It became the highest-grossing film of all time worldwide in 1998, beating Jurassic Park (1993).",
+          "source_file": "Titanic_(1997_film).html"
+        }
+      ],
+      "relevant_files": [
+        "Titanic_(1997_film).html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Temporal staleness test: 'of all time' invites an absolute answer from a dated snapshot."
+    },
+    {
+      "id": "Q073",
+      "query": "What is Steven Spielberg's record at the Oscars for producing versus directing?",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Spielberg holds the record for most Best Picture producing nominations at fourteen, winning one. As a director he has the most Best Director nominations of any filmmaker in six different decades and won twice, for Schindler's List and Saving Private Ryan; his Best Picture Oscar also came from Schindler's List. He is the only director to direct three Best Picture-winning films — the three for which he won Best Director — and shares with William Wyler the record for directing the greatest number of Best Picture nominees at thirteen.",
+      "supporting_quotes": [
+        {
+          "text": "Steven Spielberg holds the record for most nominations at fourteen, winning one, while Kathleen Kennedy holds the record for most nominations without a win at eight.",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        },
+        {
+          "text": "He received nine nominations for Best Director, and won twice (for Schindler's List and Saving Private Ryan). His third was in Best Picture, for Schindler's List.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "He is the only director in Academy history to direct three Best Picture-winning films (the three for which he won Best Director), and shares with Steven Spielberg the record for directing the greatest number of Best Picture nominees (thirteen).",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "He is the only director to receive a Best Director nomination from the academy in 6 different decades.",
+          "source_file": "Steven_Spielberg.html"
+        }
+      ],
+      "relevant_files": [
+        "Steven_Spielberg.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "The 'shares with Steven Spielberg' quote is self-referential in the source and must be read carefully; tests careful parsing of a confusingly worded record."
+    },
+    {
+      "id": "Q074",
+      "query": "Describe how Spielberg came to make Schindler's List and how it affected his later work.",
+      "information_need": "in_depth",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Spielberg waited ten years to make Schindler's List because he did not feel mature enough, wanting to embrace his heritage; after the birth of his son Max, he said a spirit ignited in him and he became 'a Jewish dad'. Principal photography began March 1, 1993 in Kraków, Poland, while he supervised post-production on Jurassic Park; he brought his wife and children to make the shoot bearable. The film was a commercial success and Spielberg used his percentage of the profits to start the Shoah Foundation, a non-profit archiving Holocaust survivor testimonies. It won seven Academy Awards, including Best Picture and his first Best Director. Composer John Williams told him after seeing a rough cut, 'You need a better composer than I am for this film,' to which Spielberg replied, 'I know. But they're all dead!'",
+      "supporting_quotes": [
+        {
+          "text": "Based on Schindler's Ark, Spielberg waited ten years to make the film as he did not feel \"mature\" enough.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "Against expectations, the film was a commercial success, and Spielberg used his percentage of profits to start the Shoah Foundation, a non-profit organization that archives testimonies of Holocaust survivors.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "Schindler's List won seven Academy Awards, including Best Picture and Spielberg's first as Best Director.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "You need a better composer than I am for this film.",
+          "source_file": "Steven_Spielberg.html"
+        }
+      ],
+      "relevant_files": [
+        "Steven_Spielberg.html",
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "difficulty_notes": "Long biography synthesis across production, awards and legacy sections."
+    },
+    {
+      "id": "Q075",
+      "query": "how did the guy who directed jaws get his start in the business",
+      "information_need": "overview",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "After a chance conversation with a Universal executive during a studio tour got him a three-day pass, Spielberg walked back in without a pass on the fourth day and spent two months on the lot as an 'unofficial apprentice'. In 1968 Universal let him write and direct a 26-minute 35mm short, Amblin'; studio vice president Sidney Sheinberg was impressed and offered him a seven-year directing contract. He dropped out of college to direct television for Universal, making him the youngest director signed to a long-term plan with a major Hollywood studio. His professional debut was the 'Eyes' segment of Night Gallery (1969), and his TV film Duel (1971) was released theatrically internationally.",
+      "supporting_quotes": [
+        {
+          "text": "In 1968, Universal gave Spielberg the opportunity to write and direct a short film for theatrical release, the 26-minute 35 mm Amblin'. Studio vice president Sidney Sheinberg was impressed and offered Spielberg a seven-year directing contract.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "A year later, he dropped out of college to begin directing television productions for Universal, making him the youngest director to be signed to a long-term plan with a major Hollywood studio.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "Spielberg made his professional debut with \"Eyes\", a segment of Night Gallery (1969) scripted by Rod Serling and starring Joan Crawford.",
+          "source_file": "Steven_Spielberg.html"
+        }
+      ],
+      "relevant_files": [
+        "Steven_Spielberg.html"
+      ],
+      "difficulty_notes": "Colloquial, entity named only by a film credit; overview spanning several early-career sections."
+    },
+    {
+      "id": "Q076",
+      "query": "Which Spielberg film was made after a chance conversation about a merit badge, and how did Scouting figure in his life?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The framing is slightly off: Spielberg did not make a film because of a merit badge, but in 1958 he became a Boy Scout and eventually attained the rank of Eagle Scout, fulfilling a photography merit badge requirement by making a nine-minute 8 mm Western called The Last Gunfight. Later, drawing on his Scouting experience, he helped the Boy Scouts of America develop a cinematography merit badge, launched at the 1989 National Scout Jamboree, and in 1989 he was presented with the Distinguished Eagle Scout Award.",
+      "supporting_quotes": [
+        {
+          "text": "In 1958, he became a Boy Scout, eventually attaining the rank of Eagle Scout. He fulfilled a requirement for the photography merit badge by making a nine-minute 8 mm Western, The Last Gunfight.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "Drawing from his own experiences in Scouting, Spielberg helped the Boy Scouts of America develop a merit badge in cinematography to promote filmmaking as a marketable skill; the badge was launched at the 1989 National Scout Jamboree.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "In 1989, Spielberg was presented with the Distinguished Eagle Scout Award.",
+          "source_file": "Steven_Spielberg.html"
+        }
+      ],
+      "relevant_files": [
+        "Steven_Spielberg.html"
+      ],
+      "difficulty_notes": "The query contains a mild mis-framing that the system should gently correct while still answering."
+    },
+    {
+      "id": "Q077",
+      "query": "Why did Spielberg step down as an advisor to the Beijing Olympics?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "In February 2008, Spielberg resigned as advisor to the 2008 Summer Olympics in response to the Chinese government's inaction over the War in Darfur, saying his conscience would not allow him to continue business as usual and that Sudan's government bore the bulk of the responsibility but the international community, particularly China, should be doing more. IOC president Jacques Rogge respected the decision but expressed disappointment, and Chinese state media called Spielberg's comments 'unfair'.",
+      "supporting_quotes": [
+        {
+          "text": "In February 2008, Spielberg resigned as advisor to the 2008 Summer Olympics in response to the Chinese government's inaction over the War in Darfur.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "I find that my conscience will not allow me to continue business as usual",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "The International Olympic Committee (IOC) respected Spielberg's decision but IOC president Jacques Rogge expressed disappointment",
+          "source_file": "Steven_Spielberg.html"
+        }
+      ],
+      "relevant_files": [
+        "Steven_Spielberg.html"
+      ],
+      "difficulty_notes": "Event-framed lookup requiring the reaction as well as the reason."
+    },
+    {
+      "id": "Q078",
+      "query": "Explain how the making of Mrs. Miniver connected Wyler's wartime service to Spielberg's later interest in World War II filmmaking.",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Mrs. Miniver was a deliberately propagandistic film intended to make Americans less isolationist by depicting British suffering; it won six Academy Awards, was the top box office hit of 1942 and gave Wyler his first Best Director Oscar. Churchill reportedly told MGM chief Louis B. Mayer that it was 'propaganda worth 100 battleships'. Wyler then volunteered for the United States Army Air Forces between 1942 and 1945, directing The Memphis Belle at great personal risk on actual bombing missions, and later said Mrs. Miniver 'only scratched the surface of war'. Spielberg, whose father told him constantly about World War II, said those stories convinced him there was no glory in war and that if he ever made a war film it would have to tell the truth about the experiences of the young men storming Omaha Beach — which he did with Saving Private Ryan, winning his second Best Director Oscar. Spielberg also discusses Wyler's filming of Memphis Belle in the 2017 Netflix series Five Came Back.",
+      "supporting_quotes": [
+        {
+          "text": "It was thought that by seeing the suffering of British citizens depicted in fiction story, Americans might be made more willing to aid Britain during their war effort.",
+          "source_file": "William_Wyler.html"
+        },
+        {
+          "text": "Wyler filmed The Memphis Belle at great personal risk, flying over enemy territory on actual bombing missions in 1943; on one flight, Wyler lost consciousness from lack of oxygen.",
+          "source_file": "William_Wyler.html"
+        },
+        {
+          "text": "my dad told me stories about World War II constantly ... I knew, based on the stories my dad and his friends were telling about World War II, that there was no glory in war.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "Director Steven Spielberg describes Wyler's filming of Memphis Belle in the 2017 Netflix series, Five Came Back.",
+          "source_file": "William_Wyler.html"
+        }
+      ],
+      "relevant_files": [
+        "William_Wyler.html",
+        "Steven_Spielberg.html"
+      ],
+      "difficulty_notes": "Genuine two-document connection built on an explicit textual link (Five Came Back) plus thematic parallels."
+    },
+    {
+      "id": "Q079",
+      "query": "How many Academy Awards has Titanic's director received, and for what?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": false,
+      "adversarial_kind": "unanswerable_from_corpus",
+      "expected_behavior": "The system should state that the corpus records that Titanic won 11 Academy Awards including Best Director, but does not contain a total career Oscar tally for James Cameron. It should decline to give a number rather than inferring one.",
+      "expected_answer": "Not available from the source material. The corpus records that Titanic won eleven Academy Awards including Best Director, but it does not provide James Cameron's complete career Academy Award count.",
+      "supporting_quotes": [],
+      "relevant_files": [
+        "Titanic_(1997_film).html"
+      ],
+      "difficulty_notes": "The corpus has no biography article for James Cameron, so a career total cannot be assembled; tests refusal on a plausible-seeming request."
+    },
+    {
+      "id": "Q080",
+      "query": "Tell me about Anthony Minghella — what did he win and what happened at the Oscars after his death?",
+      "information_need": "overview",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Anthony Minghella (1954–2008) was a British playwright and filmmaker who directed Truly, Madly, Deeply, The English Patient, The Talented Mr. Ripley and Cold Mountain. He won the Academy Award for Best Director for The English Patient, and received three further nominations: Best Adapted Screenplay for both The English Patient and The Talented Mr. Ripley, and, posthumously, Best Picture for The Reader (2008) as a producer. The Academy made an exception to its normal three-producer limit for Best Picture so that Minghella and Sydney Pollack could be posthumously included among the four producers nominated for The Reader.",
+      "supporting_quotes": [
+        {
+          "text": "He received the Academy Award for Best Director for The English Patient. In addition, he received three more Academy Award nominations; he was nominated for Best Adapted Screenplay for both The English Patient and The Talented Mr. Ripley, and was posthumously nominated for Best Picture for The Reader (2008), as a producer.",
+          "source_file": "Anthony_Minghella.html"
+        },
+        {
+          "text": "The Academy can make exceptions to the limit, as when Anthony Minghella and Sydney Pollack were posthumously included among the four producers nominated for The Reader (2008).",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        }
+      ],
+      "relevant_files": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "The producer-limit exception appears only in the category article, making this genuinely multi-document."
+    },
+    {
+      "id": "Q081",
+      "query": "For a seminar on adaptation, describe the career of the director of Kramer vs. Kramer and how that film performed at the Academy Awards.",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Kramer vs. Kramer was written and directed by Robert Benton, adapted from Avery Corman's 1977 novel. It received a leading nine nominations at the 52nd Academy Awards, including Best Supporting Actor for Justin Henry and Best Supporting Actress for both Jane Alexander and Meryl Streep, and won a leading five: Best Picture, Best Director for Benton, Best Actor for Dustin Hoffman, Best Supporting Actress for Streep, and Best Adapted Screenplay. It also received eight nominations and four wins at the 37th Golden Globe Awards.",
+      "supporting_quotes": [
+        {
+          "text": "Kramer vs. Kramer is a 1979 American legal drama film written and directed by Robert Benton, based on Avery Corman's 1977 novel.",
+          "source_file": "Kramer_vs._Kramer.html"
+        },
+        {
+          "text": "Kramer vs. Kramer received a leading nine nominations at the 52nd Academy Awards, including Best Supporting Actor (for Henry) and Best Supporting Actress (for Alexander and Streep), and won a leading five awards – Best Picture, Best Director (for Benton), Best Actor (for Hoffman), Best Supporting Actress (for Streep) and Best Adapted Screenplay.",
+          "source_file": "Kramer_vs._Kramer.html"
+        }
+      ],
+      "relevant_files": [
+        "Kramer_vs._Kramer.html"
+      ],
+      "difficulty_notes": "Straightforward but requires distinguishing the nine nominations from the five wins, and correctly listing which acting categories."
+    },
+    {
+      "id": "Q082",
+      "query": "There's a famous ice cream scene in that divorce film — was it scripted?",
+      "information_need": "fact_lookup",
+      "motivation": "media_reference",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "No. The ice cream scene in Kramer vs. Kramer, in which Billy defies Ted by skipping dinner and eating ice cream, was all improvised by Dustin Hoffman and Justin Henry. Benton encouraged Henry to improvise to make his performance more natural, and Hoffman contributed many personal moments and dialogue — Benton offered him shared screenplay credit, which Hoffman declined.",
+      "supporting_quotes": [
+        {
+          "text": "The ice cream scene in which Billy defies Ted by skipping dinner and eating ice cream was all improvised by Hoffman and Henry.",
+          "source_file": "Kramer_vs._Kramer.html"
+        },
+        {
+          "text": "Benton encouraged Henry to improvise to make his performance more natural.",
+          "source_file": "Kramer_vs._Kramer.html"
+        },
+        {
+          "text": "Hoffman contributed many personal moments and dialogue; Benton offered shared screenplay credit but Hoffman declined.",
+          "source_file": "Kramer_vs._Kramer.html"
+        }
+      ],
+      "relevant_files": [
+        "Kramer_vs._Kramer.html"
+      ],
+      "difficulty_notes": "Media-reference approach with no title; the query's 'divorce film' descriptor must map to the correct article."
+    },
+    {
+      "id": "Q083",
+      "query": "How was Meryl Streep treated during the making of Kramer vs. Kramer, and how has that been reassessed?",
+      "information_need": "overview",
+      "motivation": "current_event",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Hoffman has been widely reported to have harassed Streep during the making of the film. Streep claimed in a 1979 Time interview that Hoffman groped her breast on their first meeting, though a representative later said the article was not an accurate rendering of the meeting. When she advocated portraying Joanna as more sympathetic and vulnerable than written, she received pushback from Hoffman. One unauthorized biography reports he hurled insults and taunted her with the name of her recently deceased fiancé John Cazale, and he shattered a wine glass against the wall without warning her, sending shards into her hair; she replied, 'Next time you do that, I'd appreciate you letting me know.' In 2018 Streep said he slapped her hard without warning while filming, calling it overstepping.",
+      "supporting_quotes": [
+        {
+          "text": "Hoffman has been widely reported to have harassed Streep during the making of the film, and the two had a contentious working relationship.",
+          "source_file": "Kramer_vs._Kramer.html"
+        },
+        {
+          "text": "In a 1979 Time magazine interview, Streep claimed that Hoffman groped her breast on their first meeting, although a representative for Streep said the article was not \"an accurate rendering of that meeting\".",
+          "source_file": "Kramer_vs._Kramer.html"
+        },
+        {
+          "text": "Next time you do that, I'd appreciate you letting me know.",
+          "source_file": "Kramer_vs._Kramer.html"
+        },
+        {
+          "text": "This was my first film, and it was my first take in my first film, and he just slapped me. And you see it in the film. It was overstepping.",
+          "source_file": "Kramer_vs._Kramer.html"
+        }
+      ],
+      "relevant_files": [
+        "Kramer_vs._Kramer.html"
+      ],
+      "difficulty_notes": "Sensitive material with a disputed claim; tests balanced reporting including the representative's denial."
+    },
+    {
+      "id": "Q084",
+      "query": "Which two people share the record for the shortest Oscar-nominated supporting performances by screen time?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "For nominated (non-winning) supporting performances, the shortest for an actor is Ned Beatty in Network at 6 minutes exactly, and for an actress Hermione Baddeley in Room at the Top at 2 minutes 19 seconds. Among winners, the shortest are Ben Johnson in The Last Picture Show at 9 minutes 54 seconds and Beatrice Straight in Network at 5 minutes 2 seconds.",
+      "supporting_quotes": [
+        {
+          "text": "Ned Beatty in Network (1976) 6:00",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "Hermione Baddeley in Room at the Top (1959) 2:19",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "Beatrice Straight in Network (1976) 5:02",
+          "source_file": "List_of_Academy_Award_records.html"
+        }
+      ],
+      "relevant_files": [
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Table-derived answer; tests careful separation of 'won' and 'nominated' rows in a dense table."
+    },
+    {
+      "id": "Q085",
+      "query": "Who is the oldest person ever nominated for an acting Oscar and for which film?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Christopher Plummer, aged 88, for All the Money in the World (2017), in the Best Supporting Actor category. He is also recorded as the oldest winner in that category, for Beginners at 82.",
+      "supporting_quotes": [
+        {
+          "text": "Oldest nominee for an acting award\n  - Christopher Plummer, age 88 (Best Supporting Actor, All the Money in the World, 2017)",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "Christopher Plummer is the oldest actor to receive a nomination in any category at age 88, for All the Money in the World (2017).",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html"
+        }
+      ],
+      "relevant_files": [
+        "List_of_Academy_Award_records.html",
+        "Academy_Award_for_Best_Supporting_Actor.html"
+      ],
+      "difficulty_notes": "Two documents corroborate; tests whether the system distinguishes oldest nominee from oldest winner (Anthony Hopkins)."
+    },
+    {
+      "id": "Q086",
+      "query": "Which film had the biggest gap between an actor's first and second nomination, and what was that gap?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Judd Hirsch set the record for the longest gap between Oscar nominations: 42 years between his first, for Ordinary People (1980), and his second, for The Fabelmans.",
+      "supporting_quotes": [
+        {
+          "text": "The 42-year span between Judd Hirsch's first nomination, for his supporting role in Ordinary People (1980), and his second, for The Fabelmans, set the record for the longest gap between Oscar nominations.",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "Judd Hirsch was nominated in 1981 for Ordinary People and in 2023 for The Fabelmans, a 42-year gap.",
+          "source_file": "List_of_Academy_Award_records.html"
+        }
+      ],
+      "relevant_files": [
+        "95th_Academy_Awards.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "The two sources date the nominations differently (1980/1981 and 2022/2023) while agreeing on the 42-year gap; tests careful reconciliation."
+    },
+    {
+      "id": "Q087",
+      "query": "Bill Nighy waited a long time for his first Oscar nomination — how did he get there and what was the role?",
+      "information_need": "overview",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Bill Nighy received his first Academy Award nomination for Best Actor for Living, an English-language adaptation of Akira Kurosawa's Ikiru directed by Oliver Hermanus from a screenplay by Kazuo Ishiguro. It was announced in October 2020 that he would play the lead; shooting began in spring 2021 in locations across the UK including London and Worthing, and the film premiered at Sundance in January 2022, where his performance received high praise. He also earned nominations for the BAFTA, Golden Globe and Screen Actors Guild awards for Best Actor.",
+      "supporting_quotes": [
+        {
+          "text": "In October 2020, it was announced that Nighy would play the leading role in Living, an English-language adaptation of Akira Kurosawa’s 1952 Japanese drama Ikiru, to be directed by Oliver Hermanus from a screenplay by Kazuo Ishiguro.",
+          "source_file": "Bill_Nighy.html"
+        },
+        {
+          "text": "Shooting began in spring 2021 in locations across the UK, including London and Worthing. The film premiered at Sundance in January 2022, where Nighy's performance in particular received high praise.",
+          "source_file": "Bill_Nighy.html"
+        },
+        {
+          "text": "For his performance he went on to receive nominations for the Academy Award, BAFTA Award, Golden Globe Award, and Screen Actors Guild Award for Best Actor.",
+          "source_file": "Bill_Nighy.html"
+        }
+      ],
+      "relevant_files": [
+        "Bill_Nighy.html",
+        "95th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Tests whether the system reports nominations without upgrading any to wins."
+    },
+    {
+      "id": "Q088",
+      "query": "How did the actor who played the ageing rocker in that Christmas ensemble film get into acting in the first place?",
+      "information_need": "overview",
+      "motivation": "media_reference",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Bill Nighy, who played Billy Mack in Love Actually, left school at 15 without qualifications and later travelled to Paris with a friend hoping and failing to write a novel. He worked in a local employment office and as a messenger for The Croydon Advertiser and The Field. He applied to RADA but was rejected, and instead enrolled at the Guildford School of Dance and Drama to train for the stage. After working in regional theatre in his early twenties, a friend suggested he audition for the Everyman Theatre in Liverpool, where his audition — during which he asked to start again about five times — led Jonathan Pryce to conclude he was either a very good actor or a madman.",
+      "supporting_quotes": [
+        {
+          "text": "He left school at the age of 15, without qualifications, and later with a friend travelled to Paris hoping and failing \"to write a novel\".",
+          "source_file": "Bill_Nighy.html"
+        },
+        {
+          "text": "Nighy then applied for a place at RADA, but was rejected, and instead enrolled at the Guildford School of Dance and Drama to train for the stage.",
+          "source_file": "Bill_Nighy.html"
+        },
+        {
+          "text": "During his audition he asked to start again about five times, according to fellow actor Jonathan Pryce, who said that \"either he was a very good actor, or a madman\".",
+          "source_file": "Bill_Nighy.html"
+        }
+      ],
+      "relevant_files": [
+        "Bill_Nighy.html"
+      ],
+      "difficulty_notes": "Named only via a character in another film; tests semantic bridging from role to biography."
+    },
+    {
+      "id": "Q089",
+      "query": "Paul Mescal's Oscar nomination came from a film about a father and daughter on holiday — what's the film and what else did it earn him?",
+      "information_need": "fact_lookup",
+      "motivation": "media_reference",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The film is Aftersun (2022), in which Mescal plays Calum Patterson, a troubled young father. It earned him a nomination for the Academy Award for Best Actor and a nomination for the BAFTA Award for Best Actor in a Leading Role. Aftersun premiered at the 2022 Cannes Film Festival.",
+      "supporting_quotes": [
+        {
+          "text": "For his performance as a troubled father in the coming-of-age drama Aftersun (2022), he received a nomination for the Academy Award for Best Actor.",
+          "source_file": "Paul_Mescal.html"
+        },
+        {
+          "text": "A year later, Mescal starred as a man accused of sexual assault in the psychological drama God's Creatures and as a troubled young father in the drama Aftersun, both of which premiered at the 2022 Cannes Film Festival.",
+          "source_file": "Paul_Mescal.html"
+        },
+        {
+          "text": "He received nominations for the Academy Award for Best Actor and the BAFTA Award for Best Actor in a Leading Role for the latter.",
+          "source_file": "Paul_Mescal.html"
+        }
+      ],
+      "relevant_files": [
+        "Paul_Mescal.html",
+        "95th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Media-reference route into an actor biography; tests distinguishing Aftersun from God's Creatures, which premiered at the same festival."
+    },
+    {
+      "id": "Q090",
+      "query": "Compare the routes Paul Mescal and Austin Butler took to their Best Actor nominations at the same ceremony.",
+      "information_need": "in_depth",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Both were first-time nominees at the 95th ceremony, where uniquely all five Best Actor nominees were first-timers. Mescal came from theatre and television: he trained at The Lir Academy, performed at Dublin theatres, and broke through in the BBC/Hulu miniseries Normal People (2020), winning the BAFTA TV Award for Best Actor, before making his film debut in The Lost Daughter (2021) and earning his nomination for Aftersun. Butler came up through American television as a child and teen performer on Nickelodeon and Disney Channel shows including Ned's Declassified, Zoey 101 and The Carrie Diaries, before his film breakthrough in Once Upon a Time in Hollywood (2019) and his nomination for playing Elvis Presley, for which he also won the BAFTA and Golden Globe.",
+      "supporting_quotes": [
+        {
+          "text": "Mescal's breakthrough came with a leading role in the BBC / Hulu romantic drama miniseries Normal People (2020), earning him the British Academy Television Award for Best Actor",
+          "source_file": "Paul_Mescal.html"
+        },
+        {
+          "text": "He studied acting at The Lir Academy and then performed in plays in Dublin theatres.",
+          "source_file": "Paul_Mescal.html"
+        },
+        {
+          "text": "Butler began his career on television, appearing in sitcoms on Disney Channel and Nickelodeon, most notably on Zoey 101 (2007–2008), and later in teen dramas",
+          "source_file": "Austin_Butler.html"
+        },
+        {
+          "text": "For the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+          "source_file": "95th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "Paul_Mescal.html",
+        "Austin_Butler.html",
+        "95th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Three-document comparative synthesis; no single article compares the two actors."
+    },
+    {
+      "id": "Q091",
+      "query": "Tell me about Ben Kingsley's career — I know him from the Marvel films.",
+      "information_need": "overview",
+      "motivation": "media_reference",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Ben Kingsley (born Krishna Pandit Bhanji, 1943) began in theatre, joining the Royal Shakespeare Company in 1967 and working mainly on stage for 15 years. His film breakthrough was the title role in Richard Attenborough's Gandhi (1982), for which he won the Academy Award for Best Actor and the BAFTA for Best Actor in a Leading Role. He was Oscar-nominated for Bugsy (1990), Sexy Beast (2000) and House of Sand and Fog (2003), and was BAFTA-nominated for Schindler's List (1993). In the Marvel Cinematic Universe he has played Trevor Slattery for over a decade, in Iron Man 3 (2013), the short All Hail the King (2014), Shang-Chi and the Legend of the Ten Rings (2021) and the Disney+ series Wonder Man. He was appointed Knight Bachelor in 2002.",
+      "supporting_quotes": [
+        {
+          "text": "In film, Kingsley is principally known for his starring role as Mahatma Gandhi in Richard Attenborough's Gandhi (1982), for which he won the Academy Award for Best Actor and BAFTA Award for Best Actor in a Leading Role.",
+          "source_file": "Ben_Kingsley.html"
+        },
+        {
+          "text": "He was Oscar-nominated for Bugsy (1990), Sexy Beast (2000), and House of Sand and Fog (2003).",
+          "source_file": "Ben_Kingsley.html"
+        },
+        {
+          "text": "Kingsley has played the character of Trevor Slattery in the Marvel Cinematic Universe for over a decade, appearing in the films Iron Man 3 (2013) and Shang-Chi and the Legend of the Ten Rings (2021), the short film All Hail the King (2014), and the Disney+ series Wonder Man (2026–present).",
+          "source_file": "Ben_Kingsley.html"
+        },
+        {
+          "text": "Kingsley was appointed Knight Bachelor in 2002 for services to the British film industry.",
+          "source_file": "Ben_Kingsley.html"
+        }
+      ],
+      "relevant_files": [
+        "Ben_Kingsley.html"
+      ],
+      "difficulty_notes": "Reader enters via a modern franchise credit; the answer must cover the older, award-winning body of work."
+    },
+    {
+      "id": "Q092",
+      "query": "What happened when the media reported that Kingsley insisted on being called 'Sir' in credits?",
+      "information_need": "overview",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Kingsley's reported demand to be called 'Sir' in film and TV credits was documented by the BBC and drew some criticism. Co-star Penélope Cruz was reportedly unsure what to call him on Elegy after someone told her she needed to say 'Sir Ben', and once it slipped out she used it for the rest of the shoot. Kingsley has denied the accusations, saying that if he ever insisted on being called 'Sir' by colleagues on a film set he is profoundly sorry, that he does not remember doing so, and that he tends not to forget.",
+      "supporting_quotes": [
+        {
+          "text": "His demand to be called 'Sir' in film and TV show credits was documented by the BBC, to some criticism.",
+          "source_file": "Ben_Kingsley.html"
+        },
+        {
+          "text": "If I've ever insisted on being called 'Sir' by colleagues on a film set then I am profoundly sorry. I don't remember ever doing that and I tend not to forget.",
+          "source_file": "Ben_Kingsley.html"
+        },
+        {
+          "text": "Co-star Penélope Cruz was reportedly unsure what to call him during the filming of Elegy as someone had told her she needed to refer to him as \"Sir Ben\".",
+          "source_file": "Ben_Kingsley.html"
+        }
+      ],
+      "relevant_files": [
+        "Ben_Kingsley.html"
+      ],
+      "difficulty_notes": "Requires presenting both the reported claim and the denial rather than asserting one."
+    },
+    {
+      "id": "Q093",
+      "query": "Kevin Costner won two Oscars for the same film — what were they and what was unusual about it?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Costner won the Academy Awards for Best Picture and Best Director for Dances With Wolves (1990). What was unusual is that it was his directorial debut — he is one of only six directors to win Best Director for a feature film debut.",
+      "supporting_quotes": [
+        {
+          "text": "During this time, he directed and starred in the western epic Dances With Wolves (1990), for which he won two Academy Awards: Best Picture, and Best Director.",
+          "source_file": "Kevin_Costner.html"
+        },
+        {
+          "text": "Six directors won the award for their feature film debut: Delbert Mann for Marty (1955), Jerome Robbins for West Side Story (1961), Robert Redford for Ordinary People (1980), James L. Brooks for Terms of Endearment (1983), Kevin Costner for Dances With Wolves (1990), and Sam Mendes for American Beauty (1999).",
+          "source_file": "Academy_Award_for_Best_Director.html"
+        }
+      ],
+      "relevant_files": [
+        "Kevin_Costner.html",
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "difficulty_notes": "The 'unusual' element (debut feature) is only in the category article, making the second document necessary."
+    },
+    {
+      "id": "Q094",
+      "query": "I'm deciding whether to watch a long Western — how does Costner's Horizon project compare in scale and reception to his earlier epic?",
+      "information_need": "in_depth",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Horizon: An American Saga is a Western epic split into at least four films, each just under three hours long, with Costner both directing and starring; production on the first film was expected to last at least 220 days. Chapter 1 was released in June 2024, earned mixed reviews and was a box office flop, which contributed to Chapter 2 being delayed indefinitely after debuting at the 81st Venice International Film Festival to similarly mixed reviews. By contrast, his earlier epic Dances With Wolves won him two Academy Awards, and his 2003 Western Open Range received critical acclaim and was a surprise commercial success. Earlier still, his post-apocalyptic epics Waterworld and The Postman were commercial disappointments, with The Postman winning five Golden Raspberry Awards.",
+      "supporting_quotes": [
+        {
+          "text": "Costner began production on Horizon: An American Saga, a Western epic that will be split into at least four films, each just under three hours in length.",
+          "source_file": "Kevin_Costner.html"
+        },
+        {
+          "text": "The first film, Horizon: An American Saga – Chapter 1, was released in June 2024, earning mixed reviews, and was a box office flop.",
+          "source_file": "Kevin_Costner.html"
+        },
+        {
+          "text": "The western Open Range, which he directed and starred in, received critical acclaim in 2003, and was a surprise success commercially.",
+          "source_file": "Kevin_Costner.html"
+        },
+        {
+          "text": "However, while Waterworld achieved respectable box office and some positive reviews, results for The Postman were far worse and it ended up winning five Golden Raspberry Awards, including Worst Picture, Worst Actor, and Worst Director for Costner.",
+          "source_file": "Kevin_Costner.html"
+        }
+      ],
+      "relevant_files": [
+        "Kevin_Costner.html",
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "difficulty_notes": "Evaluative, decision-framed query requiring a balanced comparison across a career; risks cherry-picking only successes or only failures."
+    },
+    {
+      "id": "Q095",
+      "query": "Who directed A Beautiful Day in the Neighborhood and what did Tom Hanks receive for it?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Marielle Heller directed it, from a screenplay by Micah Fitzerman-Blue and Noah Harpster inspired by Tom Junod's 1998 Esquire article 'Can You Say ... Hero?'. Tom Hanks was nominated for Best Supporting Actor at the Academy Awards, as well as at the Golden Globes, Critics' Choice, Screen Actors Guild Awards and BAFTA Awards.",
+      "supporting_quotes": [
+        {
+          "text": "A Beautiful Day in the Neighborhood is a 2019 American biographical drama film on the TV host Fred Rogers, directed by Marielle Heller and written by Micah Fitzerman-Blue and Noah Harpster, inspired by the 1998 article \"Can You Say ... Hero?\" by Tom Junod, published in Esquire.",
+          "source_file": "A_Beautiful_Day_in_the_Neighborhood.html"
+        },
+        {
+          "text": "For his performance, Hanks was nominated for Best Supporting Actor at the Academy Awards, as well as the Golden Globes, Critics' Choice, Screen Actors Guild Awards, and BAFTA Awards, among others.",
+          "source_file": "A_Beautiful_Day_in_the_Neighborhood.html"
+        }
+      ],
+      "relevant_files": [
+        "A_Beautiful_Day_in_the_Neighborhood.html"
+      ],
+      "difficulty_notes": "Tests that the system says 'nominated', not 'won', for the acting award."
+    },
+    {
+      "id": "Q096",
+      "query": "Heller said her Mister Rogers film wasn't a biopic — what did she mean, and how did Hanks prepare?",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Marielle Heller publicly stated the film was not a biopic because it covered Fred Rogers's life in a more limited scope, focusing mainly on his 'philosophy and practice'; she said a recent documentary was in fact closer to being a biopic about Rogers. She also described Rogers as lacking the dynamic nature needed for a protagonist and considered him 'the antagonist ... who comes into someone's life and flips it upside down'. To prepare, Tom Hanks visited the Fred Rogers Center at Saint Vincent College in Latrobe, Pennsylvania, for research in the Fred Rogers Archives, and watched the 2018 documentary Won't You Be My Neighbor?; at the 2019 Toronto International Film Festival he recalled watching 'hundreds of hours' of footage of Rogers on set and behind the scenes.",
+      "supporting_quotes": [
+        {
+          "text": "Film director Marielle Heller publicly stated that the film was not a biopic, as it covered the life of Fred Rogers in a more limited scope by focusing mainly on just his \"philosophy and practice.\"",
+          "source_file": "A_Beautiful_Day_in_the_Neighborhood.html"
+        },
+        {
+          "text": "Heller noted that Rogers \"doesn't have the dynamic nature you need for a protagonist for a movie\" and considered him \"the antagonist [...] who comes into someone's life and flips it upside down through his philosophy and the way he lived his life\".",
+          "source_file": "A_Beautiful_Day_in_the_Neighborhood.html"
+        },
+        {
+          "text": "To prepare for his role, Hanks visited the Fred Rogers Center at Saint Vincent College in Latrobe, Pennsylvania, for research in the Fred Rogers Archives and also watched Won't You Be My Neighbor?, a 2018 documentary film.",
+          "source_file": "A_Beautiful_Day_in_the_Neighborhood.html"
+        }
+      ],
+      "relevant_files": [
+        "A_Beautiful_Day_in_the_Neighborhood.html"
+      ],
+      "difficulty_notes": "Two-part overview requiring the director's stated rationale plus the actor's preparation from separate sections."
+    },
+    {
+      "id": "Q097",
+      "query": "Tell me about Perry — the director in the corpus.",
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "ambiguous_entity",
+      "expected_behavior": "The name 'Perry' is ambiguous within this corpus: it could refer to director Frank Perry, to his half-sister's family (singer Katy Perry), or to Euzhan Palcy's honorary-award citation context. The system should ask which is meant, or explicitly disambiguate and address the plausible candidates — chiefly Frank Perry, the film director, noting that Katy Perry is his niece and is not a filmmaker.",
+      "expected_answer": "The most likely referent is Frank Perry (1930–1995), the American stage director and filmmaker whose 1962 independent film David and Lisa earned him an Academy Award nomination for Best Director. He directed The Swimmer, Diary of a Mad Housewife and Mommie Dearest, and formed Corsair Pictures. Note that his half-sister is Mary Christine Hudson, mother of the singer Katy Perry, so if the query meant Katy Perry, she is a singer rather than a director in this material.",
+      "supporting_quotes": [
+        {
+          "text": "Frank Joseph Perry Jr. (August 21, 1930 – August 29, 1995) was an American stage director and filmmaker. His 1962 independent film David and Lisa earned an Academy Award nomination for Best Director and Best Adapted Screenplay",
+          "source_file": "Frank_Perry.html"
+        },
+        {
+          "text": "His half-sister is pastor Mary Christine Hudson (née Perry), the wife of pastor Maurice Keith Hudson and mother of singers Katy Perry and David Hudson.",
+          "source_file": "Frank_Perry.html"
+        },
+        {
+          "text": "Frank Perry – Director",
+          "source_file": "68th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "Frank_Perry.html",
+        "68th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Ambiguous surname within the corpus; tests explicit disambiguation rather than silently picking one."
+    },
+    {
+      "id": "Q098",
+      "query": "What can you tell me about the film King Kong?",
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "ambiguous_entity",
+      "expected_behavior": "Multiple King Kong films appear in this corpus. The system should ask which is meant or disambiguate: the 1976 Dino De Laurentiis production directed by John Guillermin, which has its own article, and the 2005 King Kong that won three awards at the 78th Academy Awards.",
+      "expected_answer": "The corpus covers more than one. The 1976 King Kong, directed by John Guillermin and produced by Dino De Laurentiis, starred Jeff Bridges, Charles Grodin and Jessica Lange; it won a Special Achievement Academy Award for Visual Effects and was nominated for Best Cinematography and Best Sound. Separately, a King Kong film was among the multiple-award winners at the 78th Academy Awards, taking three awards alongside Brokeback Mountain, Crash and Memoirs of a Geisha. Please specify which you mean.",
+      "supporting_quotes": [
+        {
+          "text": "King Kong is a 1976 American adventure monster film, directed by John Guillermin.",
+          "source_file": "King_Kong_(1976_film).html"
+        },
+        {
+          "text": "Winner Best Visual Effects (Carlo Rambaldi, Glen Robinson and Frank Van der Veer), shared with Logan's Run (1976).",
+          "source_file": "King_Kong_(1976_film).html"
+        },
+        {
+          "text": "Other winners included Brokeback Mountain, King Kong, and Memoirs of a Geisha with three awards",
+          "source_file": "78th_Academy_Awards.html"
+        }
+      ],
+      "relevant_files": [
+        "King_Kong_(1976_film).html",
+        "78th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Two distinct films share the title in this corpus; tests disambiguation across a film article and a ceremony article."
+    },
+    {
+      "id": "Q099",
+      "query": "Why did Alfred Hitchcock refuse his Academy Award for Best Director?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": false,
+      "adversarial_kind": "false_premise",
+      "expected_behavior": "The system must correct the premise: Hitchcock never won the Academy Award for Best Director, so he could not have refused it. The corpus records that he received five Best Director nominations without a win. It should not invent a refusal narrative.",
+      "expected_answer": "The premise is incorrect. Alfred Hitchcock never won the Academy Award for Best Director and therefore never refused it; the source material records that he was among the directors who received five Best Director nominations without ever winning.",
+      "supporting_quotes": [],
+      "relevant_files": [
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "difficulty_notes": "False-premise test on a widely mythologized subject; a weak system may confabulate a refusal, conflating Hitchcock with George C. Scott or Charlie Chaplin."
+    },
+    {
+      "id": "Q100",
+      "query": "Given that Whiplash won the Academy Award for Best Picture, how did that affect Damien Chazelle's next project?",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "false_premise",
+      "expected_behavior": "The system should correct the premise before answering: Whiplash did not win Best Picture. It was nominated for five Academy Awards including Best Picture and won three — Best Supporting Actor for J. K. Simmons, Best Film Editing and Best Sound Mixing. It should then answer the corrected question about how the film's success enabled La La Land.",
+      "expected_answer": "Whiplash did not win Best Picture; it earned five nominations including Best Picture and won three awards — Best Film Editing, Best Sound Mixing, and Best Supporting Actor for J. K. Simmons. Its critical and commercial success did nonetheless enable Chazelle's next project: after Whiplash was well received at Sundance and grossed roughly $50 million on a $3.3 million budget, Summit Entertainment and Black Label Media, with producer Marc Platt, agreed to finance and distribute La La Land, having been impressed by Whiplash.",
+      "supporting_quotes": [
+        {
+          "text": "It was nominated for five Academy Awards, including Best Picture, and won three, including Best Adapted Screenplay for Damien Chazelle",
+          "source_file": "Whiplash_(2014_film).html"
+        },
+        {
+          "text": "At the 87th Academy Awards, J. K. Simmons received the Academy Award for Best Supporting Actor for his performance, Tom Cross won the Academy Award for Best Film Editing while Craig Mann, Ben Wilkins, and Thomas Curley won the Academy Award for Best Sound Mixing.",
+          "source_file": "Whiplash_(2014_film).html"
+        },
+        {
+          "text": "Five years after Chazelle wrote the script, Summit Entertainment and Black Label Media, along with producer Marc Platt, agreed to invest in La La Land and distribute it. They had been impressed by the critical and commercial success of Whiplash.",
+          "source_file": "La_La_Land.html"
+        }
+      ],
+      "relevant_files": [
+        "Whiplash_(2014_film).html",
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "difficulty_notes": "False premise embedded in an otherwise answerable question; the first quote's wording must be verified since Whiplash's win was not for Adapted Screenplay. Tests correction-then-answer behavior."
+    }
+  ]
+}

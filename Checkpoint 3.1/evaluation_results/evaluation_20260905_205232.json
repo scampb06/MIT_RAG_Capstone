@@ -1,0 +1,52 @@
+{
+  "results": [
+    {
+      "id": "Q001",
+      "question": "Which film won Best Picture at the 68th Academy Awards?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_sources": [
+        "68th_Academy_Awards.html"
+      ],
+      "retrieved_sources": [
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html",
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "required_aspects": [
+        "Braveheart won Best Picture at the 68th Academy Awards, and it won five awards in total, the most of any film that year."
+      ],
+      "response": "Braveheart won Best Picture at the 68th Academy Awards [68th_Academy_Awards.html].",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "grounded_correctness": "pass",
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "appropriate_refusal",
+      "answer_latency_seconds": 1.151051599998027,
+      "judge_latency_seconds": 2.0540430000037304,
+      "total_latency_seconds": 3.2050946000017575,
+      "input_tokens": 81684,
+      "output_tokens": 76,
+      "total_tokens": 81760,
+      "estimated_cost_usd": null
+    }
+  ]
+}

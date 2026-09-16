@@ -1,0 +1,245 @@
+{
+  "queries": [
+    {
+      "id": "Q001",
+      "query": "In what year did Einstein receive the Nobel Prize in Physics?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "expected_answer": "1921.",
+      "supporting_quotes": [
+        {
+          "text": "In 1921 he received the Nobel Prize in Physics for his services to theoretical physics",
+          "source_file": "Albert_Einstein.html"
+        }
+      ],
+      "relevant_files": [
+        "Albert_Einstein.html"
+      ]
+    },
+    {
+      "id": "Q002",
+      "query": "What is the mass-energy equivalence formula called?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "expected_answer": "The world's most famous equation.",
+      "supporting_quotes": [
+        {
+          "text": "Einstein\u2019s mass\u2013energy equivalence formula E = mc2 has been called \u201cthe world\u2019s most famous equation\u201d.",
+          "source_file": "Albert_Einstein.html"
+        }
+      ],
+      "relevant_files": [
+        "Albert_Einstein.html"
+      ]
+    },
+    {
+      "id": "Q003",
+      "query": "What did Aristotle write about rocketry?",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "expected_answer": "He wrote about rocket propulsion.",
+      "supporting_quotes": [
+        {
+          "text": "Aristotle designed the first multistage rocket engine in Athens.",
+          "source_file": "Aristotle.html"
+        }
+      ],
+      "relevant_files": [
+        "Aristotle.html"
+      ]
+    },
+    {
+      "id": "Q004",
+      "query": "Who directed Avatar?",
+      "information_need": "fact_lookup",
+      "motivation": "media_reference",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "expected_answer": "James Cameron.",
+      "supporting_quotes": [
+        {
+          "text": "directed, written, produced, and co-edited by James Cameron",
+          "source_file": "Avatar_2009.html"
+        }
+      ],
+      "relevant_files": [
+        "Avatar_2009.html"
+      ]
+    },
+    {
+      "id": "Q005",
+      "query": "Compare Einstein and Aristotle as thinkers.",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "expected_answer": "Different eras.",
+      "supporting_quotes": [
+        {
+          "text": "Aristotle was a Greek philosopher and polymath during the Classical period in Ancient Greece.",
+          "source_file": "Aristotle.html"
+        }
+      ],
+      "relevant_files": [
+        "Aristotle.html"
+      ]
+    },
+    {
+      "id": "Q006",
+      "query": "How do Andy Roddick's achievements and Avatar's box-office record each mark a peak in their fields?",
+      "information_need": "in_depth",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "expected_answer": "Roddick won the 2003 US Open; Avatar was highest-grossing.",
+      "supporting_quotes": [
+        {
+          "text": "He won the 2003 US Open, his sole Grand Slam singles title.",
+          "source_file": "Andy_Roddick.html"
+        },
+        {
+          "text": "It became the highest-grossing film of all time, a record it held until 2019.",
+          "source_file": "Avatar_2009_film.html"
+        }
+      ],
+      "relevant_files": [
+        "Andy_Roddick.html",
+        "Avatar_2009_film.html"
+      ]
+    },
+    {
+      "id": "Q007",
+      "query": "What is the current sea ice extent of the Arctic Ocean today?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": "temporally_stale",
+      "expected_answer": "Unknown.",
+      "supporting_quotes": [
+        {
+          "text": "It is covered by sea ice for much of the year",
+          "source_file": "Arctic_Ocean.html"
+        }
+      ],
+      "relevant_files": [
+        "Arctic_Ocean.html"
+      ]
+    },
+    {
+      "id": "Q008",
+      "query": "What did Aristotle think of the 2009 film Avatar?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": false,
+      "adversarial_kind": "false_premise",
+      "expected_behavior": "Reject the premise: Aristotle died in 322 BC.",
+      "expected_answer": "The premise is impossible.",
+      "supporting_quotes": [],
+      "relevant_files": []
+    },
+    {
+      "id": "Q009",
+      "query": "What is the capital of Atlantis?",
+      "information_need": "fact_lookup",
+      "motivation": "other",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": false,
+      "expected_answer": "Not in corpus.",
+      "supporting_quotes": [],
+      "relevant_files": []
+    },
+    {
+      "id": "Q010",
+      "query": "Tell me about the Arctic.",
+      "information_need": "deep_dive",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "expected_answer": "It is an ocean.",
+      "supporting_quotes": [
+        {
+          "text": "",
+          "source_file": "Arctic_Ocean.html"
+        }
+      ],
+      "relevant_files": [
+        123
+      ]
+    },
+    {
+      "id": "Q011",
+      "query": "In what year did Einstein receive the Nobel Prize in physics?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "expected_answer": "1921.",
+      "supporting_quotes": [
+        {
+          "text": "In 1921 he received the Nobel Prize in Physics",
+          "source_file": "Albert_Einstein.html"
+        }
+      ],
+      "relevant_files": [
+        "Albert_Einstein.html"
+      ]
+    },
+    {
+      "id": "Q011",
+      "query": "Which school of philosophy did Aristotle found?",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "expected_answer": "The Peripatetic school.",
+      "supporting_quotes": [
+        {
+          "text": "he was the founder of the Peripatetic school of philosophy within the Lyceum",
+          "source_file": "Aristotle.html"
+        }
+      ],
+      "relevant_files": [
+        "Aristotle.html"
+      ]
+    },
+    {
+      "id": "Q013",
+      "query": "What kind of philosopher was Aristotle?",
+      "information_need": "overview",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "expected_answer": "A Greek philosopher and polymath.",
+      "supporting_quotes": [
+        {
+          "text": "aristotle was a greek philosopher and polymath",
+          "source_file": "Aristotle.html"
+        }
+      ],
+      "relevant_files": [
+        "Aristotle.html"
+      ]
+    }
+  ]
+}
