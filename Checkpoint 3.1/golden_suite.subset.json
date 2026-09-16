@@ -1,0 +1,731 @@
+{
+  "queries": [
+    {
+      "id": "Q036",
+      "query": "What's the current record for the most Academy Award nominations received by a single film?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "temporally_stale",
+      "expected_behavior": "The system should give the corpus figure — Sinners with 16 nominations at the 98th Academy Awards — while explicitly flagging that this reflects the state of the source material and could be superseded by a later ceremony.",
+      "expected_answer": "According to the source material, Sinners (2025) holds the record with 16 nominations, breaking the previous record of 14 shared by All About Eve, Titanic and La La Land. Note that this reflects the corpus's most recent recorded ceremony and may be out of date.",
+      "supporting_quotes": [
+        {
+          "text": "Most nominations received by a single film: 16\n  - Sinners (2025): out of 17 possible categories",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "La La Land received the most nominations with a record-tying fourteen (1950's All About Eve and 1997's Titanic also achieved this distinction)",
+          "source_file": "89th_Academy_Awards.html"
+        }
+      ],
+      "required_files": [
+        "List_of_Academy_Award_records.html",
+        "89th_Academy_Awards.html"
+      ],
+      "relevant_files": [
+        "List_of_Academy_Award_records.html",
+        "89th_Academy_Awards.html",
+        "Titanic_(1997_film).html"
+      ],
+      "difficulty_notes": "Temporal-boundary test: 'current' invites a live answer, but the corpus is a snapshot. Also tests that the system doesn't stop at the older 14-nomination record.",
+      "required_aspects": [
+        "According to the source material, Sinners (2025) holds the record with 16 nominations, breaking the previous record of 14 shared by All About Eve, Titanic and La La Land.",
+        "Note that this reflects the corpus's most recent recorded ceremony and may be out of date."
+      ]
+    },
+    {
+      "id": "Q072",
+      "query": "What is the highest-grossing film of all time?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "temporally_stale",
+      "expected_behavior": "The system should give the corpus's recorded position — Titanic held the record until Avatar surpassed it in 2010, and as of the corpus Titanic is the fourth-highest-grossing film — while explicitly flagging that these figures are a snapshot and may be out of date.",
+      "expected_answer": "According to the source material, Titanic was the highest-grossing film of all time until James Cameron's Avatar (2009) surpassed it in 2010; as of the corpus's records, Titanic stands as the fourth-highest-grossing film with a worldwide total of $2.264 billion. These figures reflect the sources' date and may be superseded.",
+      "supporting_quotes": [
+        {
+          "text": "With an initial worldwide gross of over $1.84 billion, Titanic was the first film to reach the billion-dollar mark",
+          "source_file": "Titanic_(1997_film).html"
+        },
+        {
+          "text": "Releases pushed the worldwide theatrical total to $2.264 billion, making Titanic the second film to gross more than $2 billion worldwide after Avatar; as of 2023, it is the fourth-highest-grossing film.",
+          "source_file": "Titanic_(1997_film).html"
+        },
+        {
+          "text": "It became the highest-grossing film of all time worldwide in 1998, beating Jurassic Park (1993).",
+          "source_file": "Titanic_(1997_film).html"
+        }
+      ],
+      "required_files": [
+        "Titanic_(1997_film).html"
+      ],
+      "relevant_files": [
+        "Titanic_(1997_film).html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Temporal staleness test: 'of all time' invites an absolute answer from a dated snapshot.",
+      "required_aspects": [
+        "According to the source material, Titanic was the highest-grossing film of all time until James Cameron's Avatar (2009) surpassed it in 2010",
+        "as of the corpus's records, Titanic stands as the fourth-highest-grossing film with a worldwide total of $2.264 billion.",
+        "These figures reflect the sources' date and may be superseded."
+      ]
+    },
+    {
+      "id": "Q079",
+      "query": "How many Academy Awards has Titanic's director received, and for what?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": false,
+      "adversarial_kind": "unanswerable_from_corpus",
+      "expected_behavior": "The system should state that the corpus records that Titanic won 11 Academy Awards including Best Director, but does not contain a total career Oscar tally for James Cameron. It should decline to give a number rather than inferring one.",
+      "expected_answer": "Not available from the source material. The corpus records that Titanic won eleven Academy Awards including Best Director, but it does not provide James Cameron's complete career Academy Award count.",
+      "supporting_quotes": [],
+      "required_files": [
+        "Titanic_(1997_film).html"
+      ],
+      "relevant_files": [
+        "Titanic_(1997_film).html"
+      ],
+      "difficulty_notes": "The corpus has no biography article for James Cameron, so a career total cannot be assembled; tests refusal on a plausible-seeming request.",
+      "required_aspects": [
+        "Not available from the source material.",
+        "The corpus records that Titanic won eleven Academy Awards including Best Director, but it does not provide James Cameron's complete career Academy Award count."
+      ]
+    },
+    {
+      "id": "Q098",
+      "query": "What can you tell me about the film King Kong?",
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "ambiguous_entity",
+      "expected_behavior": "Multiple King Kong films appear in this corpus. The system should ask which is meant or disambiguate: the 1976 Dino De Laurentiis production directed by John Guillermin, which has its own article, and the 2005 King Kong that won three awards at the 78th Academy Awards.",
+      "expected_answer": "The corpus covers more than one. The 1976 King Kong, directed by John Guillermin and produced by Dino De Laurentiis, starred Jeff Bridges, Charles Grodin and Jessica Lange; it won a Special Achievement Academy Award for Visual Effects and was nominated for Best Cinematography and Best Sound. Separately, a King Kong film was among the multiple-award winners at the 78th Academy Awards, taking three awards alongside Brokeback Mountain, Crash and Memoirs of a Geisha. Please specify which you mean.",
+      "supporting_quotes": [
+        {
+          "text": "King Kong is a 1976 American adventure monster film, directed by John Guillermin.",
+          "source_file": "King_Kong_(1976_film).html"
+        },
+        {
+          "text": "Winner Best Visual Effects (Carlo Rambaldi, Glen Robinson and Frank Van der Veer), shared with Logan's Run (1976).",
+          "source_file": "King_Kong_(1976_film).html"
+        },
+        {
+          "text": "Other winners included Brokeback Mountain, King Kong, and Memoirs of a Geisha with three awards",
+          "source_file": "78th_Academy_Awards.html"
+        }
+      ],
+      "required_files": [
+        "King_Kong_(1976_film).html",
+        "78th_Academy_Awards.html"
+      ],
+      "relevant_files": [
+        "King_Kong_(1976_film).html",
+        "78th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Two distinct films share the title in this corpus; tests disambiguation across a film article and a ceremony article.",
+      "required_aspects": [
+        "The corpus covers more than one.",
+        "The 1976 King Kong, directed by John Guillermin and produced by Dino De Laurentiis, starred Jeff Bridges, Charles Grodin and Jessica Lange",
+        "it won a Special Achievement Academy Award for Visual Effects and was nominated for Best Cinematography and Best Sound.",
+        "Separately, a King Kong film was among the multiple-award winners at the 78th Academy Awards, taking three awards alongside Brokeback Mountain, Crash and Memoirs of a Geisha.",
+        "Please specify which you mean."
+      ]
+    },
+    {
+      "id": "Q100",
+      "query": "Given that Whiplash won the Academy Award for Best Picture, how did that affect Damien Chazelle's next project?",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "false_premise",
+      "expected_behavior": "The system should correct the premise before answering: Whiplash did not win Best Picture. It was nominated for five Academy Awards including Best Picture and won three — Best Supporting Actor for J. K. Simmons, Best Film Editing and Best Sound Mixing. It should then answer the corrected question about how the film's success enabled La La Land.",
+      "expected_answer": "Whiplash did not win Best Picture; it earned five nominations including Best Picture and won three awards — Best Film Editing, Best Sound Mixing, and Best Supporting Actor for J. K. Simmons. Its critical and commercial success did nonetheless enable Chazelle's next project: after Whiplash was well received at Sundance and grossed roughly $50 million on a $3.3 million budget, Summit Entertainment and Black Label Media, with producer Marc Platt, agreed to finance and distribute La La Land, having been impressed by Whiplash.",
+      "supporting_quotes": [
+        {
+          "text": "The film received multiple accolades, winning Academy Awards for Best Film Editing and Best Sound Mixing, and was nominated for Best Picture and Best Adapted Screenplay.",
+          "source_file": "Whiplash_(2014_film).html"
+        },
+        {
+          "text": "At the 87th Academy Awards, J. K. Simmons received the Academy Award for Best Supporting Actor for his performance, Tom Cross won the Academy Award for Best Film Editing while Craig Mann, Ben Wilkins, and Thomas Curley won the Academy Award for Best Sound Mixing.",
+          "source_file": "Whiplash_(2014_film).html"
+        },
+        {
+          "text": "Five years after Chazelle wrote the script, Summit Entertainment and Black Label Media, along with producer Marc Platt, agreed to invest in La La Land and distribute it. They had been impressed by the critical and commercial success of Whiplash.",
+          "source_file": "La_La_Land.html"
+        }
+      ],
+      "required_files": [
+        "Whiplash_(2014_film).html",
+        "La_La_Land.html"
+      ],
+      "relevant_files": [
+        "Whiplash_(2014_film).html",
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "difficulty_notes": "False premise embedded in an otherwise answerable question; the first quote's wording must be verified since Whiplash's win was not for Adapted Screenplay. Tests correction-then-answer behavior.",
+      "required_aspects": [
+        "Whiplash did not win Best Picture",
+        "it earned five nominations including Best Picture and won three awards — Best Film Editing, Best Sound Mixing, and Best Supporting Actor for J.",
+        "K.",
+        "Simmons.",
+        "Its critical and commercial success did nonetheless enable Chazelle's next project: after Whiplash was well received at Sundance and grossed roughly $50 million on a $3.3 million budget, Summit Entertainment and Black Label Media, with producer Marc Platt, agreed to finance and distribute La La Land, having been impressed by Whiplash."
+      ]
+    },
+    {
+      "id": "Q091",
+      "query": "Tell me about Ben Kingsley's career — I know him from the Marvel films.",
+      "information_need": "overview",
+      "motivation": "media_reference",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Ben Kingsley (born Krishna Pandit Bhanji, 1943) began in theatre, joining the Royal Shakespeare Company in 1967 and working mainly on stage for 15 years. His film breakthrough was the title role in Richard Attenborough's Gandhi (1982), for which he won the Academy Award for Best Actor and the BAFTA for Best Actor in a Leading Role. He was Oscar-nominated for Bugsy (1990), Sexy Beast (2000) and House of Sand and Fog (2003), and was BAFTA-nominated for Schindler's List (1993). In the Marvel Cinematic Universe he has played Trevor Slattery for over a decade, in Iron Man 3 (2013), the short All Hail the King (2014), Shang-Chi and the Legend of the Ten Rings (2021) and the Disney+ series Wonder Man. He was appointed Knight Bachelor in 2002.",
+      "supporting_quotes": [
+        {
+          "text": "In film, Kingsley is principally known for his starring role as Mahatma Gandhi in Richard Attenborough's Gandhi (1982), for which he won the Academy Award for Best Actor and BAFTA Award for Best Actor in a Leading Role.",
+          "source_file": "Ben_Kingsley.html"
+        },
+        {
+          "text": "He was Oscar-nominated for Bugsy (1990), Sexy Beast (2000), and House of Sand and Fog (2003).",
+          "source_file": "Ben_Kingsley.html"
+        },
+        {
+          "text": "Kingsley has played the character of Trevor Slattery in the Marvel Cinematic Universe for over a decade, appearing in the films Iron Man 3 (2013) and Shang-Chi and the Legend of the Ten Rings (2021), the short film All Hail the King (2014), and the Disney+ series Wonder Man (2026–present).",
+          "source_file": "Ben_Kingsley.html"
+        },
+        {
+          "text": "Kingsley was appointed Knight Bachelor in 2002 for services to the British film industry.",
+          "source_file": "Ben_Kingsley.html"
+        }
+      ],
+      "required_files": [
+        "Ben_Kingsley.html"
+      ],
+      "relevant_files": [
+        "Ben_Kingsley.html"
+      ],
+      "difficulty_notes": "Reader enters via a modern franchise credit; the answer must cover the older, award-winning body of work.",
+      "required_aspects": [
+        "Ben Kingsley (born Krishna Pandit Bhanji, 1943) began in theatre, joining the Royal Shakespeare Company in 1967 and working mainly on stage for 15 years.",
+        "His film breakthrough was the title role in Richard Attenborough's Gandhi (1982), for which he won the Academy Award for Best Actor and the BAFTA for Best Actor in a Leading Role.",
+        "He was Oscar-nominated for Bugsy (1990), Sexy Beast (2000) and House of Sand and Fog (2003), and was BAFTA-nominated for Schindler's List (1993).",
+        "In the Marvel Cinematic Universe he has played Trevor Slattery for over a decade, in Iron Man 3 (2013), the short All Hail the King (2014), Shang-Chi and the Legend of the Ten Rings (2021) and the Disney+ series Wonder Man.",
+        "He was appointed Knight Bachelor in 2002."
+      ]
+    },
+    {
+      "id": "Q002",
+      "query": "how many nominations did titanic get vs how many it won",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Titanic received 14 nominations at the 70th Academy Awards and won 11.",
+      "supporting_quotes": [
+        {
+          "text": "Titanic led all nominees with fourteen nominations; Good Will Hunting and L.A. Confidential came in second with nine apiece.",
+          "source_file": "70th_Academy_Awards.html"
+        },
+        {
+          "text": "With eleven awards, Titanic tied with Ben-Hur (1959) for the most Academy Awards in Oscar history.",
+          "source_file": "70th_Academy_Awards.html"
+        }
+      ],
+      "required_files": [
+        "70th_Academy_Awards.html"
+      ],
+      "relevant_files": [
+        "70th_Academy_Awards.html",
+        "Titanic_(1997_film).html"
+      ],
+      "difficulty_notes": "Colloquial fragment query; multi-document because both the ceremony page and film page carry the numbers, testing cross-document corroboration.",
+      "required_aspects": [
+        "Titanic received 14 nominations at the 70th Academy Awards and won 11."
+      ]
+    },
+    {
+      "id": "Q006",
+      "query": "Compare how the Academy handled the introduction of the Best Animated Feature category with the way the Best Original Score category was split and then merged again in the 1990s.",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The Best Animated Feature award was introduced at the 74th ceremony (2002) as a brand-new competitive category with eligibility rules: at least 70 minutes long, a significant number of animated characters, and at least 75 percent animation; a minimum of eight qualifying films had to be released in the year to allow three nominees, rising to five nominees if more than twelve films qualified. Before this, animated features such as Snow White and the Seven Dwarfs, Who Framed Roger Rabbit and Toy Story had only received Special Achievement Awards. By contrast, the score category was not created but divided: beginning with the 68th ceremony (1996) the music branch split Best Original Score into Best Dramatic Score and Best Musical or Comedy Score, seen as a response to Disney's dominance of the score and song categories; four years later the two scoring categories were merged back into one.",
+      "supporting_quotes": [
+        {
+          "text": "Beginning with this ceremony, AMPAS introduced a new competitive award that would honor animated feature films.",
+          "source_file": "74th_Academy_Awards.html"
+        },
+        {
+          "text": "According to Academy communications director John Pavlik, the film must be at least 70 minutes in length, have a significant amount of animated characters, and be at least 75 percent animated in order to be qualified for consideration.",
+          "source_file": "74th_Academy_Awards.html"
+        },
+        {
+          "text": "Prior to the introduction of this category, three Disney films (1937's Snow White and the Seven Dwarfs, 1988's Who Framed Roger Rabbit, and 1995's Toy Story) were all given Special Achievement Academy Awards.",
+          "source_file": "74th_Academy_Awards.html"
+        },
+        {
+          "text": "Beginning with this ceremony, the AMPAS music branch divided the category of Best Original Score into two categories: Best Dramatic Score and Best Musical or Comedy Score.",
+          "source_file": "68th_Academy_Awards.html"
+        },
+        {
+          "text": "This was seen as a response to the dominance of Walt Disney Feature Animation films in the Original Score and Original Song categories in recent years.",
+          "source_file": "68th_Academy_Awards.html"
+        },
+        {
+          "text": "Four years later, the two scoring categories were merged back into one category.",
+          "source_file": "68th_Academy_Awards.html"
+        }
+      ],
+      "required_files": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html"
+      ],
+      "relevant_files": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Animated_Feature.html"
+      ],
+      "difficulty_notes": "Genuine cross-document synthesis about category administration; no single article compares the two rule changes.",
+      "required_aspects": [
+        "The Best Animated Feature award was introduced at the 74th ceremony (2002) as a brand-new competitive category with eligibility rules: at least 70 minutes long, a significant number of animated characters, and at least 75 percent animation",
+        "a minimum of eight qualifying films had to be released in the year to allow three nominees, rising to five nominees if more than twelve films qualified.",
+        "Before this, animated features such as Snow White and the Seven Dwarfs, Who Framed Roger Rabbit and Toy Story had only received Special Achievement Awards.",
+        "By contrast, the score category was not created but divided: beginning with the 68th ceremony (1996) the music branch split Best Original Score into Best Dramatic Score and Best Musical or Comedy Score, seen as a response to Disney's dominance of the score and song categories",
+        "four years later the two scoring categories were merged back into one."
+      ]
+    },
+    {
+      "id": "Q019",
+      "query": "How did the director of La La Land get his start, and what connects his college years to that film's music?",
+      "information_need": "in_depth",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Damien Chazelle met composer Justin Hurwitz at Harvard, where they were roommates in Currier House and explored a musical concept in their senior thesis, the low-budget Guy and Madeline on a Park Bench about a Boston jazz musician. Both moved to Los Angeles in 2010 and continued writing what became La La Land, altering the location from Boston to Los Angeles. Hurwitz composed and orchestrated the songs and score for La La Land, with lyrics by Pasek and Paul except for 'Start a Fire'.",
+      "supporting_quotes": [
+        {
+          "text": "He conceived the film when he was a student at Harvard University with his classmate Justin Hurwitz. The two explored the concept in their senior thesis through a low-budget musical about a Boston jazz musician, Guy and Madeline on a Park Bench.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "both moved to Los Angeles in 2010 and continued writing the script, but made a few modifications, such as altering the location to Los Angeles instead of Boston.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "The songs and score for La La Land were composed and orchestrated by Justin Hurwitz, Chazelle's Harvard University classmate, who also worked on his two prior films.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "At Harvard, he lived in Currier House as roommates with composer and frequent collaborator Justin Hurwitz.",
+          "source_file": "Damien_Chazelle.html"
+        }
+      ],
+      "required_files": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "relevant_files": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "difficulty_notes": "Genuine two-document synthesis linking biography to production; the Currier House detail exists only in the biography.",
+      "required_aspects": [
+        "Damien Chazelle met composer Justin Hurwitz at Harvard, where they were roommates in Currier House and explored a musical concept in their senior thesis, the low-budget Guy and Madeline on a Park Bench about a Boston jazz musician.",
+        "Both moved to Los Angeles in 2010 and continued writing what became La La Land, altering the location from Boston to Los Angeles.",
+        "Hurwitz composed and orchestrated the songs and score for La La Land, with lyrics by Pasek and Paul except for 'Start a Fire'."
+      ]
+    },
+    {
+      "id": "Q042",
+      "query": "I've heard people say Crash winning Best Picture was a bad decision — what does the record actually say about how that's been assessed since?",
+      "information_need": "overview",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Crash's win over Brokeback Mountain has come to be seen as one of the most notorious decisions in modern Academy history and a source of earnest bafflement from critics, with rankings by several publications calling Crash one of the worst or most controversial Best Picture winners. Kenneth Turan accused Academy members of homophobia and of benefitting from a non-groundbreaking choice, and after announcing the award, presenter Jack Nicholson was caught mouthing 'whoa' in apparent surprise. In a 2015 Hollywood Reporter poll of Academy members on controversial past decisions, Brokeback Mountain won the revote for Best Picture.",
+      "supporting_quotes": [
+        {
+          "text": "In retrospective commentary, Crash's win for Best Picture over Brokeback Mountain has become \"one of the most notorious [decisions] in modern Academy history\" and a source of \"earnest bafflement from critics\".",
+          "source_file": "78th_Academy_Awards.html"
+        },
+        {
+          "text": "Rankings by several publications and critics have called Crash one of the worst or most controversial Best Picture winners.",
+          "source_file": "78th_Academy_Awards.html"
+        },
+        {
+          "text": "After announcing the award, presenter Jack Nicholson was caught on camera mouthing the word \"whoa\" out of apparent surprise at the result.",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        },
+        {
+          "text": "In 2015, The Hollywood Reporter polled Academy members on controversial past decisions, in which Brokeback Mountain won the revote for Best Picture.",
+          "source_file": "Brokeback_Mountain.html"
+        }
+      ],
+      "required_files": [
+        "78th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html",
+        "Brokeback_Mountain.html"
+      ],
+      "relevant_files": [
+        "78th_Academy_Awards.html",
+        "Brokeback_Mountain.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "Evaluative framing requiring evidence from three documents; a system citing only the ceremony page misses the revote and the Nicholson reaction.",
+      "required_aspects": [
+        "Crash's win over Brokeback Mountain has come to be seen as one of the most notorious decisions in modern Academy history and a source of earnest bafflement from critics, with rankings by several publications calling Crash one of the worst or most controversial Best Picture winners.",
+        "Kenneth Turan accused Academy members of homophobia and of benefitting from a non-groundbreaking choice, and after announcing the award, presenter Jack Nicholson was caught mouthing 'whoa' in apparent surprise.",
+        "In a 2015 Hollywood Reporter poll of Academy members on controversial past decisions, Brokeback Mountain won the revote for Best Picture."
+      ]
+    },
+    {
+      "id": "Q045",
+      "query": "Compare the audience reactions and awards outcomes for the two films that lost Best Picture in the most talked-about upsets — the 2005 gay romance and the 2016 musical.",
+      "information_need": "in_depth",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Brokeback Mountain won three Academy Awards — Best Director, Best Adapted Screenplay and Best Original Score — but lost Best Picture to Crash, prompting accusations of homophobia and more than 800 supporters raising up to $26,000 for an advert in Daily Variety thanking the filmmakers. La La Land won six Oscars including Best Director and Best Actress from a record-tying fourteen nominations, but lost Best Picture to Moonlight after the envelope error, setting a record for most nominations without winning Best Picture. Both are considered landmark losses, and in a 2015 Hollywood Reporter member poll Brokeback Mountain won the revote for Best Picture.",
+      "supporting_quotes": [
+        {
+          "text": "At the 78th Academy Awards, Brokeback Mountain was nominated for the Academy Award for Best Picture and won three awards for Best Director, Best Adapted Screenplay, and Original Score.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "Following the loss, more than 800 supporters raised up to $26,000 to place an advertisement in the Daily Variety.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "La La Land's Best Picture loss to Moonlight meant it set a record for most nominations without winning Best Picture.",
+          "source_file": "89th_Academy_Awards.html"
+        },
+        {
+          "text": "La La Land won six awards, the most for the evening, out of its record-tying 14 nominations, including Best Actress for Emma Stone and Best Director for Damien Chazelle.",
+          "source_file": "89th_Academy_Awards.html"
+        }
+      ],
+      "required_files": [
+        "Brokeback_Mountain.html",
+        "89th_Academy_Awards.html"
+      ],
+      "relevant_files": [
+        "Brokeback_Mountain.html",
+        "89th_Academy_Awards.html",
+        "La_La_Land.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "Comparative in-depth query with both films identified only by description; requires synthesis across three files.",
+      "required_aspects": [
+        "Brokeback Mountain won three Academy Awards — Best Director, Best Adapted Screenplay and Best Original Score — but lost Best Picture to Crash, prompting accusations of homophobia and more than 800 supporters raising up to $26,000 for an advert in Daily Variety thanking the filmmakers.",
+        "La La Land won six Oscars including Best Director and Best Actress from a record-tying fourteen nominations, but lost Best Picture to Moonlight after the envelope error, setting a record for most nominations without winning Best Picture.",
+        "Both are considered landmark losses, and in a 2015 Hollywood Reporter member poll Brokeback Mountain won the revote for Best Picture."
+      ]
+    },
+    {
+      "id": "Q049",
+      "query": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Brendan Fraser won Best Actor for playing Charlie in The Whale. Notably, for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees. The other nominees were Austin Butler (Elvis), Colin Farrell (The Banshees of Inisherin), Paul Mescal (Aftersun) and Bill Nighy (Living).",
+      "supporting_quotes": [
+        {
+          "text": "For the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "Brendan Fraser – The Whale as Charlie‡",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "Fraser's work in The Whale earned him critical acclaim and numerous accolades, including the Academy Award for Best Actor, which made him the first Canadian to receive it.",
+          "source_file": "Brendan_Fraser.html"
+        }
+      ],
+      "required_files": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html"
+      ],
+      "relevant_files": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html",
+        "Academy_Award_for_Best_Actor.html"
+      ],
+      "difficulty_notes": "Multi-document confirmation; the nominee-field fact appears only in the ceremony article.",
+      "required_aspects": [
+        "Brendan Fraser won Best Actor for playing Charlie in The Whale.",
+        "Notably, for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+        "The other nominees were Austin Butler (Elvis), Colin Farrell (The Banshees of Inisherin), Paul Mescal (Aftersun) and Bill Nighy (Living)."
+      ]
+    },
+    {
+      "id": "Q058",
+      "query": "Who won Best Supporting Actor for The Godfather Part II and what was unusual about the performance?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Robert De Niro won Best Supporting Actor for playing the young Vito Corleone in The Godfather Part II. The performance was notable for being delivered largely in Italian — De Niro was the first actor to win an Oscar for performing in a language other than English — and because both he and Marlon Brando won Academy Awards for portraying the same character, Vito Corleone.",
+      "supporting_quotes": [
+        {
+          "text": "First actor to win for performing in a language other than English\n  - Robert De Niro won Best Supporting Actor for The Godfather Part II (1974), performing in Italian",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "Portrayals of Vito Corleone won:\n    - Best Actor for Marlon Brando in The Godfather (1972)\n    - Best Supporting Actor for Robert De Niro in The Godfather Part II (1974) (in Italian)",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "Robert De Niro as Vito Corleone",
+          "source_file": "The_Godfather_Part_II.html"
+        }
+      ],
+      "required_files": [
+        "List_of_Academy_Award_records.html",
+        "The_Godfather_Part_II.html"
+      ],
+      "relevant_files": [
+        "List_of_Academy_Award_records.html",
+        "The_Godfather_Part_II.html"
+      ],
+      "difficulty_notes": "Requires the records article for the two distinctive facts; the film article alone gives only the casting.",
+      "required_aspects": [
+        "Robert De Niro won Best Supporting Actor for playing the young Vito Corleone in The Godfather Part II.",
+        "The performance was notable for being delivered largely in Italian — De Niro was the first actor to win an Oscar for performing in a language other than English — and because both he and Marlon Brando won Academy Awards for portraying the same character, Vito Corleone."
+      ]
+    },
+    {
+      "id": "Q067",
+      "query": "What awards did Whiplash win at Sundance when it premiered, and how does that relate to the short film of the same name?",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The feature Whiplash premiered in competition at the 2014 Sundance Film Festival on January 16 as the festival's opening film and won both the Audience Award Dramatic and the Grand Jury Prize Dramatic. One year earlier, Chazelle's eighteen-minute short of the same name — made from fifteen pages of the feature script to attract investors — debuted at the 2013 festival and won the short film Jury Award for fiction. That earlier premiere later caused the Academy to classify the feature screenplay as adapted rather than original.",
+      "supporting_quotes": [
+        {
+          "text": "Whiplash premiered in competition at the 2014 Sundance Film Festival on January 16, as the festival's opening film, where it won the Audience Award Dramatic and the Grand Jury Prize Dramatic.",
+          "source_file": "Whiplash_(2014_film).html"
+        },
+        {
+          "text": "The eighteen-minute short film received acclaim after debuting at the 2013 Sundance Film Festival, winning the short film Jury Award for fiction, which attracted investors to produce the complete version of the script.",
+          "source_file": "Whiplash_(2014_film).html"
+        },
+        {
+          "text": "After the success of his film Whiplash (2014), the project was picked up by Summit Entertainment.",
+          "source_file": "La_La_Land.html"
+        }
+      ],
+      "required_files": [
+        "Whiplash_(2014_film).html",
+        "La_La_Land.html"
+      ],
+      "relevant_files": [
+        "Whiplash_(2014_film).html",
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "difficulty_notes": "Multi-document because the downstream consequence for La La Land's financing is documented elsewhere.",
+      "required_aspects": [
+        "The feature Whiplash premiered in competition at the 2014 Sundance Film Festival on January 16 as the festival's opening film and won both the Audience Award Dramatic and the Grand Jury Prize Dramatic.",
+        "One year earlier, Chazelle's eighteen-minute short of the same name — made from fifteen pages of the feature script to attract investors — debuted at the 2013 festival and won the short film Jury Award for fiction.",
+        "That earlier premiere later caused the Academy to classify the feature screenplay as adapted rather than original."
+      ]
+    },
+    {
+      "id": "Q074",
+      "query": "Describe how Spielberg came to make Schindler's List and how it affected his later work.",
+      "information_need": "in_depth",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Spielberg waited ten years to make Schindler's List because he did not feel mature enough, wanting to embrace his heritage; after the birth of his son Max, he said a spirit ignited in him and he became 'a Jewish dad'. Principal photography began March 1, 1993 in Kraków, Poland, while he supervised post-production on Jurassic Park; he brought his wife and children to make the shoot bearable. The film was a commercial success and Spielberg used his percentage of the profits to start the Shoah Foundation, a non-profit archiving Holocaust survivor testimonies. It won seven Academy Awards, including Best Picture and his first Best Director.",
+      "supporting_quotes": [
+        {
+          "text": "Based on Schindler's Ark, Spielberg waited ten years to make the film as he did not feel \"mature\" enough.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "Against expectations, the film was a commercial success, and Spielberg used his percentage of profits to start the Shoah Foundation, a non-profit organization that archives testimonies of Holocaust survivors.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "Schindler's List won seven Academy Awards, including Best Picture and Spielberg's first as Best Director.",
+          "source_file": "Steven_Spielberg.html"
+        }
+      ],
+      "required_files": [
+        "Steven_Spielberg.html"
+      ],
+      "relevant_files": [
+        "Steven_Spielberg.html",
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "difficulty_notes": "Long biography synthesis across production, awards and legacy sections.",
+      "required_aspects": [
+        "Spielberg waited ten years to make Schindler's List because he did not feel mature enough, wanting to embrace his heritage",
+        "after the birth of his son Max, he said a spirit ignited in him and he became 'a Jewish dad'.",
+        "Principal photography began March 1, 1993 in Kraków, Poland, while he supervised post-production on Jurassic Park",
+        "he brought his wife and children to make the shoot bearable.",
+        "The film was a commercial success and Spielberg used his percentage of the profits to start the Shoah Foundation, a non-profit archiving Holocaust survivor testimonies.",
+        "It won seven Academy Awards, including Best Picture and his first Best Director."
+      ]
+    },
+    {
+      "id": "Q080",
+      "query": "Tell me about Anthony Minghella — what did he win and what happened at the Oscars after his death?",
+      "information_need": "overview",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Anthony Minghella (1954–2008) was a British playwright and filmmaker who directed Truly, Madly, Deeply, The English Patient, The Talented Mr. Ripley and Cold Mountain. He won the Academy Award for Best Director for The English Patient, and received three further nominations: Best Adapted Screenplay for both The English Patient and The Talented Mr. Ripley, and, posthumously, Best Picture for The Reader (2008) as a producer. The Academy made an exception to its normal three-producer limit for Best Picture so that Minghella and Sydney Pollack could be posthumously included among the four producers nominated for The Reader.",
+      "supporting_quotes": [
+        {
+          "text": "He received the Academy Award for Best Director for The English Patient. In addition, he received three more Academy Award nominations; he was nominated for Best Adapted Screenplay for both The English Patient and The Talented Mr. Ripley, and was posthumously nominated for Best Picture for The Reader (2008), as a producer.",
+          "source_file": "Anthony_Minghella.html"
+        },
+        {
+          "text": "The Academy can make exceptions to the limit, as when Anthony Minghella and Sydney Pollack were posthumously included among the four producers nominated for The Reader (2008).",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        }
+      ],
+      "required_files": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "relevant_files": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "The producer-limit exception appears only in the category article, making this genuinely multi-document.",
+      "required_aspects": [
+        "Anthony Minghella (1954–2008) was a British playwright and filmmaker who directed Truly, Madly, Deeply, The English Patient, The Talented Mr.",
+        "Ripley and Cold Mountain.",
+        "He won the Academy Award for Best Director for The English Patient, and received three further nominations: Best Adapted Screenplay for both The English Patient and The Talented Mr.",
+        "Ripley, and, posthumously, Best Picture for The Reader (2008) as a producer.",
+        "The Academy made an exception to its normal three-producer limit for Best Picture so that Minghella and Sydney Pollack could be posthumously included among the four producers nominated for The Reader."
+      ]
+    },
+    {
+      "id": "Q086",
+      "query": "Which film had the biggest gap between an actor's first and second nomination, and what was that gap?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Judd Hirsch set the record for the longest gap between Oscar nominations: 42 years between his first, for Ordinary People (1980), and his second, for The Fabelmans.",
+      "supporting_quotes": [
+        {
+          "text": "The 42-year span between Judd Hirsch's first nomination, for his supporting role in Ordinary People (1980), and his second, for The Fabelmans, set the record for the longest gap between Oscar nominations.",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "Judd Hirsch was nominated in 1981 for Ordinary People and in 2023 for The Fabelmans, a 42-year gap.",
+          "source_file": "List_of_Academy_Award_records.html"
+        }
+      ],
+      "required_files": [
+        "95th_Academy_Awards.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "relevant_files": [
+        "95th_Academy_Awards.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "The two sources date the nominations differently (1980/1981 and 2022/2023) while agreeing on the 42-year gap; tests careful reconciliation.",
+      "required_aspects": [
+        "Judd Hirsch set the record for the longest gap between Oscar nominations: 42 years between his first, for Ordinary People (1980), and his second, for The Fabelmans."
+      ]
+    },
+    {
+      "id": "Q094",
+      "query": "I'm deciding whether to watch a long Western — how does Costner's Horizon project compare in scale and reception to his earlier epic?",
+      "information_need": "in_depth",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Horizon: An American Saga is a Western epic split into at least four films, each just under three hours long, with Costner both directing and starring; production on the first film was expected to last at least 220 days. Chapter 1 was released in June 2024, earned mixed reviews and was a box office flop, which contributed to Chapter 2 being delayed indefinitely after debuting at the 81st Venice International Film Festival to similarly mixed reviews. By contrast, his earlier epic Dances With Wolves won him two Academy Awards, and his 2003 Western Open Range received critical acclaim and was a surprise commercial success.",
+      "supporting_quotes": [
+        {
+          "text": "Costner began production on Horizon: An American Saga, a Western epic that will be split into at least four films, each just under three hours in length.",
+          "source_file": "Kevin_Costner.html"
+        },
+        {
+          "text": "The first film, Horizon: An American Saga – Chapter 1, was released in June 2024, earning mixed reviews, and was a box office flop.",
+          "source_file": "Kevin_Costner.html"
+        },
+        {
+          "text": "The western Open Range, which he directed and starred in, received critical acclaim in 2003, and was a surprise success commercially.",
+          "source_file": "Kevin_Costner.html"
+        }
+      ],
+      "required_files": [
+        "Kevin_Costner.html"
+      ],
+      "relevant_files": [
+        "Kevin_Costner.html",
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "difficulty_notes": "Evaluative, decision-framed query requiring a balanced comparison across a career; risks cherry-picking only successes or only failures.",
+      "required_aspects": [
+        "Horizon: An American Saga is a Western epic split into at least four films, each just under three hours long, with Costner both directing and starring",
+        "production on the first film was expected to last at least 220 days.",
+        "Chapter 1 was released in June 2024, earned mixed reviews and was a box office flop, which contributed to Chapter 2 being delayed indefinitely after debuting at the 81st Venice International Film Festival to similarly mixed reviews.",
+        "By contrast, his earlier epic Dances With Wolves won him two Academy Awards, and his 2003 Western Open Range received critical acclaim and was a surprise commercial success."
+      ]
+    }
+  ]
+}

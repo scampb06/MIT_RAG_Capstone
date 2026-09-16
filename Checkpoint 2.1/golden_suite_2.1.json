@@ -1,0 +1,543 @@
+{
+  "queries": [
+    {
+      "id": "Q001",
+      "query": "What was the title of Orhan Pamuk's Nobel lecture, in what language was it delivered, and what personal relationship did he use to discuss Eastern and Western civilizations?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Pamuk's Nobel lecture was entitled \"Babamin Bavulu\" (\"My Father's Suitcase\") and was delivered in Turkish. In it, he used his relationship with his father to discuss relations between Eastern and Western civilizations.",
+      "required_aspects": [
+        "Pamuk's Nobel lecture was entitled \"Babamin Bavulu\" (\"My Father's Suitcase\") and was delivered in Turkish.",
+        "In it, he used his relationship with his father to discuss relations between Eastern and Western civilizations."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "Pamuk held his Nobel Lecture on 7 December 2006 at the Swedish Academy, Stockholm. The lecture was entitled \"Babamın Bavulu\" (\"My Father's Suitcase\") and was given in Turkish.",
+          "source_file": "2006_Nobel_Prize_in_Literature.html"
+        },
+        {
+          "text": "In the lecture he allegorically spoke of relations between Eastern and Western civilizations using the theme of his relationship with his father.",
+          "source_file": "2006_Nobel_Prize_in_Literature.html"
+        }
+      ],
+      "required_files": [
+        "2006_Nobel_Prize_in_Literature.html"
+      ],
+      "relevant_files": [
+        "2006_Nobel_Prize_in_Literature.html"
+      ],
+      "difficulty_notes": "There is no dedicated Orhan_Pamuk.html article in this corpus; the facts live entirely inside the 2006_Nobel_Prize_in_Literature.html article. Tests whether the retriever surfaces an award-ceremony article for a query phrased around the laureate rather than the prize."
+    },
+    {
+      "id": "Q002",
+      "query": "A major Japanese disaster in 2011 slightly accelerated the planet's rotation. By how much did it shorten each day?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The earthquake shortened each day by 1.8 microseconds.",
+      "required_aspects": [
+        "The earthquake shortened each day by 1.8 microseconds."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "The speed of the Earth's rotation increased, shortening the day by 1.8 microseconds due to the redistribution of Earth's mass.",
+          "source_file": "2011_Tōhoku_earthquake_and_tsunami.html"
+        }
+      ],
+      "required_files": [
+        "2011_Tōhoku_earthquake_and_tsunami.html"
+      ],
+      "relevant_files": [
+        "2011_Tōhoku_earthquake_and_tsunami.html"
+      ],
+      "difficulty_notes": "Query avoids the words 'Tōhoku', 'earthquake', and 'tsunami', describing the event only as 'a major Japanese disaster in 2011'; a lexical-retrieval stress test on a single very long article."
+    },
+    {
+      "id": "Q003",
+      "query": "Compare the Academy Awards ceremonies held a decade apart: who hosted the 85th and 95th ceremonies, and which film won Best Picture at each?",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Seth MacFarlane hosted the 85th Academy Awards, where Argo won Best Picture. Jimmy Kimmel hosted the 95th Academy Awards, where Everything Everywhere All at Once won Best Picture.",
+      "required_aspects": [
+        "Seth MacFarlane hosted the 85th Academy Awards, where Argo won Best Picture.",
+        "Jimmy Kimmel hosted the 95th Academy Awards, where Everything Everywhere All at Once won Best Picture."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "Actor Seth MacFarlane hosted the show for the first time.",
+          "source_file": "85th_Academy_Awards.html"
+        },
+        {
+          "text": "Argo won three awards, including Best Picture, the first film to win an Academy Award for Best Picture without its director nominated since Driving Miss Daisy.",
+          "source_file": "85th_Academy_Awards.html"
+        },
+        {
+          "text": "Comedian Jimmy Kimmel hosted the show for the third time, following the 89th ceremony in 2017 and the 90th ceremony in 2018.",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "Everything Everywhere All at Once won seven awards, including Best Picture.",
+          "source_file": "95th_Academy_Awards.html"
+        }
+      ],
+      "required_files": [
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html"
+      ],
+      "relevant_files": [
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "A fact-lookup query that genuinely requires two documents - a valid multi_document case under the quota carve-out for comparative fact lookups."
+    },
+    {
+      "id": "Q004",
+      "query": "The yacht that Mohammed bin Salman bought from its original owner for approximately 500 million euros provides the first clue. Who was that original owner, what company does he own, which vodka brand is it best known for, and what did the Dutch Supreme Court rule about that brand's rights in 2020?",
+      "information_need": "in_depth",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The yacht's original owner was Russian businessman Yuri Shefler, who owns SPI Group, best known for the Stolichnaya vodka brand. In 2020, the Dutch Supreme Court ruled that the Stolichnaya trademark rights belonged to Russia and ordered SPI Group to stop selling its products in Benelux.",
+      "required_aspects": [
+        "The yacht's original owner was Russian businessman Yuri Shefler.",
+        "Shefler owns SPI Group, best known for the Stolichnaya vodka brand.",
+        "In 2020, the Dutch Supreme Court ruled that the Stolichnaya trademark rights belonged to Russia and ordered SPI Group to stop selling its products in Benelux."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "the Serene was delivered to her original owner, Yuri Shefler, in August 2011.",
+          "source_file": "Serene_(yacht).html"
+        },
+        {
+          "text": "In 2014, while vacationing in the south of France, Mohammed bin Salman, then the deputy crown prince of Saudi Arabia, bought the vessel from Shefler for approximately €500 million.",
+          "source_file": "Serene_(yacht).html"
+        },
+        {
+          "text": "He is the owner of SPI Group, an international consortium that sells alcohol in 160 countries, most notably the Stolichnaya vodka brand.",
+          "source_file": "Yuri_Shefler.html"
+        },
+        {
+          "text": "In 2020, the Dutch Supreme Court ruled that the rights belonged to Russia and ordered SPI Group to stop selling its products in Benelux.",
+          "source_file": "Yuri_Shefler.html"
+        }
+      ],
+      "required_files": [
+        "Serene_(yacht).html",
+        "Yuri_Shefler.html"
+      ],
+      "relevant_files": [
+        "Serene_(yacht).html",
+        "Yuri_Shefler.html"
+      ],
+      "difficulty_notes": "Multi-hop clue chain across two documents linked only by the yacht, not by shared vocabulary; note the corpus itself is internally inconsistent about the sale year and price (Serene_(yacht).html says 2014/EUR500m, Yuri_Shefler.html says 2015/$550m) - the query's own framing matches the Serene page, which is what the answer should follow."
+    },
+    {
+      "id": "Q005",
+      "query": "For each of the 1996, 2004, and 2008 Summer Olympics, list every city mentioned as having submitted a bid but not winning that edition's hosting contest.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "For the 1996 Summer Olympics, the losing bid cities were Athens, Belgrade, Manchester, Melbourne, and Toronto. For the 2004 Summer Olympics, they were Rome, Cape Town, Stockholm, and Buenos Aires (the other shortlisted cities), plus Istanbul, Lille, Rio de Janeiro, San Juan, Seville, and Saint Petersburg, whose applications were dropped before the shortlist. For the 2008 Summer Olympics, they were Toronto, Paris, Istanbul, and Osaka (the other shortlisted cities), plus Bangkok, Cairo, Havana, Kuala Lumpur, and Seville, whose bids failed to make the shortlist.",
+      "required_aspects": [
+        "For the 1996 Summer Olympics, the losing bid cities were Athens, Belgrade, Manchester, Melbourne, and Toronto.",
+        "For the 2004 Summer Olympics, the losing bid cities were Rome, Cape Town, Stockholm, and Buenos Aires, plus Istanbul, Lille, Rio de Janeiro, San Juan, Seville, and Saint Petersburg, whose applications were dropped before the shortlist.",
+        "For the 2008 Summer Olympics, the losing bid cities were Toronto, Paris, Istanbul, and Osaka, plus Bangkok, Cairo, Havana, Kuala Lumpur, and Seville, whose bids failed to make the shortlist."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "Atlanta was selected on September 18, 1990, in Tokyo, Japan, over Athens, Belgrade, Manchester, Melbourne, and Toronto at the 96th IOC Session.",
+          "source_file": "1996_Summer_Olympics.html"
+        },
+        {
+          "text": "After leading all voting rounds, Athens easily defeated Rome in the fifth and final vote.",
+          "source_file": "2004_Summer_Olympics.html"
+        },
+        {
+          "text": "Cape Town, Stockholm, and Buenos Aires (the latter won the rights to host the 2018 Summer Youth Olympics in 2013), the three other cities that made the IOC shortlist, were eliminated in prior rounds of voting.",
+          "source_file": "2004_Summer_Olympics.html"
+        },
+        {
+          "text": "Six other cities submitted applications, but their bids were dropped by the IOC in 1996. These cities were Istanbul, Lille, Rio de Janeiro (the latter won the rights to host the 2016 Summer Olympics in 2009), San Juan, Seville, and Saint Petersburg.",
+          "source_file": "2004_Summer_Olympics.html"
+        },
+        {
+          "text": "Beijing was elected as the host city for the 2008 Summer Olympics on 13 July 2001, during the 112th IOC Session in Moscow, defeating bids from Toronto, Paris, Istanbul, and Osaka.",
+          "source_file": "2008_Summer_Olympics.html"
+        },
+        {
+          "text": "Prior to the session, five other cities (Bangkok, Cairo, Havana, Kuala Lumpur, and Seville) had submitted bids to the IOC, but failed to make the short list chosen by the IOC Executive Committee in 2000.",
+          "source_file": "2008_Summer_Olympics.html"
+        }
+      ],
+      "required_files": [
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2008_Summer_Olympics.html"
+      ],
+      "relevant_files": [
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2008_Summer_Olympics.html"
+      ],
+      "difficulty_notes": "Requires aggregating enumerations from three separate articles and distinguishing shortlisted losers from applications dropped before the shortlist; a system that only retrieves the shortlist sentence will under-report the 2004 and 2008 lists."
+    },
+    {
+      "id": "Q006",
+      "query": "Which London physician traced a deadly waterborne gastrointestinal epidemic to a single contaminated public water pump, and how did he visually prove the connection?",
+      "information_need": "overview",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "John Snow, a London physician, traced the 1854 Broad Street cholera outbreak to a contaminated public water pump on Broad Street. He visually proved the connection using a dot map illustrating how cholera cases occurred around the pump.",
+      "required_aspects": [
+        "John Snow, a London physician, traced the 1854 Broad Street cholera outbreak to a contaminated public water pump on Broad Street.",
+        "He visually proved the connection using a dot map illustrating how cholera cases occurred around the pump."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "Snow identified the outbreak's source as the public water pump on Broad Street (now Broadwick Street) at Cambridge Street.",
+          "source_file": "1854_Broad_Street_cholera_outbreak.html"
+        },
+        {
+          "text": "Snow later used a dot map to illustrate how cases of cholera occurred around this pump.",
+          "source_file": "1854_Broad_Street_cholera_outbreak.html"
+        }
+      ],
+      "required_files": [
+        "1854_Broad_Street_cholera_outbreak.html"
+      ],
+      "relevant_files": [
+        "1854_Broad_Street_cholera_outbreak.html"
+      ],
+      "difficulty_notes": "Paraphrase-mismatch adversarial query: avoids the words 'cholera', 'Broad Street', and 'Snow' entirely, testing whether semantic retrieval alone can surface the article. Not an adversarial_kind case in the reader-taxonomy sense - it is a legitimate, fully answerable question, just a hard retrieval case."
+    },
+    {
+      "id": "Q007",
+      "query": "Comparing a 1950s motor-racing catastrophe in France to a 1960s Alaskan natural disaster, which killed more people, and what safety regulations followed each?",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The 1964 Alaska earthquake and tsunamis killed more people (139) than the 1955 Le Mans disaster (an estimated 82 to 84). Le Mans led to temporary motorsport bans in France, Spain, Switzerland, West Germany, and other nations until racetracks met higher safety standards. The Alaska earthquake led to the formation of the West Coast and Alaska Tsunami Warning Center.",
+      "required_aspects": [
+        "The 1964 Alaska earthquake and its tsunamis killed 139 people, more than the 1955 Le Mans disaster's estimated 82 to 84 deaths.",
+        "The Le Mans disaster led to temporary bans on motorsports in France, Spain, Switzerland, West Germany, and other nations until racetracks met higher safety standards.",
+        "The Alaska earthquake led to the formation of the West Coast and Alaska Tsunami Warning Center as a direct response to the disaster."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "On 11 June 1955, a multi-vehicle collision occurred during the 1955 24 Hours of Le Mans in Sarthe, France, resulting in the deaths of an estimated 82 to 84 people.",
+          "source_file": "1955_Le_Mans_disaster.html"
+        },
+        {
+          "text": "The death toll led to an immediate temporary ban on motorsports in France, Spain, Switzerland, West Germany, and other nations, until racetracks could be brought to a higher safety standard.",
+          "source_file": "1955_Le_Mans_disaster.html"
+        },
+        {
+          "text": "As a result of the earthquake, 139 people are believed to have died: Fifteen died as a result of the earthquake itself and another 124 died from the subsequent tsunamis in Alaska, Oregon, and California.",
+          "source_file": "1964_Alaska_earthquake.html"
+        },
+        {
+          "text": "The West Coast and Alaska Tsunami Warning Center was formed as a direct response to the disaster.",
+          "source_file": "1964_Alaska_earthquake.html"
+        }
+      ],
+      "required_files": [
+        "1955_Le_Mans_disaster.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "relevant_files": [
+        "1955_Le_Mans_disaster.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "difficulty_notes": "Lexical false-positive trap: the word 'disaster' also appears in many unrelated articles, and the query needs both documents in a top-3 fusion with no cross-document awareness."
+    },
+    {
+      "id": "Q008",
+      "query": "In the year Ronald Reagan was first elected U.S. president, which player was the first overall pick in the NFL's college draft, and which team chose him?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Ronald Reagan was first elected U.S. president in 1980. In that year's NFL draft, the first overall pick was running back Billy Sims, selected by the Detroit Lions.",
+      "required_aspects": [
+        "Ronald Reagan was first elected U.S. president in 1980, defeating incumbent Jimmy Carter.",
+        "The first overall pick in the 1980 NFL draft was running back Billy Sims, selected by the Detroit Lions."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "Reagan won the Republican Party's nomination and then obtained a landslide victory over President Jimmy Carter in the 1980 presidential election.",
+          "source_file": "Ronald_Reagan.html"
+        },
+        {
+          "text": "With the first overall pick of the draft, the Detroit Lions selected running back Billy Sims.",
+          "source_file": "1980_NFL_draft.html"
+        }
+      ],
+      "required_files": [
+        "Ronald_Reagan.html",
+        "1980_NFL_draft.html"
+      ],
+      "relevant_files": [
+        "Ronald_Reagan.html",
+        "1980_NFL_draft.html"
+      ],
+      "difficulty_notes": "Indirect date-linking adversarial query: never states '1980', requiring the year to be inferred from the Reagan article before the NFL draft article can even be identified as relevant."
+    },
+    {
+      "id": "Q009",
+      "query": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The 1964 Nobel Prize in Literature was awarded to French writer Jean-Paul Sartre, the same year a magnitude 9.2-9.3 earthquake struck Alaska. Sartre declined the prize, saying he never accepted official honors and did not want the writer to become an institution; he also objected on the grounds that the prize went only to Westerners or to rebels of the East.",
+      "required_aspects": [
+        "The 1964 Nobel Prize in Literature was awarded to French writer Jean-Paul Sartre, the same year a magnitude 9.2-9.3 earthquake struck Alaska.",
+        "Sartre declined the prize, saying he never accepted official honors and did not want the writer to become an institution.",
+        "He also objected on the grounds that the prize went only to Westerners or to rebels of the East."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "The 1964 Nobel Prize in Literature was awarded to the French writer Jean-Paul Sartre (1905–1980)",
+          "source_file": "1964_Nobel_Prize_in_Literature.html"
+        },
+        {
+          "text": "Sartre declined the prize, saying that he never accepted any official honours and that he did not want the writer to become an institution.",
+          "source_file": "1964_Nobel_Prize_in_Literature.html"
+        },
+        {
+          "text": "Sartre declared about the Nobel prize that it is one that goes only to Westerners \"or to rebels of the East\".",
+          "source_file": "1964_Nobel_Prize_in_Literature.html"
+        },
+        {
+          "text": "the magnitude 9.2–9.3 megathrust earthquake remains the most powerful earthquake ever recorded in North America",
+          "source_file": "1964_Alaska_earthquake.html"
+        }
+      ],
+      "required_files": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "relevant_files": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "difficulty_notes": "Cross-domain multi-hop via a shared but unstated year: needs both the earthquake and literature-prize articles, which share essentially no vocabulary, linked only by the implicit year 1964."
+    },
+    {
+      "id": "Q010",
+      "query": "What was the final score of the men's curling gold-medal match at the 1998 Winter Olympics in Nagano?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": false,
+      "adversarial_kind": "unanswerable_from_corpus",
+      "expected_behavior": "State plainly that the specific match score is not available in the source material, rather than fabricating a plausible-sounding score. The corpus confirms the 1998 Nagano Winter Olympics took place and that curling returned as a medal sport that year, but no article records the men's gold-medal match result.",
+      "expected_answer": "Not available from the source material. The corpus confirms curling returned as an Olympic sport at the 1998 Nagano Winter Games but does not record the men's gold-medal match result.",
+      "required_aspects": [
+        "Not available from the source material.",
+        "The corpus confirms curling returned as an Olympic sport at the 1998 Nagano Winter Games but does not record the men's gold-medal match result."
+      ],
+      "supporting_quotes": [],
+      "required_files": [
+        "Winter_Olympic_Games.html"
+      ],
+      "relevant_files": [
+        "Winter_Olympic_Games.html"
+      ],
+      "difficulty_notes": "No-match trap: no dedicated 1998 Winter Olympics or curling article exists in this corpus. The general Winter_Olympic_Games.html article confirms Nagano 1998 and curling's return as a sport that year, but contains no match-level results, so a system must recognize the gap rather than hallucinating from the closest lexical decoy."
+    },
+    {
+      "id": "Q011",
+      "query": "On the day of a 2011 Pacific megathrust quake, the water in several Scandinavian fjords appeared to seethe as if boiling and was caught on film. Which fjord was the most prominent example, and what did scientists conclude after two years of research had caused it?",
+      "information_need": "fact_lookup",
+      "motivation": "media_reference",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The most prominent example was Sognefjorden, Norway. After two years of research, scientists concluded that the seismic energy of the earthquake generated seiche waves thousands of kilometers away.",
+      "required_aspects": [
+        "The most prominent example was Sognefjorden, Norway.",
+        "After two years of research, scientists concluded that the seismic energy of the earthquake generated seiche waves thousands of kilometers away."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "On the day of the earthquake, the waters of several fjords across Norway appeared to seethe as if boiling, and formed waves that rolled onto shores, most prominently in Sognefjorden, where the phenomenon was caught on film.",
+          "source_file": "2011_Tōhoku_earthquake_and_tsunami.html"
+        },
+        {
+          "text": "After two years of research into the incidents in Norway, scientists concluded that the seismic energy of the earthquake generated seiche waves thousands of kilometers away.",
+          "source_file": "2011_Tōhoku_earthquake_and_tsunami.html"
+        }
+      ],
+      "required_files": [
+        "2011_Tōhoku_earthquake_and_tsunami.html"
+      ],
+      "relevant_files": [
+        "2011_Tōhoku_earthquake_and_tsunami.html"
+      ],
+      "difficulty_notes": "Deep-detail retrieval stress test: the fact sits far into a ~160k-character article and the query is phrased with none of the article's title vocabulary ('Tōhoku', 'Japan', 'earthquake', 'tsunami'), so whole-article embeddings and BM25's length normalization both work against surfacing this document."
+    },
+    {
+      "id": "Q012",
+      "query": "Who officially opened the 1992 Winter Olympics in Albertville, and which two people lit the Olympic cauldron at the opening ceremony?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": false,
+      "adversarial_kind": "unanswerable_from_corpus",
+      "expected_behavior": "State plainly that this information is not available in the source material. The article's infobox has empty 'Opened by' and 'Cauldron' fields, and its 'Opening ceremony' section contains no prose describing who performed either role.",
+      "expected_answer": "Not available from the source material. The corpus's 1992_Winter_Olympics.html article does not name who officially opened the Games or who lit the cauldron.",
+      "required_aspects": [
+        "Not available from the source material.",
+        "The corpus's 1992_Winter_Olympics.html article does not name who officially opened the Games or who lit the cauldron."
+      ],
+      "supporting_quotes": [],
+      "required_files": [
+        "1992_Winter_Olympics.html"
+      ],
+      "relevant_files": [
+        "1992_Winter_Olympics.html"
+      ],
+      "difficulty_notes": "Empty-infobox trap: the extracted text has literal empty 'Opened by' and 'Cauldron' infobox rows, and the 'Opening ceremony' section header is followed immediately by an unrelated 'Highlights' section with no body text in between. Retrieval may correctly find the article, but the answer genuinely is not in the extracted text."
+    },
+    {
+      "id": "Q013",
+      "query": "Which Baltic prime minister, aged 32 when he took office, said a particular free-market economist's book was the only economics book he had read before taking office? Name the book, the country, the signature reform he introduced, and the prize he won in 2006.",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The prime minister was Mart Laar of Estonia, who said Milton Friedman's Free to Choose was the only economics book he had read before taking office. His signature reform was introducing the flat tax, and in 2006 he won the Milton Friedman Prize for Advancing Liberty.",
+      "required_aspects": [
+        "The prime minister was Mart Laar of Estonia, who said Milton Friedman's Free to Choose was the only economics book he had read before taking office.",
+        "His signature reform was introducing the flat tax.",
+        "In 2006 he won the Milton Friedman Prize for Advancing Liberty, awarded by the Cato Institute."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "Although Friedman never visited Estonia, his book Free to Choose influenced Estonia's then 32-year-old prime minister, Mart Laar, who has claimed that it was the only book on economics he had read before taking office.",
+          "source_file": "Milton_Friedman.html"
+        },
+        {
+          "text": "A prime element of Laar's program was introduction of the flat tax.",
+          "source_file": "Milton_Friedman.html"
+        },
+        {
+          "text": "Laar won the 2006 Milton Friedman Prize for Advancing Liberty, awarded by the Cato Institute.",
+          "source_file": "Milton_Friedman.html"
+        }
+      ],
+      "required_files": [
+        "Milton_Friedman.html"
+      ],
+      "relevant_files": [
+        "Milton_Friedman.html"
+      ],
+      "difficulty_notes": "Section-header-dependent retrieval: there is no dedicated Mart_Laar.html article in this corpus; the facts live under the 'Estonia' subsection of Milton Friedman's 'Honors, recognition and legacy' section, roughly 59,000 characters into a 112,000-character biography. The query avoids naming Laar or Friedman directly, so neither BM25 nor a whole-article embedding has an obvious anchor."
+    },
+    {
+      "id": "Q014",
+      "query": "In the IOC vote that awarded the 1992 Winter Games, which two cities tied and were sent to a run-off, what were their run-off vote totals, and which city was eliminated after the very first round?",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Falun and Lillehammer tied at 11 votes in round 4 and were sent to a run-off, which Falun won 41 votes to Lillehammer's 40. Berchtesgaden, with 6 votes, was eliminated after the very first round.",
+      "required_aspects": [
+        "Falun and Lillehammer tied at 11 votes in round 4 and were sent to a run-off.",
+        "Falun won the run-off 41 votes to Lillehammer's 40.",
+        "Berchtesgaden, with 6 votes, was eliminated after the very first round."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "Falun | Sweden | 10 | 11 | 11 | 11 | 41 | 9",
+          "source_file": "1992_Winter_Olympics.html"
+        },
+        {
+          "text": "Lillehammer | Norway | 10 | 11 | 9 | 11 | 40 | —",
+          "source_file": "1992_Winter_Olympics.html"
+        },
+        {
+          "text": "Berchtesgaden | West Germany | 6 | — | — | — | — | —",
+          "source_file": "1992_Winter_Olympics.html"
+        }
+      ],
+      "required_files": [
+        "1992_Winter_Olympics.html"
+      ],
+      "relevant_files": [
+        "1992_Winter_Olympics.html"
+      ],
+      "difficulty_notes": "Wikitable-parsing trap: the bidding-results table has a two-row header (round numbers plus a 'Run-off' column that only exists because of the round-4 tie), flattened by extraction into pipe-separated rows. A system must correctly align each number to its round even though the header row itself is split across two table rows in the extracted text."
+    },
+    {
+      "id": "Q015",
+      "query": "On Yuri Shefler's article, which page does the 'Known for' infobox entry link to, and which other article in the corpus contains a wikilink pointing to Yuri Shefler's article?",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": false,
+      "adversarial_kind": "unanswerable_from_corpus",
+      "expected_behavior": "State plainly that link targets and inbound links cannot be determined from the source material. The extraction pipeline drops all hyperlinks, preserving only visible anchor text, so no article's extracted text records what a link points to or which other pages link to it.",
+      "expected_answer": "Not available from the source material. The corpus's extracted text drops all hyperlinks, so neither the target of the 'Known for' infobox link nor any inbound wikilinks to Yuri Shefler's article can be determined from what the retrieval system can see.",
+      "required_aspects": [
+        "Not available from the source material.",
+        "The corpus's extracted text drops all hyperlinks, so neither the link target nor inbound wikilinks can be determined."
+      ],
+      "supporting_quotes": [],
+      "required_files": [
+        "Yuri_Shefler.html"
+      ],
+      "relevant_files": [
+        "Yuri_Shefler.html"
+      ],
+      "difficulty_notes": "Wikilink-structure trap: extract_wikipedia_text() calls trafilatura.extract() with its default include_links=False, so all hyperlink targets are dropped before the text ever reaches the retriever or LLM. This makes both halves of the query categorically unanswerable from the ingested corpus, regardless of which article is retrieved."
+    }
+  ]
+}

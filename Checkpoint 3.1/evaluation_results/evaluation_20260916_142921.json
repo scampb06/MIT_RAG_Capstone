@@ -1,0 +1,72 @@
+{
+  "results": [
+    {
+      "id": "Q001",
+      "question": "Which film won Best Picture at the 68th Academy Awards?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "68th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "retrieved_sources": [
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html",
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "required_aspects": [
+        "Braveheart won Best Picture at the 68th Academy Awards."
+      ],
+      "response": "Braveheart won Best Picture at the 68th Academy Awards [68th_Academy_Awards.html].",
+      "closed_book_response": "The film that won **Best Picture at the 68th Academy Awards** was **_Braveheart_**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Braveheart won Best Picture at the 68th Academy Awards.",
+          "cited_source": "68th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 1,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "appropriate_refusal",
+      "answer_latency_seconds": 2.3954491000040434,
+      "judge_latency_seconds": 5.017036999983247,
+      "total_latency_seconds": 8.21263889997499,
+      "input_tokens": 109134,
+      "output_tokens": 157,
+      "total_tokens": 109291,
+      "estimated_cost_usd": 0.082557
+    }
+  ]
+}

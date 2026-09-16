@@ -71,8 +71,11 @@ CANDIDATE_POOL = 10
 WEIGHT_BM25 = 0.5
 WEIGHT_VECTOR = 0.5
 LOG_PATH = Path.cwd() / "checkpoint_3_1_evaluation.log"
-WIKIPEDIA_DIR = str(Path(__file__).with_name("Wikipedia_Film_Academy"))
-WIKIPEDIA_CHROMA_DIR = str(Path(__file__).with_name("wikipedia_film_academy_chroma_db"))
+CHECKPOINT_1_1_DIR = Path(__file__).parents[1] / "Checkpoint 1.1"
+WIKIPEDIA_DIR = str(CHECKPOINT_1_1_DIR / "Wikipedia")
+WIKIPEDIA_CHROMA_DIR = str(CHECKPOINT_2_1_DIR / "wikipedia_chroma_db")
+#WIKIPEDIA_DIR = str(Path(__file__).with_name("Wikipedia_Film_Academy"))
+#WIKIPEDIA_CHROMA_DIR = str(Path(__file__).with_name("wikipedia_film_academy_chroma_db"))
 GOLDEN_SUITE_PATH = Path(__file__).with_name("golden_suite.json")
 RESULTS_DIR = Path(__file__).with_name("evaluation_results")
 
@@ -522,6 +525,11 @@ def judge_refusal_behavior(
     outcome = str(_json_object(text).get("outcome", "hallucinated")).casefold()
     if outcome not in REFUSAL_OUTCOMES:
         outcome = "hallucinated"
+    # appropriate_refusal also covers "correctly answered, nothing to decline" -
+    # relabel that case to n/a so the column isn't misleading on normal items,
+    # where refusal behavior was never actually being tested.
+    if outcome == "appropriate_refusal" and item["answerable"] and item.get("adversarial_kind") is None:
+        outcome = "n/a"
     return outcome, usage
 
 
@@ -543,8 +551,8 @@ def my_eval_set(path: Path = GOLDEN_SUITE_PATH) -> list[dict[str, Any]]:
     """Load all records and expose the fields required by the evaluation harness."""
     data = json.loads(path.read_text(encoding="utf-8"))
     records = data.get("queries") if isinstance(data, dict) else data
-    if not isinstance(records, list) or len(records) != 100:
-        raise ValueError(f"Expected exactly 100 golden records in {path}")
+    if not isinstance(records, list) or not records:
+        raise ValueError(f"Expected a non-empty list of golden records in {path}")
     for item in records:
         question = item.get("question") or item.get("query")
         if not question:
@@ -863,9 +871,13 @@ def _print_summary(results: list[dict[str, Any]]) -> None:
         )
 
 
-def run_evaluation(limit: int | None = None, output_path: Path | None = None) -> None:
+def run_evaluation(
+    limit: int | None = None,
+    output_path: Path | None = None,
+    input_path: Path = GOLDEN_SUITE_PATH,
+) -> None:
     llm = make_llm()
-    eval_set = my_eval_set()
+    eval_set = my_eval_set(input_path)
     if limit is not None:
         eval_set = eval_set[:limit]
     results: list[dict[str, Any]] = []
@@ -926,6 +938,12 @@ def main() -> None:
     )
     parser.add_argument("--output", type=Path, help="path for results JSON")
     parser.add_argument(
+        "--input",
+        type=Path,
+        default=GOLDEN_SUITE_PATH,
+        help=f"path to the golden-suite JSON to evaluate (default: {GOLDEN_SUITE_PATH.name})",
+    )
+    parser.add_argument(
         "--validate-framework",
         action="store_true",
         help="run the manipulated-answer judge check after evaluation",
@@ -933,7 +951,9 @@ def main() -> None:
     args = parser.parse_args()
     if args.limit is not None and args.limit < 1:
         parser.error("--limit must be at least 1")
-    run_evaluation(limit=args.limit, output_path=args.output)
+    if not args.input.is_file():
+        parser.error(f"--input file not found: {args.input}")
+    run_evaluation(limit=args.limit, output_path=args.output, input_path=args.input)
     if args.validate_framework:
         validate_framework()
 
