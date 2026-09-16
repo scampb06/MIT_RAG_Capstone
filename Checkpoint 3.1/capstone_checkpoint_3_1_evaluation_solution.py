@@ -1,8 +1,32 @@
 r"""Capstone Checkpoint 3.1 - Evaluation Infrastructure and Baseline Diagnosis.
 
 This step integrates the Wikipedia corpus and baseline hybrid retriever from
-Checkpoint 2.1. The evaluation set, judge, and evaluation metrics remain ready
-for later development.
+Checkpoint 2.1, plus the golden-suite evaluation set, LLM judges, and the
+metrics below.
+
+Metric selection table (see Module 3's rag_evaluation_guide.md for the full
+definitions and trade-offs behind each row):
+
+| Metric | Layer | Needs reference? | Deterministic or LLM | Failure it catches |
+|---|---|---|---|---|
+| source_recall_at_k | Retrieval | Yes | Deterministic | Retrieval misses a required document |
+| source_precision_at_k | Retrieval | Yes | Deterministic | Context dilution - noise in the top-k |
+| source_recall_strict / all_required_present | Retrieval | Yes | Deterministic | Any single required document missing |
+| source_hit_at_k | Retrieval | Yes | Deterministic | Complete retrieval miss (zero required docs found) |
+| correctness / graded_correctness | Generation | Yes | LLM judge | Wrong answer despite a fluent response |
+| aspect_coverage | Generation | Yes | LLM judge | Missing sub-claims inside an otherwise-correct answer |
+| answer_relevance | Generation | No | LLM judge | Off-topic drift, ignoring the question asked |
+| faithfulness | Generation | No | LLM judge (claim-level) | Whole-answer fabrication (any unsupported claim) |
+| graded_groundedness_score | Generation | No | LLM judge (claim-level) | Partial fabrication a pass/fail gate would hide |
+| citation_support_rate | Generation | No | LLM judge (claim-level) | Citation naming the right file next to the wrong claim |
+| chunk_attribution_score | Generation | No | LLM judge + closed-book ablation | Correct-sounding answer from parametric memory, retrieval unused |
+| citation_precision | Generation | Yes | Deterministic | Citation naming a source outside the expected set |
+| unsupported_citation_rate | Generation | No | Deterministic | Citation naming a document that was never retrieved |
+| quote_fidelity_rate | Generation | No | Deterministic | Fabricated or altered verbatim quotation |
+| quote_attribution_accuracy | Generation | No | Deterministic | Verbatim quote attributed to the wrong source |
+| refusal_outcome | Safety | Yes | LLM judge | Over-refusal, or hallucinating instead of declining |
+| answer_latency_seconds / total_latency_seconds | Operational | No | Deterministic | Slow responses, tail latency |
+| estimated_cost_usd | Operational | No | Deterministic | Token / retrieval-depth cost blowout |
 """
 
 # %%
@@ -59,6 +83,11 @@ ANSWER_SYSTEM = (
     "documents. Cite factual claims with the exact source filename in square brackets. "
     "When quoting, use the form [filename.html] \"verbatim quotation\". If the "
     "documents do not contain the answer, say so rather than guessing."
+)
+CLOSED_BOOK_SYSTEM = (
+    "Answer the question using your own general knowledge, with no reference "
+    "material provided. Answer as best you can from what you already know, or "
+    "say you don't know if you genuinely don't - don't fabricate specifics."
 )
 JUDGE_SYSTEM = (
     "You are a strict evaluator of retrieval-augmented answers. Use only the supplied "
@@ -240,6 +269,18 @@ def answer(
     return invoke_measured(llm, messages)
 
 
+def answer_closed_book(llm: ChatOpenAI, query: str) -> tuple[str, dict[str, float | int]]:
+    """Answer with no retrieved context, as a chunk-attribution baseline: a
+    grounded claim the model can also produce here came from its own training
+    data rather than from retrieval, regardless of whether it happens to be
+    supported by what was retrieved."""
+    messages = [
+        SystemMessage(content=CLOSED_BOOK_SYSTEM),
+        HumanMessage(content=f"Question: {query}"),
+    ]
+    return invoke_measured(llm, messages)
+
+
 # %% [markdown]
 # ## Step 2 - Evaluation metrics
 
@@ -308,7 +349,7 @@ def judge(
     required_aspects: list[str],
     retrieved_context: str,
 ) -> tuple[dict[str, Any], dict[str, float | int]]:
-    """Return binary, graded, aspect-coverage, faithfulness, and relevance judgments."""
+    """Return binary, graded, aspect-coverage, and relevance judgments."""
     messages = [
         SystemMessage(content=JUDGE_SYSTEM),
         HumanMessage(
@@ -318,8 +359,6 @@ def judge(
                 "graded_correctness: 'complete', 'substantially_complete', 'partial', "
                 "or 'incorrect';\n"
                 "covered_aspect_indices: a list of 1-based indices supported by the response;\n"
-                "faithfulness: 'pass' only if every material factual claim is supported "
-                "by the retrieved context, otherwise 'fail';\n"
                 "answer_relevance: 'pass' if the response addresses the question asked, "
                 "even if incomplete or incorrect, 'fail' if it drifts onto a different "
                 "question or ignores what was asked.\n\n"
@@ -334,7 +373,6 @@ def judge(
     result = _json_object(text)
     binary = str(result.get("binary_correctness", "fail")).casefold()
     level = str(result.get("graded_correctness", "incorrect")).casefold()
-    faithfulness = str(result.get("faithfulness", "fail")).casefold()
     answer_relevance = str(result.get("answer_relevance", "fail")).casefold()
     covered = {
         index
@@ -345,8 +383,6 @@ def judge(
         binary = "fail"
     if level not in QUALITY_LEVELS:
         level = "incorrect"
-    if faithfulness not in {"pass", "fail"}:
-        faithfulness = "fail"
     if answer_relevance not in {"pass", "fail"}:
         answer_relevance = "fail"
     return {
@@ -360,8 +396,94 @@ def judge(
         }[level],
         "covered_aspects": sorted(covered),
         "aspect_coverage": len(covered) / len(required_aspects) if required_aspects else 0.0,
-        "faithfulness": faithfulness,
         "answer_relevance": answer_relevance,
+    }, usage
+
+
+def judge_claims(
+    llm: ChatOpenAI,
+    answer_text: str,
+    retrieved_context: str,
+    closed_book_answer: str,
+) -> tuple[dict[str, Any], dict[str, float | int]]:
+    """Decompose the response into individual factual claims and judge each one:
+    whether it is grounded in the retrieved context at all; if it carries a
+    [filename.html] citation, whether that specific cited document (not just
+    some document in the retrieved set) actually supports it; and - for claims
+    that are grounded - whether the claim is also present in closed_book_answer,
+    a response produced with no retrieved context at all. A grounded claim the
+    model could also produce closed-book came from training data rather than
+    from retrieval, regardless of whether the retrieved context happens to
+    support it too - that's chunk attribution (provenance) as distinct from
+    groundedness (consistency with what was retrieved). Faithfulness and the
+    graded groundedness score are both derived from this single claim list
+    rather than asked for separately, so the two judgments can't disagree."""
+    messages = [
+        SystemMessage(content=JUDGE_SYSTEM),
+        HumanMessage(
+            content=(
+                "Decompose the RESPONSE below into its individual factual claims "
+                "(roughly one per discrete assertion). Return exactly one JSON "
+                "object with a single key 'claims': a list of objects, each with:\n"
+                "text: the claim, quoted or closely paraphrased from the response;\n"
+                "cited_source: the exact filename from the [filename.html] marker "
+                "attached to this claim in the response, or null if the claim "
+                "carries no citation;\n"
+                "grounded: true if the claim is supported by the RETRIEVED CONTEXT "
+                "(any document in it), false otherwise;\n"
+                "citation_supported: if cited_source is set, true only if that "
+                "SPECIFIC document's content supports the claim (not merely some "
+                "other document in the retrieved context); null if cited_source "
+                "is null;\n"
+                "attributable_to_retrieval: only meaningful when grounded is true - "
+                "true if the CLOSED-BOOK ANSWER below does not state this claim or "
+                "states something different (the claim required the retrieved "
+                "context to produce), false if the closed-book answer states the "
+                "same claim (it's general/well-known enough that retrieval wasn't "
+                "actually needed for it); null if grounded is false.\n\n"
+                f"RESPONSE:\n{answer_text}\n\n"
+                f"CLOSED-BOOK ANSWER (produced with no retrieved documents):\n{closed_book_answer}\n\n"
+                f"RETRIEVED CONTEXT:\n{retrieved_context}"
+            )
+        ),
+    ]
+    text, usage = invoke_measured(llm, messages)
+    result = _json_object(text)
+    raw_claims = result.get("claims", [])
+    claims = []
+    for claim in raw_claims if isinstance(raw_claims, list) else []:
+        if not isinstance(claim, dict):
+            continue
+        cited_source = claim.get("cited_source") or None
+        citation_supported = (
+            bool(claim.get("citation_supported")) if cited_source else None
+        )
+        grounded = bool(claim.get("grounded", False))
+        attributable = (
+            bool(claim.get("attributable_to_retrieval")) if grounded else None
+        )
+        claims.append({
+            "text": str(claim.get("text", "")),
+            "cited_source": cited_source,
+            "grounded": grounded,
+            "citation_supported": citation_supported,
+            "attributable_to_retrieval": attributable,
+        })
+    grounded_claims = [claim for claim in claims if claim["grounded"]]
+    cited_claims = [claim for claim in claims if claim["cited_source"]]
+    supported_citations = [claim for claim in cited_claims if claim["citation_supported"]]
+    attributable_claims = [claim for claim in grounded_claims if claim["attributable_to_retrieval"]]
+    return {
+        "claims": claims,
+        "claim_count": len(claims),
+        "graded_groundedness_score": len(grounded_claims) / len(claims) if claims else None,
+        "faithfulness": "pass" if len(grounded_claims) == len(claims) else "fail",
+        "citation_support_rate": (
+            len(supported_citations) / len(cited_claims) if cited_claims else None
+        ),
+        "chunk_attribution_score": (
+            len(attributable_claims) / len(grounded_claims) if grounded_claims else None
+        ),
     }, usage
 
 
@@ -430,6 +552,7 @@ def my_eval_set(path: Path = GOLDEN_SUITE_PATH) -> list[dict[str, Any]]:
         item["question"] = question
         item["grading_notes"] = item["expected_answer"]
         item["expected_sources"] = item.get("relevant_files", [])
+        item["required_sources"] = item.get("required_files") or item["expected_sources"]
         item["required_aspects"] = item.get("required_aspects") or _required_aspects(
             item["expected_answer"]
         )
@@ -437,19 +560,26 @@ def my_eval_set(path: Path = GOLDEN_SUITE_PATH) -> list[dict[str, Any]]:
 
 
 def _source_metrics(
-    expected_sources: list[str],
+    required_sources: list[str],
+    relevant_sources: list[str],
     retrieved_sources: list[str],
 ) -> dict[str, int | float | bool]:
-    expected = {Path(source).name.casefold() for source in expected_sources}
+    """Recall is scored against required_sources (what must be retrieved to
+    fully answer); precision is scored against relevant_sources (the broader
+    set), so a topically-adjacent-but-not-required document doesn't count as
+    noise."""
+    required = {Path(source).name.casefold() for source in required_sources}
+    relevant = {Path(source).name.casefold() for source in relevant_sources}
     retrieved = {Path(source).name.casefold() for source in retrieved_sources}
-    matches = expected & retrieved
-    all_present = bool(expected) and expected <= retrieved
+    required_matches = required & retrieved
+    relevant_matches = relevant & retrieved
+    all_required_present = bool(required) and required <= retrieved
     return {
-        "source_hit_at_k": int(bool(matches)),
-        "source_recall_at_k": len(matches) / len(expected) if expected else 0.0,
-        "source_precision_at_k": len(matches) / len(retrieved_sources) if retrieved_sources else 0.0,
-        "source_recall_strict": 1.0 if all_present else 0.0,
-        "all_required_present": all_present,
+        "source_hit_at_k": int(bool(required_matches)),
+        "source_recall_at_k": len(required_matches) / len(required) if required else 0.0,
+        "source_precision_at_k": len(relevant_matches) / len(retrieved_sources) if retrieved_sources else 0.0,
+        "source_recall_strict": 1.0 if all_required_present else 0.0,
+        "all_required_present": all_required_present,
     }
 
 
@@ -544,12 +674,16 @@ def _evaluate_item(
     else:
         response = "(no documents retrieved)"
         answer_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0, "latency_seconds": 0.0}
+    closed_book_response, closed_book_usage = answer_closed_book(llm, item["question"])
     quality, quality_usage = judge(
         llm,
         response,
         item["expected_answer"],
         item["required_aspects"],
         retrieved_context,
+    )
+    claim_judgment, claim_usage = judge_claims(
+        llm, response, retrieved_context, closed_book_response
     )
     refusal_outcome, refusal_usage = judge_refusal_behavior(
         llm,
@@ -558,20 +692,14 @@ def _evaluate_item(
         retrieved_context,
     )
     retrieved_sources = [filename for filename, _text, _score in hits]
-    source_metrics = _source_metrics(item["expected_sources"], retrieved_sources)
+    source_metrics = _source_metrics(
+        item["required_sources"], item["expected_sources"], retrieved_sources
+    )
     citation_metrics = _citation_metrics(response, hits, item["expected_sources"])
-    input_tokens = sum(
-        int(usage["input_tokens"])
-        for usage in (answer_usage, quality_usage, refusal_usage)
-    )
-    output_tokens = sum(
-        int(usage["output_tokens"])
-        for usage in (answer_usage, quality_usage, refusal_usage)
-    )
-    total_latency = sum(
-        float(usage["latency_seconds"])
-        for usage in (answer_usage, quality_usage, refusal_usage)
-    )
+    usages = (answer_usage, closed_book_usage, quality_usage, claim_usage, refusal_usage)
+    input_tokens = sum(int(usage["input_tokens"]) for usage in usages)
+    output_tokens = sum(int(usage["output_tokens"]) for usage in usages)
+    total_latency = sum(float(usage["latency_seconds"]) for usage in usages)
     result = {
         "id": item["id"],
         "question": item["question"],
@@ -581,16 +709,23 @@ def _evaluate_item(
         "scope": item["scope"],
         "answerable": item["answerable"],
         "adversarial_kind": item.get("adversarial_kind"),
+        "required_sources": item["required_sources"],
         "expected_sources": item["expected_sources"],
         "retrieved_sources": retrieved_sources,
         "required_aspects": item["required_aspects"],
         "response": response,
+        "closed_book_response": closed_book_response,
         **quality,
+        **claim_judgment,
         **source_metrics,
         **citation_metrics,
         "refusal_outcome": refusal_outcome,
         "answer_latency_seconds": answer_usage["latency_seconds"],
-        "judge_latency_seconds": float(quality_usage["latency_seconds"]) + float(refusal_usage["latency_seconds"]),
+        "judge_latency_seconds": (
+            float(quality_usage["latency_seconds"])
+            + float(claim_usage["latency_seconds"])
+            + float(refusal_usage["latency_seconds"])
+        ),
         "total_latency_seconds": total_latency,
         "input_tokens": input_tokens,
         "output_tokens": output_tokens,
@@ -644,6 +779,7 @@ def _write_results(
 def _print_summary(results: list[dict[str, Any]]) -> None:
     passes = sum(result["correctness"] == "pass" for result in results)
     relevant = sum(result["answer_relevance"] == "pass" for result in results)
+    faithful = sum(result["faithfulness"] == "pass" for result in results)
     strict = sum(float(result["source_recall_strict"]) for result in results)
     mean_precision = sum(float(result["source_precision_at_k"]) for result in results) / len(results)
     normal_answerable = [
@@ -656,6 +792,25 @@ def _print_summary(results: list[dict[str, Any]]) -> None:
     print("=" * 72)
     print(f"Binary correctness: {passes}/{len(results)} ({passes / len(results):.1%})")
     print(f"Answer relevance: {relevant}/{len(results)} ({relevant / len(results):.1%})")
+    print(f"Faithfulness (all claims grounded): {faithful}/{len(results)} ({faithful / len(results):.1%})")
+    graded = [result for result in results if result["graded_groundedness_score"] is not None]
+    if graded:
+        print(
+            "Mean graded groundedness: "
+            f"{sum(float(result['graded_groundedness_score']) for result in graded) / len(graded):.1%}"
+        )
+    cited_claims = [result for result in results if result["citation_support_rate"] is not None]
+    if cited_claims:
+        print(
+            "Mean citation support rate: "
+            f"{sum(float(result['citation_support_rate']) for result in cited_claims) / len(cited_claims):.1%}"
+        )
+    attributed = [result for result in results if result["chunk_attribution_score"] is not None]
+    if attributed:
+        print(
+            "Mean chunk attribution (grounded claims not reproducible closed-book): "
+            f"{sum(float(result['chunk_attribution_score']) for result in attributed) / len(attributed):.1%}"
+        )
     print(f"Strict source recall@{TOP_K}: {strict / len(results):.1%}")
     print(f"Mean source precision@{TOP_K}: {mean_precision:.1%}")
     for scope in ("single_document", "multi_document"):
