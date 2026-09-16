@@ -308,7 +308,7 @@ def judge(
     required_aspects: list[str],
     retrieved_context: str,
 ) -> tuple[dict[str, Any], dict[str, float | int]]:
-    """Return binary, graded, aspect-coverage, and groundedness judgments."""
+    """Return binary, graded, aspect-coverage, faithfulness, and relevance judgments."""
     messages = [
         SystemMessage(content=JUDGE_SYSTEM),
         HumanMessage(
@@ -318,8 +318,11 @@ def judge(
                 "graded_correctness: 'complete', 'substantially_complete', 'partial', "
                 "or 'incorrect';\n"
                 "covered_aspect_indices: a list of 1-based indices supported by the response;\n"
-                "groundedness: 'pass' only if every material factual claim is supported "
-                "by the retrieved context, otherwise 'fail'.\n\n"
+                "faithfulness: 'pass' only if every material factual claim is supported "
+                "by the retrieved context, otherwise 'fail';\n"
+                "answer_relevance: 'pass' if the response addresses the question asked, "
+                "even if incomplete or incorrect, 'fail' if it drifts onto a different "
+                "question or ignores what was asked.\n\n"
                 f"RESPONSE:\n{answer_text}\n\n"
                 f"REFERENCE ANSWER:\n{expected_answer}\n\n"
                 f"REQUIRED ASPECTS:\n{json.dumps(required_aspects, ensure_ascii=False)}\n\n"
@@ -331,7 +334,8 @@ def judge(
     result = _json_object(text)
     binary = str(result.get("binary_correctness", "fail")).casefold()
     level = str(result.get("graded_correctness", "incorrect")).casefold()
-    groundedness = str(result.get("groundedness", "fail")).casefold()
+    faithfulness = str(result.get("faithfulness", "fail")).casefold()
+    answer_relevance = str(result.get("answer_relevance", "fail")).casefold()
     covered = {
         index
         for index in result.get("covered_aspect_indices", [])
@@ -341,8 +345,10 @@ def judge(
         binary = "fail"
     if level not in QUALITY_LEVELS:
         level = "incorrect"
-    if groundedness not in {"pass", "fail"}:
-        groundedness = "fail"
+    if faithfulness not in {"pass", "fail"}:
+        faithfulness = "fail"
+    if answer_relevance not in {"pass", "fail"}:
+        answer_relevance = "fail"
     return {
         "correctness": binary,
         "graded_correctness": level,
@@ -354,7 +360,8 @@ def judge(
         }[level],
         "covered_aspects": sorted(covered),
         "aspect_coverage": len(covered) / len(required_aspects) if required_aspects else 0.0,
-        "grounded_correctness": groundedness,
+        "faithfulness": faithfulness,
+        "answer_relevance": answer_relevance,
     }, usage
 
 
@@ -440,6 +447,7 @@ def _source_metrics(
     return {
         "source_hit_at_k": int(bool(matches)),
         "source_recall_at_k": len(matches) / len(expected) if expected else 0.0,
+        "source_precision_at_k": len(matches) / len(retrieved_sources) if retrieved_sources else 0.0,
         "source_recall_strict": 1.0 if all_present else 0.0,
         "all_required_present": all_present,
     }
@@ -522,90 +530,97 @@ def _estimated_cost_usd(input_tokens: int, output_tokens: int) -> float | None:
 # ## Step 4 - Run the baseline evaluation
 
 # %%
-def run_evaluation(limit: int | None = None, output_path: Path | None = None) -> None:
-    llm = make_llm()
-    eval_set = my_eval_set()
-    if limit is not None:
-        eval_set = eval_set[:limit]
-    results: list[dict[str, Any]] = []
-    print(f"Checkpoint 3.1 - baseline evaluation  |  scenario: {SCENARIO}\n")
-    for index, item in enumerate(eval_set, 1):
-        hits = retrieve(item["question"], TOP_K)
-        retrieved_context = "\n\n".join(
-            f"[{filename}] {text}" for filename, text, _score in hits
-        )
-        if hits:
-            response, answer_usage = answer(llm, item["question"], hits)
-        else:
-            response = "(no documents retrieved)"
-            answer_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0, "latency_seconds": 0.0}
-        quality, quality_usage = judge(
-            llm,
-            response,
-            item["expected_answer"],
-            item["required_aspects"],
-            retrieved_context,
-        )
-        refusal_outcome, refusal_usage = judge_refusal_behavior(
-            llm,
-            item,
-            response,
-            retrieved_context,
-        )
-        retrieved_sources = [filename for filename, _text, _score in hits]
-        source_metrics = _source_metrics(item["expected_sources"], retrieved_sources)
-        citation_metrics = _citation_metrics(response, hits, item["expected_sources"])
-        input_tokens = sum(
-            int(usage["input_tokens"])
-            for usage in (answer_usage, quality_usage, refusal_usage)
-        )
-        output_tokens = sum(
-            int(usage["output_tokens"])
-            for usage in (answer_usage, quality_usage, refusal_usage)
-        )
-        total_latency = sum(
-            float(usage["latency_seconds"])
-            for usage in (answer_usage, quality_usage, refusal_usage)
-        )
-        result = {
-            "id": item["id"],
-            "question": item["question"],
-            "information_need": item["information_need"],
-            "motivation": item["motivation"],
-            "prior_familiarity": item["prior_familiarity"],
-            "scope": item["scope"],
-            "answerable": item["answerable"],
-            "adversarial_kind": item.get("adversarial_kind"),
-            "expected_sources": item["expected_sources"],
-            "retrieved_sources": retrieved_sources,
-            "required_aspects": item["required_aspects"],
-            "response": response,
-            **quality,
-            **source_metrics,
-            **citation_metrics,
-            "refusal_outcome": refusal_outcome,
-            "answer_latency_seconds": answer_usage["latency_seconds"],
-            "judge_latency_seconds": float(quality_usage["latency_seconds"]) + float(refusal_usage["latency_seconds"]),
-            "total_latency_seconds": total_latency,
-            "input_tokens": input_tokens,
-            "output_tokens": output_tokens,
-            "total_tokens": input_tokens + output_tokens,
-            "estimated_cost_usd": _estimated_cost_usd(input_tokens, output_tokens),
-        }
-        results.append(result)
-        retrieved = [(filename, score) for filename, _text, score in hits]
-        print("=" * 72)
-        print(f"{item['id']} ({index}/{len(eval_set)}): {item['question']}")
-        print(
-            f"  retrieved={retrieved}  correctness={quality['correctness'].upper()} "
-            f"grade={quality['graded_correctness']} coverage={quality['aspect_coverage']:.1%}"
-        )
-        print(f"  answer: {response}")
-        log(
-            f"{item['id']}: {item['question']}",
-            json.dumps(result, ensure_ascii=False, default=str),
-        )
+def _evaluate_item(
+    llm: ChatOpenAI,
+    item: dict[str, Any],
+) -> tuple[dict[str, Any], list[tuple[str, str, float]]]:
+    """Retrieve, answer, judge, and score a single golden-suite item."""
+    hits = retrieve(item["question"], TOP_K)
+    retrieved_context = "\n\n".join(
+        f"[{filename}] {text}" for filename, text, _score in hits
+    )
+    if hits:
+        response, answer_usage = answer(llm, item["question"], hits)
+    else:
+        response = "(no documents retrieved)"
+        answer_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0, "latency_seconds": 0.0}
+    quality, quality_usage = judge(
+        llm,
+        response,
+        item["expected_answer"],
+        item["required_aspects"],
+        retrieved_context,
+    )
+    refusal_outcome, refusal_usage = judge_refusal_behavior(
+        llm,
+        item,
+        response,
+        retrieved_context,
+    )
+    retrieved_sources = [filename for filename, _text, _score in hits]
+    source_metrics = _source_metrics(item["expected_sources"], retrieved_sources)
+    citation_metrics = _citation_metrics(response, hits, item["expected_sources"])
+    input_tokens = sum(
+        int(usage["input_tokens"])
+        for usage in (answer_usage, quality_usage, refusal_usage)
+    )
+    output_tokens = sum(
+        int(usage["output_tokens"])
+        for usage in (answer_usage, quality_usage, refusal_usage)
+    )
+    total_latency = sum(
+        float(usage["latency_seconds"])
+        for usage in (answer_usage, quality_usage, refusal_usage)
+    )
+    result = {
+        "id": item["id"],
+        "question": item["question"],
+        "information_need": item["information_need"],
+        "motivation": item["motivation"],
+        "prior_familiarity": item["prior_familiarity"],
+        "scope": item["scope"],
+        "answerable": item["answerable"],
+        "adversarial_kind": item.get("adversarial_kind"),
+        "expected_sources": item["expected_sources"],
+        "retrieved_sources": retrieved_sources,
+        "required_aspects": item["required_aspects"],
+        "response": response,
+        **quality,
+        **source_metrics,
+        **citation_metrics,
+        "refusal_outcome": refusal_outcome,
+        "answer_latency_seconds": answer_usage["latency_seconds"],
+        "judge_latency_seconds": float(quality_usage["latency_seconds"]) + float(refusal_usage["latency_seconds"]),
+        "total_latency_seconds": total_latency,
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "total_tokens": input_tokens + output_tokens,
+        "estimated_cost_usd": _estimated_cost_usd(input_tokens, output_tokens),
+    }
+    return result, hits
 
+
+def _print_progress(
+    item: dict[str, Any],
+    result: dict[str, Any],
+    hits: list[tuple[str, str, float]],
+    index: int,
+    total: int,
+) -> None:
+    retrieved = [(filename, score) for filename, _text, score in hits]
+    print("=" * 72)
+    print(f"{item['id']} ({index}/{total}): {item['question']}")
+    print(
+        f"  retrieved={retrieved}  correctness={result['correctness'].upper()} "
+        f"grade={result['graded_correctness']} coverage={result['aspect_coverage']:.1%}"
+    )
+    print(f"  answer: {result['response']}")
+
+
+def _write_results(
+    results: list[dict[str, Any]],
+    output_path: Path | None,
+) -> tuple[Path, Path]:
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     if output_path is None:
         stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -623,9 +638,14 @@ def run_evaluation(limit: int | None = None, output_path: Path | None = None) ->
                 key: json.dumps(value, ensure_ascii=False) if isinstance(value, (list, dict)) else value
                 for key, value in result.items()
             })
+    return output_path, csv_path
 
+
+def _print_summary(results: list[dict[str, Any]]) -> None:
     passes = sum(result["correctness"] == "pass" for result in results)
+    relevant = sum(result["answer_relevance"] == "pass" for result in results)
     strict = sum(float(result["source_recall_strict"]) for result in results)
+    mean_precision = sum(float(result["source_precision_at_k"]) for result in results) / len(results)
     normal_answerable = [
         result for result in results
         if result["answerable"] and result["adversarial_kind"] is None
@@ -635,7 +655,9 @@ def run_evaluation(limit: int | None = None, output_path: Path | None = None) ->
     )
     print("=" * 72)
     print(f"Binary correctness: {passes}/{len(results)} ({passes / len(results):.1%})")
+    print(f"Answer relevance: {relevant}/{len(results)} ({relevant / len(results):.1%})")
     print(f"Strict source recall@{TOP_K}: {strict / len(results):.1%}")
+    print(f"Mean source precision@{TOP_K}: {mean_precision:.1%}")
     for scope in ("single_document", "multi_document"):
         scoped = [result for result in results if result["scope"] == scope]
         if scoped:
@@ -684,6 +706,26 @@ def run_evaluation(limit: int | None = None, output_path: Path | None = None) ->
             f"{need}: mean latency={mean_latency:.2f}s, "
             f"mean tokens={mean_tokens:.0f}{cost_text}"
         )
+
+
+def run_evaluation(limit: int | None = None, output_path: Path | None = None) -> None:
+    llm = make_llm()
+    eval_set = my_eval_set()
+    if limit is not None:
+        eval_set = eval_set[:limit]
+    results: list[dict[str, Any]] = []
+    print(f"Checkpoint 3.1 - baseline evaluation  |  scenario: {SCENARIO}\n")
+    for index, item in enumerate(eval_set, 1):
+        result, hits = _evaluate_item(llm, item)
+        results.append(result)
+        _print_progress(item, result, hits, index, len(eval_set))
+        log(
+            f"{item['id']}: {item['question']}",
+            json.dumps(result, ensure_ascii=False, default=str),
+        )
+
+    output_path, csv_path = _write_results(results, output_path)
+    _print_summary(results)
     print(f"Results JSON: {output_path.resolve()}")
     print(f"Results CSV:  {csv_path.resolve()}")
 
