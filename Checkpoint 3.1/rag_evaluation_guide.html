@@ -1,0 +1,405 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+<link rel="stylesheet" href="file:///c:\Users\steph\.vscode\extensions\goessner.mdmath-2.7.4\themes\default\style.css">
+
+</head>
+<body class="markdown-body">
+<span id="markdown-mermaid" aria-hidden="true" data-config="{&quot;darkModeTheme&quot;:&quot;vscode&quot;,&quot;lightModeTheme&quot;:&quot;vscode&quot;,&quot;maxTextSize&quot;:50000,&quot;clickDrag&quot;:&quot;alt&quot;,&quot;showControls&quot;:&quot;onHoverOrFocus&quot;,&quot;resizable&quot;:true,&quot;maxHeight&quot;:&quot;&quot;}"></span>
+				<h1 dir="auto" id="rag-evaluation-guide">RAG Evaluation Guide</h1>
+<p dir="auto">Effective RAG evaluation splits into two layers — retrieval quality and generation quality — with the minimum viable pair being <strong>context recall</strong> (did retrieval find what was needed?) plus <strong>faithfulness</strong> (is the answer grounded in what was retrieved?). Everything else layers diagnostic precision on top of those two. No single catch-all metric exists.</p>
+<hr dir="auto">
+<h2 dir="auto" id="1-retrieval-layer-metrics">1. Retrieval Layer Metrics</h2>
+<p dir="auto">Cheap, deterministic when you have labels, and they diagnose the upstream failure mode — if retrieval misses the evidence, no generator can recover.</p>
+<ul dir="auto">
+<li dir="auto"><strong>Recall@k</strong> — fraction of all relevant chunks in the corpus that made it into the top-k. The &quot;honest retrieval metric&quot; and the cheapest high-signal thing to track.</li>
+<li dir="auto"><strong>Precision@k</strong> — the relevant fraction within the top-k; catches irrelevant chunks diluting the context window.</li>
+<li dir="auto"><strong>Context precision</strong> — reference-free variant asking whether the best chunks are ranked <em>first</em>, not merely present.</li>
+<li dir="auto"><strong>Context recall</strong> — whether retrieved context contains everything needed to answer. Requires a gold answer. Sometimes called &quot;context sufficiency.&quot;</li>
+<li dir="auto"><strong>MRR and nDCG</strong> — ranking-order metrics. MRR asks whether correct docs appear early; nDCG applies graded relevance with position weighting. Use these specifically when tuning a reranker, since both are sensitive to ordering rather than mere set membership.</li>
+</ul>
+<h2 dir="auto" id="2-generation-layer-metrics">2. Generation Layer Metrics</h2>
+<ul dir="auto">
+<li dir="auto"><strong>Faithfulness</strong> — every claim in the answer supported by retrieved context. The single most important metric to alert on in production.</li>
+<li dir="auto"><strong>Groundedness</strong> — the per-sentence version of faithfulness. Matters most for citation reliability, because whole-answer faithfulness can pass while an individual sentence is unsupported.</li>
+<li dir="auto"><strong>Answer relevance</strong> — does the response actually address the query, or drift.</li>
+<li dir="auto"><strong>Answer correctness</strong> — factual alignment with a gold answer, including completeness.</li>
+<li dir="auto"><strong>Hallucination rate</strong> — reference-free safety net measuring what share of answers are fabricated.</li>
+<li dir="auto"><strong>Chunk attribution</strong> — what share of the answer came from retrieval versus the model's parametric prior. Underused, and directly relevant to proving a claim traces to a source document.</li>
+</ul>
+<p dir="auto">Classic n-gram overlap metrics (BLEU, ROUGE, METEOR) and BERTScore still appear in generation-level lists, but they measure surface similarity to a reference rather than grounding. Treat them as weak proxies.</p>
+<hr dir="auto">
+<h2 dir="auto" id="3-metric-selection-table">3. Metric Selection Table</h2>
+<table dir="auto">
+<thead dir="auto">
+<tr dir="auto">
+<th>Metric</th>
+<th>Layer</th>
+<th>Needs reference?</th>
+<th>Deterministic or LLM</th>
+<th>Failure it catches</th>
+</tr>
+</thead>
+<tbody dir="auto">
+<tr dir="auto">
+<td>Faithfulness</td>
+<td>Generation</td>
+<td>No</td>
+<td>LLM judge</td>
+<td>Whole-answer fabrication</td>
+</tr>
+<tr dir="auto">
+<td>Groundedness</td>
+<td>Generation</td>
+<td>No</td>
+<td>LLM judge</td>
+<td>Per-sentence unsupported claims</td>
+</tr>
+<tr dir="auto">
+<td>Answer relevance</td>
+<td>Generation</td>
+<td>No</td>
+<td>LLM judge</td>
+<td>Off-topic drift</td>
+</tr>
+<tr dir="auto">
+<td>Context precision</td>
+<td>Retrieval</td>
+<td>No</td>
+<td>LLM judge</td>
+<td>Irrelevant chunks in top-k</td>
+</tr>
+<tr dir="auto">
+<td>Context recall</td>
+<td>Retrieval</td>
+<td>Yes</td>
+<td>LLM judge</td>
+<td>Missing evidence or chunking split the evidence</td>
+</tr>
+<tr dir="auto">
+<td>Recall@k / Precision@k</td>
+<td>Retrieval</td>
+<td>Yes</td>
+<td>Deterministic</td>
+<td>Retrieval misses, dilution</td>
+</tr>
+<tr dir="auto">
+<td>MRR / nDCG</td>
+<td>Retrieval</td>
+<td>Yes</td>
+<td>Deterministic</td>
+<td>Bad ranking order</td>
+</tr>
+<tr dir="auto">
+<td>Hallucination rate</td>
+<td>Generation</td>
+<td>No</td>
+<td>LLM judge</td>
+<td>Fabrication in production</td>
+</tr>
+<tr dir="auto">
+<td>Chunk attribution</td>
+<td>Generation</td>
+<td>No</td>
+<td>LLM judge</td>
+<td>Answer not traceable to retrieval</td>
+</tr>
+<tr dir="auto">
+<td>BLEU / ROUGE / METEOR</td>
+<td>Generation</td>
+<td>Yes</td>
+<td>Deterministic</td>
+<td>Surface divergence from reference</td>
+</tr>
+<tr dir="auto">
+<td>BERTScore</td>
+<td>Generation</td>
+<td>Yes</td>
+<td>Deterministic (embedding)</td>
+<td>Semantic divergence from reference</td>
+</tr>
+<tr dir="auto">
+<td>Latency p95 / p99</td>
+<td>System</td>
+<td>No</td>
+<td>Deterministic</td>
+<td>Tail-latency regressions</td>
+</tr>
+<tr dir="auto">
+<td>Cost per query</td>
+<td>System</td>
+<td>No</td>
+<td>Deterministic</td>
+<td>Token/retrieval-depth blowout</td>
+</tr>
+<tr dir="auto">
+<td>Citation coverage</td>
+<td>Generation</td>
+<td>No</td>
+<td>Either</td>
+<td>Unsourced claims</td>
+</tr>
+</tbody>
+</table>
+<p dir="auto">Two caveats. BERTScore is repeatable but not label-free arithmetic — it uses a fixed embedding model, so it is deterministic given a pinned checkpoint and drifts if the model changes. Citation coverage is deterministic when checking only that every claim carries a marker resolving to a retrieved chunk ID; it needs a judge when verifying the cited chunk actually supports the claim.</p>
+<hr dir="auto">
+<h2 dir="auto" id="4-reference-based-vs-reference-free">4. Reference-Based vs Reference-Free</h2>
+<p dir="auto">&quot;Needs reference?&quot; asks whether a metric requires a pre-written ground-truth answer (a gold answer or labelled relevant document set) to be computed at all.</p>
+<p dir="auto">Reference-based metrics compare output against something a human wrote in advance. Reference-free metrics evaluate using only artifacts the system produced at query time — the question, the retrieved chunks, and the generated answer.</p>
+<p dir="auto">For a query like &quot;Which DISARM techniques appeared in the 2024 Moldova campaign?&quot;:</p>
+<ul dir="auto">
+<li dir="auto"><strong>Faithfulness (no reference)</strong> — an LLM judge decomposes the answer into claims and checks each against retrieved chunks. It never needs to know the <em>correct</em> answer, only whether the answer is consistent with the retrieved evidence.</li>
+<li dir="auto"><strong>Context recall (needs reference)</strong> — you must already know that chunks 7, 12, and 31 contain the true answer. Without that labelled set, &quot;recall&quot; has no denominator.</li>
+</ul>
+<h3 dir="auto" id="why-it-matters-practically">Why it matters practically</h3>
+<p dir="auto">This is really a distinction about cost and coverage.</p>
+<ul dir="auto">
+<li dir="auto">Reference-free metrics run on <strong>live production traffic</strong>, on any query, with no annotation work. This is why faithfulness and hallucination rate are the standard production alerting metrics.</li>
+<li dir="auto">Reference-based metrics only run on a <strong>fixed evaluation set</strong> built by hand. Higher fidelity, but they cost annotation hours and say nothing about queries outside that set.</li>
+</ul>
+<p dir="auto">Recall@k, nDCG, MRR, and answer correctness all sit on the &quot;yes&quot; side because each needs a human decision about what counted as relevant or correct.</p>
+<h3 dir="auto" id="the-trap-in-the-middle">The trap in the middle</h3>
+<p dir="auto">Reference-free does not mean assumption-free. Faithfulness measures grounding in retrieved context, not truth. If the retriever pulls a wrong-but-confident chunk and the generator faithfully summarizes it, faithfulness scores 1.0 on a wrong answer. Reference-based metrics catch that failure.</p>
+<p dir="auto">For comparing two hybrid BM25-plus-vector configurations this is decisive: reference-free metrics look nearly identical across both configs, because both faithfully summarize whatever they retrieved. Only a labelled gold set gives recall@k and nDCG, where the actual difference between retrievers shows up.</p>
+<hr dir="auto">
+<h2 dir="auto" id="5-recallk-vs-context-recall">5. Recall@k vs Context Recall</h2>
+<p dir="auto">Both measure &quot;did we retrieve the evidence we needed,&quot; but they count different things. Recall@k counts <strong>documents</strong> against a labelled relevance set; context recall counts <strong>claims in the gold answer</strong> against the text of the retrieved chunks.</p>
+<h3 dir="auto" id="recallk--document-level-set-overlap">Recall@k — document-level set overlap</h3>
+<p dir="auto">Classic IR metric. Label which chunks in the corpus are relevant, retrieve the top-k, and compute:</p>
+<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Recall@k</mtext><mo>=</mo><mfrac><mrow><mi mathvariant="normal">∣</mi><mtext>relevant chunks in top-</mtext><mi>k</mi><mi mathvariant="normal">∣</mi></mrow><mrow><mi mathvariant="normal">∣</mi><mtext>all relevant chunks in corpus</mtext><mi mathvariant="normal">∣</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex"> \text{Recall@k} = \frac{|\text{relevant chunks in top-}k|}{|\text{all relevant chunks in corpus}|} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">Recall@k</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.363em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">∣</span><span class="mord text"><span class="mord">all relevant chunks in corpus</span></span><span class="mord">∣</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">∣</span><span class="mord text"><span class="mord">relevant chunks in top-</span></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord">∣</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></eqn></section></math>
+<p dir="auto">The unit of accounting is the document ID. Deterministic, cheap, reproducible — no LLM in the loop, just set arithmetic. Ground truth is a list like <code>[&quot;doc_7&quot;, &quot;doc_12&quot;, &quot;doc_31&quot;]</code>.</p>
+<h3 dir="auto" id="context-recall--claim-level-coverage">Context recall — claim-level coverage</h3>
+<p dir="auto">RAGAS-style metric. Ground truth is a written gold answer, not a document list. The metric decomposes that gold answer into claims or sentences, then asks — usually via an LLM judge — whether each claim is attributable to the retrieved context:</p>
+<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Context recall</mtext><mo>=</mo><mfrac><mtext>gold-answer claims supported by retrieved context</mtext><mtext>total gold-answer claims</mtext></mfrac></mrow><annotation encoding="application/x-tex"> \text{Context recall} = \frac{\text{gold-answer claims supported by retrieved context}}{\text{total gold-answer claims}} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">Context recall</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.25188em;vertical-align:-0.8804400000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714399999999998em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">total gold-answer claims</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">gold-answer claims supported by retrieved context</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></eqn></section></math>
+<p dir="auto">The unit of accounting is the claim. Non-deterministic, costs LLM calls, and sensitive to how the judge parses the answer.</p>
+<h3 dir="auto" id="where-they-disagree">Where they disagree</h3>
+<ul dir="auto">
+<li dir="auto"><strong>Recall@k high, context recall low.</strong> The right documents were retrieved, but chunking split the answer so a needed fact landed outside the chunk boundary. The doc ID matched; the text did not carry the claim. Signal to fix chunk size or overlap.</li>
+<li dir="auto"><strong>Recall@k low, context recall high.</strong> A chunk the annotator marked relevant was missed, but the same fact appeared redundantly in a chunk that was retrieved. Recall@k penalizes a failure the user would never notice.</li>
+</ul>
+<p dir="auto">The second case is why recall@k is unforgiving on corpora with duplicated content — regulatory filings, incident reports restating the same indicators, or multilingual near-duplicates.</p>
+<h3 dir="auto" id="comparison">Comparison</h3>
+<table dir="auto">
+<thead dir="auto">
+<tr dir="auto">
+<th></th>
+<th>Recall@k</th>
+<th>Context recall</th>
+</tr>
+</thead>
+<tbody dir="auto">
+<tr dir="auto">
+<td>Ground truth</td>
+<td>Relevance judgments per doc</td>
+<td>Written gold answer</td>
+</tr>
+<tr dir="auto">
+<td>Unit measured</td>
+<td>Documents</td>
+<td>Claims</td>
+</tr>
+<tr dir="auto">
+<td>Judge required</td>
+<td>No</td>
+<td>Yes (LLM)</td>
+</tr>
+<tr dir="auto">
+<td>Deterministic</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr dir="auto">
+<td>Cost per eval</td>
+<td>Negligible</td>
+<td>LLM call per claim</td>
+</tr>
+<tr dir="auto">
+<td>Diagnoses</td>
+<td>Retriever ranking depth</td>
+<td>End-to-end evidence sufficiency</td>
+</tr>
+</tbody>
+</table>
+<p dir="auto">Use recall@k when tuning the retriever itself — sweeping k, comparing BM25 weight against dense weight, testing a reranker. You want a stable, fast, non-noisy number runnable hundreds of times without cost.</p>
+<p dir="auto">Use context recall when validating that the pipeline as a whole can answer the question, especially after changing chunking or embedding strategy. It catches the failure recall@k is blind to: right document retrieved, wrong span of it.</p>
+<h3 dir="auto" id="practical-note-on-labelling">Practical note on labelling</h3>
+<p dir="auto">Recall@k's labelling burden is often overstated. Bootstrap relevance judgments from gold answers: retrieve a deep top-50 with a permissive hybrid config, have a judge mark which chunks contain gold-answer claims, then freeze that set as labels. After that the metric runs deterministically and free, forever. The one-time LLM cost buys a reusable non-noisy benchmark — exactly what is needed when comparing retrieval configurations across many runs.</p>
+<hr dir="auto">
+<h2 dir="auto" id="6-precisionk-vs-context-precision">6. Precision@k vs Context Precision</h2>
+<p dir="auto">The split mirrors the recall case with one extra wrinkle: precision@k ignores ranking order entirely, while context precision is fundamentally about <strong>where</strong> in the top-k the useful chunks landed.</p>
+<h3 dir="auto" id="precisionk--purity-of-the-set">Precision@k — purity of the set</h3>
+<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Precision@k</mtext><mo>=</mo><mfrac><mrow><mi mathvariant="normal">∣</mi><mtext>relevant chunks in top-</mtext><mi>k</mi><mi mathvariant="normal">∣</mi></mrow><mi>k</mi></mfrac></mrow><annotation encoding="application/x-tex"> \text{Precision@k} = \frac{|\text{relevant chunks in top-}k|}{k} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">Precision@k</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.113em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">∣</span><span class="mord text"><span class="mord">relevant chunks in top-</span></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord">∣</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></eqn></section></math>
+<p dir="auto">The unit is the document ID and the denominator is just k. Retrieve 10 chunks, 4 labelled relevant, precision@10 is 0.4 — identical whether the 4 relevant chunks rank 1–4 or 7–10. Deterministic, no LLM, no cost.</p>
+<h3 dir="auto" id="context-precision--rank-weighted-usefulness">Context precision — rank-weighted usefulness</h3>
+<p dir="auto">RAGAS-style, and a <em>ranking</em> metric wearing a precision name. It walks the retrieved list position by position, judges whether each chunk is useful, then averages precision@i over positions where a useful chunk appeared:</p>
+<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Context precision</mtext><mo>=</mo><mfrac><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>k</mi></munderover><mi>P</mi><mi mathvariant="normal">@</mi><mi>i</mi><mo>⋅</mo><msub><mi>v</mi><mi>i</mi></msub></mrow><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>k</mi></munderover><msub><mi>v</mi><mi>i</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex"> \text{Context precision} = \frac{\sum_{i=1}^{k} P@i \cdot v_i}{\sum_{i=1}^{k} v_i} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">Context precision</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.857436em;vertical-align:-1.178718em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.678718em;"><span style="top:-2.120992em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9890079999999999em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.6897100000000003em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9890079999999999em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord">@</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.178718em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></eqn></section></math>
+<p dir="auto">where <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">v_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq> is 1 if the chunk at position <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span></eq> is useful. Because of the <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi mathvariant="normal">@</mi><mi>i</mi></mrow><annotation encoding="application/x-tex">P@i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord">@</span><span class="mord mathnormal">i</span></span></span></span></eq> weighting, a useful chunk at rank 1 contributes far more than the same chunk at rank 10. Relevance is judged by an LLM against the question (or gold answer), not looked up from labels.</p>
+<h3 dir="auto" id="concrete-divergence">Concrete divergence</h3>
+<p dir="auto">Two retriever configs, both returning 10 chunks with 3 useful ones:</p>
+<ul dir="auto">
+<li dir="auto">Config A ranks the useful chunks at positions 1, 2, 3 → precision@10 = 0.30, context precision ≈ 1.0.</li>
+<li dir="auto">Config B ranks them at positions 8, 9, 10 → precision@10 = 0.30, context precision ≈ 0.27.</li>
+</ul>
+<p dir="auto">Precision@k calls these identical. Context precision correctly says A is dramatically better — the generator attends more reliably to early context, and a smaller k would still work for A but return nothing for B.</p>
+<h3 dir="auto" id="comparison">Comparison</h3>
+<table dir="auto">
+<thead dir="auto">
+<tr dir="auto">
+<th></th>
+<th>Precision@k</th>
+<th>Context precision</th>
+</tr>
+</thead>
+<tbody dir="auto">
+<tr dir="auto">
+<td>Ground truth</td>
+<td>Relevance labels per doc</td>
+<td>Question, or gold answer</td>
+</tr>
+<tr dir="auto">
+<td>Unit measured</td>
+<td>Documents</td>
+<td>Chunk positions</td>
+</tr>
+<tr dir="auto">
+<td>Order-sensitive</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr dir="auto">
+<td>Judge required</td>
+<td>No</td>
+<td>Yes (LLM)</td>
+</tr>
+<tr dir="auto">
+<td>Deterministic</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr dir="auto">
+<td>Diagnoses</td>
+<td>Context dilution, wasted k</td>
+<td>Reranker quality, ranking order</td>
+</tr>
+</tbody>
+</table>
+<p dir="auto">Use precision@k when the concern is <strong>noise in the window</strong> — how much of what goes into the prompt is junk. It tells you k is set too high, or that hybrid fusion is dragging in loosely-lexical matches. It is also the right metric for cost work, since irrelevant chunks are tokens you pay for.</p>
+<p dir="auto">Use context precision when evaluating a <strong>reranker</strong>. Adding a cross-encoder rerank stage barely moves precision@k if the same 10 chunks return in a different order — the set is unchanged, so the ratio is unchanged. Context precision is one of the few metrics that registers the improvement. In that role it overlaps heavily with MRR and nDCG; if graded relevance labels already exist, nDCG is the stronger choice — same order-sensitivity, deterministic, free to recompute.</p>
+<h3 dir="auto" id="note-on-naming">Note on naming</h3>
+<p dir="auto">RAGAS-family names are a persistent source of confusion: &quot;context precision&quot; measures ranking rather than purity, and its non-order-sensitive sibling is sometimes exposed separately as context relevance or context utilization. When wiring these into a comparison harness, read the framework's implementation rather than trusting the name — the same label denotes meaningfully different formulas across RAGAS versions, DeepEval, and TruLens.</p>
+<hr dir="auto">
+<h2 dir="auto" id="7-chunk-attribution-vs-citation-coverage">7. Chunk Attribution vs Citation Coverage</h2>
+<p dir="auto">Different questions. Chunk attribution asks <strong>where the answer came from</strong> (retrieval versus parametric memory); citation coverage asks <strong>whether the answer tells the reader where it came from</strong>. One is provenance measurement, the other disclosure measurement.</p>
+<h3 dir="auto" id="chunk-attribution--provenance">Chunk attribution — provenance</h3>
+<p dir="auto">Measures what share of the generated answer traces back to retrieved chunks. The failure it catches is the generator answering from pretraining knowledge while retrieval sits unused in the prompt.</p>
+<p dir="auto">That failure is easy to miss because the answer can be entirely <em>correct</em>. Ask about a well-documented 2016-era influence campaign and the model may produce a solid answer from parametric memory, ignoring the corpus completely. Chunk attribution reveals that the retrieval pipeline contributed nothing — which matters enormously when the point of the system is that answers rest on a curated evidence base rather than on whatever the model absorbed in training.</p>
+<p dir="auto">A related diagnostic is chunk utilization: of the chunks retrieved, how many were actually used. Attribution looks from the answer backward; utilization looks from the retrieved set forward.</p>
+<h3 dir="auto" id="citation-coverage--disclosure">Citation coverage — disclosure</h3>
+<p dir="auto">Measures what share of claims carry an attached source marker. The failure is an answer that is grounded but silent about it — the reader cannot verify.</p>
+<p dir="auto">Two strictness levels, and conflating them causes trouble:</p>
+<ul dir="auto">
+<li dir="auto"><strong>Weak form</strong> — every claim has a citation marker, and the marker resolves to a chunk that was genuinely retrieved. Pure string and ID checking, fully deterministic.</li>
+<li dir="auto"><strong>Strong form</strong> — the cited chunk actually supports the claim attached to it. Needs a judge, and this is where most systems quietly fail, because models are good at attaching a plausible-looking citation to the wrong chunk.</li>
+</ul>
+<h3 dir="auto" id="comparison">Comparison</h3>
+<table dir="auto">
+<thead dir="auto">
+<tr dir="auto">
+<th></th>
+<th>Chunk attribution</th>
+<th>Citation coverage</th>
+</tr>
+</thead>
+<tbody dir="auto">
+<tr dir="auto">
+<td>Question asked</td>
+<td>Did retrieval contribute this?</td>
+<td>Is the source disclosed?</td>
+</tr>
+<tr dir="auto">
+<td>Direction</td>
+<td>Answer text → chunks</td>
+<td>Claims → citation markers</td>
+</tr>
+<tr dir="auto">
+<td>Catches</td>
+<td>Parametric leakage</td>
+<td>Unverifiable claims</td>
+</tr>
+<tr dir="auto">
+<td>Needs markers in output?</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr dir="auto">
+<td>Deterministic</td>
+<td>No (judge)</td>
+<td>Weak form yes, strong form no</td>
+</tr>
+<tr dir="auto">
+<td>Stakeholder</td>
+<td>Engineer debugging the pipeline</td>
+<td>Analyst or auditor reading the output</td>
+</tr>
+</tbody>
+</table>
+<h3 dir="auto" id="the-four-quadrant-view">The four-quadrant view</h3>
+<p dir="auto">The two are independent, which is the clearest argument for tracking both.</p>
+<ul dir="auto">
+<li dir="auto">High attribution, high coverage — target state. Grounded and transparent.</li>
+<li dir="auto">High attribution, low coverage — grounded but unciteable. Common with generic prompts that do not request markers. Fixable in the prompt, not the retriever.</li>
+<li dir="auto">Low attribution, high coverage — the dangerous quadrant. The model answered from memory then decorated it with citations that look right. Weak-form coverage passes; strong-form coverage catches it.</li>
+<li dir="auto">Low attribution, low coverage — retrieval is being ignored outright. Check whether context is even reaching the model.</li>
+</ul>
+<p dir="auto">That third quadrant is the reason to run both rather than treating coverage as a proxy for grounding.</p>
+<hr dir="auto">
+<h2 dir="auto" id="8-operational-and-system-metrics">8. Operational and System Metrics</h2>
+<p dir="auto">Quality metrics alone are insufficient — evaluate the pipeline as users experience it.</p>
+<ul dir="auto">
+<li dir="auto"><strong>Latency at p95 and p99</strong> rather than median, since median hides the worst experience.</li>
+<li dir="auto"><strong>Cost per query</strong>, essential when trading off retrieval depth.</li>
+<li dir="auto"><strong>Task success</strong> measured offline against labelled traces.</li>
+<li dir="auto"><strong>Safety and compliance</strong> checks such as refusal rates and policy violations.</li>
+</ul>
+<p dir="auto">For DISARM/FIMI-style corpora, <strong>citation coverage</strong> is worth adding as a first-class metric alongside faithfulness, and stress tests benefit from custom evaluators like brand-safety or refusal checks rather than generic scores.</p>
+<hr dir="auto">
+<h2 dir="auto" id="9-using-judge-metrics-in-ci">9. Using Judge Metrics in CI</h2>
+<p dir="auto">The practical consequence of determinism is which metrics can gate a build. Deterministic metrics give a fixed number for a fixed input, so a regression threshold means something. LLM-judge metrics have run-to-run variance even at temperature zero, so a 0.02 drop may be noise rather than a real regression.</p>
+<p dir="auto">Three habits make judge metrics usable as gates anyway:</p>
+<ul dir="auto">
+<li dir="auto">Pin the judge model <em>and</em> version, and treat a judge upgrade as a benchmark reset rather than a comparable run.</li>
+<li dir="auto">Average over 3–5 repeats per item and track variance, so the noise floor is known before setting a threshold.</li>
+<li dir="auto">Calibrate the judge once against human labels on a sample, so its agreement rate is known rather than assumed.</li>
+</ul>
+<h3 dir="auto" id="applying-this-to-config-comparisons">Applying this to config comparisons</h3>
+<p dir="auto">For sweeping hybrid BM25-plus-dense weights, run the deterministic block only — recall@k, precision@k, nDCG, latency, cost. This gives free, noise-free, hundreds-of-runs-per-hour iteration, and nDCG covers the ranking sensitivity one would otherwise reach for context precision to get.</p>
+<p dir="auto">Bring in the LLM-judge block once the retriever is frozen, to answer the questions labels cannot: whether chunk boundaries actually carry the claims, and whether the generator stays grounded in what it was handed.</p>
+<hr dir="auto">
+<h2 dir="auto" id="10-staging-your-evaluation">10. Staging Your Evaluation</h2>
+<p dir="auto">Match the metric to the phase of work rather than tracking everything continuously.</p>
+<ol dir="auto">
+<li dir="auto">While tuning chunking and retrieval, focus on chunk-level relevance and ranking quality; once stable, tracking them can stop.</li>
+<li dir="auto">Run regression gates in CI across ingestion, chunking, retrieval, reranking, and generation as a pipeline, not as isolated components.</li>
+<li dir="auto">In production, track a few high-signal metrics — faithfulness, format correctness, answer completeness — plus analytical checks like topic coverage.</li>
+</ol>
+<h3 dir="auto" id="tooling">Tooling</h3>
+<p dir="auto">The four-metric core (faithfulness, answer relevance, context precision, context recall) is implemented across RAGAS, DeepEval, TruLens, and ARES on the open-source side, and LangSmith, Arize Phoenix, and Braintrust commercially. Evidently ships built-in precision@k and hit-rate alongside customizable LLM judges.</p>
+<h3 dir="auto" id="a-caution-on-reference-free-judges">A caution on reference-free judges</h3>
+<p dir="auto">When gold answers are unavailable, proxy signals like response structure, tone, length, or completeness are still usable — but they correlate loosely with correctness. For retrieval precision work at any depth, invest in a labelled gold set. It unlocks recall@k, nDCG, and answer correctness, which are the metrics that actually discriminate between two competing hybrid BM25-plus-vector configurations.</p>
+<hr dir="auto">
+<h2 dir="auto" id="11-domain-notes-for-disarm-and-fimi-work">11. Domain Notes for DISARM and FIMI Work</h2>
+<p dir="auto">For structured threat-intelligence output, priorities differ from a general chatbot's.</p>
+<ul dir="auto">
+<li dir="auto"><strong>Chunk attribution is the build-time metric.</strong> It shows whether the retrieval investment pays off at all. Check it specifically on queries about well-known campaigns, where parametric leakage is most likely and hardest to spot.</li>
+<li dir="auto"><strong>Strong-form citation coverage is the production requirement.</strong> A technique mapping or attribution claim citing the wrong report is worse than one citing nothing.</li>
+<li dir="auto"><strong>Split the CI and sampling load.</strong> Run weak-form coverage as a cheap deterministic gate on every build; sample strong-form coverage with a judge on a fixed evaluation set.</li>
+<li dir="auto"><strong>Note the overlap with groundedness.</strong> Strong-form coverage and per-sentence groundedness overlap substantially. The difference: groundedness checks a claim against the whole retrieved context, while strong-form coverage checks it against the <em>specific</em> chunk the answer pointed to. The latter is stricter, and it is the one that matters when a reader clicks a footnote.</li>
+</ul>
+
+</body>
+</html>

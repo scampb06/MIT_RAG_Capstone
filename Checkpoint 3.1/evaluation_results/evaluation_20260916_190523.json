@@ -1,0 +1,2158 @@
+{
+  "results": [
+    {
+      "id": "Q036",
+      "question": "What's the current record for the most Academy Award nominations received by a single film?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "temporally_stale",
+      "required_sources": [
+        "List_of_Academy_Award_records.html",
+        "89th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "List_of_Academy_Award_records.html",
+        "89th_Academy_Awards.html",
+        "Titanic_(1997_film).html"
+      ],
+      "retrieved_sources": [
+        "List_of_Academy_Award_records.html",
+        "Academy_Award_for_Best_Picture.html",
+        "89th_Academy_Awards.html"
+      ],
+      "required_aspects": [
+        "According to the source material, Sinners (2025) holds the record with 16 nominations, breaking the previous record of 14 shared by All About Eve, Titanic and La La Land.",
+        "Note that this reflects the corpus's most recent recorded ceremony and may be out of date."
+      ],
+      "response": "The current record for the most Academy Award nominations received by a single film is **16**, held by **Sinners (2025)**, which had **16 nominations out of 17 possible categories** [List_of_Academy_Award_records.html].",
+      "closed_book_response": "The current record is **14 Academy Award nominations**, shared by three films:\n\n- **Titanic** (1997)\n- **All About Eve** (1950)\n- **La La Land** (2016)\n\nSo the most nominations received by a single film is **14**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The current record for the most Academy Award nominations received by a single film is 16.",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "That record is held by Sinners (2025).",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Sinners (2025) had 16 nominations out of 17 possible categories.",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 1.9334850999875925,
+      "judge_latency_seconds": 5.776545300002908,
+      "total_latency_seconds": 8.731881399988197,
+      "input_tokens": 190464,
+      "output_tokens": 335,
+      "total_tokens": 190799,
+      "estimated_cost_usd": 0.1443555
+    },
+    {
+      "id": "Q072",
+      "question": "What is the highest-grossing film of all time?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "temporally_stale",
+      "required_sources": [
+        "Titanic_(1997_film).html"
+      ],
+      "expected_sources": [
+        "Titanic_(1997_film).html",
+        "List_of_Academy_Award_records.html",
+        "James_Cameron.html",
+        "Avatar_(2009_film).html"
+      ],
+      "retrieved_sources": [
+        "Harry_Potter_(film_series).html",
+        "List_of_highest-paid_film_actors.html",
+        "Avatar_(2009_film).html"
+      ],
+      "required_aspects": [
+        "According to the source material, Titanic was the highest-grossing film of all time until James Cameron's Avatar (2009) surpassed it in 2010",
+        "as of the corpus's records, Titanic stands as the fourth-highest-grossing film with a worldwide total of $2.264 billion.",
+        "These figures reflect the sources' date and may be superseded."
+      ],
+      "response": "According to the documents, **Avatar** became the highest-grossing film of all time worldwide [Avatar_(2009_film).html].",
+      "closed_book_response": "As of my knowledge cutoff, the highest-grossing film of all time is **_Avatar_ (2009)**, when measured by worldwide box office gross.\n\nIf you want, I can also give the top few highest-grossing films or explain how box office rankings can change with re-releases and inflation adjustments.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [],
+      "aspect_coverage": 0.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "According to the documents, Avatar became the highest-grossing film of all time worldwide.",
+          "cited_source": "Avatar_(2009_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 1,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 2.270306399994297,
+      "judge_latency_seconds": 4.721069399995031,
+      "total_latency_seconds": 8.163981999998214,
+      "input_tokens": 206873,
+      "output_tokens": 211,
+      "total_tokens": 207084,
+      "estimated_cost_usd": 0.15610425
+    },
+    {
+      "id": "Q079",
+      "question": "How many Academy Awards has Titanic's director received, and for what?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "James_Cameron.html"
+      ],
+      "expected_sources": [
+        "James_Cameron.html",
+        "Titanic_(1997_film).html"
+      ],
+      "retrieved_sources": [
+        "Titanic_(1997_film).html",
+        "James_Cameron.html",
+        "Avatar_(2009_film).html"
+      ],
+      "required_aspects": [
+        "James Cameron has received three Academy Awards, all for Titanic (1997): Best Director, Best Picture (shared with producer Jon Landau), and Best Film Editing (shared with Conrad Buff and Richard A. Harris)."
+      ],
+      "response": "James Cameron has received three Academy Awards, and for *Titanic* he won Best Director, Best Picture, and Best Film Editing [James_Cameron.html].",
+      "closed_book_response": "James Cameron, the director of *Titanic*, has won **3 Academy Awards**.\n\nHe received them for:\n- **Best Picture** for *Titanic*  \n- **Best Director** for *Titanic*  \n- **Best Film Editing** for *Titanic*  \n\nIf you want, I can also list his other major awards and nominations.",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "James Cameron has received three Academy Awards.",
+          "cited_source": "James_Cameron.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "For Titanic, he won Best Director, Best Picture, and Best Film Editing.",
+          "cited_source": "James_Cameron.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 2.04860209999606,
+      "judge_latency_seconds": 6.662386600015452,
+      "total_latency_seconds": 9.654956100013806,
+      "input_tokens": 346067,
+      "output_tokens": 252,
+      "total_tokens": 346319,
+      "estimated_cost_usd": 0.26068425
+    },
+    {
+      "id": "Q098",
+      "question": "What can you tell me about the film King Kong?",
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "ambiguous_entity",
+      "required_sources": [
+        "King_Kong_(1976_film).html",
+        "King_Kong_(2005_film).html"
+      ],
+      "expected_sources": [
+        "King_Kong_(1976_film).html",
+        "King_Kong_(2005_film).html",
+        "78th_Academy_Awards.html",
+        "King_Kong_(franchise).html"
+      ],
+      "retrieved_sources": [
+        "Godzilla_(1998_film).html",
+        "King_Kong_(2005_film).html",
+        "Brokeback_Mountain.html"
+      ],
+      "required_aspects": [
+        "The corpus covers more than one.",
+        "The 1976 King Kong, directed by John Guillermin and produced by Dino De Laurentiis, starred Jeff Bridges, Charles Grodin and Jessica Lange; it won a Special Achievement Academy Award for Visual Effects and was nominated for Best Cinematography and Best Sound.",
+        "The 2005 King Kong, directed by Peter Jackson, won three Academy Awards at the 78th ceremony — Best Sound Editing, Best Sound Mixing and Best Visual Effects.",
+        "Please specify which you mean."
+      ],
+      "response": "King Kong is a 2005 epic monster film directed, co-written, and produced by Peter Jackson. It stars Naomi Watts, Jack Black, Adrien Brody, Thomas Kretschmann, Colin Hanks, Jamie Bell, and Andy Serkis as Kong via motion capture. [King_Kong_(2005_film).html]\n\nThe film is the ninth entry in the King Kong franchise and the second remake of the 1933 film. It was set in 1933 and follows a filmmaker’s expedition to Skull Island, where the crew encounters Kong and other prehistoric creatures. [King_Kong_(2005_film).html]\n\nIt had a budget of $207 million and grossed $556.9 million at the box office. It ran for 187 minutes and was released by Universal Pictures. [King_Kong_(2005_film).html]\n\nThe film received critical acclaim, with praise for its special effects, performances, and spectacle, and it won three Academy Awards for Best Sound Editing, Best Sound Mixing, and Best Visual Effects. [King_Kong_(2005_film).html]",
+      "closed_book_response": "**King Kong** is a famous giant-monster adventure film that first appeared in **1933**. It’s one of the most influential movies ever made, especially in the fantasy and special-effects genres.\n\n### Basic idea\nThe story usually follows a filmmaker or expedition crew that travels to a mysterious island and discovers **King Kong**, a gigantic ape. Kong is captured and brought to civilization, where he escapes and causes chaos, often driven by his attachment to a human woman.\n\n### Why it matters\n- It was groundbreaking for its **special effects** at the time, especially stop-motion animation.\n- It became a major cultural icon and helped define the “giant monster” movie.\n- The image of Kong climbing a skyscraper is one of the most famous scenes in movie history.\n\n### Main versions\nThere have been several film versions and remakes, including:\n- **1933 original**\n- **1976** remake\n- **2005** version directed by **Peter Jackson**\n- **2017’s Kong: Skull Island**, which is part of a shared monster universe\n\n### Themes\nCommon themes include:\n- beauty and the beast\n- nature versus civilization\n- exploitation and captivity\n- tragedy in the relationship between humans and the monster\n\nIf you want, I can also give you:\n- a plot summary of the **1933 original**\n- a comparison of the different remakes\n- or a list of the main cast and crew for a specific version",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [
+        3
+      ],
+      "aspect_coverage": 0.25,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "King Kong is a 2005 epic monster film directed, co-written, and produced by Peter Jackson.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "It stars Naomi Watts, Jack Black, Adrien Brody, Thomas Kretschmann, Colin Hanks, Jamie Bell, and Andy Serkis as Kong via motion capture.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The film is the ninth entry in the King Kong franchise.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The film is the second remake of the 1933 film.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "It was set in 1933.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "It follows a filmmaker’s expedition to Skull Island.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The crew encounters Kong and other prehistoric creatures.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "It had a budget of $207 million.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "It grossed $556.9 million at the box office.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "It ran for 187 minutes.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "It was released by Universal Pictures.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The film received critical acclaim.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The film was praised for its special effects, performances, and spectacle.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "It won three Academy Awards for Best Sound Editing, Best Sound Mixing, and Best Visual Effects.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 14,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 4.056209000002127,
+      "judge_latency_seconds": 6.908640299981926,
+      "total_latency_seconds": 13.668210100004217,
+      "input_tokens": 193265,
+      "output_tokens": 1286,
+      "total_tokens": 194551,
+      "estimated_cost_usd": 0.15073575
+    },
+    {
+      "id": "Q100",
+      "question": "Given that Whiplash won the Academy Award for Best Picture, how did that affect Damien Chazelle's next project?",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "false_premise",
+      "required_sources": [
+        "Whiplash_(2014_film).html",
+        "La_La_Land.html"
+      ],
+      "expected_sources": [
+        "Whiplash_(2014_film).html",
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "retrieved_sources": [
+        "Damien_Chazelle.html",
+        "Whiplash_(2014_film).html",
+        "La_La_Land.html"
+      ],
+      "required_aspects": [
+        "Whiplash did not win Best Picture",
+        "it earned five nominations including Best Picture and won three awards — Best Film Editing, Best Sound Mixing, and Best Supporting Actor for J.",
+        "K.",
+        "Simmons.",
+        "Its critical and commercial success did nonetheless enable Chazelle's next project: after Whiplash was well received at Sundance and grossed roughly $50 million on a $3.3 million budget, Summit Entertainment and Black Label Media, with producer Marc Platt, agreed to finance and distribute La La Land, having been impressed by Whiplash."
+      ],
+      "response": "The documents do not say that *Whiplash* won the Academy Award for Best Picture. They say *Whiplash* won Academy Awards for Best Film Editing and Best Sound Mixing, and was nominated for Best Picture and Best Adapted Screenplay [Whiplash_(2014_film).html].  \n\nThey also say Chazelle used the success of *Whiplash* to help attract financiers for *La La Land* and that after *Whiplash* was well received and nominated for five Oscars, the project gained studio attention [Damien_Chazelle.html] [La_La_Land.html].",
+      "closed_book_response": "Whiplash **didn’t** win Best Picture — it was nominated for Best Picture, but it lost to **Birdman**.\n\nIf you mean **the effect of Whiplash’s success** on Damien Chazelle’s next project: it helped him get support for **La La Land**, which became his follow-up film and a much bigger production. The acclaim from Whiplash made it easier for him to secure financing and attention for that project.",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        1,
+        3
+      ],
+      "aspect_coverage": 0.4,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The documents do not say that Whiplash won the Academy Award for Best Picture.",
+          "cited_source": "Whiplash_(2014_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Whiplash won Academy Awards for Best Film Editing and Best Sound Mixing.",
+          "cited_source": "Whiplash_(2014_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Whiplash was nominated for Best Picture.",
+          "cited_source": "Whiplash_(2014_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Whiplash was nominated for Best Adapted Screenplay.",
+          "cited_source": "Whiplash_(2014_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Chazelle used the success of Whiplash to help attract financiers for La La Land.",
+          "cited_source": "Damien_Chazelle.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "After Whiplash was well received and nominated for five Oscars, the project gained studio attention.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 6,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.5,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 1.0,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 3,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "appropriate_refusal",
+      "answer_latency_seconds": 4.600404299999354,
+      "judge_latency_seconds": 7.102071599976625,
+      "total_latency_seconds": 13.17428439995274,
+      "input_tokens": 131536,
+      "output_tokens": 585,
+      "total_tokens": 132121,
+      "estimated_cost_usd": 0.1012845
+    },
+    {
+      "id": "Q091",
+      "question": "Tell me about Ben Kingsley's career — I know him from the Marvel films.",
+      "information_need": "overview",
+      "motivation": "media_reference",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Ben_Kingsley.html"
+      ],
+      "expected_sources": [
+        "Ben_Kingsley.html"
+      ],
+      "retrieved_sources": [
+        "Ben_Kingsley.html",
+        "Schindler_s_List.html",
+        "Chris_Columbus_(filmmaker).html"
+      ],
+      "required_aspects": [
+        "Ben Kingsley (born Krishna Pandit Bhanji, 1943) began in theatre, joining the Royal Shakespeare Company in 1967 and working mainly on stage for 15 years.",
+        "His film breakthrough was the title role in Richard Attenborough's Gandhi (1982), for which he won the Academy Award for Best Actor and the BAFTA for Best Actor in a Leading Role.",
+        "He was Oscar-nominated for Bugsy (1990), Sexy Beast (2000) and House of Sand and Fog (2003), and was BAFTA-nominated for Schindler's List (1993).",
+        "In the Marvel Cinematic Universe he has played Trevor Slattery for over a decade, in Iron Man 3 (2013), the short All Hail the King (2014), Shang-Chi and the Legend of the Ten Rings (2021) and the Disney+ series Wonder Man.",
+        "He was appointed Knight Bachelor in 2002."
+      ],
+      "response": "Ben Kingsley is a British-Indian actor whose career began in theatre. He joined the Royal Shakespeare Company in 1967 and spent the next 15 years appearing mainly on stage, with productions including *As You Like It*, *Much Ado About Nothing*, *Richard III*, *The Tempest*, *A Midsummer Night's Dream*, *Hamlet* and *The Merry Wives of Windsor* [Ben_Kingsley.html].\n\nHe moved into film with a feature debut in *Fear Is the Key* (1972), and later became widely known for playing Mahatma Gandhi in *Gandhi* (1982), which won him the Academy Award for Best Actor and the BAFTA Award for Best Actor in a Leading Role [Ben_Kingsley.html]. Other notable films listed include *Maurice*, *Bugsy*, *Schindler's List*, *Sexy Beast*, *House of Sand and Fog*, *Shutter Island*, and *Hugo* [Ben_Kingsley.html]. For *Schindler's List*, he played Itzhak Stern [Schindler_s_List.html].\n\nSince you know him from Marvel: Kingsley played Trevor Slattery in the Marvel Cinematic Universe, appearing in *Iron Man 3* (2013), the short film *All Hail the King* (2014), *Shang-Chi and the Legend of the Ten Rings* (2021), and the Disney+ series *Wonder Man* (2026–present) [Ben_Kingsley.html].\n\nHe has also done voice work, including *The Jungle Book* (2016) and *The Boxtrolls* (2014) [Ben_Kingsley.html].",
+      "closed_book_response": "Ben Kingsley is a highly respected British actor with a long career in film, television, and theater. He’s probably best known to many modern audiences as **Trevor Slattery** in the Marvel films, especially **Iron Man 3**, where he plays the actor posing as the Mandarin. He later returned to the role in **Shang-Chi and the Legend of the Ten Rings**.\n\nBut his career goes far beyond Marvel. Some key points:\n\n- **Breakout role:** He became internationally famous for playing **Mohandas Gandhi** in **Gandhi (1982)**. That performance won him the **Academy Award for Best Actor**.\n- **Range of roles:** He’s played a wide variety of characters — historical figures, villains, heroes, and supporting roles in major studio films.\n- **Notable films:** He has appeared in movies such as **Schindler’s List**, **Sexy Beast**, **House of Sand and Fog**, **Hugo**, **The Physician**, and **Shutter Island**.\n- **Style:** Kingsley is known for being intense, controlled, and very adaptable, often bringing precision and depth to morally complex characters.\n- **Recognition:** Beyond his Oscar, he has received many other honors and was knighted in the UK, becoming **Sir Ben Kingsley**.\n\nIn short, while Marvel introduced him to a newer generation, Ben Kingsley was already an acclaimed major actor long before that. If you want, I can also give you a “best performances” watch list for him.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Ben Kingsley is a British-Indian actor.",
+          "cited_source": "Ben_Kingsley.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "His career began in theatre.",
+          "cited_source": "Ben_Kingsley.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He joined the Royal Shakespeare Company in 1967.",
+          "cited_source": "Ben_Kingsley.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He spent the next 15 years appearing mainly on stage.",
+          "cited_source": "Ben_Kingsley.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "His stage productions included As You Like It, Much Ado About Nothing, Richard III, The Tempest, A Midsummer Night's Dream, Hamlet, and The Merry Wives of Windsor.",
+          "cited_source": "Ben_Kingsley.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He made his feature film debut in Fear Is the Key (1972).",
+          "cited_source": "Ben_Kingsley.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He became widely known for playing Mahatma Gandhi in Gandhi (1982).",
+          "cited_source": "Ben_Kingsley.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "His performance in Gandhi won him the Academy Award for Best Actor.",
+          "cited_source": "Ben_Kingsley.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "His performance in Gandhi won him the BAFTA Award for Best Actor in a Leading Role.",
+          "cited_source": "Ben_Kingsley.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Other notable films listed include Maurice, Bugsy, Schindler's List, Sexy Beast, House of Sand and Fog, Shutter Island, and Hugo.",
+          "cited_source": "Ben_Kingsley.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "In Schindler's List, he played Itzhak Stern.",
+          "cited_source": "Schindler_s_List.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Kingsley played Trevor Slattery in the Marvel Cinematic Universe.",
+          "cited_source": "Ben_Kingsley.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He appeared as Trevor Slattery in Iron Man 3 (2013), All Hail the King (2014), Shang-Chi and the Legend of the Ten Rings (2021), and Wonder Man (2026-present).",
+          "cited_source": "Ben_Kingsley.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He has done voice work.",
+          "cited_source": "Ben_Kingsley.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "His voice work includes The Jungle Book (2016) and The Boxtrolls (2014).",
+          "cited_source": "Ben_Kingsley.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 15,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.7333333333333333,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 0.5,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 2.987522799987346,
+      "judge_latency_seconds": 6.69665339999483,
+      "total_latency_seconds": 13.062779099971522,
+      "input_tokens": 156731,
+      "output_tokens": 1484,
+      "total_tokens": 158215,
+      "estimated_cost_usd": 0.12422625
+    },
+    {
+      "id": "Q002",
+      "question": "how many nominations did titanic get vs how many it won",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "70th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "70th_Academy_Awards.html",
+        "Titanic_(1997_film).html",
+        "James_Cameron.html"
+      ],
+      "retrieved_sources": [
+        "Titanic_(1997_film).html",
+        "Academy_Award_for_Best_Picture.html",
+        "Pearl_Harbor_(film).html"
+      ],
+      "required_aspects": [
+        "Titanic received 14 nominations at the 70th Academy Awards and won 11."
+      ],
+      "response": "*Titanic* received **14 Academy Award nominations** and **won 11** [Titanic_(1997_film).html].",
+      "closed_book_response": "**Titanic (1997)** received **14 Oscar nominations** and won **11** of them.\n\nIf you meant a different awards show or a different *Titanic* film, I can check that too.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Titanic received 14 Academy Award nominations",
+          "cited_source": "Titanic_(1997_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Titanic won 11 Academy Awards",
+          "cited_source": "Titanic_(1997_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.3349458999873605,
+      "judge_latency_seconds": 4.61814019997837,
+      "total_latency_seconds": 6.91020919996663,
+      "input_tokens": 239493,
+      "output_tokens": 231,
+      "total_tokens": 239724,
+      "estimated_cost_usd": 0.18065925
+    },
+    {
+      "id": "Q006",
+      "question": "Compare how the Academy handled the introduction of the Best Animated Feature category with the way the Best Original Score category was split and then merged again in the 1990s.",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Animated_Feature.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Picture.html",
+        "List_of_Academy_Award_records.html",
+        "Academy_Award_for_Best_Production_Design.html"
+      ],
+      "required_aspects": [
+        "The Best Animated Feature award was introduced at the 74th ceremony (2002) as a brand-new competitive category with eligibility rules: at least 70 minutes long, a significant number of animated characters, and at least 75 percent animation",
+        "a minimum of eight qualifying films had to be released in the year to allow three nominees, rising to five nominees if more than twelve films qualified.",
+        "Before this, animated features such as Snow White and the Seven Dwarfs, Who Framed Roger Rabbit and Toy Story had only received Special Achievement Awards.",
+        "By contrast, the score category was not created but divided: beginning with the 68th ceremony (1996) the music branch split Best Original Score into Best Dramatic Score and Best Musical or Comedy Score, seen as a response to Disney's dominance of the score and song categories",
+        "four years later the two scoring categories were merged back into one."
+      ],
+      "response": "The documents say Best Animated Feature was created for the 74th Academy Awards “to ensure the recognition of animated films,” and that its creation has been criticized because it may discourage animated films from being eligible to win Best Picture [Academy_Award_for_Best_Picture.html]. The documents also say that after the category’s creation, only two animated films, Up and Toy Story 3, have been nominated for Best Picture [Academy_Award_for_Best_Picture.html].\n\nFor Best Original Score, the documents show a different pattern of category restructuring: the award name and structure changed over time, including separate variants such as “Best Scoring of a Musical Picture” and “Best Scoring of Music-Adaptation and Treatment,” and later returned to a unified Best Original Score category [List_of_Academy_Award_records.html]. The record of consecutive wins also reflects those changing score-category names [List_of_Academy_Award_records.html].\n\nSo, compared to Best Original Score, which was split into multiple subcategories and later merged back together, Best Animated Feature was introduced as a distinct new category from the start to give animated films their own dedicated recognition [Academy_Award_for_Best_Picture.html][List_of_Academy_Award_records.html].",
+      "closed_book_response": "The Academy handled the two situations quite differently:\n\n- **Best Animated Feature**: this was introduced as a **new, permanent category** because animation had clearly become a distinct, major form of filmmaking that deserved its own regular Oscar. Once created, it stayed as a separate award.\n\n- **Best Original Score in the 1990s**: this category was **temporarily divided into separate types**, usually to distinguish between **dramatic scores** and **musical/comedy scores**. The idea was to give different kinds of film music fairer recognition, but the split proved awkward and inconsistent. The Academy later **merged the categories back together** into one Best Original Score award.\n\nSo, in short: **Animated Feature was added as a new standalone category and kept that way, while Original Score was split for a time and then recombined after the experiment didn’t work well.**",
+      "correctness": "pass",
+      "graded_correctness": "substantially_complete",
+      "graded_correctness_score": 0.75,
+      "covered_aspects": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Best Animated Feature was created for the 74th Academy Awards “to ensure the recognition of animated films.”",
+          "cited_source": "Academy_Award_for_Best_Picture.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Its creation has been criticized because it may discourage animated films from being eligible to win Best Picture.",
+          "cited_source": "Academy_Award_for_Best_Picture.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "After the category’s creation, only two animated films, Up and Toy Story 3, have been nominated for Best Picture.",
+          "cited_source": "Academy_Award_for_Best_Picture.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The Best Original Score award name and structure changed over time.",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Best Original Score had separate variants such as “Best Scoring of a Musical Picture” and “Best Scoring of Music-Adaptation and Treatment.”",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Best Original Score later returned to a unified category.",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The record of consecutive wins reflects those changing score-category names.",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Compared to Best Original Score, Best Animated Feature was introduced as a distinct new category from the start.",
+          "cited_source": "Academy_Award_for_Best_Picture.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Best Animated Feature was created to give animated films their own dedicated recognition.",
+          "cited_source": "Academy_Award_for_Best_Picture.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 9,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.0,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 3,
+      "quote_fidelity_rate": 0.3333333333333333,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 2,
+      "citation_precision": 0.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 2.9854707999911625,
+      "judge_latency_seconds": 8.956893599999603,
+      "total_latency_seconds": 13.864085799985332,
+      "input_tokens": 183495,
+      "output_tokens": 1011,
+      "total_tokens": 184506,
+      "estimated_cost_usd": 0.14217075
+    },
+    {
+      "id": "Q019",
+      "question": "How did the director of La La Land get his start, and what connects his college years to that film's music?",
+      "information_need": "in_depth",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "expected_sources": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "retrieved_sources": [
+        "La_La_Land.html",
+        "Titanic_(1997_film).html",
+        "New_Girl.html"
+      ],
+      "required_aspects": [
+        "Damien Chazelle met composer Justin Hurwitz at Harvard, where they were roommates in Currier House and explored a musical concept in their senior thesis, the low-budget Guy and Madeline on a Park Bench about a Boston jazz musician.",
+        "Both moved to Los Angeles in 2010 and continued writing what became La La Land, altering the location from Boston to Los Angeles.",
+        "Hurwitz composed and orchestrated the songs and score for La La Land, with lyrics by Pasek and Paul except for 'Start a Fire'."
+      ],
+      "response": "Damien Chazelle got his start by writing and developing the screenplay for *La La Land* after he had already moved to Los Angeles in 2010, and he had previously conceived the film while he was a student at Harvard University with his classmate Justin Hurwitz [La_La_Land.html]. The film’s music connects back to those college years because Chazelle and Hurwitz first explored the musical concept together at Harvard, and Hurwitz later composed the score and songs for *La La Land* [La_La_Land.html].",
+      "closed_book_response": "Damien Chazelle got his start by making a very intense, music-centered student film while he was in college: **_Guy and Madeline on a Park Bench_**. It was his first feature and came out of his years at **Harvard**, where he studied alongside musician **Justin Hurwitz**.\n\nWhat connects his college years to **_La La Land_** is **Hurwitz** himself: Chazelle and Hurwitz were classmates at Harvard, and Hurwitz later composed the score and songs for *La La Land*. So the film’s music has a direct link back to Chazelle’s college days.",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Damien Chazelle wrote and developed the screenplay for *La La Land* after moving to Los Angeles in 2010.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Chazelle had previously conceived the film while he was a student at Harvard University with his classmate Justin Hurwitz.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Chazelle and Hurwitz first explored the musical concept together at Harvard.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Justin Hurwitz later composed the score and songs for *La La Land*.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 4,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.75,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.6961503999773413,
+      "judge_latency_seconds": 6.602113900036784,
+      "total_latency_seconds": 10.019947599997977,
+      "input_tokens": 269233,
+      "output_tokens": 522,
+      "total_tokens": 269755,
+      "estimated_cost_usd": 0.20427375
+    },
+    {
+      "id": "Q042",
+      "question": "I've heard people say Crash winning Best Picture was a bad decision — what does the record actually say about how that's been assessed since?",
+      "information_need": "overview",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "78th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html",
+        "Brokeback_Mountain.html"
+      ],
+      "expected_sources": [
+        "78th_Academy_Awards.html",
+        "Brokeback_Mountain.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Picture.html",
+        "78th_Academy_Awards.html",
+        "Brokeback_Mountain.html"
+      ],
+      "required_aspects": [
+        "Crash's win over Brokeback Mountain has come to be seen as one of the most notorious decisions in modern Academy history and a source of earnest bafflement from critics, with rankings by several publications calling Crash one of the worst or most controversial Best Picture winners.",
+        "Kenneth Turan accused Academy members of homophobia and of benefitting from a non-groundbreaking choice, and after announcing the award, presenter Jack Nicholson was caught mouthing 'whoa' in apparent surprise.",
+        "In a 2015 Hollywood Reporter poll of Academy members on controversial past decisions, Brokeback Mountain won the revote for Best Picture."
+      ],
+      "response": "The record says Crash’s Best Picture win over Brokeback Mountain was criticized at the time and has remained controversial afterward. The 78th Academy Awards page says the decision was “widely criticized,” and that in retrospective commentary Crash’s win “has become ‘one of the most notorious [decisions] in modern Academy history’” and a source of “earnest bafflement from critics” [78th_Academy_Awards.html]. The Brokeback Mountain page likewise says that after Brokeback Mountain lost Best Picture to Crash, “some critics accused the Academy of homophobia and for making a non-groundbreaking choice” [Brokeback_Mountain.html]. It also notes that in 2015, Academy members polled by The Hollywood Reporter would have given Brokeback Mountain Best Picture over Crash [Brokeback_Mountain.html].",
+      "closed_book_response": "If by “the record” you mean the critical and historical consensus, **Crash winning Best Picture is very often treated as one of the most controversial Best Picture outcomes in Oscar history**.\n\nWhat people usually say about it, in broad terms:\n\n- **At the time, the win was seen as a surprise and a shock** because many expected *Brokeback Mountain* to win.\n- **In hindsight, critics and awards observers have often ranked it among the weakest Best Picture winners**, especially compared with the other nominees from that year.\n- It’s frequently cited in “worst Best Picture winner” conversations, though not everyone would put it at the very bottom.\n- The common complaint is that **its reputation has not aged especially well**, while some of the other 2005 nominees are now seen as more enduring.\n\nThat said, there are a couple of important nuances:\n\n- Some people still defend it as a **well-acted, thematically ambitious ensemble drama** that resonated strongly with Academy voters at the time.\n- The negative reassessment is mostly about **its standing relative to other Best Picture winners**, not that it’s universally considered a bad film.\n\nSo the short version is: **yes, the long-term assessment has generally been harsh, and Crash is widely regarded as a controversial and often poorly aged Best Picture winner.**",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Crash’s Best Picture win over Brokeback Mountain was criticized at the time and remained controversial afterward.",
+          "cited_source": "78th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The 78th Academy Awards page says the decision was “widely criticized.”",
+          "cited_source": "78th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The 78th Academy Awards page says that in retrospective commentary Crash’s win “has become ‘one of the most notorious [decisions] in modern Academy history’.”",
+          "cited_source": "78th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The 78th Academy Awards page says Crash’s win was a source of “earnest bafflement from critics.”",
+          "cited_source": "78th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "After Brokeback Mountain lost Best Picture to Crash, some critics accused the Academy of homophobia.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "After Brokeback Mountain lost Best Picture to Crash, some critics said the Academy had made a non-groundbreaking choice.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "In 2015, Academy members polled by The Hollywood Reporter would have given Brokeback Mountain Best Picture over Crash.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 7,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 1.0,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 4,
+      "quote_fidelity_rate": 0.5,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.027284799987683,
+      "judge_latency_seconds": 5.920145700016292,
+      "total_latency_seconds": 10.474903900001664,
+      "input_tokens": 157328,
+      "output_tokens": 911,
+      "total_tokens": 158239,
+      "estimated_cost_usd": 0.1220955
+    },
+    {
+      "id": "Q045",
+      "question": "Compare the audience reactions and awards outcomes for the two films that lost Best Picture in the most talked-about upsets — the 2005 gay romance and the 2016 musical.",
+      "information_need": "in_depth",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Brokeback_Mountain.html",
+        "89th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "Brokeback_Mountain.html",
+        "89th_Academy_Awards.html",
+        "La_La_Land.html",
+        "Academy_Award_for_Best_Picture.html",
+        "Emma_Stone.html",
+        "Ryan_Gosling.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Picture.html",
+        "Brokeback_Mountain.html",
+        "La_La_Land.html"
+      ],
+      "required_aspects": [
+        "Brokeback Mountain won three Academy Awards — Best Director, Best Adapted Screenplay and Best Original Score — but lost Best Picture to Crash, prompting accusations of homophobia and more than 800 supporters raising up to $26,000 for an advert in Daily Variety thanking the filmmakers.",
+        "La La Land won six Oscars including Best Director and Best Actress from a record-tying fourteen nominations, but lost Best Picture to Moonlight after the envelope error, setting a record for most nominations without winning Best Picture.",
+        "Both are considered landmark losses, and in a 2015 Hollywood Reporter member poll Brokeback Mountain won the revote for Best Picture."
+      ],
+      "response": "The 2005 gay romance *Brokeback Mountain* and the 2016 musical *La La Land* were both widely regarded as favorites, but each lost Best Picture in a major upset.\n\nFor *Brokeback Mountain*, its loss to *Crash* was heavily criticized. The documents say critics accused the Academy of homophobia and said the Academy made a “safe” choice instead of honoring the film [Brokeback_Mountain.html]. The film itself had strong acclaim and won major awards at the Oscars in other categories: it was nominated for Best Picture and won Best Director, Best Adapted Screenplay, and Original Score [Brokeback_Mountain.html].\n\nFor *La La Land*, the Best Picture loss was also famous, but the most memorable reaction was the ceremony mistake: it was incorrectly announced as the winner before *Moonlight* was revealed as the actual winner [La_La_Land.html]. The film had a strong awards haul overall, winning six Oscars, including Best Director, Best Actress, Best Cinematography, Best Original Score, Best Original Song, and Best Production Design [La_La_Land.html].\n\nIn short: *Brokeback Mountain*’s upset sparked backlash over the Academy’s choice itself, while *La La Land*’s upset is remembered especially for the envelope gaffe; both films still won multiple Oscars despite losing Best Picture [Brokeback_Mountain.html] [La_La_Land.html].",
+      "closed_book_response": "The two films were **Brokeback Mountain** (2005, the gay romance) and **La La Land** (2016, the musical).\n\n### Audience / reaction to the Best Picture loss\n- **Brokeback Mountain:** Its loss to *Crash* was widely seen as a major upset. The reaction was often one of shock and disappointment, especially among critics and many viewers who had expected it to win. Over time, the loss became part of its reputation as a landmark film that was “robbed” of Best Picture.\n- **La La Land:** Its loss to *Moonlight* was also a huge shock, but the reaction was even more dramatic because of the infamous onstage envelope mix-up. The audience reaction at the ceremony itself was stunned confusion, quickly followed by a correction. The moment became one of the most talked-about awards-show incidents ever.\n\n### Awards outcomes\n- **Brokeback Mountain:** Despite losing Best Picture, it still won **3 Academy Awards**:\n  - Best Director\n  - Best Adapted Screenplay\n  - Best Original Score\n- **La La Land:** It also ended the night with **6 Oscars** total, despite the Best Picture loss:\n  - Best Director\n  - Best Actress\n  - Best Cinematography\n  - Best Production Design\n  - Best Original Score\n  - Best Original Song\n\n### In short\nBoth were perceived as major Best Picture upsets, but **La La Land’s loss produced a more immediate, public shock because of the live-envelope fiasco**, while **Brokeback Mountain’s loss was more of a long-term critical disappointment**. In awards terms, **both still won multiple Oscars**, with *La La Land* taking more total trophies, but *Brokeback Mountain* arguably suffered the more symbolically disappointing Best Picture defeat.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The two films were Brokeback Mountain (2005, the gay romance) and La La Land (2016, the musical).",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Both films were widely regarded as favorites, but each lost Best Picture in a major upset.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Brokeback Mountain lost Best Picture to Crash.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "That loss was heavily criticized.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Critics accused the Academy of homophobia over Brokeback Mountain's loss.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Critics said the Academy made a 'safe' choice instead of honoring Brokeback Mountain.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Brokeback Mountain was nominated for Best Picture and won Best Director, Best Adapted Screenplay, and Original Score at the Oscars.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "La La Land's Best Picture loss was famous.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "La La Land was incorrectly announced as the Best Picture winner before Moonlight was revealed as the actual winner.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The envelope mistake was the most memorable reaction to La La Land's loss.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "La La Land won six Oscars.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "La La Land won Best Director, Best Actress, Best Cinematography, Best Original Score, Best Original Song, and Best Production Design.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Brokeback Mountain's upset sparked backlash over the Academy's choice itself.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "La La Land's upset is remembered especially for the envelope gaffe.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Both films still won multiple Oscars despite losing Best Picture.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 15,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.8,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_precision_at_k": 1.0,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 3.210447799996473,
+      "judge_latency_seconds": 8.064464200026123,
+      "total_latency_seconds": 14.896753400011221,
+      "input_tokens": 197290,
+      "output_tokens": 1456,
+      "total_tokens": 198746,
+      "estimated_cost_usd": 0.1545195
+    },
+    {
+      "id": "Q049",
+      "question": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html"
+      ],
+      "expected_sources": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html",
+        "Academy_Award_for_Best_Actor.html",
+        "Austin_Butler.html",
+        "Colin_Farrell.html",
+        "Paul_Mescal.html",
+        "Bill_Nighy.html"
+      ],
+      "retrieved_sources": [
+        "95th_Academy_Awards.html",
+        "List_of_Academy_Award_records.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "required_aspects": [
+        "Brendan Fraser won Best Actor for playing Charlie in The Whale.",
+        "Notably, for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+        "The other nominees were Austin Butler (Elvis), Colin Farrell (The Banshees of Inisherin), Paul Mescal (Aftersun) and Bill Nighy (Living)."
+      ],
+      "response": "Brendan Fraser won Best Actor for *The Whale* at the 95th Academy Awards [95th_Academy_Awards.html]. Notably, “for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees” [95th_Academy_Awards.html].",
+      "closed_book_response": "At the 95th Academy Awards, **Brendan Fraser** won **Best Actor** for *The Whale*.\n\nWhat was notable about the nominee field that year was that it was seen as **especially strong and unusually diverse**, with the category featuring a mix of established stars and internationally recognized performances. It also stood out because it reflected a broader shift in recognition toward a wider range of films and acting styles, rather than being dominated by just one kind of “prestige” performance.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Brendan Fraser won Best Actor for *The Whale* at the 95th Academy Awards.",
+          "cited_source": "95th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "For the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+          "cited_source": "95th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.5,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 1.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.2826109000016004,
+      "judge_latency_seconds": 4.503370599995833,
+      "total_latency_seconds": 7.888800299988361,
+      "input_tokens": 186043,
+      "output_tokens": 357,
+      "total_tokens": 186400,
+      "estimated_cost_usd": 0.14113875
+    },
+    {
+      "id": "Q058",
+      "question": "Who won Best Supporting Actor for The Godfather Part II and what was unusual about the performance?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "List_of_Academy_Award_records.html",
+        "The_Godfather_Part_II.html"
+      ],
+      "expected_sources": [
+        "List_of_Academy_Award_records.html",
+        "The_Godfather_Part_II.html",
+        "The_Godfather.html"
+      ],
+      "retrieved_sources": [
+        "The_Godfather_Part_II.html",
+        "The_Godfather.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "required_aspects": [
+        "Robert De Niro won Best Supporting Actor for playing the young Vito Corleone in The Godfather Part II.",
+        "The performance was notable for being delivered largely in Italian — De Niro was the first actor to win an Oscar for performing in a language other than English — and because both he and Marlon Brando won Academy Awards for portraying the same character, Vito Corleone."
+      ],
+      "response": "Robert De Niro won Best Supporting Actor for *The Godfather Part II* [The_Godfather_Part_II.html]. The performance was unusual because it was in Italian [List_of_Academy_Award_records.html].",
+      "closed_book_response": "The Best Supporting Actor winner for *The Godfather Part II* was **Robert De Niro**.\n\nWhat was unusual about the performance was that **he played a younger version of Vito Corleone in Italian/English with a distinct accent, and the role was a rare example of an actor winning an Oscar for portraying a character originally associated with another actor**. More specifically, he **did not speak much English in the role and had to recreate Marlon Brando’s character as a younger man**.",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 0.5,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Robert De Niro won Best Supporting Actor for *The Godfather Part II*.",
+          "cited_source": "The_Godfather_Part_II.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The performance was unusual because it was in Italian.",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.5,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 1.0,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 1.7711181000049692,
+      "judge_latency_seconds": 4.955328300013207,
+      "total_latency_seconds": 8.162778800033266,
+      "input_tokens": 242384,
+      "output_tokens": 316,
+      "total_tokens": 242700,
+      "estimated_cost_usd": 0.18321
+    },
+    {
+      "id": "Q067",
+      "question": "What awards did Whiplash win at Sundance when it premiered, and how does that relate to the short film of the same name?",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Whiplash_(2014_film).html",
+        "La_La_Land.html"
+      ],
+      "expected_sources": [
+        "Whiplash_(2014_film).html",
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "retrieved_sources": [
+        "Whiplash_(2014_film).html",
+        "2014_Sundance_Film_Festival.html",
+        "La_La_Land.html"
+      ],
+      "required_aspects": [
+        "The feature Whiplash premiered in competition at the 2014 Sundance Film Festival on January 16 as the festival's opening film and won both the Audience Award Dramatic and the Grand Jury Prize Dramatic.",
+        "One year earlier, Chazelle's eighteen-minute short of the same name — made from fifteen pages of the feature script to attract investors — debuted at the 2013 festival and won the short film Jury Award for fiction.",
+        "That earlier premiere later caused the Academy to classify the feature screenplay as adapted rather than original."
+      ],
+      "response": "At its 2014 Sundance Film Festival premiere, *Whiplash* won the **Audience Award Dramatic** and the **Grand Jury Prize Dramatic** [Whiplash_(2014_film).html]. The festival page also says the opening film was *Whiplash* and that it received the **U.S. Grand Jury Prize: Dramatic** and **Audience Award: U.S. Dramatic** [2014_Sundance_Film_Festival.html].\n\nThis relates to the short film of the same name because Damien Chazelle’s **short film** version of *Whiplash* premiered at the **2013 Sundance Film Festival** and won the **short film Jury Award for fiction** [Whiplash_(2014_film).html]. The feature was later made after the short’s acclaim helped attract investors to produce the full-length version [Whiplash_(2014_film).html].",
+      "closed_book_response": "At Sundance, **_Whiplash_** won both the **Grand Jury Prize** and the **Audience Award** in the **U.S. Dramatic** competition.\n\nIt relates to the earlier **short film of the same name** because Damien Chazelle first made **_Whiplash_** as a short, and the feature film was later developed from that short. In other words, the Sundance-winning feature is an expansion of the original short rather than a completely separate story.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "At its 2014 Sundance Film Festival premiere, Whiplash won the Audience Award Dramatic.",
+          "cited_source": "Whiplash_(2014_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "At its 2014 Sundance Film Festival premiere, Whiplash won the Grand Jury Prize Dramatic.",
+          "cited_source": "Whiplash_(2014_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The festival page says the opening film was Whiplash.",
+          "cited_source": "2014_Sundance_Film_Festival.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The festival page says Whiplash received the U.S. Grand Jury Prize: Dramatic.",
+          "cited_source": "2014_Sundance_Film_Festival.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The festival page says Whiplash received the Audience Award: U.S. Dramatic.",
+          "cited_source": "2014_Sundance_Film_Festival.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Damien Chazelle’s short film version of Whiplash premiered at the 2013 Sundance Film Festival.",
+          "cited_source": "Whiplash_(2014_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Damien Chazelle’s short film version of Whiplash won the short film Jury Award for fiction.",
+          "cited_source": "Whiplash_(2014_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The feature was later made after the short’s acclaim helped attract investors to produce the full-length version.",
+          "cited_source": "Whiplash_(2014_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "At Sundance, Whiplash won both the Grand Jury Prize and the Audience Award in the U.S. Dramatic competition.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Whiplash relates to the earlier short film of the same name.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Damien Chazelle first made Whiplash as a short.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The feature film was later developed from that short.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The Sundance-winning feature is an expansion of the original short rather than a completely separate story.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 13,
+      "graded_groundedness_score": 0.9230769230769231,
+      "faithfulness": "fail",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.16666666666666666,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 0.5,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.536471100000199,
+      "judge_latency_seconds": 7.5523938999685925,
+      "total_latency_seconds": 11.382337399962125,
+      "input_tokens": 129397,
+      "output_tokens": 1018,
+      "total_tokens": 130415,
+      "estimated_cost_usd": 0.10162875
+    },
+    {
+      "id": "Q074",
+      "question": "Describe how Spielberg came to make Schindler's List and how it affected his later work.",
+      "information_need": "in_depth",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Steven_Spielberg.html"
+      ],
+      "expected_sources": [
+        "Steven_Spielberg.html",
+        "Academy_Award_for_Best_Director.html",
+        "Schindler_s_List.html"
+      ],
+      "retrieved_sources": [
+        "Schindler_s_List.html",
+        "Steven_Spielberg.html",
+        "Saving_Private_Ryan.html"
+      ],
+      "required_aspects": [
+        "Spielberg waited ten years to make Schindler's List because he did not feel mature enough, wanting to embrace his heritage",
+        "after the birth of his son Max, he said a spirit ignited in him and he became 'a Jewish dad'.",
+        "Principal photography began March 1, 1993 in Kraków, Poland, while he supervised post-production on Jurassic Park",
+        "he brought his wife and children to make the shoot bearable.",
+        "The film was a commercial success and Spielberg used his percentage of the profits to start the Shoah Foundation, a non-profit archiving Holocaust survivor testimonies.",
+        "It won seven Academy Awards, including Best Picture and his first Best Director."
+      ],
+      "response": "Spielberg became interested in making *Schindler’s List* after MCA president Sid Sheinberg sent him a New York Times review of *Schindler’s Ark* [Schindler_s_List.html]. Universal bought the rights, but Spielberg was unsure he was ready to make a Holocaust film and tried to pass the project to other directors before deciding to direct it himself [Schindler_s_List.html]. He was finally motivated to take it on when he saw Holocaust deniers being taken seriously and worried about rising neo-Nazism and growing tolerance for intolerance [Schindler_s_List.html]. The film was made on a $22 million budget, and Spielberg took no salary, calling it “blood money” [Schindler_s_List.html].\n\nThe film had a major impact on his later work and career. Following its success, Spielberg founded the Survivors of the Shoah Visual History Foundation to preserve Holocaust survivor testimony, and he used proceeds from the film to finance related documentaries [Schindler_s_List.html]. It also marked a major turn in his filmmaking toward more serious dramatic work; in 1993 he went on to direct *Schindler’s List* after *Jurassic Park*, and the biography notes that he “won the Academy Award for Best Director” for it [Steven_Spielberg.html]. The documents also connect the film to his personal life and Jewish identity: Spielberg said he wanted to “embrace his heritage” while making it [Steven_Spielberg.html], and the experience was deeply emotional for him [Schindler_s_List.html].",
+      "closed_book_response": "Steven Spielberg came to make *Schindler’s List* after years of being drawn to the subject but feeling uncertain he was the right person to tell it. The project had circulated in Hollywood in various forms, and Spielberg was interested in producing it, but he hesitated to direct because the material was so grave and personal. He was also aware that, as a Jewish filmmaker with a huge commercial profile, he would be judged very closely on how he handled the Holocaust. Eventually, after other versions and approaches stalled, he decided to take it on himself, in part because he felt a responsibility to tell the story and because he had matured enough as a filmmaker to approach it with the restraint it required.\n\nMaking the film was a major turning point in his career. It shifted him from being seen primarily as a blockbuster entertainer to being recognized as a filmmaker capable of profound historical and emotional seriousness. The experience also deeply affected him personally. It led him to become more involved in Holocaust remembrance and Jewish causes, and it seems to have made his later work more attentive to history, trauma, and human suffering. While he continued to make large-scale popular films, he also increasingly pursued prestige dramas and historical subjects, and *Schindler’s List* became one of the defining works that broadened how audiences and critics understood him.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Steven Spielberg became interested in making Schindler's List after MCA president Sid Sheinberg sent him a New York Times review of Schindler's Ark.",
+          "cited_source": "Schindler_s_List.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Universal bought the rights to the novel.",
+          "cited_source": "Schindler_s_List.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Spielberg was unsure he was ready to make a Holocaust film.",
+          "cited_source": "Schindler_s_List.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He tried to pass the project to other directors before deciding to direct it himself.",
+          "cited_source": "Schindler_s_List.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He was finally motivated to take on the film when he saw Holocaust deniers being taken seriously and worried about rising neo-Nazism and growing tolerance for intolerance.",
+          "cited_source": "Schindler_s_List.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The film was made on a $22 million budget.",
+          "cited_source": "Schindler_s_List.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Spielberg took no salary for the film.",
+          "cited_source": "Schindler_s_List.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Spielberg called his unpaid salary 'blood money'.",
+          "cited_source": "Schindler_s_List.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Following the film's success, Spielberg founded the Survivors of the Shoah Visual History Foundation to preserve Holocaust survivor testimony.",
+          "cited_source": "Schindler_s_List.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He used proceeds from the film to finance related documentaries.",
+          "cited_source": "Schindler_s_List.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The film marked a major turn in Spielberg's filmmaking toward more serious dramatic work.",
+          "cited_source": "Steven_Spielberg.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "In 1993 Spielberg went on to direct Schindler's List after Jurassic Park.",
+          "cited_source": "Steven_Spielberg.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Spielberg won the Academy Award for Best Director for Schindler's List.",
+          "cited_source": "Steven_Spielberg.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Spielberg said he wanted to 'embrace his heritage' while making the film.",
+          "cited_source": "Steven_Spielberg.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The experience of making the film was deeply emotional for Spielberg.",
+          "cited_source": "Schindler_s_List.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 15,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.8,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 3,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 0.6666666666666666,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 3.922017800010508,
+      "judge_latency_seconds": 9.553282000037143,
+      "total_latency_seconds": 16.345929000061005,
+      "input_tokens": 340923,
+      "output_tokens": 1393,
+      "total_tokens": 342316,
+      "estimated_cost_usd": 0.26196075
+    },
+    {
+      "id": "Q080",
+      "question": "Tell me about Anthony Minghella — what did he win and what happened at the Oscars after his death?",
+      "information_need": "overview",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "expected_sources": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "retrieved_sources": [
+        "David_Fincher.html",
+        "Anthony_Minghella.html",
+        "Cillian_Murphy.html"
+      ],
+      "required_aspects": [
+        "Anthony Minghella (1954–2008) was a British playwright and filmmaker who directed Truly, Madly, Deeply, The English Patient, The Talented Mr.",
+        "Ripley and Cold Mountain.",
+        "He won the Academy Award for Best Director for The English Patient, and received three further nominations: Best Adapted Screenplay for both The English Patient and The Talented Mr.",
+        "Ripley, and, posthumously, Best Picture for The Reader (2008) as a producer.",
+        "The Academy made an exception to its normal three-producer limit for Best Picture so that Minghella and Sydney Pollack could be posthumously included among the four producers nominated for The Reader."
+      ],
+      "response": "Anthony Minghella was a British playwright and filmmaker who “received the Academy Award for Best Director for The English Patient.” [Anthony_Minghella.html] He also had three more Academy Award nominations, including Best Adapted Screenplay for *The English Patient* and *The Talented Mr. Ripley*, and a posthumous Best Picture nomination for *The Reader* as a producer. [Anthony_Minghella.html]\n\nThe documents do not say what specifically happened at the Oscars after his death beyond that posthumous nomination. [Anthony_Minghella.html]",
+      "closed_book_response": "Anthony Minghella was a British film director, screenwriter, and producer, best known for films like *The English Patient*, *Truly, Madly, Deeply*, and *The Talented Mr. Ripley*.\n\nWhat he won:\n- He won the **Academy Award for Best Director** for *The English Patient*.\n- That film also won **Best Picture**, and Minghella received major recognition for his work as both writer/director and producer.\n\nWhat happened at the Oscars after his death:\n- Minghella died in **2008**.\n- At the **2008 Academy Awards**, there was a tribute/in memoriam segment that included him, as with other members of the film industry who had died that year.\n- If you mean something more specific—such as a posthumous Oscar mention, tribute, or how his work was acknowledged in later ceremonies—tell me and I can narrow it down.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Anthony Minghella was a British playwright and filmmaker.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He received the Academy Award for Best Director for The English Patient.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He had three more Academy Award nominations.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Those additional nominations included Best Adapted Screenplay for The English Patient.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Those additional nominations included Best Adapted Screenplay for The Talented Mr. Ripley.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He received a posthumous Best Picture nomination for The Reader as a producer.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The documents do not say what specifically happened at the Oscars after his death beyond that posthumous nomination.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": false,
+          "citation_supported": false,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 7,
+      "graded_groundedness_score": 0.8571428571428571,
+      "faithfulness": "fail",
+      "citation_support_rate": 0.8571428571428571,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 3.0411713999928907,
+      "judge_latency_seconds": 6.616191700013587,
+      "total_latency_seconds": 12.035898700007237,
+      "input_tokens": 145459,
+      "output_tokens": 706,
+      "total_tokens": 146165,
+      "estimated_cost_usd": 0.11227125
+    },
+    {
+      "id": "Q086",
+      "question": "Which film had the biggest gap between an actor's first and second nomination, and what was that gap?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "95th_Academy_Awards.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "expected_sources": [
+        "95th_Academy_Awards.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "retrieved_sources": [
+        "List_of_Academy_Award_records.html",
+        "Michelle_Williams_(actress).html",
+        "Priyanka_Chopra.html"
+      ],
+      "required_aspects": [
+        "Judd Hirsch set the record for the longest gap between Oscar nominations: 42 years between his first, for Ordinary People (1980), and his second, for The Fabelmans."
+      ],
+      "response": "The documents say the **longest gap between first and second nomination** was for **Judd Hirsch**: he was nominated in **1981 for _Ordinary People_** and again in **2023 for _The Fabelmans_**, a gap of **42 years**. [List_of_Academy_Award_records.html]",
+      "closed_book_response": "I’m not sure which specific dataset or list of nominations you’re referring to, so I can’t reliably name the film or the exact gap without more context.\n\nIf you share the list/table of films and nominations, I can calculate which one had the biggest gap between an actor’s first and second nomination.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The documents say that Judd Hirsch had the longest gap between his first and second nomination.",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Judd Hirsch was nominated in 1981 for Ordinary People and again in 2023 for The Fabelmans.",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The gap between Judd Hirsch's first and second nomination was 42 years.",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 1.7633231000218075,
+      "judge_latency_seconds": 6.4369442999886815,
+      "total_latency_seconds": 9.15741060001892,
+      "input_tokens": 305587,
+      "output_tokens": 377,
+      "total_tokens": 305964,
+      "estimated_cost_usd": 0.23088675
+    },
+    {
+      "id": "Q094",
+      "question": "I'm deciding whether to watch a long Western — how does Costner's Horizon project compare in scale and reception to his earlier epic?",
+      "information_need": "in_depth",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Kevin_Costner.html"
+      ],
+      "expected_sources": [
+        "Kevin_Costner.html",
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "retrieved_sources": [
+        "Kevin_Costner.html",
+        "Clint_Eastwood.html",
+        "Christopher_Nolan.html"
+      ],
+      "required_aspects": [
+        "Horizon: An American Saga is a Western epic split into at least four films, each just under three hours long, with Costner both directing and starring",
+        "production on the first film was expected to last at least 220 days.",
+        "Chapter 1 was released in June 2024, earned mixed reviews and was a box office flop, which contributed to Chapter 2 being delayed indefinitely after debuting at the 81st Venice International Film Festival to similarly mixed reviews.",
+        "By contrast, his earlier epic Dances With Wolves won him two Academy Awards, and his 2003 Western Open Range received critical acclaim and was a surprise commercial success."
+      ],
+      "response": "Costner’s *Horizon: An American Saga* is described as a Western epic that “will be split into at least four films, each just under three hours in length,” with production beginning in August 2022 and the first film released in June 2024 [Kevin_Costner.html]. The project was planned as a series of months-long releases, and the first film’s production was expected to last at least 220 days [Kevin_Costner.html].\n\nBy comparison, *Dances With Wolves* (1990) was a single epic film; it was nominated for 12 Academy Awards and won seven, including Best Picture and Best Director for Costner [Kevin_Costner.html]. So in scale, *Horizon* is larger as a multi-film project, while *Dances With Wolves* was a standalone epic with major awards success [Kevin_Costner.html].\n\nIn reception, *Horizon: An American Saga – Chapter 1* “earned mixed reviews” and “was a box office flop,” and the poor box-office returns were a factor in the indefinite delay of Chapter 2, which also “had received mixed reviews” [Kevin_Costner.html]. *Dances With Wolves*, by contrast, won major Academy Awards and established a much more celebrated reputation [Kevin_Costner.html].",
+      "closed_book_response": "Kevin Costner’s **Horizon** project is ambitious in a way that’s very comparable to his earlier Western epic, **Dances with Wolves**, but the two projects differ a lot in **scale of production, rollout, and reception**.\n\n### Scale\n- **Dances with Wolves (1990)** was a single film, relatively traditional in form, though huge by Western standards at the time.\n- **Horizon** is much more sprawling: it’s designed as a **multi-part saga** (Costner has described it as several chapters), with a much larger narrative canvas and a more serial, “event” structure.\n\nSo in terms of **scope**, Horizon is the bigger and more unusually ambitious project.\n\n### Reception\n- **Dances with Wolves** was a major critical and commercial success. It won multiple Oscars, including **Best Picture** and **Best Director** for Costner, and it was widely praised as a revitalization of the Western.\n- **Horizon** has had a much rougher start. The first chapter got a **mixed-to-negative critical response** and, at least initially, weak box-office results. The overall reception has been more divided, with many people admiring the ambition but questioning the storytelling and pacing.\n\n### Bottom line\nIf you’re comparing them:\n- **Horizon is larger in scale**\n- **Dances with Wolves is much more celebrated and better received**\n\nSo if you’re choosing based on reputation alone, **Dances with Wolves has the stronger track record**. If you want a sprawling, contemporary Western experiment and don’t mind unevenness, **Horizon** is the more audacious watch.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Costner’s *Horizon: An American Saga* is described as a Western epic that will be split into at least four films, each just under three hours in length.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Production on *Horizon* began in August 2022.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The first *Horizon* film was released in June 2024.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The project was planned as a series of months-long releases.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Production on the first *Horizon* film was expected to last at least 220 days.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "*Dances With Wolves* (1990) was a single epic film.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "*Dances With Wolves* was nominated for 12 Academy Awards.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "*Dances With Wolves* won seven Academy Awards, including Best Picture and Best Director for Costner.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "In scale, *Horizon* is larger as a multi-film project.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": false,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "*Dances With Wolves* was a standalone epic with major awards success.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": false,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "*Horizon: An American Saga – Chapter 1* earned mixed reviews.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "*Horizon: An American Saga – Chapter 1* was a box office flop.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Poor box-office returns were a factor in the indefinite delay of Chapter 2.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Chapter 2 had also received mixed reviews.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "*Dances With Wolves* won major Academy Awards.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "*Dances With Wolves* established a much more celebrated reputation.",
+          "cited_source": "Kevin_Costner.html",
+          "grounded": false,
+          "citation_supported": false,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 16,
+      "graded_groundedness_score": 0.9375,
+      "faithfulness": "fail",
+      "citation_support_rate": 0.8125,
+      "chunk_attribution_score": 0.6,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 4,
+      "quote_fidelity_rate": 0.25,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 2.897840099991299,
+      "judge_latency_seconds": 8.120546899997862,
+      "total_latency_seconds": 14.037734099983936,
+      "input_tokens": 258219,
+      "output_tokens": 1437,
+      "total_tokens": 259656,
+      "estimated_cost_usd": 0.20013075
+    }
+  ]
+}

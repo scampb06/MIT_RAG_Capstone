@@ -132,7 +132,17 @@ def log(label: str, text: str) -> None:
 # ## Wikipedia corpus and baseline hybrid retriever (from Checkpoint 2.1)
 
 # %%
-WIKIPEDIA_DOCS = extract_wikipedia_text(WIKIPEDIA_DIR)
+_wikipedia_docs: list[tuple[str, str]] | None = None
+
+
+def _get_wikipedia_docs() -> list[tuple[str, str]]:
+    """Extract corpus text on first use rather than at import time, so a bad
+    CLI argument fails immediately instead of after minutes of extraction
+    work against the full Wikipedia corpus."""
+    global _wikipedia_docs
+    if _wikipedia_docs is None:
+        _wikipedia_docs = extract_wikipedia_text(WIKIPEDIA_DIR)
+    return _wikipedia_docs
 
 
 def _tokens(text: str) -> list[str]:
@@ -158,7 +168,7 @@ def build_or_load_wikipedia_db() -> Chroma:
     print("Building Wikipedia vector DB (first run - embedding whole articles)...")
     documents = [
         Document(page_content=text, metadata={"source": filename})
-        for filename, text in WIKIPEDIA_DOCS
+        for filename, text in _get_wikipedia_docs()
     ]
     db = Chroma.from_documents(
         documents,
@@ -251,7 +261,7 @@ def retrieve(query: str, k: int = TOP_K) -> list[tuple[str, str, float]]:
     global _hybrid_retriever
     if _hybrid_retriever is None:
         _hybrid_retriever = WikipediaHybridRetriever(
-            WIKIPEDIA_DOCS,
+            _get_wikipedia_docs(),
             build_or_load_wikipedia_db(),
         )
     return _hybrid_retriever.get_top_k(query, k)

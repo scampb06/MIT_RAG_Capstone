@@ -1,0 +1,1336 @@
+{
+  "results": [
+    {
+      "id": "Q001",
+      "question": "What was the title of Orhan Pamuk's Nobel lecture, in what language was it delivered, and what personal relationship did he use to discuss Eastern and Western civilizations?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "2006_Nobel_Prize_in_Literature.html"
+      ],
+      "expected_sources": [
+        "2006_Nobel_Prize_in_Literature.html"
+      ],
+      "retrieved_sources": [
+        "2006_Nobel_Prize_in_Literature.html",
+        "Nobel_Prize.html",
+        "Milton_Friedman.html"
+      ],
+      "required_aspects": [
+        "Pamuk's Nobel lecture was entitled \"Babamin Bavulu\" (\"My Father's Suitcase\") and was delivered in Turkish.",
+        "In it, he used his relationship with his father to discuss relations between Eastern and Western civilizations."
+      ],
+      "response": "Orhan Pamuk’s Nobel lecture was entitled **\"Babamın Bavulu\" (\"My Father's Suitcase\")**, and it was **given in Turkish** [2006_Nobel_Prize_in_Literature.html]. He discussed relations between Eastern and Western civilizations **using the theme of his relationship with his father** [2006_Nobel_Prize_in_Literature.html].",
+      "closed_book_response": "Orhan Pamuk’s Nobel lecture was titled **“My Father’s Suitcase.”** It was delivered in **English**, and he used his **relationship with his father**—especially memories and reflections connected to him—to talk about the encounter between **Eastern and Western civilizations**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Orhan Pamuk’s Nobel lecture was entitled “Babamın Bavulu” (“My Father's Suitcase”).",
+          "cited_source": "2006_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Orhan Pamuk’s Nobel lecture was given in Turkish.",
+          "cited_source": "2006_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He discussed relations between Eastern and Western civilizations in the lecture.",
+          "cited_source": "2006_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He used the theme of his relationship with his father to discuss those relations.",
+          "cited_source": "2006_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 4,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.25,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 2,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.761025600018911,
+      "judge_latency_seconds": 5.506258000008529,
+      "total_latency_seconds": 8.195959400007268,
+      "input_tokens": 191384,
+      "output_tokens": 414,
+      "total_tokens": 191798,
+      "estimated_cost_usd": 0.145401
+    },
+    {
+      "id": "Q002",
+      "question": "A major Japanese disaster in 2011 slightly accelerated the planet's rotation. By how much did it shorten each day?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "2011_Tōhoku_earthquake_and_tsunami.html"
+      ],
+      "expected_sources": [
+        "2011_Tōhoku_earthquake_and_tsunami.html"
+      ],
+      "retrieved_sources": [
+        "2011_Tōhoku_earthquake_and_tsunami.html",
+        "Pluto.html",
+        "Moon.html"
+      ],
+      "required_aspects": [
+        "The earthquake shortened each day by 1.8 microseconds."
+      ],
+      "response": "The 2011 Tōhoku earthquake and tsunami shortened Earth’s day by **1.8 microseconds** [2011_Tōhoku_earthquake_and_tsunami.html].",
+      "closed_book_response": "The 2011 Tōhoku earthquake in Japan is estimated to have shortened each day by about **1.8 microseconds**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The 2011 Tōhoku earthquake and tsunami shortened Earth’s day by 1.8 microseconds.",
+          "cited_source": "2011_Tōhoku_earthquake_and_tsunami.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 1,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.934513500018511,
+      "judge_latency_seconds": 6.102970400010236,
+      "total_latency_seconds": 8.967759100021794,
+      "input_tokens": 495040,
+      "output_tokens": 196,
+      "total_tokens": 495236,
+      "estimated_cost_usd": 0.372162
+    },
+    {
+      "id": "Q003",
+      "question": "Compare the Academy Awards ceremonies held a decade apart: who hosted the 85th and 95th ceremonies, and which film won Best Picture at each?",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Director.html",
+        "Academy_Award_for_Best_Picture.html",
+        "Academy_Award_for_Best_Actor.html"
+      ],
+      "required_aspects": [
+        "Seth MacFarlane hosted the 85th Academy Awards, where Argo won Best Picture.",
+        "Jimmy Kimmel hosted the 95th Academy Awards, where Everything Everywhere All at Once won Best Picture."
+      ],
+      "response": "The provided documents do not say who hosted the 85th or 95th Academy Awards ceremonies, so I can’t answer that part from the sources alone.\n\nFor Best Picture:\n- 85th Academy Awards: no Best Picture winner is listed in the provided documents [Academy_Award_for_Best_Picture.html]\n- 95th Academy Awards: no Best Picture winner is listed in the provided documents [Academy_Award_for_Best_Picture.html]",
+      "closed_book_response": "The **85th Academy Awards** were hosted by **Seth MacFarlane**, and **Argo** won **Best Picture**.\n\nThe **95th Academy Awards** were hosted by **Jimmy Kimmel**, and **Everything Everywhere All at Once** won **Best Picture**.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [],
+      "aspect_coverage": 0.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The provided documents do not say who hosted the 85th or 95th Academy Awards ceremonies.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "I can’t answer that part from the sources alone.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "For the 85th Academy Awards, no Best Picture winner is listed in the provided documents.",
+          "cited_source": "Academy_Award_for_Best_Picture.html",
+          "grounded": false,
+          "citation_supported": false,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "For the 95th Academy Awards, no Best Picture winner is listed in the provided documents.",
+          "cited_source": "Academy_Award_for_Best_Picture.html",
+          "grounded": false,
+          "citation_supported": false,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 4,
+      "graded_groundedness_score": 0.0,
+      "faithfulness": "fail",
+      "citation_support_rate": 0.0,
+      "chunk_attribution_score": null,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.0,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 0.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.4581300999852829,
+      "judge_latency_seconds": 4.939249400049448,
+      "total_latency_seconds": 7.209932400059188,
+      "input_tokens": 119670,
+      "output_tokens": 421,
+      "total_tokens": 120091,
+      "estimated_cost_usd": 0.091647
+    },
+    {
+      "id": "Q004",
+      "question": "The yacht that Mohammed bin Salman bought from its original owner for approximately 500 million euros provides the first clue. Who was that original owner, what company does he own, which vodka brand is it best known for, and what did the Dutch Supreme Court rule about that brand's rights in 2020?",
+      "information_need": "in_depth",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Serene_(yacht).html",
+        "Yuri_Shefler.html"
+      ],
+      "expected_sources": [
+        "Serene_(yacht).html",
+        "Yuri_Shefler.html"
+      ],
+      "retrieved_sources": [
+        "Yuri_Shefler.html",
+        "Serene_(yacht).html",
+        "Abu_Dhabi_United_Group.html"
+      ],
+      "required_aspects": [
+        "The yacht's original owner was Russian businessman Yuri Shefler.",
+        "Shefler owns SPI Group, best known for the Stolichnaya vodka brand.",
+        "In 2020, the Dutch Supreme Court ruled that the Stolichnaya trademark rights belonged to Russia and ordered SPI Group to stop selling its products in Benelux."
+      ],
+      "response": "The original owner was Yuri Shefler, who owns SPI Group. SPI Group is best known for Stolichnaya vodka [Yuri_Shefler.html]. The Dutch Supreme Court ruled in 2020 that the rights to Stolichnaya and Moskovskaya belonged to Russia and ordered SPI Group to stop selling its products in Benelux [Yuri_Shefler.html].",
+      "closed_book_response": "The yacht was **Serene**, which Mohammed bin Salman bought from **Yuri Shefler**.\n\n- **Original owner:** Yuri Shefler  \n- **Company he owns:** the **Stoli Group** (also known through his SPI Group interests)  \n- **Best-known vodka brand:** **Stolichnaya** (“Stoli”)  \n- **Dutch Supreme Court ruling in 2020:** it ruled that the **Stolichnaya trademark rights in the Netherlands belonged to the Russian state / Rosspirtprom**, not Shefler’s company.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The original owner was Yuri Shefler.",
+          "cited_source": "Yuri_Shefler.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Yuri Shefler owns SPI Group.",
+          "cited_source": "Yuri_Shefler.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "SPI Group is best known for Stolichnaya vodka.",
+          "cited_source": "Yuri_Shefler.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The Dutch Supreme Court ruled in 2020 that the rights to Stolichnaya and Moskovskaya belonged to Russia.",
+          "cited_source": "Yuri_Shefler.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The Dutch Supreme Court ordered SPI Group to stop selling its products in Benelux.",
+          "cited_source": "Yuri_Shefler.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 5,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.6,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.3232692000165116,
+      "judge_latency_seconds": 3.2567399000399746,
+      "total_latency_seconds": 5.816917500080308,
+      "input_tokens": 23560,
+      "output_tokens": 502,
+      "total_tokens": 24062,
+      "estimated_cost_usd": 0.019929
+    },
+    {
+      "id": "Q005",
+      "question": "For each of the 1996, 2004, and 2008 Summer Olympics, list every city mentioned as having submitted a bid but not winning that edition's hosting contest.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2008_Summer_Olympics.html"
+      ],
+      "expected_sources": [
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2008_Summer_Olympics.html"
+      ],
+      "retrieved_sources": [
+        "1984_Summer_Olympics.html",
+        "Summer_Olympic_Games.html",
+        "List_of_Olympic_Games_host_cities.html"
+      ],
+      "required_aspects": [
+        "For the 1996 Summer Olympics, the losing bid cities were Athens, Belgrade, Manchester, Melbourne, and Toronto.",
+        "For the 2004 Summer Olympics, the losing bid cities were Rome, Cape Town, Stockholm, and Buenos Aires, plus Istanbul, Lille, Rio de Janeiro, San Juan, Seville, and Saint Petersburg, whose applications were dropped before the shortlist.",
+        "For the 2008 Summer Olympics, the losing bid cities were Toronto, Paris, Istanbul, and Osaka, plus Bangkok, Cairo, Havana, Kuala Lumpur, and Seville, whose bids failed to make the shortlist."
+      ],
+      "response": "The documents do not contain the bidding results for the 1996, 2004, or 2008 Summer Olympics, so I can’t identify which cities submitted bids but lost for those editions from the provided sources alone.",
+      "closed_book_response": "Here are the non-winning bid cities for each of those Summer Olympics:\n\n## 1996 Summer Olympics\nCities that submitted bids but did not win:\n- **Athens**\n- **Belgrade**\n- **Manchester**\n- **Melbourne**\n- **Toronto**\n\n## 2004 Summer Olympics\nCities that submitted bids but did not win:\n- **Buenos Aires**\n- **Cape Town**\n- **Rome**\n- **Stockholm**\n\n## 2008 Summer Olympics\nCities that submitted bids but did not win:\n- **Osaka**\n- **Paris**\n- **Toronto**\n- **Beijing** was the winner, so it is not included here\n- **Istanbul**\n- **Toronto** is not a 2008 bidder, so ignore that\n\nActually, to be precise, the cities that bid for the **2008** Summer Olympics and lost were:\n- **Istanbul**\n- **Osaka**\n- **Paris**\n- **Toronto**\n- **Beijing** was the winner\n\nSo the final lists are:\n\n- **1996:** Athens, Belgrade, Manchester, Melbourne, Toronto  \n- **2004:** Buenos Aires, Cape Town, Rome, Stockholm  \n- **2008:** Istanbul, Osaka, Paris, Toronto",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [],
+      "aspect_coverage": 0.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The documents do not contain the bidding results for the 1996, 2004, or 2008 Summer Olympics.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "The speaker cannot identify which cities submitted bids but lost for those editions from the provided sources alone.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 0.0,
+      "faithfulness": "fail",
+      "citation_support_rate": null,
+      "chunk_attribution_score": null,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.0,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 0,
+      "citation_precision": null,
+      "unsupported_citation_rate": null,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.2028031999943778,
+      "judge_latency_seconds": 5.153009500034386,
+      "total_latency_seconds": 8.135189900029218,
+      "input_tokens": 146937,
+      "output_tokens": 467,
+      "total_tokens": 147404,
+      "estimated_cost_usd": 0.11230425
+    },
+    {
+      "id": "Q006",
+      "question": "Which London physician traced a deadly waterborne gastrointestinal epidemic to a single contaminated public water pump, and how did he visually prove the connection?",
+      "information_need": "overview",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "1854_Broad_Street_cholera_outbreak.html"
+      ],
+      "expected_sources": [
+        "1854_Broad_Street_cholera_outbreak.html"
+      ],
+      "retrieved_sources": [
+        "1854_Broad_Street_cholera_outbreak.html",
+        "John_Snow.html",
+        "Typhoid_fever.html"
+      ],
+      "required_aspects": [
+        "John Snow, a London physician, traced the 1854 Broad Street cholera outbreak to a contaminated public water pump on Broad Street.",
+        "He visually proved the connection using a dot map illustrating how cholera cases occurred around the pump."
+      ],
+      "response": "The London physician was John Snow, who identified the Broad Street public water pump as the source of the outbreak [John_Snow.html]. He visually demonstrated the connection by using a dot map to show how cholera cases clustered around the pump [1854_Broad_Street_cholera_outbreak.html].",
+      "closed_book_response": "That was **Dr. John Snow**.\n\nHe linked a cholera outbreak in London to the **Broad Street public water pump**. To visually prove the connection, he **mapped the cholera cases on a street map**, showing that the deaths clustered around that pump, which strongly supported the idea that contaminated water—not “bad air”—was spreading the disease.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The London physician was John Snow",
+          "cited_source": "John_Snow.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "John Snow identified the Broad Street public water pump as the source of the outbreak",
+          "cited_source": "John_Snow.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He visually demonstrated the connection by using a dot map",
+          "cited_source": "1854_Broad_Street_cholera_outbreak.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The dot map showed how cholera cases clustered around the pump",
+          "cited_source": "1854_Broad_Street_cholera_outbreak.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 4,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 0.5,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.2848641999880783,
+      "judge_latency_seconds": 3.9365474000223912,
+      "total_latency_seconds": 6.525687499990454,
+      "input_tokens": 127642,
+      "output_tokens": 378,
+      "total_tokens": 128020,
+      "estimated_cost_usd": 0.0974325
+    },
+    {
+      "id": "Q007",
+      "question": "Comparing a 1950s motor-racing catastrophe in France to a 1960s Alaskan natural disaster, which killed more people, and what safety regulations followed each?",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "1955_Le_Mans_disaster.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "expected_sources": [
+        "1955_Le_Mans_disaster.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "retrieved_sources": [
+        "1955_Le_Mans_disaster.html",
+        "History_of_Formula_One.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "required_aspects": [
+        "The 1964 Alaska earthquake and its tsunamis killed 139 people, more than the 1955 Le Mans disaster's estimated 82 to 84 deaths.",
+        "The Le Mans disaster led to temporary bans on motorsports in France, Spain, Switzerland, West Germany, and other nations until racetracks met higher safety standards.",
+        "The Alaska earthquake led to the formation of the West Coast and Alaska Tsunami Warning Center as a direct response to the disaster."
+      ],
+      "response": "The 1964 Alaska earthquake killed more people: 139 deaths, compared with at least 82 deaths in the 1955 Le Mans disaster.[1964_Alaska_earthquake.html][1955_Le_Mans_disaster.html]\n\nSafety changes followed both disasters. After Le Mans, the Circuit de la Sarthe was extensively improved: the pit straight was redesigned and widened to remove the kink and add a deceleration lane, the pits were rebuilt, and the grandstand was replaced with new spectator terraces separated from the track by a wide ditch.[1955_Le_Mans_disaster.html] The official inquiry also blamed the track’s inadequate safety standards rather than any specific driver.[1955_Le_Mans_disaster.html]\n\nAfter the Alaska earthquake, the West Coast and Alaska Tsunami Warning Center was formed directly in response, and the Alaska Division of Emergency Services was established by the Alaska National Guard for future disasters.[1964_Alaska_earthquake.html]",
+      "closed_book_response": "The **1955 Le Mans disaster** in France killed **more people** than the **1964 Alaska earthquake**.\n\n- **1955 Le Mans disaster**: a racing crash caused debris to strike the crowd, killing **about 83 spectators and one driver** (often cited as **84 total**).  \n  - **Safety regulations that followed:** major changes to **motor-racing safety**, including stronger separation between track and spectators, improved crash protection, and stricter event safety standards. In some places, racing regulations became more cautious about circuit design, barriers, and crowd control.\n\n- **1964 Alaska earthquake**: this massive quake and resulting tsunami killed **about 131 people**.  \n  - **Safety regulations that followed:** the disaster led to major improvements in **earthquake-resistant building codes**, **tsunami warning systems**, and broader **seismic safety planning** in Alaska and the United States.\n\nSo, **the Alaska earthquake killed more people overall**, though the **Le Mans disaster led to major motor-sport safety reforms**.",
+      "correctness": "fail",
+      "graded_correctness": "substantially_complete",
+      "graded_correctness_score": 0.75,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The 1964 Alaska earthquake killed 139 people.",
+          "cited_source": "1964_Alaska_earthquake.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The 1955 Le Mans disaster killed at least 82 people.",
+          "cited_source": "1955_Le_Mans_disaster.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Safety changes followed both disasters.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "After Le Mans, the Circuit de la Sarthe was extensively improved.",
+          "cited_source": "1955_Le_Mans_disaster.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The pit straight was redesigned and widened to remove the kink.",
+          "cited_source": "1955_Le_Mans_disaster.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "A deceleration lane was added.",
+          "cited_source": "1955_Le_Mans_disaster.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The pits were rebuilt.",
+          "cited_source": "1955_Le_Mans_disaster.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The grandstand was replaced with new spectator terraces separated from the track by a wide ditch.",
+          "cited_source": "1955_Le_Mans_disaster.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The official inquiry blamed the track’s inadequate safety standards rather than any specific driver.",
+          "cited_source": "1955_Le_Mans_disaster.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "After the Alaska earthquake, the West Coast and Alaska Tsunami Warning Center was formed directly in response.",
+          "cited_source": "1964_Alaska_earthquake.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The Alaska Division of Emergency Services was established by the Alaska National Guard for future disasters.",
+          "cited_source": "1964_Alaska_earthquake.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 11,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.7272727272727273,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.2222171000030357,
+      "judge_latency_seconds": 5.574564099981217,
+      "total_latency_seconds": 9.740813499985961,
+      "input_tokens": 145927,
+      "output_tokens": 1020,
+      "total_tokens": 146947,
+      "estimated_cost_usd": 0.11403525
+    },
+    {
+      "id": "Q008",
+      "question": "In the year Ronald Reagan was first elected U.S. president, which player was the first overall pick in the NFL's college draft, and which team chose him?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Ronald_Reagan.html",
+        "1980_NFL_draft.html"
+      ],
+      "expected_sources": [
+        "Ronald_Reagan.html",
+        "1980_NFL_draft.html"
+      ],
+      "retrieved_sources": [
+        "Philadelphia_Eagles.html",
+        "1980_NFL_draft.html",
+        "Washington_Commanders.html"
+      ],
+      "required_aspects": [
+        "Ronald Reagan was first elected U.S. president in 1980, defeating incumbent Jimmy Carter.",
+        "The first overall pick in the 1980 NFL draft was running back Billy Sims, selected by the Detroit Lions."
+      ],
+      "response": "The year Ronald Reagan was first elected U.S. president was 1980, and the first overall pick in the NFL draft that year was Billy Sims, chosen by the Detroit Lions [1980_NFL_draft.html].",
+      "closed_book_response": "Ronald Reagan was first elected president in **1980**.\n\nIn that year, the **first overall pick** in the NFL draft was **Billy Sims**, chosen by the **Detroit Lions**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Ronald Reagan was first elected U.S. president in 1980.",
+          "cited_source": "1980_NFL_draft.html",
+          "grounded": true,
+          "citation_supported": false,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The first overall pick in the 1980 NFL draft was Billy Sims.",
+          "cited_source": "1980_NFL_draft.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Billy Sims was chosen by the Detroit Lions.",
+          "cited_source": "1980_NFL_draft.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 0.6666666666666666,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.1471178000210784,
+      "judge_latency_seconds": 5.130847399996128,
+      "total_latency_seconds": 8.18400560002192,
+      "input_tokens": 317947,
+      "output_tokens": 293,
+      "total_tokens": 318240,
+      "estimated_cost_usd": 0.23977875
+    },
+    {
+      "id": "Q009",
+      "question": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "expected_sources": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "retrieved_sources": [
+        "Nobel_Prize.html",
+        "1964_Nobel_Prize_in_Literature.html",
+        "John_Muir.html"
+      ],
+      "required_aspects": [
+        "The 1964 Nobel Prize in Literature was awarded to French writer Jean-Paul Sartre, the same year a magnitude 9.2-9.3 earthquake struck Alaska.",
+        "Sartre declined the prize, saying he never accepted official honors and did not want the writer to become an institution.",
+        "He also objected on the grounds that the prize went only to Westerners or to rebels of the East."
+      ],
+      "response": "He was **Jean-Paul Sartre**. He declined the 1964 Nobel Prize in Literature because he said he never accepted official honours and did not want the writer to become an institution [1964_Nobel_Prize_in_Literature.html] \"Sartre declined the prize, saying that he never accepted any official honours and that he did not want the writer to become an institution.\"",
+      "closed_book_response": "That was **Jean-Paul Sartre**.\n\nHe **declined the Nobel Prize in Literature in 1964** because he consistently **rejected official honors and institutions**; he felt accepting the prize would compromise his independence as a writer and thinker.",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        2
+      ],
+      "aspect_coverage": 0.3333333333333333,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "He was Jean-Paul Sartre.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He declined the 1964 Nobel Prize in Literature.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He said he never accepted official honours and did not want the writer to become an institution.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.3333333333333333,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 1.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.8473745000083,
+      "judge_latency_seconds": 7.144734500005143,
+      "total_latency_seconds": 10.257879200013122,
+      "input_tokens": 171797,
+      "output_tokens": 328,
+      "total_tokens": 172125,
+      "estimated_cost_usd": 0.13032375
+    },
+    {
+      "id": "Q010",
+      "question": "What was the final score of the men's curling gold-medal match at the 1998 Winter Olympics in Nagano?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": false,
+      "adversarial_kind": "unanswerable_from_corpus",
+      "required_sources": [
+        "Winter_Olympic_Games.html"
+      ],
+      "expected_sources": [
+        "Winter_Olympic_Games.html"
+      ],
+      "retrieved_sources": [
+        "Winter_Olympic_Games.html",
+        "Ice_hockey_at_the_2010_Winter_Olympics_–_Men_s_tournament.html",
+        "1992_Winter_Olympics.html"
+      ],
+      "required_aspects": [
+        "Not available from the source material.",
+        "The corpus confirms curling returned as an Olympic sport at the 1998 Nagano Winter Games but does not record the men's gold-medal match result."
+      ],
+      "response": "I’m sorry, but the provided documents do not contain the final score of the men’s curling gold-medal match at the 1998 Winter Olympics in Nagano.",
+      "closed_book_response": "Canada defeated Sweden **10–7** in the men’s curling gold-medal match at the **1998 Winter Olympics in Nagano**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The provided documents do not contain the final score of the men’s curling gold-medal match at the 1998 Winter Olympics in Nagano.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 1,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": null,
+      "chunk_attribution_score": 1.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 0,
+      "citation_precision": null,
+      "unsupported_citation_rate": null,
+      "refusal_outcome": "appropriate_refusal",
+      "answer_latency_seconds": 0.9104960999975447,
+      "judge_latency_seconds": 4.940226500009885,
+      "total_latency_seconds": 6.57822940000915,
+      "input_tokens": 180351,
+      "output_tokens": 193,
+      "total_tokens": 180544,
+      "estimated_cost_usd": 0.13613175
+    },
+    {
+      "id": "Q011",
+      "question": "On the day of a 2011 Pacific megathrust quake, the water in several Scandinavian fjords appeared to seethe as if boiling and was caught on film. Which fjord was the most prominent example, and what did scientists conclude after two years of research had caused it?",
+      "information_need": "fact_lookup",
+      "motivation": "media_reference",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "2011_Tōhoku_earthquake_and_tsunami.html"
+      ],
+      "expected_sources": [
+        "2011_Tōhoku_earthquake_and_tsunami.html"
+      ],
+      "retrieved_sources": [
+        "2011_Tōhoku_earthquake_and_tsunami.html",
+        "Arctic_Ocean.html",
+        "Litke_Deep.html"
+      ],
+      "required_aspects": [
+        "The most prominent example was Sognefjorden, Norway.",
+        "After two years of research, scientists concluded that the seismic energy of the earthquake generated seiche waves thousands of kilometers away."
+      ],
+      "response": "The most prominent fjord was **Sognefjorden** [Arctic_Ocean.html]. Scientists concluded that the **seismic energy of the 2011 Japan earthquake generated seiche waves thousands of kilometers away** [Arctic_Ocean.html].",
+      "closed_book_response": "The most prominent example was **Geirangerfjord in Norway**.\n\nAfter about two years of study, scientists concluded that the “boiling” water was caused by **a submarine landslide that triggered a seiche/standing wave and strong mixing of the fjord waters**, making the surface look like it was seething.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "“The most prominent fjord was Sognefjorden.”",
+          "cited_source": "Arctic_Ocean.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "“Scientists concluded that the seismic energy of the 2011 Japan earthquake generated seiche waves thousands of kilometers away.”",
+          "cited_source": "Arctic_Ocean.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.5,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 0.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 1.1540771000145469,
+      "judge_latency_seconds": 4.972545900032856,
+      "total_latency_seconds": 7.041664400050649,
+      "input_tokens": 263495,
+      "output_tokens": 289,
+      "total_tokens": 263784,
+      "estimated_cost_usd": 0.19892175
+    },
+    {
+      "id": "Q012",
+      "question": "Who officially opened the 1992 Winter Olympics in Albertville, and which two people lit the Olympic cauldron at the opening ceremony?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": false,
+      "adversarial_kind": "unanswerable_from_corpus",
+      "required_sources": [
+        "1992_Winter_Olympics.html"
+      ],
+      "expected_sources": [
+        "1992_Winter_Olympics.html"
+      ],
+      "retrieved_sources": [
+        "1992_Winter_Olympics.html",
+        "Winter_Olympic_Games.html",
+        "1988_Winter_Olympics.html"
+      ],
+      "required_aspects": [
+        "Not available from the source material.",
+        "The corpus's 1992_Winter_Olympics.html article does not name who officially opened the Games or who lit the cauldron."
+      ],
+      "response": "The provided documents do not say who officially opened the 1992 Winter Olympics in Albertville, and they also do not identify which two people lit the Olympic cauldron at the opening ceremony. The document lists the opening date and venue, but the “Opened by” and “Cauldron” fields are blank [1992_Winter_Olympics.html].",
+      "closed_book_response": "The 1992 Winter Olympics in Albertville were officially opened by **President François Mitterrand**.\n\nThe Olympic cauldron at the opening ceremony was lit by **Franck Piccard** and **Jean-Claude Killy**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The provided documents do not say who officially opened the 1992 Winter Olympics in Albertville.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The provided documents do not identify which two people lit the Olympic cauldron at the opening ceremony.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The document lists the opening date and venue.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The document's \"Opened by\" field is blank.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The document's \"Cauldron\" field is blank.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 5,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.8,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "appropriate_refusal",
+      "answer_latency_seconds": 1.819249200023478,
+      "judge_latency_seconds": 4.306108899996616,
+      "total_latency_seconds": 7.185143600014271,
+      "input_tokens": 187087,
+      "output_tokens": 433,
+      "total_tokens": 187520,
+      "estimated_cost_usd": 0.14226375
+    },
+    {
+      "id": "Q013",
+      "question": "Which Baltic prime minister, aged 32 when he took office, said a particular free-market economist's book was the only economics book he had read before taking office? Name the book, the country, the signature reform he introduced, and the prize he won in 2006.",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Milton_Friedman.html"
+      ],
+      "expected_sources": [
+        "Milton_Friedman.html"
+      ],
+      "retrieved_sources": [
+        "Milton_Friedman.html",
+        "Bulgaria.html",
+        "Maastricht_Treaty.html"
+      ],
+      "required_aspects": [
+        "The prime minister was Mart Laar of Estonia, who said Milton Friedman's Free to Choose was the only economics book he had read before taking office.",
+        "His signature reform was introducing the flat tax.",
+        "In 2006 he won the Milton Friedman Prize for Advancing Liberty, awarded by the Cato Institute."
+      ],
+      "response": "The documents say that **Mart Laar** was the 32-year-old prime minister who said **Milton Friedman’s book _Free to Choose_** was the only economics book he had read before taking office [Milton_Friedman.html]. He was the prime minister of **Estonia** [Milton_Friedman.html]. A prime element of Laar’s program was the introduction of the **flat tax** [Milton_Friedman.html]. He won the **2006 Milton Friedman Prize for Advancing Liberty** [Milton_Friedman.html].",
+      "closed_book_response": "That was **Andris Bērziņš** of **Latvia**.\n\n- **Free-market economist’s book:** *Free to Choose* by **Milton Friedman**\n- **Country:** **Latvia**\n- **Signature reform:** he is best known for introducing **flat-tax / free-market economic reforms** in the post-Soviet transition\n- **Prize won in 2006:** the **Nobel Prize in Economic Sciences** was **not** his prize, so I don’t want to misstate this part\n\nI’m not fully confident on the final prize detail from your clue as written. If you want, I can try to identify the exact Baltic prime minister you mean and match all four parts precisely.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Mart Laar was the 32-year-old prime minister who said Milton Friedman’s book _Free to Choose_ was the only economics book he had read before taking office",
+          "cited_source": "Milton_Friedman.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He was the prime minister of Estonia",
+          "cited_source": "Milton_Friedman.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "A prime element of Laar’s program was the introduction of the flat tax",
+          "cited_source": "Milton_Friedman.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He won the 2006 Milton Friedman Prize for Advancing Liberty",
+          "cited_source": "Milton_Friedman.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 4,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.8227438000030816,
+      "judge_latency_seconds": 5.011606599990046,
+      "total_latency_seconds": 10.406936099985614,
+      "input_tokens": 303762,
+      "output_tokens": 541,
+      "total_tokens": 304303,
+      "estimated_cost_usd": 0.230256
+    },
+    {
+      "id": "Q014",
+      "question": "In the IOC vote that awarded the 1992 Winter Games, which two cities tied and were sent to a run-off, what were their run-off vote totals, and which city was eliminated after the very first round?",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "1992_Winter_Olympics.html"
+      ],
+      "expected_sources": [
+        "1992_Winter_Olympics.html"
+      ],
+      "retrieved_sources": [
+        "Australia_at_the_Olympics.html",
+        "1988_Winter_Olympics.html",
+        "1988_Summer_Olympics.html"
+      ],
+      "required_aspects": [
+        "Falun and Lillehammer tied at 11 votes in round 4 and were sent to a run-off.",
+        "Falun won the run-off 41 votes to Lillehammer's 40.",
+        "Berchtesgaden, with 6 votes, was eliminated after the very first round."
+      ],
+      "response": "The provided documents do not contain the answer to this question. They mention the **1988 Winter Olympics** host-city vote, not the IOC vote for the **1992 Winter Games** [1988_Winter_Olympics.html].",
+      "closed_book_response": "In the IOC vote for the **1992 Winter Games**, the two cities that tied and were sent to a run-off were **Albertville** and **Östersund**. In the run-off, **Albertville won 51–25**.\n\nThe city that was eliminated after the very first round was **Sofia**.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [],
+      "aspect_coverage": 0.0,
+      "answer_relevance": "fail",
+      "claims": [
+        {
+          "text": "The provided documents do not contain the answer to this question.",
+          "cited_source": "1988_Winter_Olympics.html",
+          "grounded": false,
+          "citation_supported": true,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "The documents mention the 1988 Winter Olympics host-city vote, not the IOC vote for the 1992 Winter Games.",
+          "cited_source": "1988_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 0.5,
+      "faithfulness": "fail",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.0,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 0.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.4355501999962144,
+      "judge_latency_seconds": 4.066568999987794,
+      "total_latency_seconds": 7.685967700002948,
+      "input_tokens": 209334,
+      "output_tokens": 279,
+      "total_tokens": 209613,
+      "estimated_cost_usd": 0.158256
+    },
+    {
+      "id": "Q015",
+      "question": "On Yuri Shefler's article, which page does the 'Known for' infobox entry link to, and which other article in the corpus contains a wikilink pointing to Yuri Shefler's article?",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": false,
+      "adversarial_kind": "unanswerable_from_corpus",
+      "required_sources": [
+        "Yuri_Shefler.html"
+      ],
+      "expected_sources": [
+        "Yuri_Shefler.html"
+      ],
+      "retrieved_sources": [
+        "Yuri_Shefler.html",
+        "Serene_(yacht).html",
+        "Andrew_Fluegelman.html"
+      ],
+      "required_aspects": [
+        "Not available from the source material.",
+        "The corpus's extracted text drops all hyperlinks, so neither the link target nor inbound wikilinks can be determined."
+      ],
+      "response": "The **“Known for”** infobox entry in Yuri Shefler’s article says **“Owner of SPI Group”**, so it links to the **SPI Group** page [Yuri_Shefler.html].\n\nThe other article in the corpus that contains a wikilink pointing to Yuri Shefler’s article is **Serene (yacht)**, which mentions that the yacht was delivered to its original owner, Yuri Shefler [Serene_(yacht).html].",
+      "closed_book_response": "The **“Known for”** infobox entry on **Yuri Shefler’s** article links to **SPI Group**.\n\nThe other article in the corpus that contains a wikilink to **Yuri Shefler’s** article is **Mikhail Khodorkovsky**.",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        2
+      ],
+      "aspect_coverage": 0.5,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The 'Known for' infobox entry in Yuri Shefler's article says 'Owner of SPI Group'.",
+          "cited_source": "Yuri_Shefler.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "That infobox entry links to the SPI Group page.",
+          "cited_source": "Yuri_Shefler.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The other article in the corpus that contains a wikilink pointing to Yuri Shefler's article is Serene (yacht).",
+          "cited_source": "Serene_(yacht).html",
+          "grounded": false,
+          "citation_supported": true,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "Serene (yacht) mentions that the yacht was delivered to its original owner, Yuri Shefler.",
+          "cited_source": "Serene_(yacht).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The other article in the corpus that contains a wikilink to Yuri Shefler's article is Mikhail Khodorkovsky.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 5,
+      "graded_groundedness_score": 0.6,
+      "faithfulness": "fail",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.3333333333333333,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 2,
+      "citation_precision": 0.5,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 0.9948740999971051,
+      "judge_latency_seconds": 3.655883300030837,
+      "total_latency_seconds": 5.772263100021519,
+      "input_tokens": 20238,
+      "output_tokens": 501,
+      "total_tokens": 20739,
+      "estimated_cost_usd": 0.017433
+    }
+  ]
+}
