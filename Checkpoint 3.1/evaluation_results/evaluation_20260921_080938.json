@@ -1,0 +1,521 @@
+{
+  "results": [
+    {
+      "id": "G01",
+      "question": "Name another cinematographer who has won the same award as Andrew Lesnie.",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Emmanuel_Lubezki.html"
+      ],
+      "expected_sources": [
+        "Emmanuel_Lubezki.html",
+        "Andrew_Lesnie.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "retrieved_sources": [
+        "Andrew_Lesnie.html",
+        "King_Kong_(2005_film).html",
+        "Emmanuel_Lubezki.html"
+      ],
+      "required_aspects": [
+        "The award is identified as the Academy Award for Best Cinematography.",
+        "Emmanuel Lubezki is named as another winner of that award.",
+        "The answer is grounded in retrieved text rather than parametric recall."
+      ],
+      "response": "Emmanuel Lubezki has won the Academy Award for Best Cinematography, the same award Andrew Lesnie won for *The Fellowship of the Ring* [Andrew_Lesnie.html] [Emmanuel_Lubezki.html].",
+      "closed_book_response": "Andrew Lesnie won the Academy Award for Best Cinematography. Another cinematographer who has won that same award is **Roger Deakins**.",
+      "correctness": "pass",
+      "graded_correctness": "substantially_complete",
+      "graded_correctness_score": 0.75,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Emmanuel Lubezki has won the Academy Award for Best Cinematography.",
+          "cited_source": "Emmanuel_Lubezki.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The Academy Award for Best Cinematography is the same award Andrew Lesnie won for *The Fellowship of the Ring*.",
+          "cited_source": "Andrew_Lesnie.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.5,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.2762314999708906,
+      "judge_latency_seconds": 3.0044015999883413,
+      "total_latency_seconds": 5.088703999994323,
+      "input_tokens": 62336,
+      "output_tokens": 248,
+      "total_tokens": 62584,
+      "estimated_cost_usd": 0.047868
+    },
+    {
+      "id": "G05",
+      "question": "Name another Best Picture-winning director besides Sam Mendes.",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Christopher_Nolan.html"
+      ],
+      "expected_sources": [
+        "Christopher_Nolan.html",
+        "Steven_Spielberg.html",
+        "James_Cameron.html",
+        "Clint_Eastwood.html",
+        "Anthony_Minghella.html",
+        "Jonathan_Demme.html",
+        "Kevin_Costner.html",
+        "Robert_Zemeckis.html",
+        "William_Wyler.html",
+        "Sam_Mendes.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "retrieved_sources": [
+        "Sam_Mendes.html",
+        "List_of_Academy_Award_records.html",
+        "Golden_Globe_Award_for_Best_Screenplay.html"
+      ],
+      "required_aspects": [
+        "At least one director other than Sam Mendes is named whose film won Best Picture.",
+        "The named director is supported by retrieved text (a category member's article or the Academy Award records list)."
+      ],
+      "response": "One example is Peter Jackson, who directed **The Lord of the Rings: The Return of the King**, a Best Picture winner [List_of_Academy_Award_records.html].",
+      "closed_book_response": "Another Best Picture-winning director is **Steven Spielberg**.",
+      "correctness": "pass",
+      "graded_correctness": "substantially_complete",
+      "graded_correctness_score": 0.75,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "One example is Peter Jackson",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Peter Jackson directed The Lord of the Rings: The Return of the King",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The Lord of the Rings: The Return of the King is a Best Picture winner",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.6666666666666666,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 1.3961015999666415,
+      "judge_latency_seconds": 5.364397300116252,
+      "total_latency_seconds": 7.488516100100242,
+      "input_tokens": 133817,
+      "output_tokens": 273,
+      "total_tokens": 134090,
+      "estimated_cost_usd": 0.10159125
+    },
+    {
+      "id": "G06",
+      "question": "Name another president besides Barack Obama who attended Harvard.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "George_W._Bush.html"
+      ],
+      "expected_sources": [
+        "George_W._Bush.html",
+        "Harvard_University.html",
+        "Barack_Obama.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "required_aspects": [
+        "At least one president other than Obama is named who attended Harvard and is listed in Harvard's article (George W. Bush, John F. Kennedy, Franklin D. Roosevelt, Theodore Roosevelt or John Adams)."
+      ],
+      "response": "Another president who attended Harvard was **John F. Kennedy** [Harvard_University.html]. The Harvard document lists him among notable alumni as the “**35th president of the United States**” and notes that he attended Harvard [Harvard_University.html].",
+      "closed_book_response": "Another U.S. president who attended Harvard was **John F. Kennedy**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Another president who attended Harvard was John F. Kennedy.",
+          "cited_source": "Harvard_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The Harvard document lists John F. Kennedy among notable alumni as the \"35th president of the United States\".",
+          "cited_source": "Harvard_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The Harvard document notes that John F. Kennedy attended Harvard.",
+          "cited_source": "Harvard_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.6666666666666666,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 1.0,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 0.0,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.7931453000055626,
+      "judge_latency_seconds": 9.148915800033137,
+      "total_latency_seconds": 11.702676700020675,
+      "input_tokens": 316045,
+      "output_tokens": 276,
+      "total_tokens": 316321,
+      "estimated_cost_usd": 0.23827575
+    },
+    {
+      "id": "G07",
+      "question": "Name another president besides Bill Clinton who attended Yale.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "George_W._Bush.html"
+      ],
+      "expected_sources": [
+        "George_W._Bush.html",
+        "Yale_University.html",
+        "Bill_Clinton.html",
+        "Gerald_Ford.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Yale_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html",
+        "Bill_Clinton.html"
+      ],
+      "required_aspects": [
+        "George W. Bush (or Gerald Ford, George H. W. Bush or William Howard Taft) is named as another Yale-educated president."
+      ],
+      "response": "George H. W. Bush attended Yale [Bill_Clinton.html] \"Former presidents who attended for undergrad include William Howard Taft, George H. W. Bush, and George W. Bush\"",
+      "closed_book_response": "Another president who attended Yale is **George H. W. Bush**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "George H. W. Bush attended Yale",
+          "cited_source": "Bill_Clinton.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Former presidents who attended for undergrad include William Howard Taft, George H. W. Bush, and George W. Bush",
+          "cited_source": "Bill_Clinton.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.5,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 1.0,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.626978800049983,
+      "judge_latency_seconds": 5.479219800035935,
+      "total_latency_seconds": 7.90112640010193,
+      "input_tokens": 330117,
+      "output_tokens": 227,
+      "total_tokens": 330344,
+      "estimated_cost_usd": 0.24860925
+    },
+    {
+      "id": "G10",
+      "question": "Name two films by English directors that won Academy Awards.",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html"
+      ],
+      "expected_sources": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "retrieved_sources": [
+        "List_of_Academy_Award_records.html",
+        "Clint_Eastwood.html",
+        "BAFTA_Award_for_Best_Actor_in_a_Supporting_Role.html"
+      ],
+      "required_aspects": [
+        "Two films are named, each of which won an Academy Award.",
+        "Each named film's director is identified as English (Sam Mendes, Christopher Nolan or David Lean)."
+      ],
+      "response": "Two examples are **[Clint_Eastwood.html] \"Unforgiven\"** and **[Clint_Eastwood.html] \"Million Dollar Baby\"**. The document says Clint Eastwood won Best Director and Best Picture for **Unforgiven (1992)** and **Million Dollar Baby (2004)**, and identifies Eastwood as an American director in his biography [Clint_Eastwood.html].",
+      "closed_book_response": "Two examples are:\n\n- **The King's Speech** — directed by **Tom Hooper** (English director)\n- **Slumdog Millionaire** — directed by **Danny Boyle** (English director)\n\nBoth won Academy Awards.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [],
+      "aspect_coverage": 0.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Two examples are \"Unforgiven\" and \"Million Dollar Baby\".",
+          "cited_source": "Clint_Eastwood.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Clint Eastwood won Best Director and Best Picture for \"Unforgiven\" (1992) and \"Million Dollar Baby\" (2004).",
+          "cited_source": "Clint_Eastwood.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Clint Eastwood is an American director.",
+          "cited_source": "Clint_Eastwood.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.6666666666666666,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 2,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 1.0,
+      "citation_count": 1,
+      "citation_precision": 0.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 2.962652700021863,
+      "judge_latency_seconds": 5.138322600047104,
+      "total_latency_seconds": 8.903538800077513,
+      "input_tokens": 235825,
+      "output_tokens": 349,
+      "total_tokens": 236174,
+      "estimated_cost_usd": 0.17843925
+    },
+    {
+      "id": "G13",
+      "question": "What was the former name of the university where Barack Obama earned his law degree?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "expected_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Barack_Obama.html",
+        "List_of_presidents_of_the_United_States_by_education.html",
+        "Oprah_Winfrey.html"
+      ],
+      "required_aspects": [
+        "Harvard is identified as where Obama earned his law degree.",
+        "Harvard College is given as the former name."
+      ],
+      "response": "Barack Obama earned his law degree from Harvard Law School, and the documents say he enrolled there in 1988 and graduated in 1991 [Barack_Obama.html]. The documents do not state a former name for that university, so I can’t determine one from the provided material.",
+      "closed_book_response": "Barack Obama earned his law degree at **Harvard Law School**. It was formerly known as the **Harvard Law School of Harvard University**—though in common usage, it has long been called **Harvard Law School**.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 0.5,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Barack Obama earned his law degree from Harvard Law School.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The documents say he enrolled at Harvard Law School in 1988.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The documents say he graduated from Harvard Law School in 1991.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The documents do not state a former name for Harvard Law School.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": false,
+          "citation_supported": false,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "The speaker cannot determine the university's former name from the provided material.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 5,
+      "graded_groundedness_score": 0.6,
+      "faithfulness": "fail",
+      "citation_support_rate": 0.75,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.4965788000263274,
+      "judge_latency_seconds": 5.972879400011152,
+      "total_latency_seconds": 8.783934000006411,
+      "input_tokens": 338609,
+      "output_tokens": 401,
+      "total_tokens": 339010,
+      "estimated_cost_usd": 0.25576125
+    }
+  ]
+}

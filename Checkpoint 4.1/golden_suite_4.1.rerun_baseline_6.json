@@ -1,0 +1,341 @@
+{
+  "suite_notes": {
+    "purpose": "Six-record baseline rerun of golden_suite_4.1.json after the post-baseline suite edits of 2026-09-21: G01 rephrased to drop the award name; G06 answer set widened to every president Harvard's article lists; G05 and G10 accept list-article answers (Peter Jackson; David Lean) and G10 gains an explicit nationality aspect; G05, G07, G10 and G13 gain list articles in relevant_files (changes precision@k). Records are identical to the corresponding entries in golden_suite_4.1.json. Together with the 12 untouched records of the 2026-09-20 run this forms the valid baseline for the chunker/graph/decomposition comparisons.",
+    "parent_suite": "Capstone/Checkpoint 4.1/golden_suite_4.1.json",
+    "baseline_run_being_rechecked": "Checkpoint 3.1/evaluation_results/evaluation_20260920_201903.json",
+    "records_unchanged_since_that_run": [
+      "G02",
+      "G03",
+      "G04",
+      "G08",
+      "G09",
+      "G11",
+      "G12",
+      "G14",
+      "G15",
+      "G16",
+      "G17",
+      "G18"
+    ]
+  },
+  "queries": [
+    {
+      "id": "G01",
+      "query": "Name another cinematographer who has won the same award as Andrew Lesnie.",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Andrew Lesnie won the Academy Award for Best Cinematography (for The Fellowship of the Ring). Another winner of that award is Emmanuel Lubezki, who won it three years running for Gravity (2013), Birdman (2014) and The Revenant (2015).",
+      "supporting_quotes": [
+        {
+          "text": "His work on The Fellowship of the Ring earned him the Academy Award for Best Cinematography.",
+          "source_file": "Andrew_Lesnie.html"
+        },
+        {
+          "text": "He has received numerous accolades including three consecutive wins for the Academy Award for Best Cinematography for the science fiction thriller Gravity (2013), the dark comedy Birdman (2014), and the epic western The Revenant (2015).",
+          "source_file": "Emmanuel_Lubezki.html"
+        },
+        {
+          "text": "Best Cinematography - Emmanuel Lubezki won three consecutive awards for Gravity in 2013, Birdman or (The Unexpected Virtue of Ignorance) in 2014 and The Revenant in 2015",
+          "source_file": "List_of_Academy_Award_records.html"
+        }
+      ],
+      "required_files": [
+        "Emmanuel_Lubezki.html"
+      ],
+      "relevant_files": [
+        "Emmanuel_Lubezki.html",
+        "Andrew_Lesnie.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Category co-membership: both articles carry 'Best Cinematographer Academy Award winners'. Rephrased after the 2026-09-20 baseline run, where the original wording ('Best Cinematographer Oscar winner') let BM25 retrieve Lubezki's article on the award name alone. The query now names only the person and the word 'cinematographer', so the award must be resolved from Lesnie's article first. Residual lexical path: List_of_Academy_Award_records.html records Lubezki's three consecutive Best Cinematography wins, and Lubezki's own article uses 'cinematographer' heavily. Any other corpus member of the category is also acceptable.",
+      "required_aspects": [
+        "The award is identified as the Academy Award for Best Cinematography.",
+        "Emmanuel Lubezki is named as another winner of that award.",
+        "The answer is grounded in retrieved text rather than parametric recall."
+      ],
+      "mechanism": "category_co_membership",
+      "anticipated_outcomes": {
+        "baseline": "possible",
+        "chunker": "possible",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "Without the award name in the query, lexical retrieval must land on Lubezki via 'cinematographer' alone; the graph reaches him through Lesnie's shared category node."
+    },
+    {
+      "id": "G05",
+      "query": "Name another Best Picture-winning director besides Sam Mendes.",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Any director in the corpus whose film won Best Picture, for example Christopher Nolan (Oppenheimer, 2023), Steven Spielberg (Schindler's List) or Peter Jackson (The Lord of the Rings: The Return of the King, 2003, as listed in the Academy Award records article). Other corpus members of the category include James Cameron, Clint Eastwood, Anthony Minghella, Jonathan Demme, Kevin Costner, Robert Zemeckis and William Wyler.",
+      "supporting_quotes": [
+        {
+          "text": "The film won the Golden Globe Award, the BAFTA Award and the Academy Award for Best Picture.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "Oppenheimer (2023), which won him Academy Awards for Best Director and Best Picture.",
+          "source_file": "Christopher_Nolan.html"
+        },
+        {
+          "text": "Schindler's List won seven Academy Awards, including Best Picture and Spielberg's first as Best Director.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "Best Picture: Peter Jackson, Fran Walsh and Barrie M. Osborne - Best Director: Peter Jackson",
+          "source_file": "List_of_Academy_Award_records.html"
+        }
+      ],
+      "required_files": [
+        "Christopher_Nolan.html"
+      ],
+      "relevant_files": [
+        "Christopher_Nolan.html",
+        "Steven_Spielberg.html",
+        "James_Cameron.html",
+        "Clint_Eastwood.html",
+        "Anthony_Minghella.html",
+        "Jonathan_Demme.html",
+        "Kevin_Costner.html",
+        "Robert_Zemeckis.html",
+        "William_Wyler.html",
+        "Sam_Mendes.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Category co-membership over a well-populated category: a full-corpus scan found 10 members of 'Directors of Best Picture Academy Award winners'. required_files names Nolan as the canonical answer for the recall metric, but any of the other nine is a correct answer - read source recall for this record with that in mind. Baseline run 2026-09-20 answered Peter Jackson from List_of_Academy_Award_records.html - correct and grounded, but Jackson has no article and is not a category member, so the list-article path and the graph path give different valid answers. Both are accepted.",
+      "required_aspects": [
+        "At least one director other than Sam Mendes is named whose film won Best Picture.",
+        "The named director is supported by retrieved text (a category member's article or the Academy Award records list)."
+      ],
+      "mechanism": "category_co_membership",
+      "anticipated_outcomes": {
+        "baseline": "possible",
+        "chunker": "possible",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "Lexical retrieval on 'Best Picture' could surface any of ten director pages, so the baseline may pass by luck; the graph enumerates the category directly."
+    },
+    {
+      "id": "G06",
+      "query": "Name another president besides Barack Obama who attended Harvard.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Any president listed as a Harvard alumnus in Harvard's article: George W. Bush (MBA, 1975), John F. Kennedy (AB, 1940), Franklin D. Roosevelt (AB, 1903), Theodore Roosevelt (AB, 1880) or John Adams (AB, 1755). Obama himself earned his JD at Harvard Law School in 1991.",
+      "supporting_quotes": [
+        {
+          "text": "In 1988, Obama enrolled in Harvard Law School, where he was the first Black president of the Harvard Law Review.",
+          "source_file": "Barack_Obama.html"
+        },
+        {
+          "text": "After graduating from Harvard Business School in 1975, he worked in the oil industry.",
+          "source_file": "George_W._Bush.html"
+        },
+        {
+          "text": "43rd president of the United States George W. Bush (MBA, 1975)",
+          "source_file": "Harvard_University.html"
+        },
+        {
+          "text": "including two U.S. presidents, Franklin D. Roosevelt (AB, 1903) and John F. Kennedy (AB 1940)",
+          "source_file": "Harvard_University.html"
+        },
+        {
+          "text": "26th president of the United States and Nobel Peace Prize laureate Theodore Roosevelt (AB, 1880)",
+          "source_file": "Harvard_University.html"
+        }
+      ],
+      "required_files": [
+        "George_W._Bush.html"
+      ],
+      "relevant_files": [
+        "George_W._Bush.html",
+        "Harvard_University.html",
+        "Barack_Obama.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "difficulty_notes": "Shared-target lookup: the Education infobox rows of both Obama and Bush link Harvard_University.html, which exists as a node, so the graph path returns George W. Bush. Harvard's own article also lists Kennedy, both Roosevelts and John Adams among alumni, none of whom have an Education edge to Harvard in the corpus. Answer set widened after the 2026-09-20 baseline run answered John F. Kennedy (correct, grounded in Harvard's article) and was wrongly failed against a Bush-only expected answer. required_files still names Bush for the recall metric; a Kennedy/Roosevelt/Adams answer grounded in Harvard_University.html will therefore show recall 0 with correctness pass - read the two together.",
+      "required_aspects": [
+        "At least one president other than Obama is named who attended Harvard and is listed in Harvard's article (George W. Bush, John F. Kennedy, Franklin D. Roosevelt, Theodore Roosevelt or John Adams)."
+      ],
+      "mechanism": "shared_target_education_edge",
+      "anticipated_outcomes": {
+        "baseline": "possible",
+        "chunker": "likely",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "The fact exists in Harvard's article but is buried in a long alumni list; chunking isolates it, the graph reaches Bush through the shared Harvard node."
+    },
+    {
+      "id": "G07",
+      "query": "Name another president besides Bill Clinton who attended Yale.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "George W. Bush, who attended Yale University from 1964 to 1968 and graduated with a BA in history. Gerald Ford (Yale Law School), George H. W. Bush and William Howard Taft are also acceptable, as Yale's article lists them.",
+      "supporting_quotes": [
+        {
+          "text": "After Oxford, Clinton attended Yale Law School and earned a Juris Doctor (J.D.) degree in 1973.",
+          "source_file": "Bill_Clinton.html"
+        },
+        {
+          "text": "He attended Yale University from 1964 to 1968, graduating with a Bachelor of Arts degree in history.",
+          "source_file": "George_W._Bush.html"
+        },
+        {
+          "text": "Former presidents who attended for undergrad include William Howard Taft, George H. W. Bush, and George W. Bush, while former presidents Gerald Ford and Bill Clinton attended Yale Law School.",
+          "source_file": "Yale_University.html"
+        }
+      ],
+      "required_files": [
+        "George_W._Bush.html"
+      ],
+      "relevant_files": [
+        "George_W._Bush.html",
+        "Yale_University.html",
+        "Bill_Clinton.html",
+        "Gerald_Ford.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "difficulty_notes": "Shared-target lookup: Clinton's and Bush's Education rows both link Yale_University.html. Gerald_Ford.html exists and Yale's article names him, but whether Ford's infobox links Yale (i.e. whether the graph would also return him) was not verified. List_of_presidents_of_the_United_States_by_education.html is on-topic and was retrieved in the baseline run, but trafilatura extracts only ~4k characters of it (the table is dropped), so it contributes little text.",
+      "required_aspects": [
+        "George W. Bush (or Gerald Ford, George H. W. Bush or William Howard Taft) is named as another Yale-educated president."
+      ],
+      "mechanism": "shared_target_education_edge",
+      "anticipated_outcomes": {
+        "baseline": "possible",
+        "chunker": "likely",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "Same shape as G06; Yale's article is 154k characters, so baseline dilution risk is higher."
+    },
+    {
+      "id": "G10",
+      "query": "Name two films by English directors that won Academy Awards.",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Two Academy Award-winning films by English directors, for example: American Beauty (1999, Sam Mendes, Best Picture and Best Director); Oppenheimer (2023, Christopher Nolan, Best Picture and Best Director); or The Bridge on the River Kwai (1957, David Lean, Best Director), which the Academy Award records article attributes to Lean 'from England'. Films by non-English directors (e.g. Clint Eastwood's Unforgiven) do not satisfy the question.",
+      "supporting_quotes": [
+        {
+          "text": "Sir Samuel Alexander Mendes CBE (born 1 August 1965) is an English filmmaker and stage director.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "In 1999, Mendes made his film directorial debut with American Beauty, starring Kevin Spacey.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "The film won the Golden Globe Award, the BAFTA Award and the Academy Award for Best Picture.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "Christopher Edward Nolan 30 July 1970 London, England",
+          "source_file": "Christopher_Nolan.html"
+        },
+        {
+          "text": "Oppenheimer (2023), which won him Academy Awards for Best Director and Best Picture.",
+          "source_file": "Christopher_Nolan.html"
+        },
+        {
+          "text": "First European to win Best Director - David Lean (from England) for The Bridge on the River Kwai (1957)",
+          "source_file": "List_of_Academy_Award_records.html"
+        }
+      ],
+      "required_files": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html"
+      ],
+      "relevant_files": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Reframed from 'list five films' because only two Oscar-winning films are verifiable in the corpus text; no film articles exist for either director's work. Graph path: 'English film directors' intersected with 'Directors of Best Picture Academy Award winners' yields Mendes and Nolan, then their article text supplies the films. Baseline run 2026-09-20 answered The Bridge on the River Kwai (David Lean, correct via the records list) and Unforgiven (Clint Eastwood - American, so wrong): the model satisfied the award constraint but not the nationality constraint. Lean is now accepted; the nationality check is an explicit required aspect.",
+      "required_aspects": [
+        "Two films are named, each of which won an Academy Award.",
+        "Each named film's director is identified as English (Sam Mendes, Christopher Nolan or David Lean)."
+      ],
+      "mechanism": "category_intersection_plus_text",
+      "anticipated_outcomes": {
+        "baseline": "possible",
+        "chunker": "likely",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "Mendes' lead sentence contains 'English filmmaker', giving lexical retrieval a foothold; Nolan's does not, so the second film is the harder half."
+    },
+    {
+      "id": "G13",
+      "query": "What was the former name of the university where Barack Obama earned his law degree?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Harvard College. Obama earned his Juris Doctor at Harvard Law School in 1991; Harvard University was founded in 1636 and named Harvard College in 1639, which remains the name of its undergraduate division.",
+      "supporting_quotes": [
+        {
+          "text": "Obama graduated from Harvard Law in 1991 with a Juris Doctor magna cum laude.",
+          "source_file": "Barack_Obama.html"
+        },
+        {
+          "text": "Founded in 1636, and named Harvard College in 1639 in honor of its first benefactor, Puritan clergyman John Harvard, it is the oldest institution of higher learning in the United States.",
+          "source_file": "Harvard_University.html"
+        },
+        {
+          "text": "Former names | Harvard College",
+          "source_file": "Harvard_University.html"
+        }
+      ],
+      "required_files": [
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "relevant_files": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "difficulty_notes": "Bridge through an implicit entity plus alias: the query never says 'Harvard', so the second article can only be reached by following Obama's Education edge (or by the model supplying 'Harvard' from memory). If a decomposition run passes, check chunk_attribution_score - the bridge entity most likely came from parametric knowledge.",
+      "required_aspects": [
+        "Harvard is identified as where Obama earned his law degree.",
+        "Harvard College is given as the former name."
+      ],
+      "mechanism": "bridge_education_edge_plus_infobox_alias",
+      "anticipated_outcomes": {
+        "baseline": "fail",
+        "chunker": "fail",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "Lexical retrieval fetches Obama's article but has no reason to fetch Harvard's; the graph follows education -> Harvard_University and reads the former_names property."
+    }
+  ]
+}
