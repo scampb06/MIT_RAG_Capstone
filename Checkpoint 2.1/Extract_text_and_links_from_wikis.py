@@ -99,6 +99,92 @@ def wiki_link_slug(href: str) -> str | None:
     return path or None
 
 
+def slugify_label(label: str) -> str:
+    """Normalize an infobox row label (or similar free text) into an edge/property
+    key: 'Directed by' -> 'directed_by', 'Spouse(s)' -> 'spouse_s', 'Born' -> 'born'.
+
+    Light normalization only - no controlled vocabulary yet, so near-duplicate
+    labels across different infobox templates (e.g. 'Produced by' vs
+    'Production by') will slugify to different keys until a mapping is built
+    from what actually occurs across the corpus.
+    """
+    text = re.sub(r"[^a-z0-9]+", "_", label.strip().lower())
+    return text.strip("_")
+
+
+def extract_categories(soup: BeautifulSoup) -> list[tuple[str, str]]:
+    """Return (display name, link slug) for each real topical category on the
+    page, skipping hidden/maintenance categories (e.g. "Articles with short
+    description", "Use dmy dates from...") which carry no topical meaning.
+    """
+    links = soup.select(".mw-normal-catlinks a[href^='/wiki/Category:']")
+    results = []
+    for anchor in links:
+        slug = wiki_link_slug(anchor.get("href", ""))
+        if slug is None:
+            continue
+        results.append((anchor.get_text(strip=True), slug))
+    return results
+
+
+def extract_infobox_data(
+    content_root: BeautifulSoup,
+    article_id: str,
+    filename: str,
+    article_ids: dict[str, str],
+    file_by_slug: dict[str, str],
+) -> tuple[list[dict], dict[str, str]]:
+    """Walk the article's infobox once, if it has one, and return:
+
+    - edges: one per <a href> found inside a data cell that resolves to
+      another article in this corpus (one edge per link, not one per row -
+      a "Starring" row with five linked actors produces five edges).
+    - properties: a flat label -> raw text dict covering every row
+      regardless of whether it contained any links, for use as attributes
+      on the article's own node. No attempt is made to resolve unlinked
+      names (e.g. an uncredited co-producer with no wikilink here) to
+      other corpus articles - that is a deliberately separate, deferred
+      enhancement.
+
+    Must be called before the caller decomposes ".infobox" out of
+    content_root as boilerplate.
+    """
+    infobox = content_root.select_one("table.infobox")
+    if infobox is None:
+        return [], {}
+
+    edges: list[dict] = []
+    properties: dict[str, str] = {}
+    for row in infobox.select("tr"):
+        label_cell = row.find("th", class_="infobox-label")
+        data_cell = row.find("td", class_="infobox-data")
+        if label_cell is None or data_cell is None:
+            continue
+        raw_label = label_cell.get_text(strip=True)
+        key = slugify_label(raw_label)
+        if not key:
+            continue
+
+        properties[key] = data_cell.get_text(" ", strip=True)
+
+        for anchor in data_cell.select("a[href]"):
+            slug = wiki_link_slug(anchor.get("href", ""))
+            if slug is None:
+                continue
+            target_filename = file_by_slug.get(normalize_slug(slug))
+            if not target_filename or target_filename == filename:
+                continue
+            edges.append({
+                "source": article_id,
+                "target": article_ids[target_filename],
+                "edge_type": key,
+                "source_file": filename,
+                "target_file": target_filename,
+                "infobox_label": raw_label,
+            })
+    return edges, properties
+
+
 def extract_wikipedia_text(directory_path: str) -> list[tuple[str, str]]:
     """Return the filename and extracted main text for each HTML file."""
     articles = []
@@ -149,6 +235,10 @@ def process_wikipedia_with_nodes_and_edges(
     file_by_slug = {
         normalize_slug(filename.removesuffix(".html")): filename for filename in filenames
     }
+    # Category nodes aren't discovered from a file listing like articles are -
+    # a category becomes a node the first time any article references it.
+    category_ids: dict[str, str] = {}
+    category_nodes_created: set[str] = set()
 
     files_processed = 0
     failures = 0
@@ -181,8 +271,31 @@ def process_wikipedia_with_nodes_and_edges(
                 page_title = page_title.removesuffix(" - Wikipedia")
             article_title = page_title or filename.removesuffix(".html").replace("_", " ")
 
-            # --- Links (article -> article edges) ---
+            # --- Categories (article -> category edges) ---
+            categories = extract_categories(soup)
+            category_edges = []
+            for name, slug in categories:
+                category_id = category_ids.setdefault(
+                    slug, hashlib.sha256(slug.encode("utf-8")).hexdigest()[:16]
+                )
+                category_edges.append({
+                    "source": article_id,
+                    "target": category_id,
+                    "edge_type": "in_category",
+                    "source_file": filename,
+                    "category_name": name,
+                })
+
+            # --- Infobox (typed edges + raw properties) ---
+            # Must run before the BOILERPLATE_SELECTORS decompose below, which
+            # removes ".infobox" from content_root as part of scrubbing
+            # navboxes/sidebars ahead of the generic body-link scan.
             content_root = soup.select_one("#mw-content-text") or soup
+            infobox_edges, infobox_properties = extract_infobox_data(
+                content_root, article_id, filename, article_ids, file_by_slug
+            )
+
+            # --- Links (article -> article edges) ---
             for element in content_root.select(", ".join(BOILERPLATE_SELECTORS)):
                 element.decompose()
 
@@ -251,16 +364,24 @@ def process_wikipedia_with_nodes_and_edges(
                 )
 
             # --- Commit: only reached if the whole article succeeded ---
-            nodes.append(
-                {
-                    "id": article_id,
-                    "node_type": "article",
-                    "title": article_title,
-                    "source_file": filename,
-                    "chunk_count": len(final_chunks),
-                }
-            )
+            article_node = {
+                "id": article_id,
+                "node_type": "article",
+                "title": article_title,
+                "source_file": filename,
+                "chunk_count": len(final_chunks),
+            }
+            if infobox_properties:
+                article_node["infobox"] = infobox_properties
+            nodes.append(article_node)
+            for name, slug in categories:
+                category_id = category_ids[slug]
+                if category_id not in category_nodes_created:
+                    category_nodes_created.add(category_id)
+                    nodes.append({"id": category_id, "node_type": "category", "title": name})
             edges.extend(article_edges.values())
+            edges.extend(infobox_edges)
+            edges.extend(category_edges)
             all_chunks.extend(final_chunks)
 
         except Exception as error:

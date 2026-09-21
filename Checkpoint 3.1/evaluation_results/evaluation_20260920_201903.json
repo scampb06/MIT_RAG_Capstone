@@ -1,0 +1,1447 @@
+{
+  "results": [
+    {
+      "id": "G01",
+      "question": "Name another Best Cinematographer Oscar winner besides Andrew Lesnie.",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Emmanuel_Lubezki.html"
+      ],
+      "expected_sources": [
+        "Emmanuel_Lubezki.html",
+        "Andrew_Lesnie.html"
+      ],
+      "retrieved_sources": [
+        "Andrew_Lesnie.html",
+        "Emmanuel_Lubezki.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "required_aspects": [
+        "Emmanuel Lubezki is named as another Best Cinematography Oscar winner.",
+        "The answer is grounded in Lubezki's article rather than parametric recall."
+      ],
+      "response": "Emmanuel Lubezki is another Best Cinematography Oscar winner. He won Best Cinematography for *Gravity* (2013), *Birdman* (2014), and *The Revenant* (2015). [Emmanuel_Lubezki.html]",
+      "closed_book_response": "Another Best Cinematographer Oscar winner is **John Seale**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Emmanuel Lubezki is another Best Cinematography Oscar winner.",
+          "cited_source": "Emmanuel_Lubezki.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He won Best Cinematography for Gravity (2013), Birdman (2014), and The Revenant (2015).",
+          "cited_source": "Emmanuel_Lubezki.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.5,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.370399700012058,
+      "judge_latency_seconds": 4.3442774001159705,
+      "total_latency_seconds": 6.467606300080661,
+      "input_tokens": 111049,
+      "output_tokens": 248,
+      "total_tokens": 111297,
+      "estimated_cost_usd": 0.08440275
+    },
+    {
+      "id": "G02",
+      "question": "Who succeeded Barack Obama as president?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Barack_Obama.html"
+      ],
+      "expected_sources": [
+        "Barack_Obama.html",
+        "Donald_Trump.html"
+      ],
+      "retrieved_sources": [
+        "Barack_Obama.html",
+        "African-American_presidents_of_the_United_States_in_popular_culture.html",
+        "President_of_the_United_States.html"
+      ],
+      "required_aspects": [
+        "Donald Trump is named as Obama's successor."
+      ],
+      "response": "Donald Trump succeeded Barack Obama as president. [Barack_Obama.html] “Succeeded by | Donald Trump”",
+      "closed_book_response": "Donald Trump succeeded Barack Obama as President of the United States.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Donald Trump succeeded Barack Obama as president.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The response cites the text “Succeeded by | Donald Trump” from the Barack Obama page.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 1.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.0452074000495486,
+      "judge_latency_seconds": 5.622091199969873,
+      "total_latency_seconds": 8.399090900027659,
+      "input_tokens": 335201,
+      "output_tokens": 195,
+      "total_tokens": 335396,
+      "estimated_cost_usd": 0.25227825
+    },
+    {
+      "id": "G03",
+      "question": "Who succeeded Elizabeth II as monarch?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Elizabeth_II.html"
+      ],
+      "expected_sources": [
+        "Elizabeth_II.html",
+        "Charles_III.html"
+      ],
+      "retrieved_sources": [
+        "Monarchy_of_the_United_Kingdom.html",
+        "Elizabeth_II.html",
+        "List_of_British_monarchs.html"
+      ],
+      "required_aspects": [
+        "Charles III is named as Elizabeth II's successor."
+      ],
+      "response": "Charles III succeeded Elizabeth II as monarch. [Elizabeth_II.html] \"Successor | Charles III\"",
+      "closed_book_response": "Charles III succeeded Elizabeth II as monarch.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Charles III succeeded Elizabeth II as monarch",
+          "cited_source": "Elizabeth_II.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 1,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 1.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.5150502999895252,
+      "judge_latency_seconds": 4.093229799938854,
+      "total_latency_seconds": 6.357360599911772,
+      "input_tokens": 205626,
+      "output_tokens": 133,
+      "total_tokens": 205759,
+      "estimated_cost_usd": 0.154818
+    },
+    {
+      "id": "G04",
+      "question": "Name another U.S. president besides Bill Clinton who was impeached.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Bill_Clinton.html"
+      ],
+      "expected_sources": [
+        "Bill_Clinton.html",
+        "Donald_Trump.html"
+      ],
+      "retrieved_sources": [
+        "President_of_the_United_States.html",
+        "Bill_Clinton.html",
+        "Donald_Trump.html"
+      ],
+      "required_aspects": [
+        "Donald Trump or Andrew Johnson is named as another impeached president."
+      ],
+      "response": "Another U.S. president who was impeached was Andrew Johnson [Bill_Clinton.html].",
+      "closed_book_response": "Another U.S. president who was impeached was **Andrew Johnson**.  \n(Also, **Donald Trump** was impeached twice.)",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Another U.S. president who was impeached was Andrew Johnson.",
+          "cited_source": "Bill_Clinton.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 1,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.033024200005457,
+      "judge_latency_seconds": 7.682564900023863,
+      "total_latency_seconds": 10.630548600049224,
+      "input_tokens": 476830,
+      "output_tokens": 163,
+      "total_tokens": 476993,
+      "estimated_cost_usd": 0.358356
+    },
+    {
+      "id": "G05",
+      "question": "Name another Best Picture-winning director besides Sam Mendes.",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Christopher_Nolan.html"
+      ],
+      "expected_sources": [
+        "Christopher_Nolan.html",
+        "Steven_Spielberg.html",
+        "James_Cameron.html",
+        "Clint_Eastwood.html",
+        "Anthony_Minghella.html",
+        "Jonathan_Demme.html",
+        "Kevin_Costner.html",
+        "Robert_Zemeckis.html",
+        "William_Wyler.html",
+        "Sam_Mendes.html"
+      ],
+      "retrieved_sources": [
+        "Sam_Mendes.html",
+        "List_of_Academy_Award_records.html",
+        "Golden_Globe_Award_for_Best_Screenplay.html"
+      ],
+      "required_aspects": [
+        "At least one director other than Sam Mendes is named whose film won Best Picture.",
+        "The named director is one of the corpus members of the category."
+      ],
+      "response": "One other Best Picture-winning director mentioned in the documents is Peter Jackson, who is listed as the director of *The Lord of the Rings: The Return of the King* and as a Best Picture winner [List_of_Academy_Award_records.html].",
+      "closed_book_response": "One example is **Steven Spielberg**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Peter Jackson is one other Best Picture-winning director mentioned in the documents.",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Peter Jackson is listed as the director of *The Lord of the Rings: The Return of the King*.",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Peter Jackson is listed as a Best Picture winner.",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 0.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.3522992000216618,
+      "judge_latency_seconds": 4.476909999968484,
+      "total_latency_seconds": 6.6831059999531135,
+      "input_tokens": 133821,
+      "output_tokens": 284,
+      "total_tokens": 134105,
+      "estimated_cost_usd": 0.10164375
+    },
+    {
+      "id": "G06",
+      "question": "Name another president besides Barack Obama who attended Harvard.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "George_W._Bush.html"
+      ],
+      "expected_sources": [
+        "George_W._Bush.html",
+        "Harvard_University.html",
+        "Barack_Obama.html"
+      ],
+      "retrieved_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "required_aspects": [
+        "George W. Bush is named as another Harvard-educated president."
+      ],
+      "response": "One other president who attended Harvard was John F. Kennedy; the Harvard University document lists him as a Harvard alumnus, and the presidents-by-education document notes that he intended to study at the London School of Economics but did not attend it. [Harvard_University.html] [List_of_presidents_of_the_United_States_by_education.html]",
+      "closed_book_response": "One other president who attended Harvard was **Theodore Roosevelt**.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [],
+      "aspect_coverage": 0.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "One other president who attended Harvard was John F. Kennedy",
+          "cited_source": "Harvard_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The Harvard University document lists John F. Kennedy as a Harvard alumnus",
+          "cited_source": "Harvard_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The presidents-by-education document notes that John F. Kennedy intended to study at the London School of Economics but did not attend it",
+          "cited_source": "List_of_presidents_of_the_United_States_by_education.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 0.5,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.7651876999880187,
+      "judge_latency_seconds": 5.6263613999472,
+      "total_latency_seconds": 8.167397999903187,
+      "input_tokens": 316024,
+      "output_tokens": 308,
+      "total_tokens": 316332,
+      "estimated_cost_usd": 0.238404
+    },
+    {
+      "id": "G07",
+      "question": "Name another president besides Bill Clinton who attended Yale.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "George_W._Bush.html"
+      ],
+      "expected_sources": [
+        "George_W._Bush.html",
+        "Yale_University.html",
+        "Bill_Clinton.html",
+        "Gerald_Ford.html"
+      ],
+      "retrieved_sources": [
+        "Yale_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html",
+        "Bill_Clinton.html"
+      ],
+      "required_aspects": [
+        "George W. Bush (or Gerald Ford, George H. W. Bush or William Howard Taft) is named as another Yale-educated president."
+      ],
+      "response": "George H. W. Bush attended Yale [Bill_Clinton.html]. The Yale document also says “Yale-educated presidents since the end of the Vietnam War include Gerald Ford, George H. W. Bush, Bill Clinton, and George W. Bush” [Yale_University.html].",
+      "closed_book_response": "George W. Bush also attended Yale.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "George H. W. Bush attended Yale.",
+          "cited_source": "Bill_Clinton.html",
+          "grounded": true,
+          "citation_supported": false,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The Yale document says that Yale-educated presidents since the end of the Vietnam War include Gerald Ford, George H. W. Bush, Bill Clinton, and George W. Bush.",
+          "cited_source": "Yale_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 0.5,
+      "chunk_attribution_score": 0.5,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.4906904000090435,
+      "judge_latency_seconds": 6.122527899977285,
+      "total_latency_seconds": 9.187916800030507,
+      "input_tokens": 330164,
+      "output_tokens": 242,
+      "total_tokens": 330406,
+      "estimated_cost_usd": 0.248712
+    },
+    {
+      "id": "G08",
+      "question": "Which president served in both the 20th and 21st centuries?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Bill_Clinton.html"
+      ],
+      "expected_sources": [
+        "Bill_Clinton.html",
+        "George_W._Bush.html",
+        "Barack_Obama.html",
+        "Ronald_Reagan.html",
+        "Gerald_Ford.html",
+        "Donald_Trump.html"
+      ],
+      "retrieved_sources": [
+        "France.html",
+        "President_of_the_United_States.html",
+        "Gothic_Revival_architecture.html"
+      ],
+      "required_aspects": [
+        "Bill Clinton is identified as the president whose term spanned both centuries.",
+        "The answer is grounded in the 1993-2001 term dates."
+      ],
+      "response": "The documents do not say which president served in both the 20th and 21st centuries. The only president explicitly described as spanning that period in the provided documents is the U.S. president article’s discussion of presidents in the 21st century, but it does not identify a specific president as serving across both centuries [President_of_the_United_States.html].",
+      "closed_book_response": "The president who served in both the 20th and 21st centuries was **Bill Clinton**.\n\nHe served from **1993 to 2001**, so his presidency spanned both centuries.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [],
+      "aspect_coverage": 0.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The documents do not say which president served in both the 20th and 21st centuries.",
+          "cited_source": "President_of_the_United_States.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The only president explicitly described as spanning that period in the provided documents is the U.S. president article's discussion of presidents in the 21st century.",
+          "cited_source": "President_of_the_United_States.html",
+          "grounded": false,
+          "citation_supported": true,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "That discussion does not identify a specific president as serving across both centuries.",
+          "cited_source": "President_of_the_United_States.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 0.6666666666666666,
+      "faithfulness": "fail",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.0,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 0.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.6469424999668263,
+      "judge_latency_seconds": 5.1155717999790795,
+      "total_latency_seconds": 8.986080399947241,
+      "input_tokens": 341661,
+      "output_tokens": 348,
+      "total_tokens": 342009,
+      "estimated_cost_usd": 0.25781175
+    },
+    {
+      "id": "G09",
+      "question": "Give me five examples of current heads of state born before 1960.",
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": false,
+      "adversarial_kind": "unanswerable_from_corpus",
+      "required_sources": [
+        "Charles_III.html",
+        "Donald_Trump.html"
+      ],
+      "expected_sources": [
+        "Charles_III.html",
+        "Donald_Trump.html"
+      ],
+      "retrieved_sources": [
+        "Sargent_Shriver.html",
+        "President_of_the_United_States.html",
+        "History_of_Formula_One.html"
+      ],
+      "required_aspects": [
+        "The response states that five current heads of state cannot be verified from the source material.",
+        "Any examples offered are individually grounded and caveated."
+      ],
+      "response": "The provided documents do not contain a list of current heads of state or their birth dates, except for the U.S. president article, which gives no birth date for the current president [President_of_the_United_States.html]. So I can’t give five examples from these documents without guessing.",
+      "closed_book_response": "Here are five current heads of state who were born before 1960:\n\n1. **Charles III** — King of the United Kingdom — born **1948**\n2. **Naruhito** — Emperor of Japan — born **1960** *(not before 1960, so exclude if you want strictly before 1960)*\n3. **Mohamed Ould Ghazouani** — President of Mauritania — born **1956**\n4. **Emomali Rahmon** — President of Tajikistan — born **1952**\n5. **Paul Biya** — President of Cameroon — born **1933**\n\nIf you want, I can give you a corrected list of five that all definitely satisfy “born before 1960.”",
+      "correctness": "pass",
+      "graded_correctness": "substantially_complete",
+      "graded_correctness_score": 0.75,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 0.5,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The provided documents do not contain a list of current heads of state or their birth dates.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The U.S. president article gives no birth date for the current president.",
+          "cited_source": "President_of_the_United_States.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The speaker cannot give five examples from these documents without guessing.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 0.6666666666666666,
+      "faithfulness": "fail",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.0,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 0.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "appropriate_refusal",
+      "answer_latency_seconds": 2.0730233999784105,
+      "judge_latency_seconds": 4.2000551999663,
+      "total_latency_seconds": 8.059349999937695,
+      "input_tokens": 222187,
+      "output_tokens": 423,
+      "total_tokens": 222610,
+      "estimated_cost_usd": 0.16854375
+    },
+    {
+      "id": "G10",
+      "question": "Name two films by English directors that won Academy Awards.",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html"
+      ],
+      "expected_sources": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html"
+      ],
+      "retrieved_sources": [
+        "List_of_Academy_Award_records.html",
+        "Clint_Eastwood.html",
+        "BAFTA_Award_for_Best_Actor_in_a_Supporting_Role.html"
+      ],
+      "required_aspects": [
+        "American Beauty (Sam Mendes) is named as an Oscar-winning film by an English director.",
+        "Oppenheimer (Christopher Nolan) is named as an Oscar-winning film by an English director."
+      ],
+      "response": "Two examples are **Unforgiven** and **The Bridge on the River Kwai**. *Unforgiven* won Best Picture and Best Director for Clint Eastwood [Clint_Eastwood.html], and *The Bridge on the River Kwai* is identified as the film for which David Lean became the first European to win Best Director [List_of_Academy_Award_records.html].",
+      "closed_book_response": "Two examples are:\n\n- **Slumdog Millionaire** — directed by **Danny Boyle**; won multiple Academy Awards, including **Best Picture** and **Best Director**.\n- **The Bridge on the River Kwai** — directed by **David Lean**; won several Academy Awards, including **Best Picture** and **Best Director**.\n\nIf you want, I can give you two more examples from different English directors.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [],
+      "aspect_coverage": 0.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Two examples are Unforgiven and The Bridge on the River Kwai.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Unforgiven won Best Picture and Best Director for Clint Eastwood.",
+          "cited_source": "Clint_Eastwood.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The Bridge on the River Kwai is identified as the film for which David Lean became the first European to win Best Director.",
+          "cited_source": "List_of_Academy_Award_records.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.3333333333333333,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.0,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 0.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.7521100000012666,
+      "judge_latency_seconds": 4.642333000025246,
+      "total_latency_seconds": 7.497077899985015,
+      "input_tokens": 235812,
+      "output_tokens": 389,
+      "total_tokens": 236201,
+      "estimated_cost_usd": 0.1786095
+    },
+    {
+      "id": "G11",
+      "question": "Name all the local government councils in Northern Ireland.",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Belfast.html"
+      ],
+      "expected_sources": [
+        "Belfast.html",
+        "Northern_Ireland.html"
+      ],
+      "retrieved_sources": [
+        "Northern_Ireland.html",
+        "County_Wicklow.html",
+        "Belfast.html"
+      ],
+      "required_aspects": [
+        "The response states that Northern Ireland has eleven local government districts.",
+        "All eleven councils are named."
+      ],
+      "response": "Northern Ireland has 11 local government councils: Antrim and Newtownabbey, Armagh City, Banbridge and Craigavon, Belfast, Causeway Coast and Glens, Derry City and Strabane, Fermanagh and Omagh, Lisburn and Castlereagh, Mid and East Antrim, Mid Ulster, Newry, Mourne and Down, and Mid Ulster?  \n\nActually, the document only says that “since 2015” local government in Northern Ireland has been divided between “11 councils with limited responsibilities,” but it does not list all of their names. [Northern_Ireland.html]",
+      "closed_book_response": "Northern Ireland has **11 local councils**:\n\n1. **Antrim and Newtownabbey Borough Council**  \n2. **Armagh City, Banbridge and Craigavon Borough Council**  \n3. **Belfast City Council**  \n4. **Causeway Coast and Glens Borough Council**  \n5. **Derry City and Strabane District Council**  \n6. **Fermanagh and Omagh District Council**  \n7. **Lisburn and Castlereagh City Council**  \n8. **Mid and East Antrim Borough Council**  \n9. **Mid Ulster District Council**  \n10. **Newry, Mourne and Down District Council**  \n11. **North Down and Ards Borough Council**  \n\nIf you want, I can also group them by county or provide a map-style list.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [],
+      "aspect_coverage": 0.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Northern Ireland has 11 local government councils.",
+          "cited_source": "Northern_Ireland.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The councils are Antrim and Newtownabbey, Armagh City, Banbridge and Craigavon, Belfast, Causeway Coast and Glens, Derry City and Strabane, Fermanagh and Omagh, Lisburn and Castlereagh, Mid and East Antrim, Mid Ulster, Newry, Mourne and Down, and North Down and Ards.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "The document only says that since 2015 local government in Northern Ireland has been divided between 11 councils with limited responsibilities.",
+          "cited_source": "Northern_Ireland.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The document does not list all of the councils’ names.",
+          "cited_source": "Northern_Ireland.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 4,
+      "graded_groundedness_score": 0.75,
+      "faithfulness": "fail",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.6666666666666666,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 2,
+      "quote_fidelity_rate": 0.5,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.2986183000029996,
+      "judge_latency_seconds": 6.451251900056377,
+      "total_latency_seconds": 10.706585700041614,
+      "input_tokens": 342859,
+      "output_tokens": 615,
+      "total_tokens": 343474,
+      "estimated_cost_usd": 0.25991175
+    },
+    {
+      "id": "G12",
+      "question": "Which countries in Africa share at least three indigenous languages?",
+      "information_need": "in_depth",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": false,
+      "adversarial_kind": "unanswerable_from_corpus",
+      "required_sources": [
+        "Languages_of_Ghana.html"
+      ],
+      "expected_sources": [
+        "Languages_of_Ghana.html"
+      ],
+      "retrieved_sources": [
+        "Afroasiatic_languages.html",
+        "South_America.html",
+        "Languages_of_Ghana.html"
+      ],
+      "required_aspects": [
+        "The response states that the corpus lacks the language data needed to answer."
+      ],
+      "response": "The documents do not provide enough information to determine which African countries share at least three indigenous languages across countries. The only relevant country-language lists are for Ghana and parts of South America, but there is no cross-country comparison of indigenous languages among African countries in the provided documents [Languages_of_Ghana.html] [Afroasiatic_languages.html].",
+      "closed_book_response": "Many African countries share at least three indigenous languages, so the set is very large. Examples include:\n\n- **South Africa** — Zulu, Xhosa, Sesotho, Setswana, Sepedi, Swati, Tsonga, Venda, Ndebele, and others\n- **Nigeria** — Hausa, Yoruba, Igbo, Fulfulde, Kanuri, Tiv, Edo, and many more\n- **Kenya** — Swahili, Kikuyu, Luo, Luhya, Kalenjin, Kamba, Maa, etc.\n- **Tanzania** — Swahili, Sukuma, Nyamwezi, Chaga, Haya, Makonde, and others\n- **Ethiopia** — Amharic, Oromo, Tigrinya, Somali, Afar, Sidamo, and many more\n- **Uganda** — Luganda, Runyankole, Luo, Lusoga, Ateso, Acholi, and others\n- **Ghana** — Akan/Twi, Ewe, Ga, Dagbani, Fante, Nzema, and others\n- **Cameroon** — dozens, including Fulfulde, Ewondo, Duala, Basaa, Bamiléké languages, and more\n- **Democratic Republic of the Congo** — Lingala, Swahili, Kikongo, Tshiluba, plus many others\n- **Senegal** — Wolof, Pulaar, Serer, Jola, Mandinka, and others\n\nIf you want, I can also give:\n1. a **shorter list of countries with the most indigenous languages**, or  \n2. a **continent-wide map-style breakdown by region**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The documents do not provide enough information to determine which African countries share at least three indigenous languages across countries.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The only relevant country-language lists are for Ghana and parts of South America.",
+          "cited_source": "Languages_of_Ghana.html",
+          "grounded": true,
+          "citation_supported": false,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "There is no cross-country comparison of indigenous languages among African countries in the provided documents.",
+          "cited_source": "Afroasiatic_languages.html",
+          "grounded": true,
+          "citation_supported": false,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 0.0,
+      "chunk_attribution_score": 1.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 0.5,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "appropriate_refusal",
+      "answer_latency_seconds": 2.7917239000089467,
+      "judge_latency_seconds": 5.538998799980618,
+      "total_latency_seconds": 11.434028499992564,
+      "input_tokens": 259377,
+      "output_tokens": 635,
+      "total_tokens": 260012,
+      "estimated_cost_usd": 0.19739025
+    },
+    {
+      "id": "G13",
+      "question": "What was the former name of the university where Barack Obama earned his law degree?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "expected_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "retrieved_sources": [
+        "Barack_Obama.html",
+        "List_of_presidents_of_the_United_States_by_education.html",
+        "Oprah_Winfrey.html"
+      ],
+      "required_aspects": [
+        "Harvard is identified as where Obama earned his law degree.",
+        "Harvard College is given as the former name."
+      ],
+      "response": "Barack Obama earned his law degree from Harvard Law School, and the document says he enrolled there in 1988 and graduated in 1991 with a Juris Doctor. It also notes he was selected as a first black president of the Harvard Law Review while there. [Barack_Obama.html]\n\nThe provided documents do not state a former name for the university.",
+      "closed_book_response": "Barack Obama earned his law degree at **Harvard Law School**, which was formerly known as the **Law School of Harvard University** in earlier historical references.",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 0.5,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Barack Obama earned his law degree from Harvard Law School.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He enrolled at Harvard Law School in 1988.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He graduated from Harvard Law School in 1991.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He received a Juris Doctor degree.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He was selected as the first Black president of the Harvard Law Review.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The provided documents do not state a former name for the university.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 6,
+      "graded_groundedness_score": 0.8333333333333334,
+      "faithfulness": "fail",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.2,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.7869325000210665,
+      "judge_latency_seconds": 7.294840999937151,
+      "total_latency_seconds": 10.403422199946363,
+      "input_tokens": 338638,
+      "output_tokens": 434,
+      "total_tokens": 339072,
+      "estimated_cost_usd": 0.2559315
+    },
+    {
+      "id": "G14",
+      "question": "Which of Barack Obama's universities was founded as King's College?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Barack_Obama.html",
+        "Columbia_University.html"
+      ],
+      "expected_sources": [
+        "Barack_Obama.html",
+        "Columbia_University.html"
+      ],
+      "retrieved_sources": [
+        "Columbia_University.html",
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "required_aspects": [
+        "Columbia University is identified as the one founded as King's College."
+      ],
+      "response": "Columbia University was founded as King’s College. Barack Obama attended Columbia University and Harvard University, but only Columbia was founded as King’s College [Columbia_University.html].",
+      "closed_book_response": "Barack Obama attended **Columbia University** and **Harvard University**. Of those, **Columbia University** was founded as **King’s College**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Columbia University was founded as King’s College.",
+          "cited_source": "Columbia_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Barack Obama attended Columbia University and Harvard University.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Only Columbia was founded as King’s College.",
+          "cited_source": "Columbia_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.2311324999900535,
+      "judge_latency_seconds": 6.904723100014962,
+      "total_latency_seconds": 10.043289199995343,
+      "input_tokens": 442712,
+      "output_tokens": 254,
+      "total_tokens": 442966,
+      "estimated_cost_usd": 0.333177
+    },
+    {
+      "id": "G15",
+      "question": "Which city has the larger population, Sarajevo or Dunedin?",
+      "information_need": "fact_lookup",
+      "motivation": "personal_decision",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Sarajevo.html",
+        "Dunedin.html"
+      ],
+      "expected_sources": [
+        "Sarajevo.html",
+        "Dunedin.html"
+      ],
+      "retrieved_sources": [
+        "Dunedin.html",
+        "Sarajevo.html",
+        "Otago.html"
+      ],
+      "required_aspects": [
+        "Sarajevo is identified as the larger city.",
+        "Both population figures are cited."
+      ],
+      "response": "Sarajevo has the larger population. Sarajevo’s population is 275,524 [Sarajevo.html], while Dunedin’s territorial population is 132,800 [Dunedin.html].",
+      "closed_book_response": "Sarajevo has the larger population.\n\n- **Sarajevo**: roughly **300,000+** in the city proper, and much more in the metro area.\n- **Dunedin**: roughly **130,000+** in the urban area.\n\nSo, **Sarajevo is larger**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Sarajevo has the larger population.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Sarajevo’s population is 275,524.",
+          "cited_source": "Sarajevo.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Dunedin’s territorial population is 132,800.",
+          "cited_source": "Dunedin.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.6666666666666666,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.0574565999559127,
+      "judge_latency_seconds": 4.654009799938649,
+      "total_latency_seconds": 7.779375499929301,
+      "input_tokens": 204994,
+      "output_tokens": 291,
+      "total_tokens": 205285,
+      "estimated_cost_usd": 0.155055
+    },
+    {
+      "id": "G16",
+      "question": "Was Charles III born before his mother's reign began?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Charles_III.html"
+      ],
+      "expected_sources": [
+        "Charles_III.html",
+        "Elizabeth_II.html"
+      ],
+      "retrieved_sources": [
+        "Louis_XV.html",
+        "Louis_XIV.html",
+        "Edward_III_of_England.html"
+      ],
+      "required_aspects": [
+        "The answer is yes.",
+        "Both dates (born 14 November 1948; accession 6 February 1952) are given."
+      ],
+      "response": "The documents do not provide enough information to determine whether Charles III was born before his mother's reign began.",
+      "closed_book_response": "No. Charles III was born on November 14, 1948, and his mother, Queen Elizabeth II, began her reign on February 6, 1952. So he was born before her reign began.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [],
+      "aspect_coverage": 0.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The documents do not provide enough information to determine whether Charles III was born before his mother's reign began.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 1,
+      "graded_groundedness_score": 0.0,
+      "faithfulness": "fail",
+      "citation_support_rate": null,
+      "chunk_attribution_score": null,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_precision_at_k": 0.0,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 0,
+      "citation_precision": null,
+      "unsupported_citation_rate": null,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.7484604999772273,
+      "judge_latency_seconds": 4.683178999985103,
+      "total_latency_seconds": 7.451321599946823,
+      "input_tokens": 336232,
+      "output_tokens": 170,
+      "total_tokens": 336402,
+      "estimated_cost_usd": 0.252939
+    },
+    {
+      "id": "G17",
+      "question": "Had Andrew Lesnie already won his Oscar when King Kong (2005) was released?",
+      "information_need": "fact_lookup",
+      "motivation": "media_reference",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Andrew_Lesnie.html",
+        "King_Kong_(2005_film).html"
+      ],
+      "expected_sources": [
+        "Andrew_Lesnie.html",
+        "King_Kong_(2005_film).html"
+      ],
+      "retrieved_sources": [
+        "King_Kong_(2005_film).html",
+        "King_Kong_(1976_film).html",
+        "Andrew_Lesnie.html"
+      ],
+      "required_aspects": [
+        "The answer is yes.",
+        "The Oscar is tied to The Fellowship of the Ring (2001) and King Kong's release to December 2005."
+      ],
+      "response": "Yes. Andrew Lesnie had already won his Oscar for Best Cinematography for *The Fellowship of the Ring* before *King Kong* (2005) was released, and the *King Kong* document lists him as the film’s cinematographer. [Andrew_Lesnie.html] “His work on The Fellowship of the Ring earned him the Academy Award for Best Cinematography.” [King_Kong_(2005_film).html] “Cinematography | Andrew Lesnie”",
+      "closed_book_response": "No. Andrew Lesnie won his Academy Award for **The Lord of the Rings: The Fellowship of the Ring** in **2002**, which was **before** *King Kong* was released in **2005**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Andrew Lesnie had already won his Oscar for Best Cinematography for *The Fellowship of the Ring* before *King Kong* (2005) was released.",
+          "cited_source": "Andrew_Lesnie.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The *King Kong* document lists Andrew Lesnie as the film’s cinematographer.",
+          "cited_source": "King_Kong_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 2,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 1.0,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.443179699999746,
+      "judge_latency_seconds": 4.096330400032457,
+      "total_latency_seconds": 6.389432800002396,
+      "input_tokens": 86772,
+      "output_tokens": 331,
+      "total_tokens": 87103,
+      "estimated_cost_usd": 0.0665685
+    },
+    {
+      "id": "G18",
+      "question": "What is Bank One Ballpark called today?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Chase_Field.html"
+      ],
+      "expected_sources": [
+        "Chase_Field.html"
+      ],
+      "retrieved_sources": [
+        "Minute_Maid_Park.html",
+        "Chase_Field.html",
+        "T-Mobile_Park.html"
+      ],
+      "required_aspects": [
+        "Chase Field is given as the current name."
+      ],
+      "response": "Bank One Ballpark is called **Chase Field** today [Chase_Field.html].",
+      "closed_book_response": "Bank One Ballpark is now called **Chase Field**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Bank One Ballpark is called Chase Field today.",
+          "cited_source": "Chase_Field.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 1,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.280043000006117,
+      "judge_latency_seconds": 3.5259576000389643,
+      "total_latency_seconds": 5.758121400023811,
+      "input_tokens": 120632,
+      "output_tokens": 131,
+      "total_tokens": 120763,
+      "estimated_cost_usd": 0.0910635
+    }
+  ]
+}

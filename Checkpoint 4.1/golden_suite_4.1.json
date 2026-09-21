@@ -1,0 +1,797 @@
+{
+  "suite_notes": {
+    "purpose": "Checkpoint 4.1 relational/multi-hop suite. Each record carries the retrieval mechanism it targets and an anticipated outcome under four retrieval configurations, so the same suite can be run before and after each architectural change.",
+    "corpus": "Capstone/Checkpoint 1.1/Wikipedia (full 2,419-file corpus)",
+    "configurations": {
+      "baseline": "Checkpoint 3.1 hybrid retriever: one Document per whole article, BM25 + Chroma dense fusion, trafilatura text.",
+      "chunker": "process_wikipedia_with_links(): trafilatura markdown -> MarkdownHeaderTextSplitter -> RecursiveCharacterTextSplitter, same text as baseline in finer retrieval units.",
+      "graph": "NetworkX graph from process_wikipedia_with_nodes_and_edges(): links_to, in_category, and infobox-derived typed edges plus raw infobox properties on article nodes.",
+      "decomposition": "LLM query decomposition into parallel sub-queries with fused retrieval, assumed to run on top of the chunker index. Sub-queries are generated up front from the original query, so any second-hop entity the model supplies (e.g. 'Harvard' for G13) comes from parametric knowledge, not retrieval - check chunk_attribution_score when a decomposition run passes a bridge query."
+    },
+    "outcome_vocabulary": {
+      "success": "expected to pass",
+      "likely": "expected to pass more often than not",
+      "possible": "coin-flip; depends on lexical luck or context dilution",
+      "fail": "expected to fail; for answerable records this documents a known pipeline gap"
+    },
+    "known_pipeline_limitation": "Wikipedia navboxes (.navbox) are dropped by trafilatura and by BOILERPLATE_SELECTORS, so navbox-only facts (G11) are unreachable in every configuration. Left as a documented limitation for now."
+  },
+  "queries": [
+    {
+      "id": "G01",
+      "query": "Name another Best Cinematographer Oscar winner besides Andrew Lesnie.",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Emmanuel Lubezki, who won the Academy Award for Best Cinematography three years running for Gravity (2013), Birdman (2014) and The Revenant (2015). Andrew Lesnie's own award was for The Fellowship of the Ring.",
+      "supporting_quotes": [
+        {
+          "text": "His work on The Fellowship of the Ring earned him the Academy Award for Best Cinematography.",
+          "source_file": "Andrew_Lesnie.html"
+        },
+        {
+          "text": "He has received numerous accolades including three consecutive wins for the Academy Award for Best Cinematography for the science fiction thriller Gravity (2013), the dark comedy Birdman (2014), and the epic western The Revenant (2015).",
+          "source_file": "Emmanuel_Lubezki.html"
+        }
+      ],
+      "required_files": [
+        "Emmanuel_Lubezki.html"
+      ],
+      "relevant_files": [
+        "Emmanuel_Lubezki.html",
+        "Andrew_Lesnie.html"
+      ],
+      "difficulty_notes": "Category co-membership: both articles carry the category 'Best Cinematographer Academy Award winners'. Neither article's extracted text names the other; the winners navbox on Lesnie's page is dropped by trafilatura. Any other corpus member of that category is also acceptable if one exists - Lubezki is the verified answer.",
+      "required_aspects": [
+        "Emmanuel Lubezki is named as another Best Cinematography Oscar winner.",
+        "The answer is grounded in Lubezki's article rather than parametric recall."
+      ],
+      "mechanism": "category_co_membership",
+      "anticipated_outcomes": {
+        "baseline": "fail",
+        "chunker": "fail",
+        "graph": "success",
+        "decomposition": "possible"
+      },
+      "outcome_rationale": "No lexical bridge between the two articles; BM25 on 'Best Cinematography' might surface Lubezki by chance. The graph reaches him through the shared category node."
+    },
+    {
+      "id": "G02",
+      "query": "Who succeeded Barack Obama as president?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Donald Trump, who won the 2016 presidential election and was inaugurated on January 20, 2017, the day Obama's presidency ended.",
+      "supporting_quotes": [
+        {
+          "text": "Obama's presidency ended on January 20, 2017, upon the inauguration of his successor, Donald Trump.",
+          "source_file": "Barack_Obama.html"
+        },
+        {
+          "text": "Presenting himself as a political outsider, Trump won the 2016 presidential election against Democratic Party nominee Hillary Clinton.",
+          "source_file": "Donald_Trump.html"
+        }
+      ],
+      "required_files": [
+        "Barack_Obama.html"
+      ],
+      "relevant_files": [
+        "Barack_Obama.html",
+        "Donald_Trump.html"
+      ],
+      "difficulty_notes": "Control record. Obama's article states the answer directly and its infobox 'Succeeded by' row links Donald_Trump.html, so every configuration should pass. Included to catch regressions and to compare citation behaviour across configurations.",
+      "required_aspects": [
+        "Donald Trump is named as Obama's successor."
+      ],
+      "mechanism": "succeeded_by_edge",
+      "anticipated_outcomes": {
+        "baseline": "success",
+        "chunker": "success",
+        "graph": "success",
+        "decomposition": "success"
+      },
+      "outcome_rationale": "Answerable from Obama's article alone."
+    },
+    {
+      "id": "G03",
+      "query": "Who succeeded Elizabeth II as monarch?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Her eldest son, Charles III, who became king on her death in September 2022.",
+      "supporting_quotes": [
+        {
+          "text": "Elizabeth died aged 96 at Balmoral Castle in Scotland, and was succeeded by her eldest son as Charles III.",
+          "source_file": "Elizabeth_II.html"
+        },
+        {
+          "text": "Charles became king upon his mother's death in 2022.",
+          "source_file": "Charles_III.html"
+        }
+      ],
+      "required_files": [
+        "Elizabeth_II.html"
+      ],
+      "relevant_files": [
+        "Elizabeth_II.html",
+        "Charles_III.html"
+      ],
+      "difficulty_notes": "Control record. Infobox Successor/Predecessor rows link the two articles in both directions; Elizabeth's article states the answer directly.",
+      "required_aspects": [
+        "Charles III is named as Elizabeth II's successor."
+      ],
+      "mechanism": "succeeded_by_edge",
+      "anticipated_outcomes": {
+        "baseline": "success",
+        "chunker": "success",
+        "graph": "success",
+        "decomposition": "success"
+      },
+      "outcome_rationale": "Answerable from Elizabeth II's article alone."
+    },
+    {
+      "id": "G04",
+      "query": "Name another U.S. president besides Bill Clinton who was impeached.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Donald Trump, who was impeached twice by the House of Representatives (2019 and 2021) and acquitted by the Senate both times. Andrew Johnson is also an acceptable answer: Clinton's article notes he was the first president to be impeached since Johnson.",
+      "supporting_quotes": [
+        {
+          "text": "Clinton was impeached by the House of Representatives, becoming the first U.S. president to be impeached since Andrew Johnson.",
+          "source_file": "Bill_Clinton.html"
+        },
+        {
+          "text": "He was impeached twice-in 2019 for abuse of power and obstruction of Congress and in 2021 for incitement of insurrection-and acquitted by the Senate both times.",
+          "source_file": "Donald_Trump.html"
+        }
+      ],
+      "required_files": [
+        "Bill_Clinton.html"
+      ],
+      "relevant_files": [
+        "Bill_Clinton.html",
+        "Donald_Trump.html"
+      ],
+      "difficulty_notes": "Category co-membership: Clinton and Trump share 'Impeached presidents of the United States'. There is no Andrew_Johnson.html, so a Johnson answer is grounded only in Clinton's text; a Trump answer requires reaching a second article. Either is accepted as correct; the citation tells you which path was taken.",
+      "required_aspects": [
+        "Donald Trump or Andrew Johnson is named as another impeached president."
+      ],
+      "mechanism": "category_co_membership",
+      "anticipated_outcomes": {
+        "baseline": "success",
+        "chunker": "success",
+        "graph": "success",
+        "decomposition": "success"
+      },
+      "outcome_rationale": "Baseline will most likely answer Andrew Johnson from Clinton's own article; the graph should return Trump via the shared category."
+    },
+    {
+      "id": "G05",
+      "query": "Name another Best Picture-winning director besides Sam Mendes.",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Any of the corpus directors whose film won Best Picture, for example Christopher Nolan (Oppenheimer, 2023) or Steven Spielberg (Schindler's List). Others in the corpus include James Cameron, Clint Eastwood, Anthony Minghella, Jonathan Demme, Kevin Costner, Robert Zemeckis and William Wyler.",
+      "supporting_quotes": [
+        {
+          "text": "The film won the Golden Globe Award, the BAFTA Award and the Academy Award for Best Picture.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "Oppenheimer (2023), which won him Academy Awards for Best Director and Best Picture.",
+          "source_file": "Christopher_Nolan.html"
+        },
+        {
+          "text": "Schindler's List won seven Academy Awards, including Best Picture and Spielberg's first as Best Director.",
+          "source_file": "Steven_Spielberg.html"
+        }
+      ],
+      "required_files": [
+        "Christopher_Nolan.html"
+      ],
+      "relevant_files": [
+        "Christopher_Nolan.html",
+        "Steven_Spielberg.html",
+        "James_Cameron.html",
+        "Clint_Eastwood.html",
+        "Anthony_Minghella.html",
+        "Jonathan_Demme.html",
+        "Kevin_Costner.html",
+        "Robert_Zemeckis.html",
+        "William_Wyler.html",
+        "Sam_Mendes.html"
+      ],
+      "difficulty_notes": "Category co-membership over a well-populated category: a full-corpus scan found 10 members of 'Directors of Best Picture Academy Award winners'. required_files names Nolan as the canonical answer for the recall metric, but any of the other nine is a correct answer - read source recall for this record with that in mind.",
+      "required_aspects": [
+        "At least one director other than Sam Mendes is named whose film won Best Picture.",
+        "The named director is one of the corpus members of the category."
+      ],
+      "mechanism": "category_co_membership",
+      "anticipated_outcomes": {
+        "baseline": "possible",
+        "chunker": "possible",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "Lexical retrieval on 'Best Picture' could surface any of ten director pages, so the baseline may pass by luck; the graph enumerates the category directly."
+    },
+    {
+      "id": "G06",
+      "query": "Name another president besides Barack Obama who attended Harvard.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "George W. Bush, who graduated from Harvard Business School with an MBA in 1975. Obama earned his JD at Harvard Law School in 1991.",
+      "supporting_quotes": [
+        {
+          "text": "In 1988, Obama enrolled in Harvard Law School, where he was the first Black president of the Harvard Law Review.",
+          "source_file": "Barack_Obama.html"
+        },
+        {
+          "text": "After graduating from Harvard Business School in 1975, he worked in the oil industry.",
+          "source_file": "George_W._Bush.html"
+        },
+        {
+          "text": "43rd president of the United States George W. Bush (MBA, 1975)",
+          "source_file": "Harvard_University.html"
+        }
+      ],
+      "required_files": [
+        "George_W._Bush.html"
+      ],
+      "relevant_files": [
+        "George_W._Bush.html",
+        "Harvard_University.html",
+        "Barack_Obama.html"
+      ],
+      "difficulty_notes": "Shared-target lookup: the Education infobox rows of both Obama and Bush link Harvard_University.html, which exists as a node. Harvard's own article lists both presidents among alumni, so the baseline can pass if it retrieves that 94k-character article and the relevant passage survives context dilution.",
+      "required_aspects": [
+        "George W. Bush is named as another Harvard-educated president."
+      ],
+      "mechanism": "shared_target_education_edge",
+      "anticipated_outcomes": {
+        "baseline": "possible",
+        "chunker": "likely",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "The fact exists in Harvard's article but is buried in a long alumni list; chunking isolates it, the graph reaches Bush through the shared Harvard node."
+    },
+    {
+      "id": "G07",
+      "query": "Name another president besides Bill Clinton who attended Yale.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "George W. Bush, who attended Yale University from 1964 to 1968 and graduated with a BA in history. Gerald Ford (Yale Law School), George H. W. Bush and William Howard Taft are also acceptable, as Yale's article lists them.",
+      "supporting_quotes": [
+        {
+          "text": "After Oxford, Clinton attended Yale Law School and earned a Juris Doctor (J.D.) degree in 1973.",
+          "source_file": "Bill_Clinton.html"
+        },
+        {
+          "text": "He attended Yale University from 1964 to 1968, graduating with a Bachelor of Arts degree in history.",
+          "source_file": "George_W._Bush.html"
+        },
+        {
+          "text": "Former presidents who attended for undergrad include William Howard Taft, George H. W. Bush, and George W. Bush, while former presidents Gerald Ford and Bill Clinton attended Yale Law School.",
+          "source_file": "Yale_University.html"
+        }
+      ],
+      "required_files": [
+        "George_W._Bush.html"
+      ],
+      "relevant_files": [
+        "George_W._Bush.html",
+        "Yale_University.html",
+        "Bill_Clinton.html",
+        "Gerald_Ford.html"
+      ],
+      "difficulty_notes": "Shared-target lookup: Clinton's and Bush's Education rows both link Yale_University.html. Gerald_Ford.html exists and Yale's article names him, but whether Ford's infobox links Yale (i.e. whether the graph would also return him) was not verified.",
+      "required_aspects": [
+        "George W. Bush (or Gerald Ford, George H. W. Bush or William Howard Taft) is named as another Yale-educated president."
+      ],
+      "mechanism": "shared_target_education_edge",
+      "anticipated_outcomes": {
+        "baseline": "possible",
+        "chunker": "likely",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "Same shape as G06; Yale's article is 154k characters, so baseline dilution risk is higher."
+    },
+    {
+      "id": "G08",
+      "query": "Which president served in both the 20th and 21st centuries?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Bill Clinton, whose presidency ran from January 1993 to January 2001. George W. Bush took office on January 20, 2001, so his term falls entirely in the 21st century.",
+      "supporting_quotes": [
+        {
+          "text": "who served as the 42nd president of the United States from 1993 to 2001.",
+          "source_file": "Bill_Clinton.html"
+        },
+        {
+          "text": "who was the 43rd president of the United States, serving from 2001 to 2009.",
+          "source_file": "George_W._Bush.html"
+        }
+      ],
+      "required_files": [
+        "Bill_Clinton.html"
+      ],
+      "relevant_files": [
+        "Bill_Clinton.html",
+        "George_W._Bush.html",
+        "Barack_Obama.html",
+        "Ronald_Reagan.html",
+        "Gerald_Ford.html",
+        "Donald_Trump.html"
+      ],
+      "difficulty_notes": "Category intersection: of the six corpus presidents checked, only Clinton carries both '20th-century presidents of the United States' and '21st-century presidents of the United States'. The query has no lexical hook to Clinton's name and requires ruling out the other presidents, which whole-article lexical retrieval cannot do. Strongest expected discriminator for the graph.",
+      "required_aspects": [
+        "Bill Clinton is identified as the president whose term spanned both centuries.",
+        "The answer is grounded in the 1993-2001 term dates."
+      ],
+      "mechanism": "category_intersection",
+      "anticipated_outcomes": {
+        "baseline": "fail",
+        "chunker": "fail",
+        "graph": "success",
+        "decomposition": "possible"
+      },
+      "outcome_rationale": "No query term points at Clinton; decomposition might generate a 1990s/2000s sub-query that happens to retrieve him."
+    },
+    {
+      "id": "G09",
+      "query": "Give me five examples of current heads of state born before 1960.",
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": false,
+      "adversarial_kind": "unanswerable_from_corpus",
+      "expected_behavior": "The system should say it cannot provide five verified current heads of state from the source material. It may offer the individuals it can verify (for example Charles III, born 1948 and reigning since 2022, or Donald Trump, born 1946 and in office since January 2025) with an explicit caveat that the corpus carries no reliable marker of who is currently in office and that the list is incomplete. It should not pad the list from memory.",
+      "expected_answer": "Not fully answerable from the corpus: the articles do not reliably mark who currently holds office, so a list of five cannot be verified. Verifiable partial examples with caveats are acceptable.",
+      "supporting_quotes": [],
+      "required_files": [],
+      "relevant_files": [
+        "Charles_III.html",
+        "Donald_Trump.html"
+      ],
+      "difficulty_notes": "Answerable-but-expected-fail probe. Birth dates are parseable from infobox 'Born' rows, but the only currency signal is the 'Living people' category, which is far too broad. Tests whether the system pads a list from parametric knowledge; compare the closed-book answer.",
+      "required_aspects": [
+        "The response states that five current heads of state cannot be verified from the source material.",
+        "Any examples offered are individually grounded and caveated."
+      ],
+      "mechanism": "none_no_incumbency_signal",
+      "anticipated_outcomes": {
+        "baseline": "fail",
+        "chunker": "fail",
+        "graph": "fail",
+        "decomposition": "fail"
+      },
+      "outcome_rationale": "No configuration can represent 'current'; a correct refusal or caveated partial answer is the passing behaviour."
+    },
+    {
+      "id": "G10",
+      "query": "Name two films by English directors that won Academy Awards.",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "American Beauty (1999), directed by English filmmaker Sam Mendes, won the Academy Award for Best Picture (and Best Director for Mendes); Oppenheimer (2023), directed by London-born Christopher Nolan, won Academy Awards for Best Picture and Best Director.",
+      "supporting_quotes": [
+        {
+          "text": "Sir Samuel Alexander Mendes CBE (born 1 August 1965) is an English filmmaker and stage director.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "In 1999, Mendes made his film directorial debut with American Beauty, starring Kevin Spacey.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "The film won the Golden Globe Award, the BAFTA Award and the Academy Award for Best Picture.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "Christopher Edward Nolan 30 July 1970 London, England",
+          "source_file": "Christopher_Nolan.html"
+        },
+        {
+          "text": "Oppenheimer (2023), which won him Academy Awards for Best Director and Best Picture.",
+          "source_file": "Christopher_Nolan.html"
+        }
+      ],
+      "required_files": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html"
+      ],
+      "relevant_files": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html"
+      ],
+      "difficulty_notes": "Reframed from 'list five films' because only two Oscar-winning films are verifiable in the corpus text; no film articles exist for either director's work. Graph path: 'English film directors' intersected with 'Directors of Best Picture Academy Award winners' yields Mendes and Nolan, then their article text supplies the films.",
+      "required_aspects": [
+        "American Beauty (Sam Mendes) is named as an Oscar-winning film by an English director.",
+        "Oppenheimer (Christopher Nolan) is named as an Oscar-winning film by an English director."
+      ],
+      "mechanism": "category_intersection_plus_text",
+      "anticipated_outcomes": {
+        "baseline": "possible",
+        "chunker": "likely",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "Mendes' lead sentence contains 'English filmmaker', giving lexical retrieval a foothold; Nolan's does not, so the second film is the harder half."
+    },
+    {
+      "id": "G11",
+      "query": "Name all the local government councils in Northern Ireland.",
+      "information_need": "overview",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Northern Ireland has eleven local government districts: Antrim and Newtownabbey; Ards and North Down; Armagh City, Banbridge and Craigavon; Belfast; Causeway Coast and Glens; Derry City and Strabane; Fermanagh and Omagh; Lisburn and Castlereagh; Mid and East Antrim; Mid Ulster; and Newry, Mourne and Down.",
+      "supporting_quotes": [
+        {
+          "text": "These counties are no longer used for local government purposes; instead, there are eleven districts of Northern Ireland which have different geographical extents.",
+          "source_file": "Northern_Ireland.html"
+        },
+        {
+          "text": "In 1997, unionists lost overall control of Belfast City Council for the first time in its history.",
+          "source_file": "Belfast.html"
+        }
+      ],
+      "required_files": [
+        "Belfast.html"
+      ],
+      "relevant_files": [
+        "Belfast.html",
+        "Northern_Ireland.html"
+      ],
+      "difficulty_notes": "Answerable-but-expected-fail. The full list of eleven councils exists in the corpus only inside the 'Local government in Northern Ireland' navbox of Belfast.html. Trafilatura drops navboxes and BOILERPLATE_SELECTORS removes them before link/graph extraction, so no configuration can see the list; Northern_Ireland.html body text says 'eleven districts' without naming them, and no council articles exist. The validator can only verify body-text quotes, so the quotes above establish the count and one council, not the list. A passing answer would name all eleven; expected behaviour under the current pipeline is a partial list or an honest statement that the full list is not available.",
+      "required_aspects": [
+        "The response states that Northern Ireland has eleven local government districts.",
+        "All eleven councils are named."
+      ],
+      "mechanism": "navbox_enumeration_not_extracted",
+      "anticipated_outcomes": {
+        "baseline": "fail",
+        "chunker": "fail",
+        "graph": "fail",
+        "decomposition": "fail"
+      },
+      "outcome_rationale": "Documented pipeline limitation: navbox content is discarded at extraction time. Would flip to success only if navboxes were retained as text or as navbox_member edges."
+    },
+    {
+      "id": "G12",
+      "query": "Which countries in Africa share at least three indigenous languages?",
+      "information_need": "in_depth",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": false,
+      "adversarial_kind": "unanswerable_from_corpus",
+      "expected_behavior": "The system should state that the source material does not contain the language inventories needed to compare African countries. Languages_of_Ghana.html is the only 'Languages of' article in the corpus and no African country articles exist, so no cross-country comparison is possible. It should not construct an answer from memory.",
+      "expected_answer": "Not answerable from the corpus: only Ghana's language article is present, so no pair of African countries can be compared.",
+      "supporting_quotes": [],
+      "required_files": [],
+      "relevant_files": [
+        "Languages_of_Ghana.html"
+      ],
+      "difficulty_notes": "The 'Languages of Africa' navbox in Languages_of_Ghana.html lists every African country's language article, but none of those articles is in the corpus. Tests honest refusal on a plausible-sounding comparative question.",
+      "required_aspects": [
+        "The response states that the corpus lacks the language data needed to answer."
+      ],
+      "mechanism": "none_missing_articles",
+      "anticipated_outcomes": {
+        "baseline": "fail",
+        "chunker": "fail",
+        "graph": "fail",
+        "decomposition": "fail"
+      },
+      "outcome_rationale": "Unanswerable; a grounded refusal is the passing behaviour."
+    },
+    {
+      "id": "G13",
+      "query": "What was the former name of the university where Barack Obama earned his law degree?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Harvard College. Obama earned his Juris Doctor at Harvard Law School in 1991; Harvard University was founded in 1636 and named Harvard College in 1639, which remains the name of its undergraduate division.",
+      "supporting_quotes": [
+        {
+          "text": "Obama graduated from Harvard Law in 1991 with a Juris Doctor magna cum laude.",
+          "source_file": "Barack_Obama.html"
+        },
+        {
+          "text": "Founded in 1636, and named Harvard College in 1639 in honor of its first benefactor, Puritan clergyman John Harvard, it is the oldest institution of higher learning in the United States.",
+          "source_file": "Harvard_University.html"
+        },
+        {
+          "text": "Former names | Harvard College",
+          "source_file": "Harvard_University.html"
+        }
+      ],
+      "required_files": [
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "relevant_files": [
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "difficulty_notes": "Bridge through an implicit entity plus alias: the query never says 'Harvard', so the second article can only be reached by following Obama's Education edge (or by the model supplying 'Harvard' from memory). If a decomposition run passes, check chunk_attribution_score - the bridge entity most likely came from parametric knowledge.",
+      "required_aspects": [
+        "Harvard is identified as where Obama earned his law degree.",
+        "Harvard College is given as the former name."
+      ],
+      "mechanism": "bridge_education_edge_plus_infobox_alias",
+      "anticipated_outcomes": {
+        "baseline": "fail",
+        "chunker": "fail",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "Lexical retrieval fetches Obama's article but has no reason to fetch Harvard's; the graph follows education -> Harvard_University and reads the former_names property."
+    },
+    {
+      "id": "G14",
+      "query": "Which of Barack Obama's universities was founded as King's College?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Columbia University, from which Obama graduated in 1983 with a BA in political science. It was established in 1754 as King's College by royal charter of George II.",
+      "supporting_quotes": [
+        {
+          "text": "Born in Honolulu, Obama graduated from Columbia University in 1983 with a Bachelor of Arts degree in political science and later worked as a community organizer in Chicago.",
+          "source_file": "Barack_Obama.html"
+        },
+        {
+          "text": "Established in 1754 as King's College by royal charter under George II of Great Britain on the grounds of Trinity Church in Manhattan, it is the oldest institution of higher education in New York and the fifth-oldest in the United States.",
+          "source_file": "Columbia_University.html"
+        }
+      ],
+      "required_files": [
+        "Barack_Obama.html",
+        "Columbia_University.html"
+      ],
+      "relevant_files": [
+        "Barack_Obama.html",
+        "Columbia_University.html"
+      ],
+      "difficulty_notes": "Variant of G13 in which the alias appears literally in the query, so lexical retrieval can hit Columbia's article directly. Included as the easy twin of G13: if G14 passes and G13 fails under the same configuration, the gap is retrieval of the unnamed bridge entity, not reasoning.",
+      "required_aspects": [
+        "Columbia University is identified as the one founded as King's College."
+      ],
+      "mechanism": "bridge_education_edge_plus_infobox_alias",
+      "anticipated_outcomes": {
+        "baseline": "success",
+        "chunker": "success",
+        "graph": "success",
+        "decomposition": "success"
+      },
+      "outcome_rationale": "'King's College' is a strong lexical hook for Columbia's article."
+    },
+    {
+      "id": "G15",
+      "query": "Which city has the larger population, Sarajevo or Dunedin?",
+      "information_need": "fact_lookup",
+      "motivation": "personal_decision",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_answer": "Sarajevo. Its population within its administrative limits is 275,524 (2013 census), against an estimated 132,800 for Dunedin as of June 2025.",
+      "expected_behavior": null,
+      "supporting_quotes": [
+        {
+          "text": "Sarajevo is the capital and largest city of Bosnia and Herzegovina, with a population of 275,524 in its administrative limits.",
+          "source_file": "Sarajevo.html"
+        },
+        {
+          "text": "With an estimated population of 132,800 as of June 2025, Dunedin is New Zealand's seventh-most populous metropolitan and urban area.",
+          "source_file": "Dunedin.html"
+        }
+      ],
+      "required_files": [
+        "Sarajevo.html",
+        "Dunedin.html"
+      ],
+      "relevant_files": [
+        "Sarajevo.html",
+        "Dunedin.html"
+      ],
+      "difficulty_notes": "Cross-document comparison: two parallel lookups and a numeric comparison. The infobox labels differ ('City proper' vs 'Territorial') and the figures are from different years, so a good answer shows which figures it compared. Both names are in the query, so retrieval is easy; the baseline risk is two ~80k-character articles diluting the context.",
+      "required_aspects": [
+        "Sarajevo is identified as the larger city.",
+        "Both population figures are cited."
+      ],
+      "mechanism": "cross_document_comparison_infobox_properties",
+      "anticipated_outcomes": {
+        "baseline": "likely",
+        "chunker": "success",
+        "graph": "success",
+        "decomposition": "success"
+      },
+      "outcome_rationale": "Both entities are named; the only failure mode is losing the population sentence inside whole-article context."
+    },
+    {
+      "id": "G16",
+      "query": "Was Charles III born before his mother's reign began?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Yes. Charles was born on 14 November 1948, during the reign of his grandfather George VI; his mother acceded to the throne as Elizabeth II on 6 February 1952, when Charles was three.",
+      "supporting_quotes": [
+        {
+          "text": "Charles was born at 9:14 pm on 14 November 1948 by caesarean section at Buckingham Palace, during the reign of his maternal grandfather, King George VI.",
+          "source_file": "Charles_III.html"
+        },
+        {
+          "text": "George VI died on 6 February 1952, after which Charles's mother acceded to the throne as Elizabeth II and he became heir apparent.",
+          "source_file": "Charles_III.html"
+        },
+        {
+          "text": "When her father died in February 1952, Elizabeth, then 25 years old, became queen of seven independent Commonwealth countries",
+          "source_file": "Elizabeth_II.html"
+        }
+      ],
+      "required_files": [
+        "Charles_III.html"
+      ],
+      "relevant_files": [
+        "Charles_III.html",
+        "Elizabeth_II.html"
+      ],
+      "difficulty_notes": "Cross-document temporal ordering, but Charles's own article contains both dates, so it doubles as a control. The mother is not named in the query; the relatives/predecessor edge or the article text resolves her.",
+      "required_aspects": [
+        "The answer is yes.",
+        "Both dates (born 14 November 1948; accession 6 February 1952) are given."
+      ],
+      "mechanism": "cross_document_temporal_ordering",
+      "anticipated_outcomes": {
+        "baseline": "success",
+        "chunker": "success",
+        "graph": "success",
+        "decomposition": "success"
+      },
+      "outcome_rationale": "Answerable from Charles III's article alone."
+    },
+    {
+      "id": "G17",
+      "query": "Had Andrew Lesnie already won his Oscar when King Kong (2005) was released?",
+      "information_need": "fact_lookup",
+      "motivation": "media_reference",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Yes. Lesnie's Academy Award for Best Cinematography was for The Lord of the Rings: The Fellowship of the Ring (2001), several years before King Kong premiered in New York on 5 December 2005.",
+      "supporting_quotes": [
+        {
+          "text": "The Lord of the Rings trilogy (2001-2003), with The Fellowship of the Ring earning him the Academy Award for Best Cinematography.",
+          "source_file": "Andrew_Lesnie.html"
+        },
+        {
+          "text": "King Kong premiered at New York City on 5 December 2005, and was theatrically released in New Zealand on December 13 and in the United States on 14 December.",
+          "source_file": "King_Kong_(2005_film).html"
+        }
+      ],
+      "required_files": [
+        "Andrew_Lesnie.html",
+        "King_Kong_(2005_film).html"
+      ],
+      "relevant_files": [
+        "Andrew_Lesnie.html",
+        "King_Kong_(2005_film).html"
+      ],
+      "difficulty_notes": "Cross-document temporal ordering with both entities named. King Kong's infobox links Lesnie via its Cinematography row. The award ceremony year (2002) is not stated in the extracted text; the answer should rely on the film's 2001 date rather than asserting the ceremony date.",
+      "required_aspects": [
+        "The answer is yes.",
+        "The Oscar is tied to The Fellowship of the Ring (2001) and King Kong's release to December 2005."
+      ],
+      "mechanism": "cross_document_temporal_ordering",
+      "anticipated_outcomes": {
+        "baseline": "success",
+        "chunker": "success",
+        "graph": "success",
+        "decomposition": "success"
+      },
+      "outcome_rationale": "Both articles are retrievable by name; dates are in the lead text of each."
+    },
+    {
+      "id": "G18",
+      "query": "What is Bank One Ballpark called today?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Chase Field, the retractable-roof home of the Arizona Diamondbacks in downtown Phoenix. It was called Bank One Ballpark from 1998 to 2005 under a naming-rights deal with Bank One.",
+      "supporting_quotes": [
+        {
+          "text": "Chase Field, formerly Bank One Ballpark, is a retractable roof stadium in downtown Phoenix, Arizona, United States.",
+          "source_file": "Chase_Field.html"
+        },
+        {
+          "text": "The stadium was called Bank One Ballpark when Bank One of Chicago, Illinois (who had acquired locally based Valley National Bank of Arizona in 1992), purchased naming rights for $100 million over 30 years.",
+          "source_file": "Chase_Field.html"
+        }
+      ],
+      "required_files": [
+        "Chase_Field.html"
+      ],
+      "relevant_files": [
+        "Chase_Field.html"
+      ],
+      "difficulty_notes": "Alias resolution control: the query uses a name that is not the article title and appears in the article's 'Former names' infobox row and lead sentence. 136 corpus articles carry former/other/birth-name rows, so this pattern generalises.",
+      "required_aspects": [
+        "Chase Field is given as the current name."
+      ],
+      "mechanism": "alias_resolution_infobox_former_name",
+      "anticipated_outcomes": {
+        "baseline": "success",
+        "chunker": "success",
+        "graph": "success",
+        "decomposition": "success"
+      },
+      "outcome_rationale": "The alias is a literal string in the target article."
+    }
+  ]
+}
