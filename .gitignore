@@ -3,10 +3,14 @@ Checkpoint 2.1/wikipedia_chroma_db/
 Checkpoint 2.1/wikipedia_chunks*_cache/
 Checkpoint 2.1/wikipedia_chunks*_chroma_db/
 
+# Course starter archives
+Checkpoint 1.1/Capstone_Checkpoint_1_1_starter.zip
+
 # Secrets
 .env
 
-# Python and run artefacts
+# Python cache and run artefacts
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 *.log
