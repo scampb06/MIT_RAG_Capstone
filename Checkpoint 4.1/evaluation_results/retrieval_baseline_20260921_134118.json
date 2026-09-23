@@ -1,0 +1,961 @@
+{
+  "configuration": {
+    "retriever": "baseline",
+    "unit": "article",
+    "top_k": 3,
+    "candidate_pool": 10,
+    "weight_bm25": 0.5,
+    "weight_vector": 0.5,
+    "max_chunk_chars": null,
+    "graph": null,
+    "llm_model": "openai/gpt-5.4-mini",
+    "embedding_model": "openai/text-embedding-3-small",
+    "temperature": 0.2,
+    "run_at": "2026-09-21T13:41:18"
+  },
+  "results": [
+    {
+      "id": "G01",
+      "question": "Name another cinematographer who has won the same award as Andrew Lesnie.",
+      "retriever": "baseline",
+      "required_sources": [
+        "Emmanuel_Lubezki.html"
+      ],
+      "expected_sources": [
+        "Emmanuel_Lubezki.html",
+        "Andrew_Lesnie.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "retrieved_sources": [
+        "Andrew_Lesnie.html",
+        "King_Kong_(2005_film).html",
+        "Emmanuel_Lubezki.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Andrew_Lesnie.html",
+          "source_file": "Andrew_Lesnie.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "King_Kong_(2005_film).html",
+          "source_file": "King_Kong_(2005_film).html",
+          "role": "primary",
+          "score": 0.2365
+        },
+        {
+          "unit_id": "Emmanuel_Lubezki.html",
+          "source_file": "Emmanuel_Lubezki.html",
+          "role": "primary",
+          "score": 0.188
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 62522,
+      "evidence_recall": 0.6666666666666666,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.7482911999686621,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "chunk_precision_at_k": 0.6666666666666666,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G02",
+      "question": "Who succeeded Barack Obama as president?",
+      "retriever": "baseline",
+      "required_sources": [
+        "Barack_Obama.html"
+      ],
+      "expected_sources": [
+        "Barack_Obama.html",
+        "Donald_Trump.html"
+      ],
+      "retrieved_sources": [
+        "Barack_Obama.html",
+        "African-American_presidents_of_the_United_States_in_popular_culture.html",
+        "President_of_the_United_States.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Barack_Obama.html",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "African-American_presidents_of_the_United_States_in_popular_culture.html",
+          "source_file": "African-American_presidents_of_the_United_States_in_popular_culture.html",
+          "role": "primary",
+          "score": 0.5617
+        },
+        {
+          "unit_id": "President_of_the_United_States.html",
+          "source_file": "President_of_the_United_States.html",
+          "role": "primary",
+          "score": 0.3133
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 339135,
+      "evidence_recall": 0.5,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.48430050001479685,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "chunk_precision_at_k": 0.3333333333333333,
+      "article_precision": 0.3333333333333333,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G03",
+      "question": "Who succeeded Elizabeth II as monarch?",
+      "retriever": "baseline",
+      "required_sources": [
+        "Elizabeth_II.html"
+      ],
+      "expected_sources": [
+        "Elizabeth_II.html",
+        "Charles_III.html"
+      ],
+      "retrieved_sources": [
+        "Monarchy_of_the_United_Kingdom.html",
+        "Elizabeth_II.html",
+        "List_of_British_monarchs.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Monarchy_of_the_United_Kingdom.html",
+          "source_file": "Monarchy_of_the_United_Kingdom.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "Elizabeth_II.html",
+          "source_file": "Elizabeth_II.html",
+          "role": "primary",
+          "score": 0.6687
+        },
+        {
+          "unit_id": "List_of_British_monarchs.html",
+          "source_file": "List_of_British_monarchs.html",
+          "role": "primary",
+          "score": 0.3861
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 204406,
+      "evidence_recall": 0.5,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.281189400004223,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "chunk_precision_at_k": 0.3333333333333333,
+      "article_precision": 0.3333333333333333,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G04",
+      "question": "Name another U.S. president besides Bill Clinton who was impeached.",
+      "retriever": "baseline",
+      "required_sources": [
+        "Bill_Clinton.html"
+      ],
+      "expected_sources": [
+        "Bill_Clinton.html",
+        "Donald_Trump.html"
+      ],
+      "retrieved_sources": [
+        "President_of_the_United_States.html",
+        "Bill_Clinton.html",
+        "Donald_Trump.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "President_of_the_United_States.html",
+          "source_file": "President_of_the_United_States.html",
+          "role": "primary",
+          "score": 0.9711
+        },
+        {
+          "unit_id": "Bill_Clinton.html",
+          "source_file": "Bill_Clinton.html",
+          "role": "primary",
+          "score": 0.9247
+        },
+        {
+          "unit_id": "Donald_Trump.html",
+          "source_file": "Donald_Trump.html",
+          "role": "primary",
+          "score": 0.5004
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 483348,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.3648444000282325,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "chunk_precision_at_k": 0.6666666666666666,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G05",
+      "question": "Name another Best Picture-winning director besides Sam Mendes.",
+      "retriever": "baseline",
+      "required_sources": [
+        "Christopher_Nolan.html"
+      ],
+      "expected_sources": [
+        "Christopher_Nolan.html",
+        "Steven_Spielberg.html",
+        "James_Cameron.html",
+        "Clint_Eastwood.html",
+        "Anthony_Minghella.html",
+        "Jonathan_Demme.html",
+        "Kevin_Costner.html",
+        "Robert_Zemeckis.html",
+        "William_Wyler.html",
+        "Sam_Mendes.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "retrieved_sources": [
+        "Sam_Mendes.html",
+        "List_of_Academy_Award_records.html",
+        "Golden_Globe_Award_for_Best_Screenplay.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Sam_Mendes.html",
+          "source_file": "Sam_Mendes.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "List_of_Academy_Award_records.html",
+          "source_file": "List_of_Academy_Award_records.html",
+          "role": "primary",
+          "score": 0.2763
+        },
+        {
+          "unit_id": "Golden_Globe_Award_for_Best_Screenplay.html",
+          "source_file": "Golden_Globe_Award_for_Best_Screenplay.html",
+          "role": "primary",
+          "score": 0.2519
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 125822,
+      "evidence_recall": 0.5,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.3125727000297047,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "chunk_precision_at_k": 0.6666666666666666,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "G06",
+      "question": "Name another president besides Barack Obama who attended Harvard.",
+      "retriever": "baseline",
+      "required_sources": [
+        "George_W._Bush.html"
+      ],
+      "expected_sources": [
+        "George_W._Bush.html",
+        "Harvard_University.html",
+        "Barack_Obama.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Barack_Obama.html",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.8982
+        },
+        {
+          "unit_id": "Harvard_University.html",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.5808
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.5
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 306454,
+      "evidence_recall": 0.8,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.35654609999619424,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 1.0,
+      "chunk_precision_at_k": 1.0,
+      "article_precision": 1.0,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "G07",
+      "question": "Name another president besides Bill Clinton who attended Yale.",
+      "retriever": "baseline",
+      "required_sources": [
+        "George_W._Bush.html"
+      ],
+      "expected_sources": [
+        "George_W._Bush.html",
+        "Yale_University.html",
+        "Bill_Clinton.html",
+        "Gerald_Ford.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Yale_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html",
+        "Bill_Clinton.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Yale_University.html",
+          "source_file": "Yale_University.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.4871
+        },
+        {
+          "unit_id": "Bill_Clinton.html",
+          "source_file": "Bill_Clinton.html",
+          "role": "primary",
+          "score": 0.4358
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 330842,
+      "evidence_recall": 0.6666666666666666,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.25278689997503534,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 1.0,
+      "chunk_precision_at_k": 1.0,
+      "article_precision": 1.0,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "G08",
+      "question": "Which president served in both the 20th and 21st centuries?",
+      "retriever": "baseline",
+      "required_sources": [
+        "Bill_Clinton.html"
+      ],
+      "expected_sources": [
+        "Bill_Clinton.html",
+        "George_W._Bush.html",
+        "Barack_Obama.html",
+        "Ronald_Reagan.html",
+        "Gerald_Ford.html",
+        "Donald_Trump.html"
+      ],
+      "retrieved_sources": [
+        "France.html",
+        "President_of_the_United_States.html",
+        "Gothic_Revival_architecture.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "France.html",
+          "source_file": "France.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "President_of_the_United_States.html",
+          "source_file": "President_of_the_United_States.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "Gothic_Revival_architecture.html",
+          "source_file": "Gothic_Revival_architecture.html",
+          "role": "primary",
+          "score": 0.4676
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 357043,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.37779639998916537,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.0,
+      "chunk_precision_at_k": 0.0,
+      "article_precision": 0.0,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "G09",
+      "question": "Give me five examples of current heads of state born before 1960.",
+      "retriever": "baseline",
+      "required_sources": [
+        "Charles_III.html",
+        "Donald_Trump.html"
+      ],
+      "expected_sources": [
+        "Charles_III.html",
+        "Donald_Trump.html"
+      ],
+      "retrieved_sources": [
+        "Sargent_Shriver.html",
+        "President_of_the_United_States.html",
+        "History_of_Formula_One.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Sargent_Shriver.html",
+          "source_file": "Sargent_Shriver.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "President_of_the_United_States.html",
+          "source_file": "President_of_the_United_States.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "History_of_Formula_One.html",
+          "source_file": "History_of_Formula_One.html",
+          "role": "primary",
+          "score": 0.3933
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 245259,
+      "evidence_recall": null,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.32685539999511093,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.0,
+      "chunk_precision_at_k": 0.0,
+      "article_precision": 0.0,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "G10",
+      "question": "Name two films by English directors that won Academy Awards.",
+      "retriever": "baseline",
+      "required_sources": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html"
+      ],
+      "expected_sources": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "retrieved_sources": [
+        "List_of_Academy_Award_records.html",
+        "Clint_Eastwood.html",
+        "BAFTA_Award_for_Best_Actor_in_a_Supporting_Role.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "List_of_Academy_Award_records.html",
+          "source_file": "List_of_Academy_Award_records.html",
+          "role": "primary",
+          "score": 0.8821
+        },
+        {
+          "unit_id": "Clint_Eastwood.html",
+          "source_file": "Clint_Eastwood.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "BAFTA_Award_for_Best_Actor_in_a_Supporting_Role.html",
+          "source_file": "BAFTA_Award_for_Best_Actor_in_a_Supporting_Role.html",
+          "role": "primary",
+          "score": 0.3763
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 222316,
+      "evidence_recall": 0.16666666666666666,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.351535799971316,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "chunk_precision_at_k": 0.3333333333333333,
+      "article_precision": 0.3333333333333333,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "G11",
+      "question": "Name all the local government councils in Northern Ireland.",
+      "retriever": "baseline",
+      "required_sources": [
+        "Belfast.html"
+      ],
+      "expected_sources": [
+        "Belfast.html",
+        "Northern_Ireland.html"
+      ],
+      "retrieved_sources": [
+        "Northern_Ireland.html",
+        "County_Wicklow.html",
+        "Belfast.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Northern_Ireland.html",
+          "source_file": "Northern_Ireland.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "County_Wicklow.html",
+          "source_file": "County_Wicklow.html",
+          "role": "primary",
+          "score": 0.6131
+        },
+        {
+          "unit_id": "Belfast.html",
+          "source_file": "Belfast.html",
+          "role": "primary",
+          "score": 0.3631
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 334389,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.3325190000468865,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "chunk_precision_at_k": 0.6666666666666666,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G12",
+      "question": "Which countries in Africa share at least three indigenous languages?",
+      "retriever": "baseline",
+      "required_sources": [
+        "Languages_of_Ghana.html"
+      ],
+      "expected_sources": [
+        "Languages_of_Ghana.html"
+      ],
+      "retrieved_sources": [
+        "Afroasiatic_languages.html",
+        "South_America.html",
+        "Languages_of_Ghana.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Afroasiatic_languages.html",
+          "source_file": "Afroasiatic_languages.html",
+          "role": "primary",
+          "score": 0.5892
+        },
+        {
+          "unit_id": "South_America.html",
+          "source_file": "South_America.html",
+          "role": "primary",
+          "score": 0.5129
+        },
+        {
+          "unit_id": "Languages_of_Ghana.html",
+          "source_file": "Languages_of_Ghana.html",
+          "role": "primary",
+          "score": 0.5
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 239045,
+      "evidence_recall": null,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.32139959995402023,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "chunk_precision_at_k": 0.3333333333333333,
+      "article_precision": 0.3333333333333333,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G13",
+      "question": "What was the former name of the university where Barack Obama earned his law degree?",
+      "retriever": "baseline",
+      "required_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "expected_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Barack_Obama.html",
+        "List_of_presidents_of_the_United_States_by_education.html",
+        "Oprah_Winfrey.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Barack_Obama.html",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.4104
+        },
+        {
+          "unit_id": "Oprah_Winfrey.html",
+          "source_file": "Oprah_Winfrey.html",
+          "role": "primary",
+          "score": 0.2285
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 325252,
+      "evidence_recall": 0.3333333333333333,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.3223018999560736,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.6666666666666666,
+      "chunk_precision_at_k": 0.6666666666666666,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "G14",
+      "question": "Which of Barack Obama's universities was founded as King's College?",
+      "retriever": "baseline",
+      "required_sources": [
+        "Barack_Obama.html",
+        "Columbia_University.html"
+      ],
+      "expected_sources": [
+        "Barack_Obama.html",
+        "Columbia_University.html"
+      ],
+      "retrieved_sources": [
+        "Columbia_University.html",
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Columbia_University.html",
+          "source_file": "Columbia_University.html",
+          "role": "primary",
+          "score": 0.6327
+        },
+        {
+          "unit_id": "Barack_Obama.html",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.5965
+        },
+        {
+          "unit_id": "Harvard_University.html",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.5465
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 430195,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.26594239997211844,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "chunk_precision_at_k": 0.6666666666666666,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G15",
+      "question": "Which city has the larger population, Sarajevo or Dunedin?",
+      "retriever": "baseline",
+      "required_sources": [
+        "Sarajevo.html",
+        "Dunedin.html"
+      ],
+      "expected_sources": [
+        "Sarajevo.html",
+        "Dunedin.html"
+      ],
+      "retrieved_sources": [
+        "Dunedin.html",
+        "Sarajevo.html",
+        "Otago.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Dunedin.html",
+          "source_file": "Dunedin.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "Sarajevo.html",
+          "source_file": "Sarajevo.html",
+          "role": "primary",
+          "score": 0.8828
+        },
+        {
+          "unit_id": "Otago.html",
+          "source_file": "Otago.html",
+          "role": "primary",
+          "score": 0.6772
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 190589,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.7472304000402801,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "chunk_precision_at_k": 0.6666666666666666,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G16",
+      "question": "Was Charles III born before his mother's reign began?",
+      "retriever": "baseline",
+      "required_sources": [
+        "Charles_III.html"
+      ],
+      "expected_sources": [
+        "Charles_III.html",
+        "Elizabeth_II.html"
+      ],
+      "retrieved_sources": [
+        "Louis_XV.html",
+        "Louis_XIV.html",
+        "Edward_III_of_England.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Louis_XV.html",
+          "source_file": "Louis_XV.html",
+          "role": "primary",
+          "score": 0.7706
+        },
+        {
+          "unit_id": "Louis_XIV.html",
+          "source_file": "Louis_XIV.html",
+          "role": "primary",
+          "score": 0.5509
+        },
+        {
+          "unit_id": "Edward_III_of_England.html",
+          "source_file": "Edward_III_of_England.html",
+          "role": "primary",
+          "score": 0.5
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 337958,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.2718862000037916,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.0,
+      "chunk_precision_at_k": 0.0,
+      "article_precision": 0.0,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "G17",
+      "question": "Had Andrew Lesnie already won his Oscar when King Kong (2005) was released?",
+      "retriever": "baseline",
+      "required_sources": [
+        "Andrew_Lesnie.html",
+        "King_Kong_(2005_film).html"
+      ],
+      "expected_sources": [
+        "Andrew_Lesnie.html",
+        "King_Kong_(2005_film).html"
+      ],
+      "retrieved_sources": [
+        "King_Kong_(2005_film).html",
+        "King_Kong_(1976_film).html",
+        "Andrew_Lesnie.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "King_Kong_(2005_film).html",
+          "source_file": "King_Kong_(2005_film).html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "King_Kong_(1976_film).html",
+          "source_file": "King_Kong_(1976_film).html",
+          "role": "primary",
+          "score": 0.4964
+        },
+        {
+          "unit_id": "Andrew_Lesnie.html",
+          "source_file": "Andrew_Lesnie.html",
+          "role": "primary",
+          "score": 0.3754
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 87799,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.877080800011754,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "chunk_precision_at_k": 0.6666666666666666,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G18",
+      "question": "What is Bank One Ballpark called today?",
+      "retriever": "baseline",
+      "required_sources": [
+        "Chase_Field.html"
+      ],
+      "expected_sources": [
+        "Chase_Field.html"
+      ],
+      "retrieved_sources": [
+        "Minute_Maid_Park.html",
+        "Chase_Field.html",
+        "T-Mobile_Park.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Minute_Maid_Park.html",
+          "source_file": "Minute_Maid_Park.html",
+          "role": "primary",
+          "score": 0.8171
+        },
+        {
+          "unit_id": "Chase_Field.html",
+          "source_file": "Chase_Field.html",
+          "role": "primary",
+          "score": 0.6912
+        },
+        {
+          "unit_id": "T-Mobile_Park.html",
+          "source_file": "T-Mobile_Park.html",
+          "role": "primary",
+          "score": 0.633
+        }
+      ],
+      "unit_count": 3,
+      "context_chars": 111909,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {},
+      "retrieval_latency_seconds": 0.34707640000851825,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.3333333333333333,
+      "chunk_precision_at_k": 0.3333333333333333,
+      "article_precision": 0.3333333333333333,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    }
+  ]
+}

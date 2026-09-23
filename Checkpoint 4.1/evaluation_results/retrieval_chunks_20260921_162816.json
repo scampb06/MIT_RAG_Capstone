@@ -1,0 +1,1596 @@
+{
+  "configuration": {
+    "retriever": "chunks",
+    "unit": "chunk",
+    "top_k": 8,
+    "candidate_pool": 40,
+    "weight_bm25": 0.5,
+    "weight_vector": 0.5,
+    "max_chunk_chars": 2000,
+    "parent": {
+      "mode": "window",
+      "max_chunks": 3,
+      "context_budget_chars": 40000
+    },
+    "graph": null,
+    "llm_model": "openai/gpt-5.4-mini",
+    "embedding_model": "openai/text-embedding-3-small",
+    "temperature": 0.2,
+    "run_at": "2026-09-21T16:28:16"
+  },
+  "results": [
+    {
+      "id": "Q006",
+      "question": "Compare how the Academy handled the introduction of the Best Animated Feature category with the way the Best Original Score category was split and then merged again in the 1990s.",
+      "retriever": "chunks",
+      "required_sources": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Animated_Feature.html"
+      ],
+      "retrieved_sources": [
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html",
+        "74th_Academy_Awards.html",
+        "Grammy_Award_for_Best_Metal_Performance.html",
+        "Academy_Award_for_Best_Animated_Feature.html",
+        "Grammy_Award_for_Best_Hard_Rock_Performance.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "68th_Academy_Awards.html#c00017-c00019",
+          "source_file": "68th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00031-c00033",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 0.6486
+        },
+        {
+          "unit_id": "74th_Academy_Awards.html#c00017-c00019",
+          "source_file": "74th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.5562
+        },
+        {
+          "unit_id": "Grammy_Award_for_Best_Metal_Performance.html#c00001-c00003",
+          "source_file": "Grammy_Award_for_Best_Metal_Performance.html",
+          "role": "primary",
+          "score": 0.3632
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Animated_Feature.html#c00000-c00001",
+          "source_file": "Academy_Award_for_Best_Animated_Feature.html",
+          "role": "primary",
+          "score": 0.3263
+        },
+        {
+          "unit_id": "Grammy_Award_for_Best_Hard_Rock_Performance.html#c00000-c00002",
+          "source_file": "Grammy_Award_for_Best_Hard_Rock_Performance.html",
+          "role": "primary",
+          "score": 0.2153
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Animated_Feature.html#c00002-c00003",
+          "source_file": "Academy_Award_for_Best_Animated_Feature.html",
+          "role": "primary",
+          "score": 0.212
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 19813,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "3e8e548f009bb2b4-c00018",
+          "7584ab2c6b497c73-c00032",
+          "54cc717f4dc58b8c-c00018",
+          "e9d4c0e8303401c9-c00002",
+          "6a36616b15cd55c5-c00000",
+          "6a36616b15cd55c5-c00001",
+          "4859b115b846bd05-c00001",
+          "6a36616b15cd55c5-c00002"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 3.7448289000312798,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.5714285714285714,
+      "chunk_precision_at_k": 0.5714285714285714,
+      "article_precision": 0.5,
+      "unique_articles_retrieved": 6,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "Q045",
+      "question": "Compare the audience reactions and awards outcomes for the two films that lost Best Picture in the most talked-about upsets — the 2005 gay romance and the 2016 musical.",
+      "retriever": "chunks",
+      "required_sources": [
+        "Brokeback_Mountain.html",
+        "89th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "Brokeback_Mountain.html",
+        "89th_Academy_Awards.html",
+        "La_La_Land.html",
+        "Academy_Award_for_Best_Picture.html",
+        "Emma_Stone.html",
+        "Ryan_Gosling.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Picture.html",
+        "Brokeback_Mountain.html",
+        "La_La_Land.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00028-c00030",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 0.8756
+        },
+        {
+          "unit_id": "Brokeback_Mountain.html#c00038-c00040",
+          "source_file": "Brokeback_Mountain.html",
+          "role": "primary",
+          "score": 0.6782
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00032-c00034",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 0.5134
+        },
+        {
+          "unit_id": "La_La_Land.html#c00001-c00003",
+          "source_file": "La_La_Land.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "List_of_Academy_Award_records.html#c00008-c00010",
+          "source_file": "List_of_Academy_Award_records.html",
+          "role": "primary",
+          "score": 0.4936
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00068-c00070",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 0.4495
+        }
+      ],
+      "unit_count": 6,
+      "context_chars": 15746,
+      "evidence_recall": 0.5,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "7584ab2c6b497c73-c00029",
+          "d7cde549c7664d7f-c00039",
+          "7584ab2c6b497c73-c00033",
+          "c1ed16a211777eaf-c00002",
+          "67142f28a712cfd6-c00009",
+          "7584ab2c6b497c73-c00069",
+          "7584ab2c6b497c73-c00070",
+          "d7cde549c7664d7f-c00040"
+        ],
+        "parent_units": 6
+      },
+      "retrieval_latency_seconds": 1.8862978999968618,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.8333333333333334,
+      "chunk_precision_at_k": 0.8333333333333334,
+      "article_precision": 0.75,
+      "unique_articles_retrieved": 4,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "Q049",
+      "question": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+      "retriever": "chunks",
+      "required_sources": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html"
+      ],
+      "expected_sources": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html",
+        "Academy_Award_for_Best_Actor.html",
+        "Austin_Butler.html",
+        "Colin_Farrell.html",
+        "Paul_Mescal.html",
+        "Bill_Nighy.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Supporting_Actor.html",
+        "The_Wolf_of_Wall_Street_(2013_film).html",
+        "Mark_Lee_(singer).html",
+        "Academy_Award_for_Best_Actor.html",
+        "89th_Academy_Awards.html",
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html",
+        "74th_Academy_Awards.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Academy_Award_for_Best_Supporting_Actor.html#c00002-c00004",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html",
+          "role": "primary",
+          "score": 0.5669
+        },
+        {
+          "unit_id": "The_Wolf_of_Wall_Street_(2013_film).html#c00002-c00004",
+          "source_file": "The_Wolf_of_Wall_Street_(2013_film).html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "Mark_Lee_(singer).html#c00014-c00016",
+          "source_file": "Mark_Lee_(singer).html",
+          "role": "primary",
+          "score": 0.437
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Actor.html#c00002-c00004",
+          "source_file": "Academy_Award_for_Best_Actor.html",
+          "role": "primary",
+          "score": 0.43
+        },
+        {
+          "unit_id": "89th_Academy_Awards.html#c00000-c00002",
+          "source_file": "89th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.4285
+        },
+        {
+          "unit_id": "85th_Academy_Awards.html#c00003-c00005",
+          "source_file": "85th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.4198
+        },
+        {
+          "unit_id": "95th_Academy_Awards.html#c00000-c00001",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.3896
+        },
+        {
+          "unit_id": "74th_Academy_Awards.html#c00003-c00005",
+          "source_file": "74th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.3808
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 20891,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "f4e49e2bb44a4357-c00003",
+          "22662e147b40523a-c00003",
+          "a5b20f1a2caeafe7-c00015",
+          "599ff25cc439b524-c00003",
+          "86da3fa9f040ab84-c00001",
+          "f03136cff601fca1-c00004",
+          "110a1f26b577e6e7-c00000",
+          "54cc717f4dc58b8c-c00004"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 1.2896491999854334,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.25,
+      "chunk_precision_at_k": 0.25,
+      "article_precision": 0.25,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "Q019",
+      "question": "How did the director of La La Land get his start, and what connects his college years to that film's music?",
+      "retriever": "chunks",
+      "required_sources": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "expected_sources": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "retrieved_sources": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html",
+        "Whiplash_(2014_film).html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "La_La_Land.html#c00010-c00012",
+          "source_file": "La_La_Land.html",
+          "role": "primary",
+          "score": 0.8152
+        },
+        {
+          "unit_id": "Damien_Chazelle.html#c00005-c00007",
+          "source_file": "Damien_Chazelle.html",
+          "role": "primary",
+          "score": 0.6664
+        },
+        {
+          "unit_id": "Whiplash_(2014_film).html#c00007-c00009",
+          "source_file": "Whiplash_(2014_film).html",
+          "role": "primary",
+          "score": 0.5159
+        },
+        {
+          "unit_id": "La_La_Land.html#c00023-c00025",
+          "source_file": "La_La_Land.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "La_La_Land.html#c00066-c00068",
+          "source_file": "La_La_Land.html",
+          "role": "primary",
+          "score": 0.4822
+        },
+        {
+          "unit_id": "La_La_Land.html#c00013-c00014",
+          "source_file": "La_La_Land.html",
+          "role": "primary",
+          "score": 0.4725
+        },
+        {
+          "unit_id": "Damien_Chazelle.html#c00001-c00003",
+          "source_file": "Damien_Chazelle.html",
+          "role": "primary",
+          "score": 0.4691
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 19257,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "c1ed16a211777eaf-c00011",
+          "4865f8c7e43f6193-c00006",
+          "4aa6ccf4b6069bcc-c00008",
+          "c1ed16a211777eaf-c00024",
+          "c1ed16a211777eaf-c00067",
+          "c1ed16a211777eaf-c00010",
+          "c1ed16a211777eaf-c00013",
+          "4865f8c7e43f6193-c00002"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 1.4526474000304006,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.8571428571428571,
+      "chunk_precision_at_k": 0.8571428571428571,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "Q072",
+      "question": "What is the highest-grossing film of all time?",
+      "retriever": "chunks",
+      "required_sources": [
+        "Titanic_(1997_film).html"
+      ],
+      "expected_sources": [
+        "Titanic_(1997_film).html",
+        "List_of_Academy_Award_records.html",
+        "James_Cameron.html",
+        "Avatar_(2009_film).html"
+      ],
+      "retrieved_sources": [
+        "Harry_Potter_(film_series).html",
+        "Avatar_(2009_film).html",
+        "The_Lion_King.html",
+        "The_Lord_of_the_Rings__The_Return_of_the_King.html",
+        "List_of_1995_box_office_number-one_films_in_the_United_States.html",
+        "E.T._the_Extra-Terrestrial.html",
+        "Titanic_(1997_film).html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Harry_Potter_(film_series).html#c00001-c00003",
+          "source_file": "Harry_Potter_(film_series).html",
+          "role": "primary",
+          "score": 0.6732
+        },
+        {
+          "unit_id": "Avatar_(2009_film).html#c00033-c00035",
+          "source_file": "Avatar_(2009_film).html",
+          "role": "primary",
+          "score": 0.613
+        },
+        {
+          "unit_id": "The_Lion_King.html#c00042-c00044",
+          "source_file": "The_Lion_King.html",
+          "role": "primary",
+          "score": 0.6021
+        },
+        {
+          "unit_id": "The_Lion_King.html#c00002-c00004",
+          "source_file": "The_Lion_King.html",
+          "role": "primary",
+          "score": 0.5551
+        },
+        {
+          "unit_id": "The_Lord_of_the_Rings__The_Return_of_the_King.html#c00041-c00043",
+          "source_file": "The_Lord_of_the_Rings__The_Return_of_the_King.html",
+          "role": "primary",
+          "score": 0.5209
+        },
+        {
+          "unit_id": "List_of_1995_box_office_number-one_films_in_the_United_States.html#c00005-c00007",
+          "source_file": "List_of_1995_box_office_number-one_films_in_the_United_States.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "E.T._the_Extra-Terrestrial.html#c00030-c00032",
+          "source_file": "E.T._the_Extra-Terrestrial.html",
+          "role": "primary",
+          "score": 0.4986
+        },
+        {
+          "unit_id": "Titanic_(1997_film).html#c00002-c00004",
+          "source_file": "Titanic_(1997_film).html",
+          "role": "primary",
+          "score": 0.4142
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 22592,
+      "evidence_recall": 0.6666666666666666,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "e58833efd7cd746a-c00002",
+          "d5a409e9d5854512-c00034",
+          "e9be774ce71669cb-c00043",
+          "e9be774ce71669cb-c00003",
+          "a99b8a458e7a973f-c00042",
+          "9b714096558cb313-c00006",
+          "00ab2e20219dcb56-c00031",
+          "3e797fb69056928c-c00003"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 0.8198632000130601,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.25,
+      "chunk_precision_at_k": 0.25,
+      "article_precision": 0.2857142857142857,
+      "unique_articles_retrieved": 7,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "Q080",
+      "question": "Tell me about Anthony Minghella — what did he win and what happened at the Oscars after his death?",
+      "retriever": "chunks",
+      "required_sources": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "expected_sources": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "retrieved_sources": [
+        "Anthony_Minghella.html",
+        "Midnight_in_the_Garden_of_Good_and_Evil.html",
+        "Gus_Van_Sant.html",
+        "Steve_Jobs.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Anthony_Minghella.html#c00000-c00001",
+          "source_file": "Anthony_Minghella.html",
+          "role": "primary",
+          "score": 0.8227
+        },
+        {
+          "unit_id": "Anthony_Minghella.html#c00020-c00022",
+          "source_file": "Anthony_Minghella.html",
+          "role": "primary",
+          "score": 0.7651
+        },
+        {
+          "unit_id": "Midnight_in_the_Garden_of_Good_and_Evil.html#c00004-c00006",
+          "source_file": "Midnight_in_the_Garden_of_Good_and_Evil.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "Anthony_Minghella.html#c00006-c00008",
+          "source_file": "Anthony_Minghella.html",
+          "role": "primary",
+          "score": 0.4677
+        },
+        {
+          "unit_id": "Anthony_Minghella.html#c00015-c00017",
+          "source_file": "Anthony_Minghella.html",
+          "role": "primary",
+          "score": 0.4375
+        },
+        {
+          "unit_id": "Gus_Van_Sant.html#c00010-c00012",
+          "source_file": "Gus_Van_Sant.html",
+          "role": "primary",
+          "score": 0.4371
+        },
+        {
+          "unit_id": "Steve_Jobs.html#c00077-c00079",
+          "source_file": "Steve_Jobs.html",
+          "role": "primary",
+          "score": 0.4316
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 18895,
+      "evidence_recall": 0.5,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "c31b0dd580459bb4-c00000",
+          "c31b0dd580459bb4-c00021",
+          "999c77a6809a9722-c00005",
+          "c31b0dd580459bb4-c00007",
+          "c31b0dd580459bb4-c00016",
+          "c678c96e1784788f-c00011",
+          "89e776ac849fe224-c00078",
+          "c31b0dd580459bb4-c00020"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 1.3364537000306882,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.5714285714285714,
+      "chunk_precision_at_k": 0.5714285714285714,
+      "article_precision": 0.25,
+      "unique_articles_retrieved": 4,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "Q003",
+      "question": "Compare the Academy Awards ceremonies held a decade apart: who hosted the 85th and 95th ceremonies, and which film won Best Picture at each?",
+      "retriever": "chunks",
+      "required_sources": [
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Picture.html",
+        "Academy_Award_for_Best_Production_Design.html",
+        "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+        "Academy_Award_for_Best_Actor.html",
+        "Academy_Award_for_Best_Director.html",
+        "Academy_Award_for_Best_Supporting_Actor.html",
+        "Academy_Award_for_Best_Animated_Feature.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00000-c00001",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Production_Design.html#c00033-c00035",
+          "source_file": "Academy_Award_for_Best_Production_Design.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "List_of_awards_and_nominations_received_by_Steven_Spielberg.html#c00019-c00021",
+          "source_file": "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+          "role": "primary",
+          "score": 0.4892
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Actor.html#c00039-c00041",
+          "source_file": "Academy_Award_for_Best_Actor.html",
+          "role": "primary",
+          "score": 0.4105
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Director.html#c00039-c00041",
+          "source_file": "Academy_Award_for_Best_Director.html",
+          "role": "primary",
+          "score": 0.3577
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Supporting_Actor.html#c00038-c00040",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html",
+          "role": "primary",
+          "score": 0.3534
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Director.html#c00043-c00045",
+          "source_file": "Academy_Award_for_Best_Director.html",
+          "role": "primary",
+          "score": 0.3463
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Animated_Feature.html#c00030-c00032",
+          "source_file": "Academy_Award_for_Best_Animated_Feature.html",
+          "role": "primary",
+          "score": 0.3355
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 20946,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "7584ab2c6b497c73-c00000",
+          "b51c20e390fe1693-c00034",
+          "198df6a3abe7cc47-c00020",
+          "599ff25cc439b524-c00040",
+          "7e14c0ec0e7bf7d7-c00040",
+          "f4e49e2bb44a4357-c00039",
+          "7e14c0ec0e7bf7d7-c00044",
+          "6a36616b15cd55c5-c00031"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 1.6390299000195228,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.0,
+      "chunk_precision_at_k": 0.0,
+      "article_precision": 0.0,
+      "unique_articles_retrieved": 7,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "Q005",
+      "question": "For each of the 1996, 2004, and 2008 Summer Olympics, list every city mentioned as having submitted a bid but not winning that edition's hosting contest.",
+      "retriever": "chunks",
+      "required_sources": [
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2008_Summer_Olympics.html"
+      ],
+      "expected_sources": [
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2008_Summer_Olympics.html"
+      ],
+      "retrieved_sources": [
+        "1996_Summer_Olympics.html",
+        "2008_Summer_Olympics.html",
+        "1984_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2012_Summer_Olympics.html",
+        "Australia_at_the_Olympics.html",
+        "List_of_Olympic_Games_host_cities.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "1996_Summer_Olympics.html#c00046-c00048",
+          "source_file": "1996_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5748
+        },
+        {
+          "unit_id": "2008_Summer_Olympics.html#c00006-c00008",
+          "source_file": "2008_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5435
+        },
+        {
+          "unit_id": "1984_Summer_Olympics.html#c00002-c00004",
+          "source_file": "1984_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5272
+        },
+        {
+          "unit_id": "2004_Summer_Olympics.html#c00002-c00004",
+          "source_file": "2004_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5143
+        },
+        {
+          "unit_id": "2012_Summer_Olympics.html#c00002-c00004",
+          "source_file": "2012_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5061
+        },
+        {
+          "unit_id": "Australia_at_the_Olympics.html#c00034-c00036",
+          "source_file": "Australia_at_the_Olympics.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "List_of_Olympic_Games_host_cities.html#c00000-c00001",
+          "source_file": "List_of_Olympic_Games_host_cities.html",
+          "role": "primary",
+          "score": 0.3782
+        },
+        {
+          "unit_id": "List_of_Olympic_Games_host_cities.html#c00005-c00007",
+          "source_file": "List_of_Olympic_Games_host_cities.html",
+          "role": "primary",
+          "score": 0.374
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 21748,
+      "evidence_recall": 0.3333333333333333,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "170433dfdcecde6c-c00047",
+          "b050dab4972144e0-c00007",
+          "f758641f89dc68b7-c00003",
+          "1fdd42c401067e31-c00003",
+          "0825e4a78793431f-c00003",
+          "6a84d9c001b570d2-c00035",
+          "8c1929851266f807-c00000",
+          "8c1929851266f807-c00006"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 1.9341186999808997,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 0.6666666666666666,
+      "source_precision_at_k": 0.375,
+      "chunk_precision_at_k": 0.375,
+      "article_precision": 0.42857142857142855,
+      "unique_articles_retrieved": 7,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "Q009",
+      "question": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+      "retriever": "chunks",
+      "required_sources": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "expected_sources": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "retrieved_sources": [
+        "Nobel_Prize.html",
+        "List_of_Nobel_laureates_in_Physics.html",
+        "1964_Nobel_Prize_in_Literature.html",
+        "John_Bardeen.html",
+        "Nobel_Peace_Prize.html",
+        "Albert_Einstein.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Nobel_Prize.html#c00048-c00050",
+          "source_file": "Nobel_Prize.html",
+          "role": "primary",
+          "score": 0.7389
+        },
+        {
+          "unit_id": "List_of_Nobel_laureates_in_Physics.html#c00000-c00002",
+          "source_file": "List_of_Nobel_laureates_in_Physics.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "1964_Nobel_Prize_in_Literature.html#c00000-c00002",
+          "source_file": "1964_Nobel_Prize_in_Literature.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "John_Bardeen.html#c00011-c00013",
+          "source_file": "John_Bardeen.html",
+          "role": "primary",
+          "score": 0.3591
+        },
+        {
+          "unit_id": "Nobel_Peace_Prize.html#c00001-c00003",
+          "source_file": "Nobel_Peace_Prize.html",
+          "role": "primary",
+          "score": 0.3588
+        },
+        {
+          "unit_id": "Nobel_Prize.html#c00044-c00046",
+          "source_file": "Nobel_Prize.html",
+          "role": "primary",
+          "score": 0.3541
+        },
+        {
+          "unit_id": "Albert_Einstein.html#c00081-c00083",
+          "source_file": "Albert_Einstein.html",
+          "role": "primary",
+          "score": 0.2809
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 22738,
+      "evidence_recall": 0.75,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "3e63e207c636cf56-c00049",
+          "d0ab527c61d96461-c00001",
+          "2383c385675d1e75-c00001",
+          "1cde5d8da7ccbdc5-c00012",
+          "4d3f2b122f3bad0b-c00002",
+          "2383c385675d1e75-c00000",
+          "3e63e207c636cf56-c00045",
+          "81ed86f1f706c67e-c00082"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 2.330055300029926,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.14285714285714285,
+      "chunk_precision_at_k": 0.14285714285714285,
+      "article_precision": 0.16666666666666666,
+      "unique_articles_retrieved": 6,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "Q014",
+      "question": "In the IOC vote that awarded the 1992 Winter Games, which two cities tied and were sent to a run-off, what were their run-off vote totals, and which city was eliminated after the very first round?",
+      "retriever": "chunks",
+      "required_sources": [
+        "1992_Winter_Olympics.html"
+      ],
+      "expected_sources": [
+        "1992_Winter_Olympics.html"
+      ],
+      "retrieved_sources": [
+        "2004_Summer_Olympics.html",
+        "2020_Summer_Olympics.html",
+        "1972_Winter_Olympics.html",
+        "1992_Winter_Olympics.html",
+        "1988_Winter_Olympics.html",
+        "List_of_Olympic_Games_host_cities.html",
+        "Australia_at_the_Olympics.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "2004_Summer_Olympics.html#c00004-c00006",
+          "source_file": "2004_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.9771
+        },
+        {
+          "unit_id": "2020_Summer_Olympics.html#c00005-c00007",
+          "source_file": "2020_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5563
+        },
+        {
+          "unit_id": "1972_Winter_Olympics.html#c00000-c00002",
+          "source_file": "1972_Winter_Olympics.html",
+          "role": "primary",
+          "score": 0.5145
+        },
+        {
+          "unit_id": "1992_Winter_Olympics.html#c00003-c00005",
+          "source_file": "1992_Winter_Olympics.html",
+          "role": "primary",
+          "score": 0.5113
+        },
+        {
+          "unit_id": "1988_Winter_Olympics.html#c00007-c00009",
+          "source_file": "1988_Winter_Olympics.html",
+          "role": "primary",
+          "score": 0.4569
+        },
+        {
+          "unit_id": "List_of_Olympic_Games_host_cities.html#c00004-c00006",
+          "source_file": "List_of_Olympic_Games_host_cities.html",
+          "role": "primary",
+          "score": 0.3275
+        },
+        {
+          "unit_id": "1988_Winter_Olympics.html#c00003-c00005",
+          "source_file": "1988_Winter_Olympics.html",
+          "role": "primary",
+          "score": 0.3092
+        },
+        {
+          "unit_id": "Australia_at_the_Olympics.html#c00008-c00010",
+          "source_file": "Australia_at_the_Olympics.html",
+          "role": "primary",
+          "score": 0.2848
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 19439,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "1fdd42c401067e31-c00005",
+          "708478617d20db02-c00006",
+          "98fa9cf3765ac4bc-c00001",
+          "588d0cca324541cf-c00004",
+          "1b17b73a2024e911-c00008",
+          "8c1929851266f807-c00005",
+          "1b17b73a2024e911-c00004",
+          "6a84d9c001b570d2-c00009"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 2.958985200035386,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.125,
+      "chunk_precision_at_k": 0.125,
+      "article_precision": 0.14285714285714285,
+      "unique_articles_retrieved": 7,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G06",
+      "question": "Name another president besides Barack Obama who attended Harvard.",
+      "retriever": "chunks",
+      "required_sources": [
+        "George_W._Bush.html"
+      ],
+      "expected_sources": [
+        "George_W._Bush.html",
+        "Harvard_University.html",
+        "Barack_Obama.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Ivy_League.html",
+        "Barack_Obama.html",
+        "List_of_presidents_of_the_United_States_by_education.html",
+        "Harvard_University.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Ivy_League.html#c00054-c00056",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 0.74
+        },
+        {
+          "unit_id": "Barack_Obama.html#c00119-c00121",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.6681
+        },
+        {
+          "unit_id": "Barack_Obama.html#c00122-c00123",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.6236
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html#c00015-c00017",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.4755
+        },
+        {
+          "unit_id": "Harvard_University.html#c00053-c00055",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.438
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html#c00023-c00025",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.3797
+        }
+      ],
+      "unit_count": 6,
+      "context_chars": 17464,
+      "evidence_recall": 0.4,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "1b3e71a846a884c7-c00055",
+          "1b3e71a846a884c7-c00054",
+          "ce083e780cb76d37-c00120",
+          "ce083e780cb76d37-c00122",
+          "1b3e71a846a884c7-c00056",
+          "2f95a5be7329cc28-c00016",
+          "7f8730199e3c9d3c-c00054",
+          "2f95a5be7329cc28-c00024"
+        ],
+        "parent_units": 6
+      },
+      "retrieval_latency_seconds": 0.7242047999752685,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.8333333333333334,
+      "chunk_precision_at_k": 0.8333333333333334,
+      "article_precision": 0.75,
+      "unique_articles_retrieved": 4,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "G07",
+      "question": "Name another president besides Bill Clinton who attended Yale.",
+      "retriever": "chunks",
+      "required_sources": [
+        "George_W._Bush.html"
+      ],
+      "expected_sources": [
+        "George_W._Bush.html",
+        "Yale_University.html",
+        "Bill_Clinton.html",
+        "Gerald_Ford.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Yale_University.html",
+        "Ivy_League.html",
+        "List_of_presidents_of_the_United_States_by_education.html",
+        "Bill_Clinton.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Yale_University.html#c00084-c00086",
+          "source_file": "Yale_University.html",
+          "role": "primary",
+          "score": 0.8893
+        },
+        {
+          "unit_id": "Yale_University.html#c00027-c00029",
+          "source_file": "Yale_University.html",
+          "role": "primary",
+          "score": 0.8845
+        },
+        {
+          "unit_id": "Ivy_League.html#c00053-c00055",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 0.7327
+        },
+        {
+          "unit_id": "Ivy_League.html#c00056-c00057",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 0.6217
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html#c00003-c00005",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.6048
+        },
+        {
+          "unit_id": "Bill_Clinton.html#c00101-c00103",
+          "source_file": "Bill_Clinton.html",
+          "role": "primary",
+          "score": 0.4358
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html#c00015-c00017",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.38
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 18331,
+      "evidence_recall": 0.3333333333333333,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "aa9f74cce6a73154-c00085",
+          "aa9f74cce6a73154-c00028",
+          "1b3e71a846a884c7-c00054",
+          "1b3e71a846a884c7-c00056",
+          "2f95a5be7329cc28-c00004",
+          "270eebd3786920c2-c00102",
+          "1b3e71a846a884c7-c00055",
+          "2f95a5be7329cc28-c00016"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 0.9018658000277355,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.7142857142857143,
+      "chunk_precision_at_k": 0.7142857142857143,
+      "article_precision": 0.75,
+      "unique_articles_retrieved": 4,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "G10",
+      "question": "Name two films by English directors that won Academy Awards.",
+      "retriever": "chunks",
+      "required_sources": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html"
+      ],
+      "expected_sources": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Director.html",
+        "List_of_Academy_Award_records.html",
+        "Academy_Award_for_Best_Picture.html",
+        "Pride_&_Prejudice_(2005_film).html",
+        "Sam_Mendes.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Academy_Award_for_Best_Director.html#c00000-c00002",
+          "source_file": "Academy_Award_for_Best_Director.html",
+          "role": "primary",
+          "score": 0.8966
+        },
+        {
+          "unit_id": "List_of_Academy_Award_records.html#c00004-c00006",
+          "source_file": "List_of_Academy_Award_records.html",
+          "role": "primary",
+          "score": 0.5878
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00005-c00007",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 0.552
+        },
+        {
+          "unit_id": "Pride_&_Prejudice_(2005_film).html#c00047-c00049",
+          "source_file": "Pride_&_Prejudice_(2005_film).html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "List_of_Academy_Award_records.html#c00086-c00088",
+          "source_file": "List_of_Academy_Award_records.html",
+          "role": "primary",
+          "score": 0.4517
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00001-c00003",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 0.3859
+        },
+        {
+          "unit_id": "Sam_Mendes.html#c00018-c00020",
+          "source_file": "Sam_Mendes.html",
+          "role": "primary",
+          "score": 0.3811
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 21764,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "7e14c0ec0e7bf7d7-c00001",
+          "67142f28a712cfd6-c00005",
+          "7584ab2c6b497c73-c00006",
+          "304cbda13364173e-c00048",
+          "67142f28a712cfd6-c00087",
+          "7e14c0ec0e7bf7d7-c00000",
+          "7584ab2c6b497c73-c00002",
+          "658db4cec8a94cea-c00019"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 0.988496900012251,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.42857142857142855,
+      "chunk_precision_at_k": 0.42857142857142855,
+      "article_precision": 0.4,
+      "unique_articles_retrieved": 5,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "G15",
+      "question": "Which city has the larger population, Sarajevo or Dunedin?",
+      "retriever": "chunks",
+      "required_sources": [
+        "Sarajevo.html",
+        "Dunedin.html"
+      ],
+      "expected_sources": [
+        "Sarajevo.html",
+        "Dunedin.html"
+      ],
+      "retrieved_sources": [
+        "Dunedin.html",
+        "Otago.html",
+        "Sarajevo.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Dunedin.html#c00002-c00004",
+          "source_file": "Dunedin.html",
+          "role": "primary",
+          "score": 0.9507
+        },
+        {
+          "unit_id": "Otago.html#c00009-c00011",
+          "source_file": "Otago.html",
+          "role": "primary",
+          "score": 0.6998
+        },
+        {
+          "unit_id": "Dunedin.html#c00037-c00039",
+          "source_file": "Dunedin.html",
+          "role": "primary",
+          "score": 0.6765
+        },
+        {
+          "unit_id": "Dunedin.html#c00022-c00024",
+          "source_file": "Dunedin.html",
+          "role": "primary",
+          "score": 0.6669
+        },
+        {
+          "unit_id": "Dunedin.html#c00000-c00001",
+          "source_file": "Dunedin.html",
+          "role": "primary",
+          "score": 0.6477
+        },
+        {
+          "unit_id": "Dunedin.html#c00018-c00020",
+          "source_file": "Dunedin.html",
+          "role": "primary",
+          "score": 0.642
+        },
+        {
+          "unit_id": "Sarajevo.html#c00000-c00002",
+          "source_file": "Sarajevo.html",
+          "role": "primary",
+          "score": 0.5919
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 19624,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "475b805b898c67f7-c00003",
+          "4a01c3ed3eaa1e7a-c00010",
+          "475b805b898c67f7-c00038",
+          "475b805b898c67f7-c00023",
+          "475b805b898c67f7-c00001",
+          "475b805b898c67f7-c00019",
+          "70bdf52dcea4b21f-c00001",
+          "475b805b898c67f7-c00000"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 0.727689300023485,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.8571428571428571,
+      "chunk_precision_at_k": 0.8571428571428571,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G16",
+      "question": "Was Charles III born before his mother's reign began?",
+      "retriever": "chunks",
+      "required_sources": [
+        "Charles_III.html"
+      ],
+      "expected_sources": [
+        "Charles_III.html",
+        "Elizabeth_II.html"
+      ],
+      "retrieved_sources": [
+        "Charles_III.html",
+        "James_II_of_England.html",
+        "List_of_Scottish_monarchs.html",
+        "Anne,_Princess_Royal.html",
+        "Nicola_Sturgeon.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Charles_III.html#c00000-c00001",
+          "source_file": "Charles_III.html",
+          "role": "primary",
+          "score": 0.8501
+        },
+        {
+          "unit_id": "James_II_of_England.html#c00000-c00001",
+          "source_file": "James_II_of_England.html",
+          "role": "primary",
+          "score": 0.5541
+        },
+        {
+          "unit_id": "List_of_Scottish_monarchs.html#c00024-c00026",
+          "source_file": "List_of_Scottish_monarchs.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "Charles_III.html#c00065-c00067",
+          "source_file": "Charles_III.html",
+          "role": "primary",
+          "score": 0.4705
+        },
+        {
+          "unit_id": "Charles_III.html#c00177-c00179",
+          "source_file": "Charles_III.html",
+          "role": "primary",
+          "score": 0.4483
+        },
+        {
+          "unit_id": "Anne,_Princess_Royal.html#c00001-c00003",
+          "source_file": "Anne,_Princess_Royal.html",
+          "role": "primary",
+          "score": 0.3346
+        },
+        {
+          "unit_id": "Nicola_Sturgeon.html#c00072-c00074",
+          "source_file": "Nicola_Sturgeon.html",
+          "role": "primary",
+          "score": 0.3139
+        },
+        {
+          "unit_id": "Charles_III.html#c00186-c00187",
+          "source_file": "Charles_III.html",
+          "role": "primary",
+          "score": 0.3109
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 15793,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "dc85b7cd3cc95787-c00000",
+          "cb0448e3c9ba4282-c00000",
+          "b2f40881843f6170-c00025",
+          "dc85b7cd3cc95787-c00066",
+          "dc85b7cd3cc95787-c00178",
+          "6cfe65423b4b68e0-c00002",
+          "6673399075a4a01c-c00073",
+          "dc85b7cd3cc95787-c00187"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 0.8979679000331089,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.5,
+      "chunk_precision_at_k": 0.5,
+      "article_precision": 0.2,
+      "unique_articles_retrieved": 5,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G08",
+      "question": "Which president served in both the 20th and 21st centuries?",
+      "retriever": "chunks",
+      "required_sources": [
+        "Bill_Clinton.html"
+      ],
+      "expected_sources": [
+        "Bill_Clinton.html",
+        "George_W._Bush.html",
+        "Barack_Obama.html",
+        "Ronald_Reagan.html",
+        "Gerald_Ford.html",
+        "Donald_Trump.html"
+      ],
+      "retrieved_sources": [
+        "President_of_the_United_States.html",
+        "Massachusetts.html",
+        "List_of_presidents_of_the_United_States.html",
+        "Maine.html",
+        "List_of_presidents_of_the_United_States_who_died_in_office.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "President_of_the_United_States.html#c00001-c00003",
+          "source_file": "President_of_the_United_States.html",
+          "role": "primary",
+          "score": 0.7475
+        },
+        {
+          "unit_id": "Massachusetts.html#c00045-c00047",
+          "source_file": "Massachusetts.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States.html#c00019-c00021",
+          "source_file": "List_of_presidents_of_the_United_States.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "Maine.html#c00014-c00016",
+          "source_file": "Maine.html",
+          "role": "primary",
+          "score": 0.4891
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_who_died_in_office.html#c00024-c00026",
+          "source_file": "List_of_presidents_of_the_United_States_who_died_in_office.html",
+          "role": "primary",
+          "score": 0.4746
+        },
+        {
+          "unit_id": "President_of_the_United_States.html#c00004-c00005",
+          "source_file": "President_of_the_United_States.html",
+          "role": "primary",
+          "score": 0.4662
+        },
+        {
+          "unit_id": "President_of_the_United_States.html#c00015-c00017",
+          "source_file": "President_of_the_United_States.html",
+          "role": "primary",
+          "score": 0.4574
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States.html#c00002-c00004",
+          "source_file": "List_of_presidents_of_the_United_States.html",
+          "role": "primary",
+          "score": 0.3578
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 22790,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "35018abab56a294f-c00002",
+          "ab9cee74d432aef9-c00046",
+          "b7450806901ae6fc-c00020",
+          "8af954d6a425b7db-c00015",
+          "cd755793ea9ecf45-c00025",
+          "35018abab56a294f-c00004",
+          "35018abab56a294f-c00016",
+          "b7450806901ae6fc-c00003"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 0.8657979000126943,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.0,
+      "chunk_precision_at_k": 0.0,
+      "article_precision": 0.0,
+      "unique_articles_retrieved": 5,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "G13",
+      "question": "What was the former name of the university where Barack Obama earned his law degree?",
+      "retriever": "chunks",
+      "required_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "expected_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Barack_Obama.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Barack_Obama.html#c00001-c00003",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.9075
+        },
+        {
+          "unit_id": "Barack_Obama.html#c00008-c00010",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.7877
+        },
+        {
+          "unit_id": "Barack_Obama.html#c00121-c00123",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.6379
+        },
+        {
+          "unit_id": "Barack_Obama.html#c00015-c00017",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.5672
+        },
+        {
+          "unit_id": "Barack_Obama.html#c00013-c00014",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.3434
+        },
+        {
+          "unit_id": "Barack_Obama.html#c00237-c00239",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.3179
+        }
+      ],
+      "unit_count": 6,
+      "context_chars": 16390,
+      "evidence_recall": 0.3333333333333333,
+      "retrieval_trace": {
+        "child_chunk_ids": [
+          "ce083e780cb76d37-c00002",
+          "ce083e780cb76d37-c00009",
+          "ce083e780cb76d37-c00122",
+          "ce083e780cb76d37-c00016",
+          "ce083e780cb76d37-c00017",
+          "ce083e780cb76d37-c00123",
+          "ce083e780cb76d37-c00014",
+          "ce083e780cb76d37-c00238"
+        ],
+        "parent_units": 6
+      },
+      "retrieval_latency_seconds": 1.0923161000246182,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 1.0,
+      "chunk_precision_at_k": 1.0,
+      "article_precision": 1.0,
+      "unique_articles_retrieved": 1,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    }
+  ]
+}

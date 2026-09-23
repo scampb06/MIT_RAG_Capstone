@@ -1,0 +1,3156 @@
+{
+  "configuration": {
+    "retriever": "graph",
+    "unit": "chunk",
+    "top_k": 8,
+    "candidate_pool": 40,
+    "weight_bm25": 0.5,
+    "weight_vector": 0.5,
+    "max_chunk_chars": 2000,
+    "parent": {
+      "mode": "lead_section",
+      "max_chunks": 4,
+      "context_budget_chars": 40000
+    },
+    "graph": {
+      "seed_k": 4,
+      "max_category_size": 150,
+      "relation_weights": {
+        "category_match": 4.0,
+        "infobox": 3.0,
+        "category": 2.0,
+        "link": 1.0
+      }
+    },
+    "llm_model": "openai/gpt-5.4-mini",
+    "embedding_model": "openai/text-embedding-3-small",
+    "temperature": 0.2,
+    "run_at": "2026-09-21T18:32:46"
+  },
+  "results": [
+    {
+      "id": "Q006",
+      "question": "Compare how the Academy handled the introduction of the Best Animated Feature category with the way the Best Original Score category was split and then merged again in the 1990s.",
+      "retriever": "graph",
+      "required_sources": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Animated_Feature.html"
+      ],
+      "retrieved_sources": [
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html",
+        "74th_Academy_Awards.html",
+        "Grammy_Award_for_Best_Metal_Performance.html",
+        "Titanic_(1997_film).html",
+        "La_La_Land.html",
+        "The_Lord_of_the_Rings__The_Return_of_the_King.html",
+        "Academy_Award_for_Best_Animated_Feature.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "68th_Academy_Awards.html#c00000-c00018",
+          "source_file": "68th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00000-c00033",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 0.6485
+        },
+        {
+          "unit_id": "74th_Academy_Awards.html#c00000-c00018",
+          "source_file": "74th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.556
+        },
+        {
+          "unit_id": "Grammy_Award_for_Best_Metal_Performance.html#c00000-c00003",
+          "source_file": "Grammy_Award_for_Best_Metal_Performance.html",
+          "role": "primary",
+          "score": 0.3632
+        },
+        {
+          "unit_id": "Titanic_(1997_film).html#c00000-c00003",
+          "source_file": "Titanic_(1997_film).html",
+          "role": "context: member of 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Original Song Academy Award'; linked from Academy_Award_for_Best_Picture.html",
+          "score": 10.2046
+        },
+        {
+          "unit_id": "La_La_Land.html#c00000-c00003",
+          "source_file": "La_La_Land.html",
+          "role": "context: member of 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Original Song Academy Award'; linked from Academy_Award_for_Best_Picture.html",
+          "score": 9.2958
+        },
+        {
+          "unit_id": "The_Lord_of_the_Rings__The_Return_of_the_King.html#c00000-c00055",
+          "source_file": "The_Lord_of_the_Rings__The_Return_of_the_King.html",
+          "role": "context: member of 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Original Song Academy Award'; shares category 'Best Picture Academy Award winners' with Academy_Award_for_Best_Picture.html",
+          "score": 9.2709
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Animated_Feature.html#c00000-c00001",
+          "source_file": "Academy_Award_for_Best_Animated_Feature.html",
+          "role": "context: member of 'Awards for best animated feature film'; linked from Academy_Award_for_Best_Picture.html",
+          "score": 8.8599
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 26796,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "seed_files": [
+          "68th_Academy_Awards.html",
+          "Academy_Award_for_Best_Picture.html",
+          "74th_Academy_Awards.html",
+          "Grammy_Award_for_Best_Metal_Performance.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "Films that won the Best Original Score Academy Award",
+            "members": 8
+          },
+          {
+            "title": "Best Animated Feature Academy Award winners",
+            "members": 1
+          },
+          {
+            "title": "Best Original Music Score Academy Award winners",
+            "members": 3
+          },
+          {
+            "title": "Directors of Best Animated Feature Academy Award winners",
+            "members": 1
+          },
+          {
+            "title": "Films that won the Best Original Song Academy Award",
+            "members": 5
+          },
+          {
+            "title": "Films whose writer won the Best Original Screenplay Academy Award",
+            "members": 1
+          },
+          {
+            "title": "Best Animated Feature BAFTA winners",
+            "members": 1
+          },
+          {
+            "title": "Awards for best animated feature film",
+            "members": 1
+          }
+        ],
+        "candidate_count": 83,
+        "expansions": [
+          {
+            "source_file": "Titanic_(1997_film).html",
+            "relations": [
+              "member of 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Original Song Academy Award'",
+              "linked from Academy_Award_for_Best_Picture.html",
+              "shares category 'Best Picture Academy Award winners' with Academy_Award_for_Best_Picture.html",
+              "linked from 74th_Academy_Awards.html"
+            ],
+            "score": 10.205
+          },
+          {
+            "source_file": "La_La_Land.html",
+            "relations": [
+              "member of 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Original Song Academy Award'",
+              "linked from Academy_Award_for_Best_Picture.html"
+            ],
+            "score": 9.296
+          },
+          {
+            "source_file": "The_Lord_of_the_Rings__The_Return_of_the_King.html",
+            "relations": [
+              "member of 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Original Song Academy Award'",
+              "shares category 'Best Picture Academy Award winners' with Academy_Award_for_Best_Picture.html"
+            ],
+            "score": 9.271
+          },
+          {
+            "source_file": "Academy_Award_for_Best_Animated_Feature.html",
+            "relations": [
+              "member of 'Awards for best animated feature film'",
+              "linked from Academy_Award_for_Best_Picture.html",
+              "shares category 'Academy Awards' with Academy_Award_for_Best_Picture.html",
+              "linked from 74th_Academy_Awards.html",
+              "74th_Academy_Awards.html is 'First award' of Academy_Award_for_Best_Animated_Feature.html"
+            ],
+            "score": 8.86
+          }
+        ],
+        "child_chunk_ids": [
+          "3e8e548f009bb2b4-c00018",
+          "7584ab2c6b497c73-c00032",
+          "54cc717f4dc58b8c-c00018",
+          "e9d4c0e8303401c9-c00002",
+          "3e797fb69056928c-c00002",
+          "c1ed16a211777eaf-c00002",
+          "a99b8a458e7a973f-c00054",
+          "6a36616b15cd55c5-c00000"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 5.200526300002821,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.375,
+      "chunk_precision_at_k": 0.375,
+      "article_precision": 0.375,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "Q045",
+      "question": "Compare the audience reactions and awards outcomes for the two films that lost Best Picture in the most talked-about upsets — the 2005 gay romance and the 2016 musical.",
+      "retriever": "graph",
+      "required_sources": [
+        "Brokeback_Mountain.html",
+        "89th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "Brokeback_Mountain.html",
+        "89th_Academy_Awards.html",
+        "La_La_Land.html",
+        "Academy_Award_for_Best_Picture.html",
+        "Emma_Stone.html",
+        "Ryan_Gosling.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Picture.html",
+        "Brokeback_Mountain.html",
+        "La_La_Land.html",
+        "List_of_Academy_Award_records.html",
+        "Titanic_(1997_film).html",
+        "King_Kong_(2005_film).html",
+        "The_Lord_of_the_Rings__The_Return_of_the_King.html",
+        "E.T._the_Extra-Terrestrial.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00000-c00030",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 0.8756
+        },
+        {
+          "unit_id": "Brokeback_Mountain.html#c00000-c00040",
+          "source_file": "Brokeback_Mountain.html",
+          "role": "primary",
+          "score": 0.6782
+        },
+        {
+          "unit_id": "La_La_Land.html#c00000-c00003",
+          "source_file": "La_La_Land.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "List_of_Academy_Award_records.html#c00000-c00012",
+          "source_file": "List_of_Academy_Award_records.html",
+          "role": "primary",
+          "score": 0.4936
+        },
+        {
+          "unit_id": "Titanic_(1997_film).html#c00000-c00003",
+          "source_file": "Titanic_(1997_film).html",
+          "role": "context: member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Song Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award' and 'Films that won the Best Costume Design Academy Award'; linked from Academy_Award_for_Best_Picture.html",
+          "score": 16.6757
+        },
+        {
+          "unit_id": "King_Kong_(2005_film).html#c00000-c00002",
+          "source_file": "King_Kong_(2005_film).html",
+          "role": "context: member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'; linked from Brokeback_Mountain.html",
+          "score": 16.5685
+        },
+        {
+          "unit_id": "The_Lord_of_the_Rings__The_Return_of_the_King.html#c00000-c00004",
+          "source_file": "The_Lord_of_the_Rings__The_Return_of_the_King.html",
+          "role": "context: member of 'Films that won the Academy Award for Best Makeup' and 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Song Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Mixing Academy Award' and 'Films that won the Best Costume Design Academy Award'; shares category 'Best Picture Academy Award winners' with Academy_Award_for_Best_Picture.html",
+          "score": 14.6877
+        },
+        {
+          "unit_id": "E.T._the_Extra-Terrestrial.html#c00000-c00002",
+          "source_file": "E.T._the_Extra-Terrestrial.html",
+          "role": "context: member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'; linked from Academy_Award_for_Best_Picture.html",
+          "score": 14.6666
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 29835,
+      "evidence_recall": 0.25,
+      "retrieval_trace": {
+        "seed_files": [
+          "Academy_Award_for_Best_Picture.html",
+          "Brokeback_Mountain.html",
+          "La_La_Land.html",
+          "List_of_Academy_Award_records.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "Films that won the Academy Award for Best Makeup",
+            "members": 1
+          },
+          {
+            "title": "Films that won the Best Visual Effects Academy Award",
+            "members": 7
+          },
+          {
+            "title": "Films that won the Best Original Song Academy Award",
+            "members": 5
+          },
+          {
+            "title": "Films that won the Best Original Score Academy Award",
+            "members": 8
+          },
+          {
+            "title": "Films that won the Best Sound Editing Academy Award",
+            "members": 7
+          },
+          {
+            "title": "Films that won the Best Sound Mixing Academy Award",
+            "members": 7
+          },
+          {
+            "title": "Films that won the Best Costume Design Academy Award",
+            "members": 2
+          },
+          {
+            "title": "Films about Lost Cause of the Confederacy",
+            "members": 1
+          }
+        ],
+        "candidate_count": 161,
+        "expansions": [
+          {
+            "source_file": "Titanic_(1997_film).html",
+            "relations": [
+              "member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Song Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award' and 'Films that won the Best Costume Design Academy Award'",
+              "linked from Academy_Award_for_Best_Picture.html",
+              "shares category 'Best Picture Academy Award winners' with Academy_Award_for_Best_Picture.html",
+              "linked from Brokeback_Mountain.html",
+              "shares category 'American historical romance films' with Brokeback_Mountain.html",
+              "shares category 'American romantic drama films' with Brokeback_Mountain.html",
+              "shares category 'Best Drama Picture Golden Globe winners' with Brokeback_Mountain.html",
+              "shares category 'English-language romantic drama films' with Brokeback_Mountain.html",
+              "shares category 'Films that won the Best Original Score Academy Award' with Brokeback_Mountain.html",
+              "shares category 'Films whose director won the Best Directing Academy Award' with Brokeback_Mountain.html",
+              "shares category 'Films whose director won the Best Director Golden Globe' with Brokeback_Mountain.html",
+              "shares category 'Satellite Award–winning films' with Brokeback_Mountain.html",
+              "shares category 'United States National Film Registry films' with Brokeback_Mountain.html",
+              "linked from La_La_Land.html",
+              "shares category 'American IMAX films' with La_La_Land.html",
+              "shares category 'Films that won the Best Original Score Academy Award' with La_La_Land.html",
+              "shares category 'Films that won the Best Original Song Academy Award' with La_La_Land.html",
+              "shares category 'Films whose production designer won the Best Production Design Academy Award' with La_La_Land.html",
+              "shares category 'Films whose cinematographer won the Best Cinematography Academy Award' with La_La_Land.html",
+              "shares category 'Films whose director won the Best Directing Academy Award' with La_La_Land.html",
+              "shares category 'Films whose director won the Best Director Golden Globe' with La_La_Land.html",
+              "shares category 'Satellite Award–winning films' with La_La_Land.html",
+              "shares category 'Saturn Award–winning films' with La_La_Land.html",
+              "linked from List_of_Academy_Award_records.html"
+            ],
+            "score": 16.676
+          },
+          {
+            "source_file": "King_Kong_(2005_film).html",
+            "relations": [
+              "member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'",
+              "linked from Brokeback_Mountain.html",
+              "shares category '2005 films' with Brokeback_Mountain.html",
+              "shares category '2005 American films' with Brokeback_Mountain.html",
+              "shares category '2005 English-language films' with Brokeback_Mountain.html",
+              "shares category 'BAFTA winners (films)' with La_La_Land.html",
+              "shares category 'Saturn Award–winning films' with La_La_Land.html"
+            ],
+            "score": 16.569
+          },
+          {
+            "source_file": "The_Lord_of_the_Rings__The_Return_of_the_King.html",
+            "relations": [
+              "member of 'Films that won the Academy Award for Best Makeup' and 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Song Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Mixing Academy Award' and 'Films that won the Best Costume Design Academy Award'",
+              "shares category 'Best Picture Academy Award winners' with Academy_Award_for_Best_Picture.html",
+              "shares category 'Best Drama Picture Golden Globe winners' with Brokeback_Mountain.html",
+              "shares category 'Best Film BAFTA Award winners' with Brokeback_Mountain.html",
+              "shares category 'Films that won the Best Original Score Academy Award' with Brokeback_Mountain.html",
+              "shares category 'Films whose director won the Best Directing Academy Award' with Brokeback_Mountain.html",
+              "shares category 'Films whose director won the Best Director Golden Globe' with Brokeback_Mountain.html",
+              "shares category 'Films whose writer won the Best Adapted Screenplay Academy Award' with Brokeback_Mountain.html",
+              "shares category 'Films whose writer won the Best Adapted Screenplay BAFTA Award' with Brokeback_Mountain.html",
+              "shares category 'Satellite Award–winning films' with Brokeback_Mountain.html",
+              "shares category 'BAFTA winners (films)' with La_La_Land.html",
+              "shares category 'Best Film BAFTA Award winners' with La_La_Land.html",
+              "shares category 'Films that won the Best Original Score Academy Award' with La_La_Land.html",
+              "shares category 'Films that won the Best Original Song Academy Award' with La_La_Land.html",
+              "shares category 'Films whose production designer won the Best Production Design Academy Award' with La_La_Land.html",
+              "shares category 'Films whose director won the Best Directing Academy Award' with La_La_Land.html",
+              "shares category 'Films whose director won the Best Director Golden Globe' with La_La_Land.html",
+              "shares category 'Satellite Award–winning films' with La_La_Land.html",
+              "shares category 'Saturn Award–winning films' with La_La_Land.html"
+            ],
+            "score": 14.688
+          },
+          {
+            "source_file": "E.T._the_Extra-Terrestrial.html",
+            "relations": [
+              "member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'",
+              "linked from Academy_Award_for_Best_Picture.html",
+              "shares category 'Best Drama Picture Golden Globe winners' with Brokeback_Mountain.html",
+              "shares category 'Films that won the Best Original Score Academy Award' with Brokeback_Mountain.html",
+              "shares category 'Obscenity controversies in film' with Brokeback_Mountain.html",
+              "shares category 'United States National Film Registry films' with Brokeback_Mountain.html",
+              "shares category 'American IMAX films' with La_La_Land.html",
+              "shares category 'Films shot in Los Angeles' with La_La_Land.html",
+              "shares category 'Films that won the Best Original Score Academy Award' with La_La_Land.html",
+              "shares category 'Saturn Award–winning films' with La_La_Land.html"
+            ],
+            "score": 14.667
+          }
+        ],
+        "child_chunk_ids": [
+          "7584ab2c6b497c73-c00029",
+          "d7cde549c7664d7f-c00039",
+          "c1ed16a211777eaf-c00002",
+          "67142f28a712cfd6-c00009",
+          "3e797fb69056928c-c00002",
+          "f78c4bc2545d1d8f-c00002",
+          "a99b8a458e7a973f-c00004",
+          "00ab2e20219dcb56-c00002"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 3.72680159995798,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.375,
+      "chunk_precision_at_k": 0.375,
+      "article_precision": 0.375,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "Q049",
+      "question": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+      "retriever": "graph",
+      "required_sources": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html"
+      ],
+      "expected_sources": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html",
+        "Academy_Award_for_Best_Actor.html",
+        "Austin_Butler.html",
+        "Colin_Farrell.html",
+        "Paul_Mescal.html",
+        "Bill_Nighy.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Supporting_Actor.html",
+        "The_Wolf_of_Wall_Street_(2013_film).html",
+        "Mark_Lee_(singer).html",
+        "Academy_Award_for_Best_Actor.html",
+        "Titanic_(1997_film).html",
+        "E.T._the_Extra-Terrestrial.html",
+        "King_Kong_(2005_film).html",
+        "The_Lord_of_the_Rings__The_Return_of_the_King.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Academy_Award_for_Best_Supporting_Actor.html#c00000-c00003",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html",
+          "role": "primary",
+          "score": 0.5669
+        },
+        {
+          "unit_id": "The_Wolf_of_Wall_Street_(2013_film).html#c00000-c00003",
+          "source_file": "The_Wolf_of_Wall_Street_(2013_film).html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "Mark_Lee_(singer).html#c00000-c00016",
+          "source_file": "Mark_Lee_(singer).html",
+          "role": "primary",
+          "score": 0.437
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Actor.html#c00000-c00003",
+          "source_file": "Academy_Award_for_Best_Actor.html",
+          "role": "primary",
+          "score": 0.43
+        },
+        {
+          "unit_id": "Titanic_(1997_film).html#c00000-c00082",
+          "source_file": "Titanic_(1997_film).html",
+          "role": "context: member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Song Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'; shares category 'Films set in 1996' with The_Wolf_of_Wall_Street_(2013_film).html",
+          "score": 13.3379
+        },
+        {
+          "unit_id": "E.T._the_Extra-Terrestrial.html#c00000-c00039",
+          "source_file": "E.T._the_Extra-Terrestrial.html",
+          "role": "context: member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'; shares category 'Obscenity controversies in film' with The_Wolf_of_Wall_Street_(2013_film).html",
+          "score": 13.3133
+        },
+        {
+          "unit_id": "King_Kong_(2005_film).html#c00000-c00009",
+          "source_file": "King_Kong_(2005_film).html",
+          "role": "context: member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'; shares category 'Universal Pictures films' with The_Wolf_of_Wall_Street_(2013_film).html",
+          "score": 12.8172
+        },
+        {
+          "unit_id": "The_Lord_of_the_Rings__The_Return_of_the_King.html#c00000-c00051",
+          "source_file": "The_Lord_of_the_Rings__The_Return_of_the_King.html",
+          "role": "context: member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Song Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Mixing Academy Award' and 'Films that won the Academy Award for Best Makeup'",
+          "score": 12.3095
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 38992,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {
+        "seed_files": [
+          "Academy_Award_for_Best_Supporting_Actor.html",
+          "The_Wolf_of_Wall_Street_(2013_film).html",
+          "Mark_Lee_(singer).html",
+          "Academy_Award_for_Best_Actor.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "Producers who won the Best Film BAFTA Award",
+            "members": 4
+          },
+          {
+            "title": "Producers who won the Best Picture Academy Award",
+            "members": 5
+          },
+          {
+            "title": "Films that won the Best Visual Effects Academy Award",
+            "members": 7
+          },
+          {
+            "title": "Films that won the Best Original Song Academy Award",
+            "members": 5
+          },
+          {
+            "title": "Films that won the Best Original Score Academy Award",
+            "members": 8
+          },
+          {
+            "title": "Films that won the Best Sound Editing Academy Award",
+            "members": 7
+          },
+          {
+            "title": "Films that won the Best Sound Mixing Academy Award",
+            "members": 7
+          },
+          {
+            "title": "Films that won the Academy Award for Best Makeup",
+            "members": 1
+          }
+        ],
+        "candidate_count": 132,
+        "expansions": [
+          {
+            "source_file": "Titanic_(1997_film).html",
+            "relations": [
+              "member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Song Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'",
+              "shares category 'Films set in 1996' with The_Wolf_of_Wall_Street_(2013_film).html",
+              "shares category 'Paramount Pictures films' with The_Wolf_of_Wall_Street_(2013_film).html"
+            ],
+            "score": 13.338
+          },
+          {
+            "source_file": "E.T._the_Extra-Terrestrial.html",
+            "relations": [
+              "member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'",
+              "shares category 'Obscenity controversies in film' with The_Wolf_of_Wall_Street_(2013_film).html",
+              "shares category 'Universal Pictures films' with The_Wolf_of_Wall_Street_(2013_film).html"
+            ],
+            "score": 13.313
+          },
+          {
+            "source_file": "King_Kong_(2005_film).html",
+            "relations": [
+              "member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'",
+              "shares category 'Universal Pictures films' with The_Wolf_of_Wall_Street_(2013_film).html"
+            ],
+            "score": 12.817
+          },
+          {
+            "source_file": "The_Lord_of_the_Rings__The_Return_of_the_King.html",
+            "relations": [
+              "member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Song Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Mixing Academy Award' and 'Films that won the Academy Award for Best Makeup'"
+            ],
+            "score": 12.31
+          }
+        ],
+        "child_chunk_ids": [
+          "f4e49e2bb44a4357-c00003",
+          "22662e147b40523a-c00003",
+          "a5b20f1a2caeafe7-c00015",
+          "599ff25cc439b524-c00003",
+          "3e797fb69056928c-c00081",
+          "00ab2e20219dcb56-c00039",
+          "f78c4bc2545d1d8f-c00007",
+          "a99b8a458e7a973f-c00050"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 2.3585936999879777,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.125,
+      "chunk_precision_at_k": 0.125,
+      "article_precision": 0.125,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "Q019",
+      "question": "How did the director of La La Land get his start, and what connects his college years to that film's music?",
+      "retriever": "graph",
+      "required_sources": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "expected_sources": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "retrieved_sources": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html",
+        "Whiplash_(2014_film).html",
+        "Lucky_Lehrer.html",
+        "Mariah_Carey.html",
+        "Beyoncé.html",
+        "Taylor_Swift.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "La_La_Land.html#c00000-c00013",
+          "source_file": "La_La_Land.html",
+          "role": "primary",
+          "score": 0.8152
+        },
+        {
+          "unit_id": "Damien_Chazelle.html#c00000-c00008",
+          "source_file": "Damien_Chazelle.html",
+          "role": "primary",
+          "score": 0.6664
+        },
+        {
+          "unit_id": "Whiplash_(2014_film).html#c00000-c00009",
+          "source_file": "Whiplash_(2014_film).html",
+          "role": "primary",
+          "score": 0.516
+        },
+        {
+          "unit_id": "Lucky_Lehrer.html#c00000-c00002",
+          "source_file": "Lucky_Lehrer.html",
+          "role": "primary",
+          "score": 0.2748
+        },
+        {
+          "unit_id": "Mariah_Carey.html#c00000-c00014",
+          "source_file": "Mariah_Carey.html",
+          "role": "context: member of 'American music video directors' and 'Female music video directors'",
+          "score": 8.3475
+        },
+        {
+          "unit_id": "Beyoncé.html#c00000-c00182",
+          "source_file": "Beyoncé.html",
+          "role": "context: member of 'American music video directors' and 'Female music video directors'",
+          "score": 8.3085
+        },
+        {
+          "unit_id": "Taylor_Swift.html#c00000-c00239",
+          "source_file": "Taylor_Swift.html",
+          "role": "context: member of 'American music video directors' and 'Female music video directors'",
+          "score": 8.3082
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 39956,
+      "evidence_recall": 0.5,
+      "retrieval_trace": {
+        "seed_files": [
+          "La_La_Land.html",
+          "Damien_Chazelle.html",
+          "Whiplash_(2014_film).html",
+          "Lucky_Lehrer.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "La-La Land Records artists",
+            "members": 1
+          },
+          {
+            "title": "La Martinière College, Lucknow alumni",
+            "members": 1
+          },
+          {
+            "title": "Land-grant universities and colleges",
+            "members": 4
+          },
+          {
+            "title": "Films with screenplays by Ian La Frenais",
+            "members": 1
+          },
+          {
+            "title": "American music video directors",
+            "members": 7
+          },
+          {
+            "title": "Female music video directors",
+            "members": 3
+          },
+          {
+            "title": "Australian music video directors",
+            "members": 1
+          },
+          {
+            "title": "Japan Academy Prize for Director of the Year winners",
+            "members": 1
+          }
+        ],
+        "candidate_count": 192,
+        "expansions": [
+          {
+            "source_file": "Mariah_Carey.html",
+            "relations": [
+              "member of 'American music video directors' and 'Female music video directors'"
+            ],
+            "score": 8.347
+          },
+          {
+            "source_file": "Beyoncé.html",
+            "relations": [
+              "member of 'American music video directors' and 'Female music video directors'"
+            ],
+            "score": 8.309
+          },
+          {
+            "source_file": "Taylor_Swift.html",
+            "relations": [
+              "member of 'American music video directors' and 'Female music video directors'"
+            ],
+            "score": 8.308
+          },
+          {
+            "source_file": "Halloween_(1978_film).html",
+            "relations": [
+              "shares category 'Films shot in Los Angeles' with La_La_Land.html",
+              "shares category 'Saturn Award–winning films' with La_La_Land.html",
+              "shares category 'American independent films' with Whiplash_(2014_film).html",
+              "shares category 'English-language independent films' with Whiplash_(2014_film).html",
+              "shares category 'Films shot in Los Angeles' with Whiplash_(2014_film).html",
+              "shares category 'Saturn Award–winning films' with Whiplash_(2014_film).html"
+            ],
+            "score": 6.445
+          }
+        ],
+        "child_chunk_ids": [
+          "c1ed16a211777eaf-c00011",
+          "4865f8c7e43f6193-c00006",
+          "4aa6ccf4b6069bcc-c00008",
+          "4998a05d60faee19-c00002",
+          "5c2b75bf04c7c551-c00011",
+          "f2ec0590497c370c-c00181",
+          "416da8f4ff16cc9e-c00238",
+          "1189700a64546d21-c00017"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 2.7555970999528654,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.2857142857142857,
+      "chunk_precision_at_k": 0.2857142857142857,
+      "article_precision": 0.2857142857142857,
+      "unique_articles_retrieved": 7,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "Q072",
+      "question": "What is the highest-grossing film of all time?",
+      "retriever": "graph",
+      "required_sources": [
+        "Titanic_(1997_film).html"
+      ],
+      "expected_sources": [
+        "Titanic_(1997_film).html",
+        "List_of_Academy_Award_records.html",
+        "James_Cameron.html",
+        "Avatar_(2009_film).html"
+      ],
+      "retrieved_sources": [
+        "Harry_Potter_(film_series).html",
+        "Avatar_(2009_film).html",
+        "The_Lion_King.html",
+        "The_Lord_of_the_Rings__The_Return_of_the_King.html",
+        "Donnie_Darko.html",
+        "Naruto_Shippuden_the_Movie__The_Lost_Tower.html",
+        "Avatar_(franchise).html",
+        "Pearl_Harbor_(film).html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Harry_Potter_(film_series).html#c00000-c00002",
+          "source_file": "Harry_Potter_(film_series).html",
+          "role": "primary",
+          "score": 0.6731
+        },
+        {
+          "unit_id": "Avatar_(2009_film).html#c00000-c00034",
+          "source_file": "Avatar_(2009_film).html",
+          "role": "primary",
+          "score": 0.613
+        },
+        {
+          "unit_id": "The_Lion_King.html#c00000-c00046",
+          "source_file": "The_Lion_King.html",
+          "role": "primary",
+          "score": 0.602
+        },
+        {
+          "unit_id": "The_Lord_of_the_Rings__The_Return_of_the_King.html#c00000-c00045",
+          "source_file": "The_Lord_of_the_Rings__The_Return_of_the_King.html",
+          "role": "primary",
+          "score": 0.5209
+        },
+        {
+          "unit_id": "Donnie_Darko.html#c00000-c00034",
+          "source_file": "Donnie_Darko.html",
+          "role": "context: member of 'Time loop films' and '2000s films about time travel'; shares category 'Saturn Award–winning films' with Avatar_(2009_film).html",
+          "score": 9.2114
+        },
+        {
+          "unit_id": "6aa1665325d875b1-c00000",
+          "source_file": "Naruto_Shippuden_the_Movie__The_Lost_Tower.html",
+          "role": "context: member of 'Animated films about time travel' and '2010s films about time travel'",
+          "score": 8.1597
+        },
+        {
+          "unit_id": "Avatar_(franchise).html#c00000-c00002",
+          "source_file": "Avatar_(franchise).html",
+          "role": "context: linked from Avatar_(2009_film).html; shares category 'American 3D films' with Avatar_(2009_film).html",
+          "score": 7.3146
+        },
+        {
+          "unit_id": "4f10fbc1ff5cab3b-c00017",
+          "source_file": "Pearl_Harbor_(film).html",
+          "role": "context: shares category 'Films shot in Hawaii' with Avatar_(2009_film).html; shares category 'Films shot in Los Angeles' with Avatar_(2009_film).html",
+          "score": 6.3652
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 38562,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {
+        "seed_files": [
+          "Harry_Potter_(film_series).html",
+          "Avatar_(2009_film).html",
+          "The_Lion_King.html",
+          "The_Lord_of_the_Rings__The_Return_of_the_King.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "Time loop films",
+            "members": 1
+          },
+          {
+            "title": "2000s films about time travel",
+            "members": 1
+          },
+          {
+            "title": "Animated films about time travel",
+            "members": 1
+          },
+          {
+            "title": "2010s films about time travel",
+            "members": 1
+          },
+          {
+            "title": "1980s films about time travel",
+            "members": 1
+          }
+        ],
+        "candidate_count": 139,
+        "expansions": [
+          {
+            "source_file": "Donnie_Darko.html",
+            "relations": [
+              "member of 'Time loop films' and '2000s films about time travel'",
+              "shares category 'Saturn Award–winning films' with Avatar_(2009_film).html",
+              "shares category 'Saturn Award–winning films' with The_Lord_of_the_Rings__The_Return_of_the_King.html"
+            ],
+            "score": 9.211
+          },
+          {
+            "source_file": "Naruto_Shippuden_the_Movie__The_Lost_Tower.html",
+            "relations": [
+              "member of 'Animated films about time travel' and '2010s films about time travel'"
+            ],
+            "score": 8.16
+          },
+          {
+            "source_file": "Avatar_(franchise).html",
+            "relations": [
+              "linked from Avatar_(2009_film).html",
+              "shares category 'American 3D films' with Avatar_(2009_film).html",
+              "shares category 'American epic films' with Avatar_(2009_film).html",
+              "shares category 'Films about environmental issues' with Avatar_(2009_film).html",
+              "shares category 'Films about extraterrestrial life' with Avatar_(2009_film).html",
+              "shares category 'Films about rebellions' with Avatar_(2009_film).html",
+              "shares category 'Films about technology' with Avatar_(2009_film).html",
+              "shares category 'Films set on fictional moons' with Avatar_(2009_film).html",
+              "shares category 'Military science fiction films' with Avatar_(2009_film).html",
+              "Avatar_(2009_film).html is 'Film(s)' of Avatar_(franchise).html",
+              "shares category 'American epic films' with The_Lion_King.html"
+            ],
+            "score": 7.315
+          },
+          {
+            "source_file": "Pearl_Harbor_(film).html",
+            "relations": [
+              "shares category 'Films shot in Hawaii' with Avatar_(2009_film).html",
+              "shares category 'Films shot in Los Angeles' with Avatar_(2009_film).html",
+              "shares category 'Teen Choice Award–winning films' with Avatar_(2009_film).html",
+              "shares category 'Disney controversies' with The_Lion_King.html",
+              "shares category 'Films scored by Hans Zimmer' with The_Lion_King.html",
+              "shares category 'Films shot in England' with The_Lord_of_the_Rings__The_Return_of_the_King.html"
+            ],
+            "score": 6.365
+          }
+        ],
+        "child_chunk_ids": [
+          "e58833efd7cd746a-c00002",
+          "d5a409e9d5854512-c00034",
+          "e9be774ce71669cb-c00043",
+          "a99b8a458e7a973f-c00042",
+          "940fb6bbfe8b0bb5-c00034",
+          "6aa1665325d875b1-c00000",
+          "6fe892554f0afcc7-c00002",
+          "4f10fbc1ff5cab3b-c00017"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 1.4532073000445962,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.125,
+      "chunk_precision_at_k": 0.125,
+      "article_precision": 0.125,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "Q080",
+      "question": "Tell me about Anthony Minghella — what did he win and what happened at the Oscars after his death?",
+      "retriever": "graph",
+      "required_sources": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "expected_sources": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "retrieved_sources": [
+        "Anthony_Minghella.html",
+        "Midnight_in_the_Garden_of_Good_and_Evil.html",
+        "Gus_Van_Sant.html",
+        "Steve_Jobs.html",
+        "Death_Note.html",
+        "Donnie_Darko.html",
+        "Clint_Eastwood.html",
+        "Steven_Spielberg.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "c31b0dd580459bb4-c00000",
+          "source_file": "Anthony_Minghella.html",
+          "role": "primary",
+          "score": 0.8227
+        },
+        {
+          "unit_id": "Midnight_in_the_Garden_of_Good_and_Evil.html#c00000-c00006",
+          "source_file": "Midnight_in_the_Garden_of_Good_and_Evil.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "Gus_Van_Sant.html#c00000-c00013",
+          "source_file": "Gus_Van_Sant.html",
+          "role": "primary",
+          "score": 0.4371
+        },
+        {
+          "unit_id": "Steve_Jobs.html#c00000-c00078",
+          "source_file": "Steve_Jobs.html",
+          "role": "primary",
+          "score": 0.4316
+        },
+        {
+          "unit_id": "Death_Note.html#c00000-c00040",
+          "source_file": "Death_Note.html",
+          "role": "context: member of 'Comics about death'",
+          "score": 6.3219
+        },
+        {
+          "unit_id": "Donnie_Darko.html#c00000-c00018",
+          "source_file": "Donnie_Darko.html",
+          "role": "context: member of 'Films about death'",
+          "score": 4.3253
+        },
+        {
+          "unit_id": "8665dd1c453a542d-c00132",
+          "source_file": "Clint_Eastwood.html",
+          "role": "context: shares category 'Best Directing Academy Award winners' with Anthony_Minghella.html; shares category 'Best Director Golden Globe winners' with Anthony_Minghella.html",
+          "score": 4.2943
+        },
+        {
+          "unit_id": "9d711af1d64fd9b0-c00153",
+          "source_file": "Steven_Spielberg.html",
+          "role": "context: shares category 'Best Directing Academy Award winners' with Anthony_Minghella.html; shares category 'Best Director Golden Globe winners' with Anthony_Minghella.html",
+          "score": 4.2852
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 39838,
+      "evidence_recall": 0.5,
+      "retrieval_trace": {
+        "seed_files": [
+          "Anthony_Minghella.html",
+          "Midnight_in_the_Garden_of_Good_and_Evil.html",
+          "Gus_Van_Sant.html",
+          "Steve_Jobs.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "Films about death",
+            "members": 3
+          },
+          {
+            "title": "Novels about death",
+            "members": 1
+          },
+          {
+            "title": "Comics about death",
+            "members": 1
+          },
+          {
+            "title": "Songs about death",
+            "members": 1
+          },
+          {
+            "title": "Films about death games",
+            "members": 1
+          },
+          {
+            "title": "Television shows about death",
+            "members": 1
+          }
+        ],
+        "candidate_count": 199,
+        "expansions": [
+          {
+            "source_file": "Death_Note.html",
+            "relations": [
+              "member of 'Comics about death'"
+            ],
+            "score": 6.322
+          },
+          {
+            "source_file": "Donnie_Darko.html",
+            "relations": [
+              "member of 'Films about death'"
+            ],
+            "score": 4.325
+          },
+          {
+            "source_file": "Clint_Eastwood.html",
+            "relations": [
+              "shares category 'Best Directing Academy Award winners' with Anthony_Minghella.html",
+              "shares category 'Best Director Golden Globe winners' with Anthony_Minghella.html",
+              "shares category 'Directors Guild of America Award winners' with Anthony_Minghella.html",
+              "shares category 'Directors of Best Picture Academy Award winners' with Anthony_Minghella.html",
+              "linked from Midnight_in_the_Garden_of_Good_and_Evil.html",
+              "shares category 'American people of Dutch descent' with Gus_Van_Sant.html",
+              "shares category '21st-century American businesspeople' with Steve_Jobs.html",
+              "shares category 'American investors' with Steve_Jobs.html",
+              "shares category 'Businesspeople from San Francisco' with Steve_Jobs.html",
+              "shares category 'Film producers from California' with Steve_Jobs.html",
+              "shares category 'Philanthropists from California' with Steve_Jobs.html"
+            ],
+            "score": 4.294
+          },
+          {
+            "source_file": "Steven_Spielberg.html",
+            "relations": [
+              "shares category 'Best Directing Academy Award winners' with Anthony_Minghella.html",
+              "shares category 'Best Director Golden Globe winners' with Anthony_Minghella.html",
+              "shares category 'Directors Guild of America Award winners' with Anthony_Minghella.html",
+              "shares category 'Directors of Best Film BAFTA Award winners' with Anthony_Minghella.html",
+              "shares category 'Directors of Best Picture Academy Award winners' with Anthony_Minghella.html",
+              "shares category '20th-century American male writers' with Gus_Van_Sant.html",
+              "shares category '20th-century American screenwriters' with Gus_Van_Sant.html",
+              "shares category '21st-century American male writers' with Gus_Van_Sant.html",
+              "shares category '21st-century American screenwriters' with Gus_Van_Sant.html",
+              "shares category 'American film editors' with Gus_Van_Sant.html",
+              "shares category 'American male screenwriters' with Gus_Van_Sant.html",
+              "shares category '20th-century American businesspeople' with Steve_Jobs.html",
+              "shares category '21st-century American businesspeople' with Steve_Jobs.html",
+              "shares category 'American billionaires' with Steve_Jobs.html",
+              "shares category 'American film studio executives' with Steve_Jobs.html",
+              "shares category 'Presidential Medal of Freedom recipients' with Steve_Jobs.html"
+            ],
+            "score": 4.285
+          }
+        ],
+        "child_chunk_ids": [
+          "c31b0dd580459bb4-c00000",
+          "999c77a6809a9722-c00005",
+          "c678c96e1784788f-c00011",
+          "89e776ac849fe224-c00078",
+          "b925a923b806ad0a-c00040",
+          "940fb6bbfe8b0bb5-c00017",
+          "8665dd1c453a542d-c00132",
+          "9d711af1d64fd9b0-c00153"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 2.0357632000232115,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.125,
+      "chunk_precision_at_k": 0.125,
+      "article_precision": 0.125,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "Q003",
+      "question": "Compare the Academy Awards ceremonies held a decade apart: who hosted the 85th and 95th ceremonies, and which film won Best Picture at each?",
+      "retriever": "graph",
+      "required_sources": [
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Picture.html",
+        "Academy_Award_for_Best_Production_Design.html",
+        "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+        "Academy_Award_for_Best_Actor.html",
+        "Titanic_(1997_film).html",
+        "King_Kong_(2005_film).html",
+        "Saving_Private_Ryan.html",
+        "La_La_Land.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "7584ab2c6b497c73-c00000",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Production_Design.html#c00000-c00035",
+          "source_file": "Academy_Award_for_Best_Production_Design.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "List_of_awards_and_nominations_received_by_Steven_Spielberg.html#c00000-c00022",
+          "source_file": "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+          "role": "primary",
+          "score": 0.4892
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Actor.html#c00000-c00041",
+          "source_file": "Academy_Award_for_Best_Actor.html",
+          "role": "primary",
+          "score": 0.4105
+        },
+        {
+          "unit_id": "Titanic_(1997_film).html#c00000-c00003",
+          "source_file": "Titanic_(1997_film).html",
+          "role": "context: member of 'Films that won the Best Visual Effects Academy Award' and 'Films whose cinematographer won the Best Cinematography Academy Award' and 'Films that won the Best Original Song Academy Award' and 'Films whose director won the Best Directing Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'; linked from Academy_Award_for_Best_Picture.html",
+          "score": 16.0531
+        },
+        {
+          "unit_id": "King_Kong_(2005_film).html#c00000-c00002",
+          "source_file": "King_Kong_(2005_film).html",
+          "role": "context: member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'; linked from Academy_Award_for_Best_Production_Design.html",
+          "score": 14.9734
+        },
+        {
+          "unit_id": "Saving_Private_Ryan.html#c00000-c00055",
+          "source_file": "Saving_Private_Ryan.html",
+          "role": "context: member of 'Films whose cinematographer won the Best Cinematography Academy Award' and 'Films whose director won the Best Directing Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'; linked from Academy_Award_for_Best_Picture.html",
+          "score": 14.5297
+        },
+        {
+          "unit_id": "La_La_Land.html#c00000-c00045",
+          "source_file": "La_La_Land.html",
+          "role": "context: member of 'Films whose cinematographer won the Best Cinematography Academy Award' and 'Films that won the Best Original Song Academy Award' and 'Films whose director won the Best Directing Academy Award' and 'Films that won the Best Original Score Academy Award'; linked from Academy_Award_for_Best_Picture.html",
+          "score": 14.0567
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 38655,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {
+        "seed_files": [
+          "Academy_Award_for_Best_Picture.html",
+          "Academy_Award_for_Best_Production_Design.html",
+          "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+          "Academy_Award_for_Best_Actor.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "Producers who won the Best Picture Academy Award",
+            "members": 5
+          },
+          {
+            "title": "Films that won the Best Visual Effects Academy Award",
+            "members": 7
+          },
+          {
+            "title": "Films whose cinematographer won the Best Cinematography Academy Award",
+            "members": 8
+          },
+          {
+            "title": "Films that won the Best Original Song Academy Award",
+            "members": 5
+          },
+          {
+            "title": "Films whose director won the Best Directing Academy Award",
+            "members": 10
+          },
+          {
+            "title": "Films that won the Best Original Score Academy Award",
+            "members": 8
+          },
+          {
+            "title": "Films that won the Best Sound Editing Academy Award",
+            "members": 7
+          },
+          {
+            "title": "Films that won the Best Sound Mixing Academy Award",
+            "members": 7
+          }
+        ],
+        "candidate_count": 96,
+        "expansions": [
+          {
+            "source_file": "Titanic_(1997_film).html",
+            "relations": [
+              "member of 'Films that won the Best Visual Effects Academy Award' and 'Films whose cinematographer won the Best Cinematography Academy Award' and 'Films that won the Best Original Song Academy Award' and 'Films whose director won the Best Directing Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'",
+              "linked from Academy_Award_for_Best_Picture.html",
+              "shares category 'Best Picture Academy Award winners' with Academy_Award_for_Best_Picture.html",
+              "linked from Academy_Award_for_Best_Production_Design.html"
+            ],
+            "score": 16.053
+          },
+          {
+            "source_file": "King_Kong_(2005_film).html",
+            "relations": [
+              "member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'",
+              "linked from Academy_Award_for_Best_Production_Design.html"
+            ],
+            "score": 14.973
+          },
+          {
+            "source_file": "Saving_Private_Ryan.html",
+            "relations": [
+              "member of 'Films whose cinematographer won the Best Cinematography Academy Award' and 'Films whose director won the Best Directing Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'",
+              "linked from Academy_Award_for_Best_Picture.html",
+              "linked from Academy_Award_for_Best_Production_Design.html",
+              "linked from List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+              "linked from Academy_Award_for_Best_Actor.html"
+            ],
+            "score": 14.53
+          },
+          {
+            "source_file": "La_La_Land.html",
+            "relations": [
+              "member of 'Films whose cinematographer won the Best Cinematography Academy Award' and 'Films that won the Best Original Song Academy Award' and 'Films whose director won the Best Directing Academy Award' and 'Films that won the Best Original Score Academy Award'",
+              "linked from Academy_Award_for_Best_Picture.html",
+              "linked from Academy_Award_for_Best_Production_Design.html",
+              "linked from Academy_Award_for_Best_Actor.html"
+            ],
+            "score": 14.057
+          }
+        ],
+        "child_chunk_ids": [
+          "7584ab2c6b497c73-c00000",
+          "b51c20e390fe1693-c00034",
+          "198df6a3abe7cc47-c00020",
+          "599ff25cc439b524-c00040",
+          "3e797fb69056928c-c00002",
+          "f78c4bc2545d1d8f-c00002",
+          "a990ce479ca5b532-c00054",
+          "c1ed16a211777eaf-c00042"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 2.6988302000099793,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.0,
+      "chunk_precision_at_k": 0.0,
+      "article_precision": 0.0,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "Q005",
+      "question": "For each of the 1996, 2004, and 2008 Summer Olympics, list every city mentioned as having submitted a bid but not winning that edition's hosting contest.",
+      "retriever": "graph",
+      "required_sources": [
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2008_Summer_Olympics.html"
+      ],
+      "expected_sources": [
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2008_Summer_Olympics.html"
+      ],
+      "retrieved_sources": [
+        "1996_Summer_Olympics.html",
+        "2008_Summer_Olympics.html",
+        "1984_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "Carli_Lloyd.html",
+        "Lionel_Messi.html",
+        "1988_Summer_Olympics.html",
+        "2012_Summer_Olympics.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "1996_Summer_Olympics.html#c00000-c00048",
+          "source_file": "1996_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5748
+        },
+        {
+          "unit_id": "2008_Summer_Olympics.html#c00000-c00008",
+          "source_file": "2008_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5436
+        },
+        {
+          "unit_id": "1984_Summer_Olympics.html#c00000-c00003",
+          "source_file": "1984_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5272
+        },
+        {
+          "unit_id": "2004_Summer_Olympics.html#c00000-c00005",
+          "source_file": "2004_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5141
+        },
+        {
+          "unit_id": "Carli_Lloyd.html#c00000-c00018",
+          "source_file": "Carli_Lloyd.html",
+          "role": "context: member of 'Footballers at the 2008 Summer Olympics' and 'Medalists at the 2008 Summer Olympics'",
+          "score": 8.4435
+        },
+        {
+          "unit_id": "Lionel_Messi.html#c00000-c00006",
+          "source_file": "Lionel_Messi.html",
+          "role": "context: member of 'Footballers at the 2008 Summer Olympics' and 'Medalists at the 2008 Summer Olympics'",
+          "score": 8.3524
+        },
+        {
+          "unit_id": "ec14387a6f3e9d0e-c00012",
+          "source_file": "1988_Summer_Olympics.html",
+          "role": "context: shares category 'Summer Olympics by year' with 1996_Summer_Olympics.html; linked from 2008_Summer_Olympics.html",
+          "score": 6.5616
+        },
+        {
+          "unit_id": "0825e4a78793431f-c00003",
+          "source_file": "2012_Summer_Olympics.html",
+          "role": "context: shares category 'Summer Olympics by year' with 1996_Summer_Olympics.html; linked from 2008_Summer_Olympics.html",
+          "score": 6.5573
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 38188,
+      "evidence_recall": 0.8333333333333334,
+      "retrieval_trace": {
+        "seed_files": [
+          "1996_Summer_Olympics.html",
+          "2008_Summer_Olympics.html",
+          "1984_Summer_Olympics.html",
+          "2004_Summer_Olympics.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "2004 Summer Olympics",
+            "members": 1
+          },
+          {
+            "title": "2008 Summer Olympics",
+            "members": 1
+          },
+          {
+            "title": "1996 Summer Olympics",
+            "members": 1
+          },
+          {
+            "title": "Divers at the 2004 Summer Olympics",
+            "members": 1
+          },
+          {
+            "title": "Footballers at the 2008 Summer Olympics",
+            "members": 2
+          },
+          {
+            "title": "Medalists at the 2008 Summer Olympics",
+            "members": 3
+          },
+          {
+            "title": "Divers at the 2008 Summer Olympics",
+            "members": 1
+          },
+          {
+            "title": "Medalists at the 1996 Summer Olympics",
+            "members": 2
+          }
+        ],
+        "candidate_count": 63,
+        "expansions": [
+          {
+            "source_file": "Carli_Lloyd.html",
+            "relations": [
+              "member of 'Footballers at the 2008 Summer Olympics' and 'Medalists at the 2008 Summer Olympics'"
+            ],
+            "score": 8.443
+          },
+          {
+            "source_file": "Lionel_Messi.html",
+            "relations": [
+              "member of 'Footballers at the 2008 Summer Olympics' and 'Medalists at the 2008 Summer Olympics'"
+            ],
+            "score": 8.352
+          },
+          {
+            "source_file": "1988_Summer_Olympics.html",
+            "relations": [
+              "shares category 'Summer Olympics by year' with 1996_Summer_Olympics.html",
+              "linked from 2008_Summer_Olympics.html",
+              "shares category 'Summer Olympics by year' with 2008_Summer_Olympics.html",
+              "linked from 1984_Summer_Olympics.html",
+              "shares category 'Summer Olympics by year' with 1984_Summer_Olympics.html",
+              "shares category 'Summer Olympics by year' with 2004_Summer_Olympics.html"
+            ],
+            "score": 6.562
+          },
+          {
+            "source_file": "2012_Summer_Olympics.html",
+            "relations": [
+              "shares category 'Summer Olympics by year' with 1996_Summer_Olympics.html",
+              "linked from 2008_Summer_Olympics.html",
+              "shares category 'Summer Olympics by year' with 2008_Summer_Olympics.html",
+              "shares category 'Summer Olympics by year' with 1984_Summer_Olympics.html",
+              "shares category 'Summer Olympics by year' with 2004_Summer_Olympics.html"
+            ],
+            "score": 6.557
+          }
+        ],
+        "child_chunk_ids": [
+          "170433dfdcecde6c-c00047",
+          "b050dab4972144e0-c00007",
+          "f758641f89dc68b7-c00003",
+          "1fdd42c401067e31-c00003",
+          "aef271907dfdae62-c00016",
+          "2dc6a91fbde56faf-c00005",
+          "ec14387a6f3e9d0e-c00012",
+          "0825e4a78793431f-c00003"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 3.1775057000340894,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 0.6666666666666666,
+      "source_precision_at_k": 0.375,
+      "chunk_precision_at_k": 0.375,
+      "article_precision": 0.375,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "Q009",
+      "question": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+      "retriever": "graph",
+      "required_sources": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "expected_sources": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "retrieved_sources": [
+        "Nobel_Prize.html",
+        "List_of_Nobel_laureates_in_Physics.html",
+        "1964_Nobel_Prize_in_Literature.html",
+        "John_Bardeen.html",
+        "Nobel_Peace_Prize.html",
+        "List_of_Nobel_Peace_Prize_laureates.html",
+        "List_of_Nobel_laureates_in_Literature.html",
+        "2006_Nobel_Prize_in_Literature.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Nobel_Prize.html#c00000-c00050",
+          "source_file": "Nobel_Prize.html",
+          "role": "primary",
+          "score": 0.7389
+        },
+        {
+          "unit_id": "List_of_Nobel_laureates_in_Physics.html#c00000-c00002",
+          "source_file": "List_of_Nobel_laureates_in_Physics.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "1964_Nobel_Prize_in_Literature.html#c00000-c00001",
+          "source_file": "1964_Nobel_Prize_in_Literature.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "John_Bardeen.html#c00000-c00012",
+          "source_file": "John_Bardeen.html",
+          "role": "primary",
+          "score": 0.3591
+        },
+        {
+          "unit_id": "Nobel_Peace_Prize.html#c00000-c00004",
+          "source_file": "Nobel_Peace_Prize.html",
+          "role": "context: member of 'Nobel Prize' and 'Nobel Peace Prize'; 'Awarded for' of Nobel_Prize.html",
+          "score": 11.7159
+        },
+        {
+          "unit_id": "List_of_Nobel_Peace_Prize_laureates.html#c00000-c00002",
+          "source_file": "List_of_Nobel_Peace_Prize_laureates.html",
+          "role": "context: member of 'Nobel Peace Prize' and 'Nobel Peace Prize laureates'; linked from Nobel_Prize.html",
+          "score": 11.6627
+        },
+        {
+          "unit_id": "eaba0cc3c4843004-c00000",
+          "source_file": "List_of_Nobel_laureates_in_Literature.html",
+          "role": "context: member of 'Nobel laureates in Literature'; linked from Nobel_Prize.html",
+          "score": 7.6524
+        },
+        {
+          "unit_id": "8c79fdfb1fc728ef-c00000",
+          "source_file": "2006_Nobel_Prize_in_Literature.html",
+          "role": "context: member of 'Nobel Prize in Literature by year'; shares category 'Nobel Prize in Literature by year' with 1964_Nobel_Prize_in_Literature.html",
+          "score": 7.1578
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 24305,
+      "evidence_recall": 0.75,
+      "retrieval_trace": {
+        "seed_files": [
+          "Nobel_Prize.html",
+          "List_of_Nobel_laureates_in_Physics.html",
+          "1964_Nobel_Prize_in_Literature.html",
+          "John_Bardeen.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "Nobel Prize in Literature by year",
+            "members": 2
+          },
+          {
+            "title": "Nobel Prize",
+            "members": 2
+          },
+          {
+            "title": "Authors of utopian literature",
+            "members": 1
+          },
+          {
+            "title": "Megathrust earthquakes in Alaska",
+            "members": 1
+          },
+          {
+            "title": "Nobel laureates in Literature",
+            "members": 1
+          },
+          {
+            "title": "Nobel Peace Prize",
+            "members": 2
+          },
+          {
+            "title": "Japan Academy Prize for Director of the Year winners",
+            "members": 1
+          },
+          {
+            "title": "Nobel Peace Prize laureates",
+            "members": 6
+          }
+        ],
+        "candidate_count": 100,
+        "expansions": [
+          {
+            "source_file": "Nobel_Peace_Prize.html",
+            "relations": [
+              "member of 'Nobel Prize' and 'Nobel Peace Prize'",
+              "'Awarded for' of Nobel_Prize.html",
+              "shares category 'Nobel Prize' with Nobel_Prize.html"
+            ],
+            "score": 11.716
+          },
+          {
+            "source_file": "List_of_Nobel_Peace_Prize_laureates.html",
+            "relations": [
+              "member of 'Nobel Peace Prize' and 'Nobel Peace Prize laureates'",
+              "linked from Nobel_Prize.html",
+              "shares category 'Lists of Nobel laureates' with List_of_Nobel_laureates_in_Physics.html"
+            ],
+            "score": 11.663
+          },
+          {
+            "source_file": "List_of_Nobel_laureates_in_Literature.html",
+            "relations": [
+              "member of 'Nobel laureates in Literature'",
+              "linked from Nobel_Prize.html",
+              "shares category 'Lists of Nobel laureates' with List_of_Nobel_laureates_in_Physics.html"
+            ],
+            "score": 7.652
+          },
+          {
+            "source_file": "2006_Nobel_Prize_in_Literature.html",
+            "relations": [
+              "member of 'Nobel Prize in Literature by year'",
+              "shares category 'Nobel Prize in Literature by year' with 1964_Nobel_Prize_in_Literature.html"
+            ],
+            "score": 7.158
+          }
+        ],
+        "child_chunk_ids": [
+          "3e63e207c636cf56-c00049",
+          "d0ab527c61d96461-c00001",
+          "2383c385675d1e75-c00001",
+          "1cde5d8da7ccbdc5-c00012",
+          "4d3f2b122f3bad0b-c00002",
+          "cbd47b5d2963e4e7-c00001",
+          "eaba0cc3c4843004-c00000",
+          "8c79fdfb1fc728ef-c00000"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 3.376255300012417,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.125,
+      "chunk_precision_at_k": 0.125,
+      "article_precision": 0.125,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "Q014",
+      "question": "In the IOC vote that awarded the 1992 Winter Games, which two cities tied and were sent to a run-off, what were their run-off vote totals, and which city was eliminated after the very first round?",
+      "retriever": "graph",
+      "required_sources": [
+        "1992_Winter_Olympics.html"
+      ],
+      "expected_sources": [
+        "1992_Winter_Olympics.html"
+      ],
+      "retrieved_sources": [
+        "2004_Summer_Olympics.html",
+        "2020_Summer_Olympics.html",
+        "1972_Winter_Olympics.html",
+        "1992_Winter_Olympics.html",
+        "1988_Winter_Olympics.html",
+        "Albertville.html",
+        "Makomanai_Open_Stadium.html",
+        "1936_Winter_Olympics.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "2004_Summer_Olympics.html#c00000-c00005",
+          "source_file": "2004_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.9771
+        },
+        {
+          "unit_id": "2020_Summer_Olympics.html#c00000-c00006",
+          "source_file": "2020_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5563
+        },
+        {
+          "unit_id": "1972_Winter_Olympics.html#c00000-c00002",
+          "source_file": "1972_Winter_Olympics.html",
+          "role": "primary",
+          "score": 0.5145
+        },
+        {
+          "unit_id": "1992_Winter_Olympics.html#c00000-c00004",
+          "source_file": "1992_Winter_Olympics.html",
+          "role": "primary",
+          "score": 0.5113
+        },
+        {
+          "unit_id": "1988_Winter_Olympics.html#c00000-c00009",
+          "source_file": "1988_Winter_Olympics.html",
+          "role": "context: shares category 'Winter Olympics by year' with 1972_Winter_Olympics.html; linked from 1992_Winter_Olympics.html",
+          "score": 5.8795
+        },
+        {
+          "unit_id": "Albertville.html#c00000-c00003",
+          "source_file": "Albertville.html",
+          "role": "context: 'Location' of 1992_Winter_Olympics.html",
+          "score": 5.5704
+        },
+        {
+          "unit_id": "68ce1339123a4b16-c00000",
+          "source_file": "Makomanai_Open_Stadium.html",
+          "role": "context: 'Stadium' of 1972_Winter_Olympics.html",
+          "score": 5.4235
+        },
+        {
+          "unit_id": "1936_Winter_Olympics.html#c00000-c00003",
+          "source_file": "1936_Winter_Olympics.html",
+          "role": "context: linked from 1972_Winter_Olympics.html; shares category 'Winter Olympics by year' with 1972_Winter_Olympics.html",
+          "score": 5.245
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 31359,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "seed_files": [
+          "2004_Summer_Olympics.html",
+          "2020_Summer_Olympics.html",
+          "1972_Winter_Olympics.html",
+          "1992_Winter_Olympics.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "First-run syndicated television programs in the United States",
+            "members": 1
+          },
+          {
+            "title": "1992 Winter Olympics",
+            "members": 1
+          },
+          {
+            "title": "NHL first-round draft picks",
+            "members": 5
+          },
+          {
+            "title": "1992 establishments in New York City",
+            "members": 1
+          }
+        ],
+        "candidate_count": 51,
+        "expansions": [
+          {
+            "source_file": "1988_Winter_Olympics.html",
+            "relations": [
+              "shares category 'Winter Olympics by year' with 1972_Winter_Olympics.html",
+              "linked from 1992_Winter_Olympics.html",
+              "shares category 'Winter Olympics by year' with 1992_Winter_Olympics.html"
+            ],
+            "score": 5.88
+          },
+          {
+            "source_file": "Albertville.html",
+            "relations": [
+              "'Location' of 1992_Winter_Olympics.html"
+            ],
+            "score": 5.57
+          },
+          {
+            "source_file": "Makomanai_Open_Stadium.html",
+            "relations": [
+              "'Stadium' of 1972_Winter_Olympics.html"
+            ],
+            "score": 5.423
+          },
+          {
+            "source_file": "1936_Winter_Olympics.html",
+            "relations": [
+              "linked from 1972_Winter_Olympics.html",
+              "shares category 'Winter Olympics by year' with 1972_Winter_Olympics.html",
+              "shares category 'Winter Olympics by year' with 1992_Winter_Olympics.html"
+            ],
+            "score": 5.245
+          }
+        ],
+        "child_chunk_ids": [
+          "1fdd42c401067e31-c00005",
+          "708478617d20db02-c00006",
+          "98fa9cf3765ac4bc-c00001",
+          "588d0cca324541cf-c00004",
+          "1b17b73a2024e911-c00008",
+          "c74f0d90a5df028e-c00003",
+          "68ce1339123a4b16-c00000",
+          "48405d0fad9b81ba-c00003"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 4.267527600051835,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.125,
+      "chunk_precision_at_k": 0.125,
+      "article_precision": 0.125,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G06",
+      "question": "Name another president besides Barack Obama who attended Harvard.",
+      "retriever": "graph",
+      "required_sources": [
+        "George_W._Bush.html"
+      ],
+      "expected_sources": [
+        "George_W._Bush.html",
+        "Harvard_University.html",
+        "Barack_Obama.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Ivy_League.html",
+        "Barack_Obama.html",
+        "List_of_presidents_of_the_United_States_by_education.html",
+        "Harvard_University.html",
+        "George_W._Bush.html",
+        "Donald_Trump.html",
+        "Columbia_University.html",
+        "John_F._Kennedy.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Ivy_League.html#c00000-c00056",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 0.74
+        },
+        {
+          "unit_id": "Barack_Obama.html#c00000-c00121",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.6681
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html#c00000-c00016",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.4755
+        },
+        {
+          "unit_id": "Harvard_University.html#c00000-c00055",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.438
+        },
+        {
+          "unit_id": "George_W._Bush.html#c00000-c00088",
+          "source_file": "George_W._Bush.html",
+          "role": "context: linked from Ivy_League.html; 'Preceded by' of Barack_Obama.html",
+          "score": 7.1987
+        },
+        {
+          "unit_id": "Donald_Trump.html#c00000-c00003",
+          "source_file": "Donald_Trump.html",
+          "role": "context: linked from Ivy_League.html; 'Succeeded by' of Barack_Obama.html",
+          "score": 7.1953
+        },
+        {
+          "unit_id": "Columbia_University.html#c00000-c00055",
+          "source_file": "Columbia_University.html",
+          "role": "context: linked from Ivy_League.html; Ivy_League.html is 'Sporting affiliations' of Columbia_University.html",
+          "score": 7.1936
+        },
+        {
+          "unit_id": "ddc4d4b1a1b47577-c00102",
+          "source_file": "John_F._Kennedy.html",
+          "role": "context: linked from Ivy_League.html; linked from Barack_Obama.html",
+          "score": 7.1678
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 36732,
+      "evidence_recall": 0.8,
+      "retrieval_trace": {
+        "seed_files": [
+          "Ivy_League.html",
+          "Barack_Obama.html",
+          "List_of_presidents_of_the_United_States_by_education.html",
+          "Harvard_University.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "Barack Obama",
+            "members": 1
+          },
+          {
+            "title": "Presidency of Barack Obama",
+            "members": 1
+          }
+        ],
+        "candidate_count": 234,
+        "expansions": [
+          {
+            "source_file": "George_W._Bush.html",
+            "relations": [
+              "linked from Ivy_League.html",
+              "'Preceded by' of Barack_Obama.html",
+              "shares category '21st-century American non-fiction writers' with Barack_Obama.html",
+              "shares category '21st-century presidents of the United States' with Barack_Obama.html",
+              "shares category 'American people of the War in Afghanistan (2001–2021)' with Barack_Obama.html",
+              "shares category 'American political writers' with Barack_Obama.html",
+              "shares category 'People associated with the 2004 United States presidential election' with Barack_Obama.html",
+              "shares category 'Presidents of the United States' with Barack_Obama.html",
+              "shares category 'Time Person of the Year' with Barack_Obama.html",
+              "Barack_Obama.html is 'Succeeded by' of George_W._Bush.html",
+              "linked from List_of_presidents_of_the_United_States_by_education.html",
+              "linked from Harvard_University.html",
+              "Harvard_University.html is 'Education' of George_W._Bush.html"
+            ],
+            "score": 7.199
+          },
+          {
+            "source_file": "Donald_Trump.html",
+            "relations": [
+              "linked from Ivy_League.html",
+              "'Succeeded by' of Barack_Obama.html",
+              "shares category '20th-century American non-fiction writers' with Barack_Obama.html",
+              "shares category '21st-century American non-fiction writers' with Barack_Obama.html",
+              "shares category '21st-century presidents of the United States' with Barack_Obama.html",
+              "shares category 'American people of German descent' with Barack_Obama.html",
+              "shares category 'American people of the War in Afghanistan (2001–2021)' with Barack_Obama.html",
+              "shares category 'Presidents of the United States' with Barack_Obama.html",
+              "shares category 'Time Person of the Year' with Barack_Obama.html",
+              "Barack_Obama.html is 'Preceded by' of Donald_Trump.html",
+              "linked from List_of_presidents_of_the_United_States_by_education.html",
+              "linked from Harvard_University.html"
+            ],
+            "score": 7.195
+          },
+          {
+            "source_file": "Columbia_University.html",
+            "relations": [
+              "linked from Ivy_League.html",
+              "Ivy_League.html is 'Sporting affiliations' of Columbia_University.html",
+              "'Education' of Barack_Obama.html",
+              "linked from List_of_presidents_of_the_United_States_by_education.html",
+              "linked from Harvard_University.html",
+              "shares category 'Colonial colleges' with Harvard_University.html",
+              "shares category 'Need-blind educational institutions' with Harvard_University.html"
+            ],
+            "score": 7.194
+          },
+          {
+            "source_file": "John_F._Kennedy.html",
+            "relations": [
+              "linked from Ivy_League.html",
+              "linked from Barack_Obama.html",
+              "shares category '20th-century American male writers' with Barack_Obama.html",
+              "shares category '20th-century American non-fiction writers' with Barack_Obama.html",
+              "shares category 'American male non-fiction writers' with Barack_Obama.html",
+              "shares category 'Democratic Party presidents of the United States' with Barack_Obama.html",
+              "shares category 'Presidents of the United States' with Barack_Obama.html",
+              "shares category 'Time Person of the Year' with Barack_Obama.html",
+              "linked from List_of_presidents_of_the_United_States_by_education.html",
+              "linked from Harvard_University.html",
+              "Harvard_University.html is 'Education' of John_F._Kennedy.html"
+            ],
+            "score": 7.168
+          }
+        ],
+        "child_chunk_ids": [
+          "1b3e71a846a884c7-c00055",
+          "ce083e780cb76d37-c00120",
+          "2f95a5be7329cc28-c00016",
+          "7f8730199e3c9d3c-c00054",
+          "9370626bd8c851db-c00088",
+          "2b97be4ce306e1b8-c00000",
+          "6c0d42025424232a-c00053",
+          "ddc4d4b1a1b47577-c00102"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 1.2400030000135303,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.5,
+      "chunk_precision_at_k": 0.5,
+      "article_precision": 0.5,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G07",
+      "question": "Name another president besides Bill Clinton who attended Yale.",
+      "retriever": "graph",
+      "required_sources": [
+        "George_W._Bush.html"
+      ],
+      "expected_sources": [
+        "George_W._Bush.html",
+        "Yale_University.html",
+        "Bill_Clinton.html",
+        "Gerald_Ford.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Yale_University.html",
+        "Ivy_League.html",
+        "List_of_presidents_of_the_United_States_by_education.html",
+        "Bill_Clinton.html",
+        "George_W._Bush.html",
+        "Sargent_Shriver.html",
+        "Gerald_Ford.html",
+        "John_Lindsay.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Yale_University.html#c00000-c00087",
+          "source_file": "Yale_University.html",
+          "role": "primary",
+          "score": 0.8893
+        },
+        {
+          "unit_id": "Ivy_League.html#c00000-c00054",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 0.7327
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html#c00000-c00005",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.6048
+        },
+        {
+          "unit_id": "Bill_Clinton.html#c00000-c00104",
+          "source_file": "Bill_Clinton.html",
+          "role": "primary",
+          "score": 0.4358
+        },
+        {
+          "unit_id": "George_W._Bush.html#c00000-c00088",
+          "source_file": "George_W._Bush.html",
+          "role": "context: linked from Yale_University.html; Yale_University.html is 'Education' of George_W._Bush.html",
+          "score": 7.2095
+        },
+        {
+          "unit_id": "Sargent_Shriver.html#c00000-c00005",
+          "source_file": "Sargent_Shriver.html",
+          "role": "context: linked from Yale_University.html; Yale_University.html is 'Education' of Sargent_Shriver.html",
+          "score": 7.1622
+        },
+        {
+          "unit_id": "Gerald_Ford.html#c00000-c00003",
+          "source_file": "Gerald_Ford.html",
+          "role": "context: linked from Yale_University.html; Yale_University.html is 'Education' of Gerald_Ford.html",
+          "score": 7.1535
+        },
+        {
+          "unit_id": "43c770137dbad60d-c00002",
+          "source_file": "John_Lindsay.html",
+          "role": "context: Yale_University.html is 'Education' of John_Lindsay.html; shares category '20th-century American lawyers' with Bill_Clinton.html",
+          "score": 6.5952
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 37348,
+      "evidence_recall": 0.3333333333333333,
+      "retrieval_trace": {
+        "seed_files": [
+          "Yale_University.html",
+          "Ivy_League.html",
+          "List_of_presidents_of_the_United_States_by_education.html",
+          "Bill_Clinton.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "Bill Clinton",
+            "members": 1
+          },
+          {
+            "title": "Presidency of Bill Clinton",
+            "members": 1
+          }
+        ],
+        "candidate_count": 178,
+        "expansions": [
+          {
+            "source_file": "George_W._Bush.html",
+            "relations": [
+              "linked from Yale_University.html",
+              "Yale_University.html is 'Education' of George_W._Bush.html",
+              "linked from Ivy_League.html",
+              "linked from List_of_presidents_of_the_United_States_by_education.html",
+              "'Succeeded by' of Bill_Clinton.html",
+              "shares category '1946 births' with Bill_Clinton.html",
+              "shares category '21st-century presidents of the United States' with Bill_Clinton.html",
+              "shares category 'Presidents of the United States' with Bill_Clinton.html",
+              "Bill_Clinton.html is 'Preceded by' of George_W._Bush.html"
+            ],
+            "score": 7.209
+          },
+          {
+            "source_file": "Sargent_Shriver.html",
+            "relations": [
+              "linked from Yale_University.html",
+              "Yale_University.html is 'Education' of Sargent_Shriver.html",
+              "shares category '20th-century American lawyers' with Bill_Clinton.html",
+              "shares category 'New York (state) Democrats' with Bill_Clinton.html",
+              "shares category 'Presidential Medal of Freedom recipients' with Bill_Clinton.html",
+              "shares category 'Yale Law School alumni' with Bill_Clinton.html"
+            ],
+            "score": 7.162
+          },
+          {
+            "source_file": "Gerald_Ford.html",
+            "relations": [
+              "linked from Yale_University.html",
+              "Yale_University.html is 'Education' of Gerald_Ford.html",
+              "linked from Ivy_League.html",
+              "linked from List_of_presidents_of_the_United_States_by_education.html",
+              "shares category '20th-century presidents of the United States' with Bill_Clinton.html",
+              "shares category 'Presidential Medal of Freedom recipients' with Bill_Clinton.html",
+              "shares category 'Presidents of the United States' with Bill_Clinton.html",
+              "shares category 'Yale Law School alumni' with Bill_Clinton.html"
+            ],
+            "score": 7.153
+          },
+          {
+            "source_file": "John_Lindsay.html",
+            "relations": [
+              "Yale_University.html is 'Education' of John_Lindsay.html",
+              "shares category '20th-century American lawyers' with Bill_Clinton.html",
+              "shares category 'New York (state) Democrats' with Bill_Clinton.html",
+              "shares category 'Yale Law School alumni' with Bill_Clinton.html"
+            ],
+            "score": 6.595
+          }
+        ],
+        "child_chunk_ids": [
+          "aa9f74cce6a73154-c00085",
+          "1b3e71a846a884c7-c00054",
+          "2f95a5be7329cc28-c00004",
+          "270eebd3786920c2-c00102",
+          "9370626bd8c851db-c00087",
+          "458f89d9973de184-c00005",
+          "628db26e307d2a1d-c00002",
+          "43c770137dbad60d-c00002"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 1.233817900007125,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.625,
+      "chunk_precision_at_k": 0.625,
+      "article_precision": 0.625,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G10",
+      "question": "Name two films by English directors that won Academy Awards.",
+      "retriever": "graph",
+      "required_sources": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html"
+      ],
+      "expected_sources": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Director.html",
+        "List_of_Academy_Award_records.html",
+        "Academy_Award_for_Best_Picture.html",
+        "Pride_&_Prejudice_(2005_film).html",
+        "Titanic_(1997_film).html",
+        "King_Kong_(2005_film).html",
+        "E.T._the_Extra-Terrestrial.html",
+        "Saving_Private_Ryan.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Academy_Award_for_Best_Director.html#c00000-c00001",
+          "source_file": "Academy_Award_for_Best_Director.html",
+          "role": "primary",
+          "score": 0.8965
+        },
+        {
+          "unit_id": "List_of_Academy_Award_records.html#c00000-c00005",
+          "source_file": "List_of_Academy_Award_records.html",
+          "role": "primary",
+          "score": 0.5874
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00000-c00006",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 0.5519
+        },
+        {
+          "unit_id": "Pride_&_Prejudice_(2005_film).html#c00000-c00050",
+          "source_file": "Pride_&_Prejudice_(2005_film).html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "Titanic_(1997_film).html#c00000-c00003",
+          "source_file": "Titanic_(1997_film).html",
+          "role": "context: member of 'Films whose director won the Best Directing Academy Award' and 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Song Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award' and 'Films that won the Best Costume Design Academy Award'; linked from Academy_Award_for_Best_Director.html",
+          "score": 16.1732
+        },
+        {
+          "unit_id": "King_Kong_(2005_film).html#c00000-c00014",
+          "source_file": "King_Kong_(2005_film).html",
+          "role": "context: member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'; shares category '2005 films' with Pride_&_Prejudice_(2005_film).html",
+          "score": 16.1127
+        },
+        {
+          "unit_id": "E.T._the_Extra-Terrestrial.html#c00000-c00039",
+          "source_file": "E.T._the_Extra-Terrestrial.html",
+          "role": "context: member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'; linked from Academy_Award_for_Best_Director.html",
+          "score": 13.6795
+        },
+        {
+          "unit_id": "a990ce479ca5b532-c00054",
+          "source_file": "Saving_Private_Ryan.html",
+          "role": "context: member of 'Films whose director won the Best Directing Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'; linked from Academy_Award_for_Best_Director.html",
+          "score": 13.6532
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 34319,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {
+        "seed_files": [
+          "Academy_Award_for_Best_Director.html",
+          "List_of_Academy_Award_records.html",
+          "Academy_Award_for_Best_Picture.html",
+          "Pride_&_Prejudice_(2005_film).html"
+        ],
+        "matched_categories": [
+          {
+            "title": "Films whose director won the Best Directing Academy Award",
+            "members": 10
+          },
+          {
+            "title": "Films that won the Best Visual Effects Academy Award",
+            "members": 7
+          },
+          {
+            "title": "Films that won the Best Original Song Academy Award",
+            "members": 5
+          },
+          {
+            "title": "Films that won the Best Original Score Academy Award",
+            "members": 8
+          },
+          {
+            "title": "Films that won the Best Sound Editing Academy Award",
+            "members": 7
+          },
+          {
+            "title": "Films that won the Best Sound Mixing Academy Award",
+            "members": 7
+          },
+          {
+            "title": "Films that won the Academy Award for Best Makeup",
+            "members": 1
+          },
+          {
+            "title": "Films that won the Best Costume Design Academy Award",
+            "members": 2
+          }
+        ],
+        "candidate_count": 116,
+        "expansions": [
+          {
+            "source_file": "Titanic_(1997_film).html",
+            "relations": [
+              "member of 'Films whose director won the Best Directing Academy Award' and 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Song Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award' and 'Films that won the Best Costume Design Academy Award'",
+              "linked from Academy_Award_for_Best_Director.html",
+              "linked from List_of_Academy_Award_records.html",
+              "linked from Academy_Award_for_Best_Picture.html",
+              "shares category 'Best Picture Academy Award winners' with Academy_Award_for_Best_Picture.html",
+              "shares category 'American historical romance films' with Pride_&_Prejudice_(2005_film).html",
+              "shares category 'American romantic drama films' with Pride_&_Prejudice_(2005_film).html",
+              "shares category 'English-language romantic drama films' with Pride_&_Prejudice_(2005_film).html"
+            ],
+            "score": 16.173
+          },
+          {
+            "source_file": "King_Kong_(2005_film).html",
+            "relations": [
+              "member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'",
+              "shares category '2005 films' with Pride_&_Prejudice_(2005_film).html",
+              "shares category 'Universal Pictures films' with Pride_&_Prejudice_(2005_film).html",
+              "shares category '2005 English-language films' with Pride_&_Prejudice_(2005_film).html",
+              "shares category '2005 American films' with Pride_&_Prejudice_(2005_film).html"
+            ],
+            "score": 16.113
+          },
+          {
+            "source_file": "E.T._the_Extra-Terrestrial.html",
+            "relations": [
+              "member of 'Films that won the Best Visual Effects Academy Award' and 'Films that won the Best Original Score Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'",
+              "linked from Academy_Award_for_Best_Director.html",
+              "linked from Academy_Award_for_Best_Picture.html",
+              "shares category 'Universal Pictures films' with Pride_&_Prejudice_(2005_film).html"
+            ],
+            "score": 13.679
+          },
+          {
+            "source_file": "Saving_Private_Ryan.html",
+            "relations": [
+              "member of 'Films whose director won the Best Directing Academy Award' and 'Films that won the Best Sound Editing Academy Award' and 'Films that won the Best Sound Mixing Academy Award'",
+              "linked from Academy_Award_for_Best_Director.html",
+              "linked from Academy_Award_for_Best_Picture.html",
+              "shares category 'Films shot in Wiltshire' with Pride_&_Prejudice_(2005_film).html"
+            ],
+            "score": 13.653
+          }
+        ],
+        "child_chunk_ids": [
+          "7e14c0ec0e7bf7d7-c00001",
+          "67142f28a712cfd6-c00005",
+          "7584ab2c6b497c73-c00006",
+          "304cbda13364173e-c00048",
+          "3e797fb69056928c-c00002",
+          "f78c4bc2545d1d8f-c00013",
+          "00ab2e20219dcb56-c00038",
+          "a990ce479ca5b532-c00054"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 1.2862778999842703,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.125,
+      "chunk_precision_at_k": 0.125,
+      "article_precision": 0.125,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 0.0,
+      "all_required_present": false
+    },
+    {
+      "id": "G15",
+      "question": "Which city has the larger population, Sarajevo or Dunedin?",
+      "retriever": "graph",
+      "required_sources": [
+        "Sarajevo.html",
+        "Dunedin.html"
+      ],
+      "expected_sources": [
+        "Sarajevo.html",
+        "Dunedin.html"
+      ],
+      "retrieved_sources": [
+        "Dunedin.html",
+        "Otago.html",
+        "Sarajevo.html",
+        "England.html",
+        "List_of_largest_cities_throughout_history.html",
+        "List_of_cities_in_Germany_by_population.html",
+        "List_of_United_States_cities_by_population.html",
+        "Assassination_of_Archduke_Franz_Ferdinand.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Dunedin.html#c00000-c00003",
+          "source_file": "Dunedin.html",
+          "role": "primary",
+          "score": 0.9507
+        },
+        {
+          "unit_id": "Otago.html#c00000-c00013",
+          "source_file": "Otago.html",
+          "role": "primary",
+          "score": 0.6998
+        },
+        {
+          "unit_id": "Sarajevo.html#c00000-c00003",
+          "source_file": "Sarajevo.html",
+          "role": "primary",
+          "score": 0.5919
+        },
+        {
+          "unit_id": "England.html#c00000-c00043",
+          "source_file": "England.html",
+          "role": "primary",
+          "score": 0.0737
+        },
+        {
+          "unit_id": "List_of_largest_cities_throughout_history.html#c00000-c00018",
+          "source_file": "List_of_largest_cities_throughout_history.html",
+          "role": "context: member of 'Lists of cities by population' and 'Lists of cities (worldwide) by population'",
+          "score": 10.1863
+        },
+        {
+          "unit_id": "List_of_cities_in_Germany_by_population.html#c00000-c00004",
+          "source_file": "List_of_cities_in_Germany_by_population.html",
+          "role": "context: member of 'Lists of cities by population'",
+          "score": 6.2125
+        },
+        {
+          "unit_id": "ffd2e9adc387fbbd-c00000",
+          "source_file": "List_of_United_States_cities_by_population.html",
+          "role": "context: member of 'Lists of cities in the United States by population'",
+          "score": 6.1916
+        },
+        {
+          "unit_id": "Assassination_of_Archduke_Franz_Ferdinand.html#c00000-c00037",
+          "source_file": "Assassination_of_Archduke_Franz_Ferdinand.html",
+          "role": "context: linked from Sarajevo.html; Sarajevo.html is 'Location' of Assassination_of_Archduke_Franz_Ferdinand.html",
+          "score": 5.2087
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 37833,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "seed_files": [
+          "Dunedin.html",
+          "Otago.html",
+          "Sarajevo.html",
+          "England.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "Localities in the Dunedin City territory",
+            "members": 1
+          },
+          {
+            "title": "Lists of cities by population",
+            "members": 2
+          },
+          {
+            "title": "Lists of cities (worldwide) by population",
+            "members": 1
+          },
+          {
+            "title": "Lists of cities in the United States by population",
+            "members": 1
+          }
+        ],
+        "candidate_count": 85,
+        "expansions": [
+          {
+            "source_file": "List_of_largest_cities_throughout_history.html",
+            "relations": [
+              "member of 'Lists of cities by population' and 'Lists of cities (worldwide) by population'"
+            ],
+            "score": 10.186
+          },
+          {
+            "source_file": "List_of_cities_in_Germany_by_population.html",
+            "relations": [
+              "member of 'Lists of cities by population'"
+            ],
+            "score": 6.212
+          },
+          {
+            "source_file": "List_of_United_States_cities_by_population.html",
+            "relations": [
+              "member of 'Lists of cities in the United States by population'"
+            ],
+            "score": 6.192
+          },
+          {
+            "source_file": "Assassination_of_Archduke_Franz_Ferdinand.html",
+            "relations": [
+              "linked from Sarajevo.html",
+              "Sarajevo.html is 'Location' of Assassination_of_Archduke_Franz_Ferdinand.html"
+            ],
+            "score": 5.209
+          }
+        ],
+        "child_chunk_ids": [
+          "475b805b898c67f7-c00003",
+          "4a01c3ed3eaa1e7a-c00010",
+          "70bdf52dcea4b21f-c00001",
+          "378edf450e1fd4b7-c00043",
+          "cf7a6a8979632583-c00017",
+          "4f4d23e570eac67f-c00001",
+          "ffd2e9adc387fbbd-c00000",
+          "ad80822d2e3be375-c00036"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 1.2375591000309214,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.25,
+      "chunk_precision_at_k": 0.25,
+      "article_precision": 0.25,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G16",
+      "question": "Was Charles III born before his mother's reign began?",
+      "retriever": "graph",
+      "required_sources": [
+        "Charles_III.html"
+      ],
+      "expected_sources": [
+        "Charles_III.html",
+        "Elizabeth_II.html"
+      ],
+      "retrieved_sources": [
+        "Charles_III.html",
+        "James_II_of_England.html",
+        "List_of_Scottish_monarchs.html",
+        "Anne,_Princess_Royal.html",
+        "Prince_Edward,_Duke_of_Edinburgh.html",
+        "Theresa_May.html",
+        "Elizabeth_II.html",
+        "William,_Prince_of_Wales.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Charles_III.html#c00000-c00002",
+          "source_file": "Charles_III.html",
+          "role": "primary",
+          "score": 0.8501
+        },
+        {
+          "unit_id": "James_II_of_England.html#c00000-c00003",
+          "source_file": "James_II_of_England.html",
+          "role": "primary",
+          "score": 0.5541
+        },
+        {
+          "unit_id": "List_of_Scottish_monarchs.html#c00000-c00025",
+          "source_file": "List_of_Scottish_monarchs.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "Anne,_Princess_Royal.html#c00000-c00003",
+          "source_file": "Anne,_Princess_Royal.html",
+          "role": "primary",
+          "score": 0.3346
+        },
+        {
+          "unit_id": "Prince_Edward,_Duke_of_Edinburgh.html#c00000-c00002",
+          "source_file": "Prince_Edward,_Duke_of_Edinburgh.html",
+          "role": "context: member of 'Dukes created by Charles III' and 'Life peers created by Charles III'; linked from Charles_III.html",
+          "score": 10.248
+        },
+        {
+          "unit_id": "Theresa_May.html#c00000-c00009",
+          "source_file": "Theresa_May.html",
+          "role": "context: member of 'Life peers created by Charles III' and 'Life peeresses created by Charles III'; shares category 'British Anglicans' with Charles_III.html",
+          "score": 9.6281
+        },
+        {
+          "unit_id": "Elizabeth_II.html#c00000-c00003",
+          "source_file": "Elizabeth_II.html",
+          "role": "context: 'Mother' of Charles_III.html; shares category '21st-century British monarchs' with Charles_III.html",
+          "score": 7.2523
+        },
+        {
+          "unit_id": "William,_Prince_of_Wales.html#c00000-c00006",
+          "source_file": "William,_Prince_of_Wales.html",
+          "role": "context: 'IssueDetail' of Charles_III.html; shares category '21st-century princes of Wales' with Charles_III.html",
+          "score": 7.2458
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 36007,
+      "evidence_recall": 0.3333333333333333,
+      "retrieval_trace": {
+        "seed_files": [
+          "Charles_III.html",
+          "James_II_of_England.html",
+          "List_of_Scottish_monarchs.html",
+          "Anne,_Princess_Royal.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "Charles III",
+            "members": 1
+          },
+          {
+            "title": "Dukes created by Charles III",
+            "members": 1
+          },
+          {
+            "title": "Life peers created by Charles III",
+            "members": 2
+          },
+          {
+            "title": "Life peeresses created by Charles III",
+            "members": 1
+          },
+          {
+            "title": "Charles Scribner's Sons books",
+            "members": 2
+          }
+        ],
+        "candidate_count": 85,
+        "expansions": [
+          {
+            "source_file": "Prince_Edward,_Duke_of_Edinburgh.html",
+            "relations": [
+              "member of 'Dukes created by Charles III' and 'Life peers created by Charles III'",
+              "linked from Charles_III.html",
+              "shares category 'British Anglicans' with Charles_III.html",
+              "shares category 'Children of Elizabeth II' with Charles_III.html",
+              "shares category 'Dukes of Edinburgh' with Charles_III.html",
+              "shares category 'Hereditary peers removed under the House of Lords Act 1999' with Charles_III.html",
+              "shares category 'Honorary air commodores' with Charles_III.html",
+              "shares category 'Mountbatten-Windsor family' with Charles_III.html",
+              "shares category 'People educated at Gordonstoun' with Charles_III.html",
+              "shares category 'Sons of queens regnant' with Charles_III.html",
+              "shares category 'Knights of the Garter' with James_II_of_England.html",
+              "linked from Anne,_Princess_Royal.html",
+              "shares category '21st-century British royalty' with Anne,_Princess_Royal.html",
+              "shares category 'Children of Elizabeth II' with Anne,_Princess_Royal.html",
+              "shares category 'Honorary air commodores' with Anne,_Princess_Royal.html",
+              "shares category 'Knights of the Garter' with Anne,_Princess_Royal.html",
+              "shares category 'Knights of the Thistle' with Anne,_Princess_Royal.html",
+              "shares category 'Lords High Commissioner to the General Assembly of the Church of Scotland' with Anne,_Princess_Royal.html",
+              "shares category 'Mountbatten-Windsor family' with Anne,_Princess_Royal.html",
+              "shares category 'People from Westminster' with Anne,_Princess_Royal.html"
+            ],
+            "score": 10.248
+          },
+          {
+            "source_file": "Theresa_May.html",
+            "relations": [
+              "member of 'Life peers created by Charles III' and 'Life peeresses created by Charles III'",
+              "shares category 'British Anglicans' with Charles_III.html",
+              "shares category 'English Anglicans' with Anne,_Princess_Royal.html",
+              "shares category 'Wives of knights' with Anne,_Princess_Royal.html"
+            ],
+            "score": 9.628
+          },
+          {
+            "source_file": "Elizabeth_II.html",
+            "relations": [
+              "'Mother' of Charles_III.html",
+              "shares category '21st-century British monarchs' with Charles_III.html",
+              "shares category 'British Anglicans' with Charles_III.html",
+              "shares category 'Heads of the Commonwealth' with Charles_III.html",
+              "shares category 'Heads of state of Antigua and Barbuda' with Charles_III.html",
+              "shares category 'Heads of state of Australia' with Charles_III.html",
+              "shares category 'Heads of state of the Bahamas' with Charles_III.html",
+              "shares category 'Heads of state of Belize' with Charles_III.html",
+              "shares category 'Heads of state of Canada' with Charles_III.html",
+              "shares category 'Heads of state of Grenada' with Charles_III.html",
+              "shares category 'Heads of state of Jamaica' with Charles_III.html",
+              "shares category 'Heads of state of New Zealand' with Charles_III.html",
+              "shares category 'Heads of state of Papua New Guinea' with Charles_III.html",
+              "shares category 'Heads of state of Saint Kitts and Nevis' with Charles_III.html",
+              "shares category 'Heads of state of Saint Lucia' with Charles_III.html",
+              "shares category 'Heads of state of Saint Vincent and the Grenadines' with Charles_III.html",
+              "shares category 'Heads of state of the Solomon Islands' with Charles_III.html",
+              "shares category 'Heads of state of Tuvalu' with Charles_III.html",
+              "shares category 'House of Windsor' with Charles_III.html",
+              "shares category 'Lord high admirals of the United Kingdom' with Charles_III.html",
+              "shares category 'Monarchs of the Isle of Man' with Charles_III.html",
+              "shares category 'Monarchs of the United Kingdom' with Charles_III.html",
+              "shares category 'Mountbatten-Windsor family' with Charles_III.html",
+              "Charles_III.html is 'Issue' of Elizabeth_II.html",
+              "'Mother' of Anne,_Princess_Royal.html",
+              "shares category '21st-century British women' with Anne,_Princess_Royal.html",
+              "shares category 'Mountbatten-Windsor family' with Anne,_Princess_Royal.html",
+              "Anne,_Princess_Royal.html is 'Issue' of Elizabeth_II.html"
+            ],
+            "score": 7.252
+          },
+          {
+            "source_file": "William,_Prince_of_Wales.html",
+            "relations": [
+              "'IssueDetail' of Charles_III.html",
+              "shares category '21st-century princes of Wales' with Charles_III.html",
+              "shares category '21st-century dukes of Cornwall' with Charles_III.html",
+              "shares category 'British Anglicans' with Charles_III.html",
+              "shares category 'British environmentalists' with Charles_III.html",
+              "shares category 'British people of German descent' with Charles_III.html",
+              "shares category 'Dukes of Rothesay' with Charles_III.html",
+              "shares category 'Graduates of the Royal Air Force College Cranwell' with Charles_III.html",
+              "shares category 'Great Masters of the Order of the Bath' with Charles_III.html",
+              "shares category 'Heirs to the British throne' with Charles_III.html",
+              "shares category 'House of Windsor' with Charles_III.html",
+              "shares category 'Mountbatten-Windsor family' with Charles_III.html",
+              "shares category 'Princes and great stewards of Scotland' with Charles_III.html",
+              "Charles_III.html is 'Father' of William,_Prince_of_Wales.html",
+              "shares category 'Knights of the Garter' with James_II_of_England.html",
+              "shares category 'Sons of kings' with James_II_of_England.html",
+              "shares category 'Knights of the Garter' with Anne,_Princess_Royal.html",
+              "shares category 'Knights of the Thistle' with Anne,_Princess_Royal.html",
+              "shares category 'Mountbatten-Windsor family' with Anne,_Princess_Royal.html"
+            ],
+            "score": 7.246
+          }
+        ],
+        "child_chunk_ids": [
+          "dc85b7cd3cc95787-c00000",
+          "cb0448e3c9ba4282-c00000",
+          "b2f40881843f6170-c00025",
+          "6cfe65423b4b68e0-c00002",
+          "8f910332acd6fa37-c00002",
+          "2c47c60fcd0b1393-c00008",
+          "d8379e3b891fe686-c00002",
+          "46b1e67a5073c912-c00003"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 1.3254281000117771,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.25,
+      "chunk_precision_at_k": 0.25,
+      "article_precision": 0.25,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G08",
+      "question": "Which president served in both the 20th and 21st centuries?",
+      "retriever": "graph",
+      "required_sources": [
+        "Bill_Clinton.html"
+      ],
+      "expected_sources": [
+        "Bill_Clinton.html",
+        "George_W._Bush.html",
+        "Barack_Obama.html",
+        "Ronald_Reagan.html",
+        "Gerald_Ford.html",
+        "Donald_Trump.html"
+      ],
+      "retrieved_sources": [
+        "President_of_the_United_States.html",
+        "Massachusetts.html",
+        "List_of_presidents_of_the_United_States.html",
+        "Maine.html",
+        "Bill_Clinton.html",
+        "William_McKinley.html",
+        "Theodore_Roosevelt.html",
+        "Gerald_Ford.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "President_of_the_United_States.html#c00000-c00003",
+          "source_file": "President_of_the_United_States.html",
+          "role": "primary",
+          "score": 0.7477
+        },
+        {
+          "unit_id": "Massachusetts.html#c00000-c00047",
+          "source_file": "Massachusetts.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States.html#c00000-c00020",
+          "source_file": "List_of_presidents_of_the_United_States.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "Maine.html#c00000-c00015",
+          "source_file": "Maine.html",
+          "role": "primary",
+          "score": 0.4891
+        },
+        {
+          "unit_id": "Bill_Clinton.html#c00000-c00006",
+          "source_file": "Bill_Clinton.html",
+          "role": "context: member of '21st-century presidents of the United States' and '20th-century presidents of the United States'; linked from President_of_the_United_States.html",
+          "score": 10.2987
+        },
+        {
+          "unit_id": "William_McKinley.html#c00000-c00045",
+          "source_file": "William_McKinley.html",
+          "role": "context: member of 'National presidents assassinated in the 20th century' and '20th-century presidents of the United States'; linked from President_of_the_United_States.html",
+          "score": 10.2862
+        },
+        {
+          "unit_id": "34e4f0bb1af774da-c00012",
+          "source_file": "Theodore_Roosevelt.html",
+          "role": "context: member of '20th-century presidents of the United States' and '20th-century vice presidents of the United States'; linked from President_of_the_United_States.html",
+          "score": 10.2772
+        },
+        {
+          "unit_id": "628db26e307d2a1d-c00002",
+          "source_file": "Gerald_Ford.html",
+          "role": "context: member of '20th-century presidents of the United States' and '20th-century vice presidents of the United States'; linked from President_of_the_United_States.html",
+          "score": 10.2745
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 39232,
+      "evidence_recall": 0.5,
+      "retrieval_trace": {
+        "seed_files": [
+          "President_of_the_United_States.html",
+          "Massachusetts.html",
+          "List_of_presidents_of_the_United_States.html",
+          "Maine.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "20th-century presidents in Africa",
+            "members": 1
+          },
+          {
+            "title": "National presidents assassinated in the 20th century",
+            "members": 2
+          },
+          {
+            "title": "21st-century presidents of France",
+            "members": 1
+          },
+          {
+            "title": "20th-century presidents of Germany",
+            "members": 1
+          },
+          {
+            "title": "20th-century presidents of France",
+            "members": 1
+          },
+          {
+            "title": "21st-century presidents of the United States",
+            "members": 4
+          },
+          {
+            "title": "20th-century presidents of the United States",
+            "members": 11
+          },
+          {
+            "title": "20th-century vice presidents of the United States",
+            "members": 3
+          }
+        ],
+        "candidate_count": 97,
+        "expansions": [
+          {
+            "source_file": "Bill_Clinton.html",
+            "relations": [
+              "member of '21st-century presidents of the United States' and '20th-century presidents of the United States'",
+              "linked from President_of_the_United_States.html",
+              "shares category 'Presidents of the United States' with President_of_the_United_States.html",
+              "linked from List_of_presidents_of_the_United_States.html",
+              "shares category 'Presidents of the United States' with List_of_presidents_of_the_United_States.html"
+            ],
+            "score": 10.299
+          },
+          {
+            "source_file": "William_McKinley.html",
+            "relations": [
+              "member of 'National presidents assassinated in the 20th century' and '20th-century presidents of the United States'",
+              "linked from President_of_the_United_States.html",
+              "shares category 'Presidents of the United States' with President_of_the_United_States.html",
+              "linked from List_of_presidents_of_the_United_States.html",
+              "shares category 'Presidents of the United States' with List_of_presidents_of_the_United_States.html"
+            ],
+            "score": 10.286
+          },
+          {
+            "source_file": "Theodore_Roosevelt.html",
+            "relations": [
+              "member of '20th-century presidents of the United States' and '20th-century vice presidents of the United States'",
+              "linked from President_of_the_United_States.html",
+              "shares category 'Presidents of the United States' with President_of_the_United_States.html",
+              "linked from List_of_presidents_of_the_United_States.html",
+              "shares category 'Presidents of the United States' with List_of_presidents_of_the_United_States.html",
+              "linked from Maine.html"
+            ],
+            "score": 10.277
+          },
+          {
+            "source_file": "Gerald_Ford.html",
+            "relations": [
+              "member of '20th-century presidents of the United States' and '20th-century vice presidents of the United States'",
+              "linked from President_of_the_United_States.html",
+              "shares category 'Presidents of the United States' with President_of_the_United_States.html",
+              "linked from List_of_presidents_of_the_United_States.html",
+              "shares category 'Presidents of the United States' with List_of_presidents_of_the_United_States.html"
+            ],
+            "score": 10.275
+          }
+        ],
+        "child_chunk_ids": [
+          "35018abab56a294f-c00002",
+          "ab9cee74d432aef9-c00046",
+          "b7450806901ae6fc-c00020",
+          "8af954d6a425b7db-c00015",
+          "270eebd3786920c2-c00006",
+          "75b9814a955d8466-c00045",
+          "34e4f0bb1af774da-c00012",
+          "628db26e307d2a1d-c00002"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 1.4117914999951608,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.25,
+      "chunk_precision_at_k": 0.25,
+      "article_precision": 0.25,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    },
+    {
+      "id": "G13",
+      "question": "What was the former name of the university where Barack Obama earned his law degree?",
+      "retriever": "graph",
+      "required_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "expected_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Barack_Obama.html",
+        "Ben_Cardin.html",
+        "Ivy_League.html",
+        "List_of_presidents_of_the_United_States_by_education.html",
+        "George_W._Bush.html",
+        "Donald_Trump.html",
+        "Columbia_University.html",
+        "Harvard_University.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Barack_Obama.html#c00000-c00003",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.9075
+        },
+        {
+          "unit_id": "Ben_Cardin.html#c00000-c00004",
+          "source_file": "Ben_Cardin.html",
+          "role": "primary",
+          "score": 0.2865
+        },
+        {
+          "unit_id": "Ivy_League.html#c00000-c00056",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 0.2722
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html#c00000-c00025",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.2483
+        },
+        {
+          "unit_id": "George_W._Bush.html#c00000-c00088",
+          "source_file": "George_W._Bush.html",
+          "role": "context: 'Preceded by' of Barack_Obama.html; shares category '21st-century American non-fiction writers' with Barack_Obama.html",
+          "score": 7.3892
+        },
+        {
+          "unit_id": "Donald_Trump.html#c00000-c00090",
+          "source_file": "Donald_Trump.html",
+          "role": "context: 'Succeeded by' of Barack_Obama.html; shares category '20th-century American non-fiction writers' with Barack_Obama.html",
+          "score": 7.3226
+        },
+        {
+          "unit_id": "Columbia_University.html#c00000-c00055",
+          "source_file": "Columbia_University.html",
+          "role": "context: 'Education' of Barack_Obama.html; linked from Ivy_League.html",
+          "score": 6.887
+        },
+        {
+          "unit_id": "7f8730199e3c9d3c-c00113",
+          "source_file": "Harvard_University.html",
+          "role": "context: 'Education' of Barack_Obama.html; linked from Ivy_League.html",
+          "score": 6.8268
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 36238,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {
+        "seed_files": [
+          "Barack_Obama.html",
+          "Ben_Cardin.html",
+          "Ivy_League.html",
+          "List_of_presidents_of_the_United_States_by_education.html"
+        ],
+        "matched_categories": [
+          {
+            "title": "Barack Obama",
+            "members": 1
+          },
+          {
+            "title": "Presidency of Barack Obama",
+            "members": 1
+          },
+          {
+            "title": "University of Chicago Law School faculty",
+            "members": 1
+          },
+          {
+            "title": "University of Houston Law Center alumni",
+            "members": 1
+          },
+          {
+            "title": "University of Michigan Law School alumni",
+            "members": 1
+          },
+          {
+            "title": "University of Georgia School of Law alumni",
+            "members": 1
+          },
+          {
+            "title": "Former women's universities and colleges in the United States",
+            "members": 1
+          }
+        ],
+        "candidate_count": 241,
+        "expansions": [
+          {
+            "source_file": "George_W._Bush.html",
+            "relations": [
+              "'Preceded by' of Barack_Obama.html",
+              "shares category '21st-century American non-fiction writers' with Barack_Obama.html",
+              "shares category '21st-century presidents of the United States' with Barack_Obama.html",
+              "shares category 'American people of the War in Afghanistan (2001–2021)' with Barack_Obama.html",
+              "shares category 'American political writers' with Barack_Obama.html",
+              "shares category 'People associated with the 2004 United States presidential election' with Barack_Obama.html",
+              "shares category 'Presidents of the United States' with Barack_Obama.html",
+              "shares category 'Time Person of the Year' with Barack_Obama.html",
+              "Barack_Obama.html is 'Succeeded by' of George_W._Bush.html",
+              "linked from Ivy_League.html",
+              "linked from List_of_presidents_of_the_United_States_by_education.html"
+            ],
+            "score": 7.389
+          },
+          {
+            "source_file": "Donald_Trump.html",
+            "relations": [
+              "'Succeeded by' of Barack_Obama.html",
+              "shares category '20th-century American non-fiction writers' with Barack_Obama.html",
+              "shares category '21st-century American non-fiction writers' with Barack_Obama.html",
+              "shares category '21st-century presidents of the United States' with Barack_Obama.html",
+              "shares category 'American people of German descent' with Barack_Obama.html",
+              "shares category 'American people of the War in Afghanistan (2001–2021)' with Barack_Obama.html",
+              "shares category 'Presidents of the United States' with Barack_Obama.html",
+              "shares category 'Time Person of the Year' with Barack_Obama.html",
+              "Barack_Obama.html is 'Preceded by' of Donald_Trump.html",
+              "linked from Ben_Cardin.html",
+              "linked from Ivy_League.html",
+              "linked from List_of_presidents_of_the_United_States_by_education.html"
+            ],
+            "score": 7.323
+          },
+          {
+            "source_file": "Columbia_University.html",
+            "relations": [
+              "'Education' of Barack_Obama.html",
+              "linked from Ivy_League.html",
+              "Ivy_League.html is 'Sporting affiliations' of Columbia_University.html",
+              "linked from List_of_presidents_of_the_United_States_by_education.html"
+            ],
+            "score": 6.887
+          },
+          {
+            "source_file": "Harvard_University.html",
+            "relations": [
+              "'Education' of Barack_Obama.html",
+              "linked from Ivy_League.html",
+              "Ivy_League.html is 'Sporting affiliations' of Harvard_University.html",
+              "linked from List_of_presidents_of_the_United_States_by_education.html"
+            ],
+            "score": 6.827
+          }
+        ],
+        "child_chunk_ids": [
+          "ce083e780cb76d37-c00002",
+          "2b1214c6c6904ae6-c00004",
+          "1b3e71a846a884c7-c00055",
+          "2f95a5be7329cc28-c00024",
+          "9370626bd8c851db-c00088",
+          "2b97be4ce306e1b8-c00090",
+          "6c0d42025424232a-c00053",
+          "7f8730199e3c9d3c-c00113"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 1.9316847000154667,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.375,
+      "chunk_precision_at_k": 0.375,
+      "article_precision": 0.375,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 1.0,
+      "all_required_present": true
+    }
+  ]
+}

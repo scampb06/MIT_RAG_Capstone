@@ -1,7 +1,12 @@
-Checkpoint 1.1/Capstone_Checkpoint_1_1_starter.zip
+# Generated indexes and caches (hundreds of MB to GB; rebuilt with --build-index)
 Checkpoint 2.1/wikipedia_chroma_db/
+Checkpoint 2.1/wikipedia_chunks*_cache/
+Checkpoint 2.1/wikipedia_chunks*_chroma_db/
 
-# Python cache
+# Secrets
+.env
+
+# Python and run artefacts
 __pycache__/
-*.py[cod]
-*$py.class
+*.pyc
+*.log

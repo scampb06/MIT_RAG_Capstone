@@ -1,0 +1,888 @@
+{
+  "suite_notes": {
+    "purpose": "Mini test suite for the Checkpoint 4.1 retriever comparison (baseline / chunks / decompose / graph). Records are copied verbatim from three existing suites and tagged with the retrieval behaviour they are meant to exercise.",
+    "corpus": "Capstone/Checkpoint 1.1/Wikipedia (full 2,419-file corpus)",
+    "groups": {
+      "comparative_decomposition": {
+        "description": "Comparative questions that should illustrate the benefit of query decomposition",
+        "source_suite": "golden_suite.subset.wholecorpus.json",
+        "ids": [
+          "Q006",
+          "Q045",
+          "Q049"
+        ]
+      },
+      "high_precision_chunking": {
+        "description": "High-precision questions that should illustrate chunking and/or a deeper reranked candidate pool",
+        "source_suite": "golden_suite.subset.wholecorpus.json",
+        "ids": [
+          "Q019",
+          "Q072",
+          "Q080"
+        ]
+      },
+      "multi_entity_precision": {
+        "description": "Precise multi-entity questions that should illustrate splitting/chunking and/or query decomposition",
+        "source_suite": "golden_suite_2.1.json",
+        "ids": [
+          "Q003",
+          "Q005",
+          "Q009",
+          "Q014"
+        ]
+      },
+      "complex_precision_chunking": {
+        "description": "Complex questions requiring precision that should illustrate splitting and chunking",
+        "source_suite": "golden_suite_4.1.json",
+        "ids": [
+          "G06",
+          "G07",
+          "G10",
+          "G15",
+          "G16"
+        ]
+      },
+      "unnamed_entity_graph": {
+        "description": "Queries referring to unnamed entities that should illustrate the benefit of graph retrieval",
+        "source_suite": "golden_suite_4.1.json",
+        "ids": [
+          "G08",
+          "G13"
+        ]
+      }
+    },
+    "note": "G15 and G16 are not in golden_suite_4.1.rerun_baseline_6.json; all G-records are taken from the parent golden_suite_4.1.json, of which the rerun file is an exact subset."
+  },
+  "queries": [
+    {
+      "id": "Q006",
+      "group": "comparative_decomposition",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "query": "Compare how the Academy handled the introduction of the Best Animated Feature category with the way the Best Original Score category was split and then merged again in the 1990s.",
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The Best Animated Feature award was introduced at the 74th ceremony (2002) as a brand-new competitive category with eligibility rules: at least 70 minutes long, a significant number of animated characters, and at least 75 percent animation; a minimum of eight qualifying films had to be released in the year to allow three nominees, rising to five nominees if more than twelve films qualified. Before this, animated features such as Snow White and the Seven Dwarfs, Who Framed Roger Rabbit and Toy Story had only received Special Achievement Awards. By contrast, the score category was not created but divided: beginning with the 68th ceremony (1996) the music branch split Best Original Score into Best Dramatic Score and Best Musical or Comedy Score, seen as a response to Disney's dominance of the score and song categories; four years later the two scoring categories were merged back into one.",
+      "supporting_quotes": [
+        {
+          "text": "Beginning with this ceremony, AMPAS introduced a new competitive award that would honor animated feature films.",
+          "source_file": "74th_Academy_Awards.html"
+        },
+        {
+          "text": "According to Academy communications director John Pavlik, the film must be at least 70 minutes in length, have a significant amount of animated characters, and be at least 75 percent animated in order to be qualified for consideration.",
+          "source_file": "74th_Academy_Awards.html"
+        },
+        {
+          "text": "Prior to the introduction of this category, three Disney films (1937's Snow White and the Seven Dwarfs, 1988's Who Framed Roger Rabbit, and 1995's Toy Story) were all given Special Achievement Academy Awards.",
+          "source_file": "74th_Academy_Awards.html"
+        },
+        {
+          "text": "Beginning with this ceremony, the AMPAS music branch divided the category of Best Original Score into two categories: Best Dramatic Score and Best Musical or Comedy Score.",
+          "source_file": "68th_Academy_Awards.html"
+        },
+        {
+          "text": "This was seen as a response to the dominance of Walt Disney Feature Animation films in the Original Score and Original Song categories in recent years.",
+          "source_file": "68th_Academy_Awards.html"
+        },
+        {
+          "text": "Four years later, the two scoring categories were merged back into one category.",
+          "source_file": "68th_Academy_Awards.html"
+        }
+      ],
+      "required_files": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html"
+      ],
+      "relevant_files": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Animated_Feature.html"
+      ],
+      "difficulty_notes": "Genuine cross-document synthesis about category administration; no single article compares the two rule changes.",
+      "required_aspects": [
+        "The Best Animated Feature award was introduced at the 74th ceremony (2002) as a brand-new competitive category with eligibility rules: at least 70 minutes long, a significant number of animated characters, and at least 75 percent animation",
+        "a minimum of eight qualifying films had to be released in the year to allow three nominees, rising to five nominees if more than twelve films qualified.",
+        "Before this, animated features such as Snow White and the Seven Dwarfs, Who Framed Roger Rabbit and Toy Story had only received Special Achievement Awards.",
+        "By contrast, the score category was not created but divided: beginning with the 68th ceremony (1996) the music branch split Best Original Score into Best Dramatic Score and Best Musical or Comedy Score, seen as a response to Disney's dominance of the score and song categories",
+        "four years later the two scoring categories were merged back into one."
+      ]
+    },
+    {
+      "id": "Q045",
+      "group": "comparative_decomposition",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "query": "Compare the audience reactions and awards outcomes for the two films that lost Best Picture in the most talked-about upsets — the 2005 gay romance and the 2016 musical.",
+      "information_need": "in_depth",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Brokeback Mountain won three Academy Awards — Best Director, Best Adapted Screenplay and Best Original Score — but lost Best Picture to Crash, prompting accusations of homophobia and more than 800 supporters raising up to $26,000 for an advert in Daily Variety thanking the filmmakers. La La Land won six Oscars including Best Director and Best Actress from a record-tying fourteen nominations, but lost Best Picture to Moonlight after the envelope error, setting a record for most nominations without winning Best Picture. Both are considered landmark losses, and in a 2015 Hollywood Reporter member poll Brokeback Mountain won the revote for Best Picture.",
+      "supporting_quotes": [
+        {
+          "text": "At the 78th Academy Awards, Brokeback Mountain was nominated for the Academy Award for Best Picture and won three awards for Best Director, Best Adapted Screenplay, and Original Score.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "Following the loss, more than 800 supporters raised up to $26,000 to place an advertisement in the Daily Variety.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "La La Land's Best Picture loss to Moonlight meant it set a record for most nominations without winning Best Picture.",
+          "source_file": "89th_Academy_Awards.html"
+        },
+        {
+          "text": "La La Land won six awards, the most for the evening, out of its record-tying 14 nominations, including Best Actress for Emma Stone and Best Director for Damien Chazelle.",
+          "source_file": "89th_Academy_Awards.html"
+        }
+      ],
+      "required_files": [
+        "Brokeback_Mountain.html",
+        "89th_Academy_Awards.html"
+      ],
+      "relevant_files": [
+        "Brokeback_Mountain.html",
+        "89th_Academy_Awards.html",
+        "La_La_Land.html",
+        "Academy_Award_for_Best_Picture.html",
+        "Emma_Stone.html",
+        "Ryan_Gosling.html"
+      ],
+      "difficulty_notes": "Comparative in-depth query with both films identified only by description; requires synthesis across three files. Full-corpus note: Both La La Land leads now have dedicated articles; Emma Stone's covers her Best Actress win for the film, directly relevant to the required aspects.",
+      "required_aspects": [
+        "Brokeback Mountain won three Academy Awards — Best Director, Best Adapted Screenplay and Best Original Score — but lost Best Picture to Crash, prompting accusations of homophobia and more than 800 supporters raising up to $26,000 for an advert in Daily Variety thanking the filmmakers.",
+        "La La Land won six Oscars including Best Director and Best Actress from a record-tying fourteen nominations, but lost Best Picture to Moonlight after the envelope error, setting a record for most nominations without winning Best Picture.",
+        "Both are considered landmark losses, and in a 2015 Hollywood Reporter member poll Brokeback Mountain won the revote for Best Picture."
+      ]
+    },
+    {
+      "id": "Q049",
+      "group": "comparative_decomposition",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "query": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Brendan Fraser won Best Actor for playing Charlie in The Whale. Notably, for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees. The other nominees were Austin Butler (Elvis), Colin Farrell (The Banshees of Inisherin), Paul Mescal (Aftersun) and Bill Nighy (Living).",
+      "supporting_quotes": [
+        {
+          "text": "For the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "Brendan Fraser – The Whale as Charlie‡",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "Fraser's work in The Whale earned him critical acclaim and numerous accolades, including the Academy Award for Best Actor, which made him the first Canadian to receive it.",
+          "source_file": "Brendan_Fraser.html"
+        }
+      ],
+      "required_files": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html"
+      ],
+      "relevant_files": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html",
+        "Academy_Award_for_Best_Actor.html",
+        "Austin_Butler.html",
+        "Colin_Farrell.html",
+        "Paul_Mescal.html",
+        "Bill_Nighy.html"
+      ],
+      "difficulty_notes": "Multi-document confirmation; the nominee-field fact appears only in the ceremony article. Full-corpus note: All four other 95th-ceremony Best Actor nominees named in the required aspects now have dedicated biography articles in the full corpus.",
+      "required_aspects": [
+        "Brendan Fraser won Best Actor for playing Charlie in The Whale.",
+        "Notably, for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+        "The other nominees were Austin Butler (Elvis), Colin Farrell (The Banshees of Inisherin), Paul Mescal (Aftersun) and Bill Nighy (Living)."
+      ]
+    },
+    {
+      "id": "Q019",
+      "group": "high_precision_chunking",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "query": "How did the director of La La Land get his start, and what connects his college years to that film's music?",
+      "information_need": "in_depth",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Damien Chazelle met composer Justin Hurwitz at Harvard, where they were roommates in Currier House and explored a musical concept in their senior thesis, the low-budget Guy and Madeline on a Park Bench about a Boston jazz musician. Both moved to Los Angeles in 2010 and continued writing what became La La Land, altering the location from Boston to Los Angeles. Hurwitz composed and orchestrated the songs and score for La La Land, with lyrics by Pasek and Paul except for 'Start a Fire'.",
+      "supporting_quotes": [
+        {
+          "text": "He conceived the film when he was a student at Harvard University with his classmate Justin Hurwitz. The two explored the concept in their senior thesis through a low-budget musical about a Boston jazz musician, Guy and Madeline on a Park Bench.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "both moved to Los Angeles in 2010 and continued writing the script, but made a few modifications, such as altering the location to Los Angeles instead of Boston.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "The songs and score for La La Land were composed and orchestrated by Justin Hurwitz, Chazelle's Harvard University classmate, who also worked on his two prior films.",
+          "source_file": "La_La_Land.html"
+        },
+        {
+          "text": "At Harvard, he lived in Currier House as roommates with composer and frequent collaborator Justin Hurwitz.",
+          "source_file": "Damien_Chazelle.html"
+        }
+      ],
+      "required_files": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "relevant_files": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "difficulty_notes": "Genuine two-document synthesis linking biography to production; the Currier House detail exists only in the biography.",
+      "required_aspects": [
+        "Damien Chazelle met composer Justin Hurwitz at Harvard, where they were roommates in Currier House and explored a musical concept in their senior thesis, the low-budget Guy and Madeline on a Park Bench about a Boston jazz musician.",
+        "Both moved to Los Angeles in 2010 and continued writing what became La La Land, altering the location from Boston to Los Angeles.",
+        "Hurwitz composed and orchestrated the songs and score for La La Land, with lyrics by Pasek and Paul except for 'Start a Fire'."
+      ]
+    },
+    {
+      "id": "Q072",
+      "group": "high_precision_chunking",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "query": "What is the highest-grossing film of all time?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "temporally_stale",
+      "expected_behavior": "The system should give the corpus's recorded position — Titanic held the record until Avatar surpassed it in 2010, and as of the corpus Titanic is the fourth-highest-grossing film — while explicitly flagging that these figures are a snapshot and may be out of date.",
+      "expected_answer": "According to the source material, Titanic was the highest-grossing film of all time until James Cameron's Avatar (2009) surpassed it in 2010; as of the corpus's records, Titanic stands as the fourth-highest-grossing film with a worldwide total of $2.264 billion. These figures reflect the sources' date and may be superseded.",
+      "supporting_quotes": [
+        {
+          "text": "With an initial worldwide gross of over $1.84 billion, Titanic was the first film to reach the billion-dollar mark",
+          "source_file": "Titanic_(1997_film).html"
+        },
+        {
+          "text": "Releases pushed the worldwide theatrical total to $2.264 billion, making Titanic the second film to gross more than $2 billion worldwide after Avatar; as of 2023, it is the fourth-highest-grossing film.",
+          "source_file": "Titanic_(1997_film).html"
+        },
+        {
+          "text": "It became the highest-grossing film of all time worldwide in 1998, beating Jurassic Park (1993).",
+          "source_file": "Titanic_(1997_film).html"
+        }
+      ],
+      "required_files": [
+        "Titanic_(1997_film).html"
+      ],
+      "relevant_files": [
+        "Titanic_(1997_film).html",
+        "List_of_Academy_Award_records.html",
+        "James_Cameron.html",
+        "Avatar_(2009_film).html"
+      ],
+      "difficulty_notes": "Temporal staleness test: 'of all time' invites an absolute answer from a dated snapshot. Full-corpus note: James Cameron's own biography and the Avatar (2009) article both cover the Titanic/Avatar box-office history in more depth than the 60-file subset had (including Avatar's own later overtakings by Avengers: Endgame and its 2021 China re-release).",
+      "required_aspects": [
+        "According to the source material, Titanic was the highest-grossing film of all time until James Cameron's Avatar (2009) surpassed it in 2010",
+        "as of the corpus's records, Titanic stands as the fourth-highest-grossing film with a worldwide total of $2.264 billion.",
+        "These figures reflect the sources' date and may be superseded."
+      ]
+    },
+    {
+      "id": "Q080",
+      "group": "high_precision_chunking",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "query": "Tell me about Anthony Minghella — what did he win and what happened at the Oscars after his death?",
+      "information_need": "overview",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Anthony Minghella (1954–2008) was a British playwright and filmmaker who directed Truly, Madly, Deeply, The English Patient, The Talented Mr. Ripley and Cold Mountain. He won the Academy Award for Best Director for The English Patient, and received three further nominations: Best Adapted Screenplay for both The English Patient and The Talented Mr. Ripley, and, posthumously, Best Picture for The Reader (2008) as a producer. The Academy made an exception to its normal three-producer limit for Best Picture so that Minghella and Sydney Pollack could be posthumously included among the four producers nominated for The Reader.",
+      "supporting_quotes": [
+        {
+          "text": "He received the Academy Award for Best Director for The English Patient. In addition, he received three more Academy Award nominations; he was nominated for Best Adapted Screenplay for both The English Patient and The Talented Mr. Ripley, and was posthumously nominated for Best Picture for The Reader (2008), as a producer.",
+          "source_file": "Anthony_Minghella.html"
+        },
+        {
+          "text": "The Academy can make exceptions to the limit, as when Anthony Minghella and Sydney Pollack were posthumously included among the four producers nominated for The Reader (2008).",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        }
+      ],
+      "required_files": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "relevant_files": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "The producer-limit exception appears only in the category article, making this genuinely multi-document.",
+      "required_aspects": [
+        "Anthony Minghella (1954–2008) was a British playwright and filmmaker who directed Truly, Madly, Deeply, The English Patient, The Talented Mr.",
+        "Ripley and Cold Mountain.",
+        "He won the Academy Award for Best Director for The English Patient, and received three further nominations: Best Adapted Screenplay for both The English Patient and The Talented Mr.",
+        "Ripley, and, posthumously, Best Picture for The Reader (2008) as a producer.",
+        "The Academy made an exception to its normal three-producer limit for Best Picture so that Minghella and Sydney Pollack could be posthumously included among the four producers nominated for The Reader."
+      ]
+    },
+    {
+      "id": "Q003",
+      "group": "multi_entity_precision",
+      "source_suite": "golden_suite_2.1.json",
+      "query": "Compare the Academy Awards ceremonies held a decade apart: who hosted the 85th and 95th ceremonies, and which film won Best Picture at each?",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Seth MacFarlane hosted the 85th Academy Awards, where Argo won Best Picture. Jimmy Kimmel hosted the 95th Academy Awards, where Everything Everywhere All at Once won Best Picture.",
+      "required_aspects": [
+        "Seth MacFarlane hosted the 85th Academy Awards, where Argo won Best Picture.",
+        "Jimmy Kimmel hosted the 95th Academy Awards, where Everything Everywhere All at Once won Best Picture."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "Actor Seth MacFarlane hosted the show for the first time.",
+          "source_file": "85th_Academy_Awards.html"
+        },
+        {
+          "text": "Argo won three awards, including Best Picture, the first film to win an Academy Award for Best Picture without its director nominated since Driving Miss Daisy.",
+          "source_file": "85th_Academy_Awards.html"
+        },
+        {
+          "text": "Comedian Jimmy Kimmel hosted the show for the third time, following the 89th ceremony in 2017 and the 90th ceremony in 2018.",
+          "source_file": "95th_Academy_Awards.html"
+        },
+        {
+          "text": "Everything Everywhere All at Once won seven awards, including Best Picture.",
+          "source_file": "95th_Academy_Awards.html"
+        }
+      ],
+      "required_files": [
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html"
+      ],
+      "relevant_files": [
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "A fact-lookup query that genuinely requires two documents - a valid multi_document case under the quota carve-out for comparative fact lookups."
+    },
+    {
+      "id": "Q005",
+      "group": "multi_entity_precision",
+      "source_suite": "golden_suite_2.1.json",
+      "query": "For each of the 1996, 2004, and 2008 Summer Olympics, list every city mentioned as having submitted a bid but not winning that edition's hosting contest.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "For the 1996 Summer Olympics, the losing bid cities were Athens, Belgrade, Manchester, Melbourne, and Toronto. For the 2004 Summer Olympics, they were Rome, Cape Town, Stockholm, and Buenos Aires (the other shortlisted cities), plus Istanbul, Lille, Rio de Janeiro, San Juan, Seville, and Saint Petersburg, whose applications were dropped before the shortlist. For the 2008 Summer Olympics, they were Toronto, Paris, Istanbul, and Osaka (the other shortlisted cities), plus Bangkok, Cairo, Havana, Kuala Lumpur, and Seville, whose bids failed to make the shortlist.",
+      "required_aspects": [
+        "For the 1996 Summer Olympics, the losing bid cities were Athens, Belgrade, Manchester, Melbourne, and Toronto.",
+        "For the 2004 Summer Olympics, the losing bid cities were Rome, Cape Town, Stockholm, and Buenos Aires, plus Istanbul, Lille, Rio de Janeiro, San Juan, Seville, and Saint Petersburg, whose applications were dropped before the shortlist.",
+        "For the 2008 Summer Olympics, the losing bid cities were Toronto, Paris, Istanbul, and Osaka, plus Bangkok, Cairo, Havana, Kuala Lumpur, and Seville, whose bids failed to make the shortlist."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "Atlanta was selected on September 18, 1990, in Tokyo, Japan, over Athens, Belgrade, Manchester, Melbourne, and Toronto at the 96th IOC Session.",
+          "source_file": "1996_Summer_Olympics.html"
+        },
+        {
+          "text": "After leading all voting rounds, Athens easily defeated Rome in the fifth and final vote.",
+          "source_file": "2004_Summer_Olympics.html"
+        },
+        {
+          "text": "Cape Town, Stockholm, and Buenos Aires (the latter won the rights to host the 2018 Summer Youth Olympics in 2013), the three other cities that made the IOC shortlist, were eliminated in prior rounds of voting.",
+          "source_file": "2004_Summer_Olympics.html"
+        },
+        {
+          "text": "Six other cities submitted applications, but their bids were dropped by the IOC in 1996. These cities were Istanbul, Lille, Rio de Janeiro (the latter won the rights to host the 2016 Summer Olympics in 2009), San Juan, Seville, and Saint Petersburg.",
+          "source_file": "2004_Summer_Olympics.html"
+        },
+        {
+          "text": "Beijing was elected as the host city for the 2008 Summer Olympics on 13 July 2001, during the 112th IOC Session in Moscow, defeating bids from Toronto, Paris, Istanbul, and Osaka.",
+          "source_file": "2008_Summer_Olympics.html"
+        },
+        {
+          "text": "Prior to the session, five other cities (Bangkok, Cairo, Havana, Kuala Lumpur, and Seville) had submitted bids to the IOC, but failed to make the short list chosen by the IOC Executive Committee in 2000.",
+          "source_file": "2008_Summer_Olympics.html"
+        }
+      ],
+      "required_files": [
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2008_Summer_Olympics.html"
+      ],
+      "relevant_files": [
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2008_Summer_Olympics.html"
+      ],
+      "difficulty_notes": "Requires aggregating enumerations from three separate articles and distinguishing shortlisted losers from applications dropped before the shortlist; a system that only retrieves the shortlist sentence will under-report the 2004 and 2008 lists."
+    },
+    {
+      "id": "Q009",
+      "group": "multi_entity_precision",
+      "source_suite": "golden_suite_2.1.json",
+      "query": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The 1964 Nobel Prize in Literature was awarded to French writer Jean-Paul Sartre, the same year a magnitude 9.2-9.3 earthquake struck Alaska. Sartre declined the prize, saying he never accepted official honors and did not want the writer to become an institution; he also objected on the grounds that the prize went only to Westerners or to rebels of the East.",
+      "required_aspects": [
+        "The 1964 Nobel Prize in Literature was awarded to French writer Jean-Paul Sartre, the same year a magnitude 9.2-9.3 earthquake struck Alaska.",
+        "Sartre declined the prize, saying he never accepted official honors and did not want the writer to become an institution.",
+        "He also objected on the grounds that the prize went only to Westerners or to rebels of the East."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "The 1964 Nobel Prize in Literature was awarded to the French writer Jean-Paul Sartre (1905–1980)",
+          "source_file": "1964_Nobel_Prize_in_Literature.html"
+        },
+        {
+          "text": "Sartre declined the prize, saying that he never accepted any official honours and that he did not want the writer to become an institution.",
+          "source_file": "1964_Nobel_Prize_in_Literature.html"
+        },
+        {
+          "text": "Sartre declared about the Nobel prize that it is one that goes only to Westerners \"or to rebels of the East\".",
+          "source_file": "1964_Nobel_Prize_in_Literature.html"
+        },
+        {
+          "text": "the magnitude 9.2–9.3 megathrust earthquake remains the most powerful earthquake ever recorded in North America",
+          "source_file": "1964_Alaska_earthquake.html"
+        }
+      ],
+      "required_files": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "relevant_files": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "difficulty_notes": "Cross-domain multi-hop via a shared but unstated year: needs both the earthquake and literature-prize articles, which share essentially no vocabulary, linked only by the implicit year 1964."
+    },
+    {
+      "id": "Q014",
+      "group": "multi_entity_precision",
+      "source_suite": "golden_suite_2.1.json",
+      "query": "In the IOC vote that awarded the 1992 Winter Games, which two cities tied and were sent to a run-off, what were their run-off vote totals, and which city was eliminated after the very first round?",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Falun and Lillehammer tied at 11 votes in round 4 and were sent to a run-off, which Falun won 41 votes to Lillehammer's 40. Berchtesgaden, with 6 votes, was eliminated after the very first round.",
+      "required_aspects": [
+        "Falun and Lillehammer tied at 11 votes in round 4 and were sent to a run-off.",
+        "Falun won the run-off 41 votes to Lillehammer's 40.",
+        "Berchtesgaden, with 6 votes, was eliminated after the very first round."
+      ],
+      "supporting_quotes": [
+        {
+          "text": "Falun | Sweden | 10 | 11 | 11 | 11 | 41 | 9",
+          "source_file": "1992_Winter_Olympics.html"
+        },
+        {
+          "text": "Lillehammer | Norway | 10 | 11 | 9 | 11 | 40 | —",
+          "source_file": "1992_Winter_Olympics.html"
+        },
+        {
+          "text": "Berchtesgaden | West Germany | 6 | — | — | — | — | —",
+          "source_file": "1992_Winter_Olympics.html"
+        }
+      ],
+      "required_files": [
+        "1992_Winter_Olympics.html"
+      ],
+      "relevant_files": [
+        "1992_Winter_Olympics.html"
+      ],
+      "difficulty_notes": "Wikitable-parsing trap: the bidding-results table has a two-row header (round numbers plus a 'Run-off' column that only exists because of the round-4 tie), flattened by extraction into pipe-separated rows. A system must correctly align each number to its round even though the header row itself is split across two table rows in the extracted text."
+    },
+    {
+      "id": "G06",
+      "group": "complex_precision_chunking",
+      "source_suite": "golden_suite_4.1.json",
+      "query": "Name another president besides Barack Obama who attended Harvard.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Any president listed as a Harvard alumnus in Harvard's article: George W. Bush (MBA, 1975), John F. Kennedy (AB, 1940), Franklin D. Roosevelt (AB, 1903), Theodore Roosevelt (AB, 1880) or John Adams (AB, 1755). Obama himself earned his JD at Harvard Law School in 1991.",
+      "supporting_quotes": [
+        {
+          "text": "In 1988, Obama enrolled in Harvard Law School, where he was the first Black president of the Harvard Law Review.",
+          "source_file": "Barack_Obama.html"
+        },
+        {
+          "text": "After graduating from Harvard Business School in 1975, he worked in the oil industry.",
+          "source_file": "George_W._Bush.html"
+        },
+        {
+          "text": "43rd president of the United States George W. Bush (MBA, 1975)",
+          "source_file": "Harvard_University.html"
+        },
+        {
+          "text": "including two U.S. presidents, Franklin D. Roosevelt (AB, 1903) and John F. Kennedy (AB 1940)",
+          "source_file": "Harvard_University.html"
+        },
+        {
+          "text": "26th president of the United States and Nobel Peace Prize laureate Theodore Roosevelt (AB, 1880)",
+          "source_file": "Harvard_University.html"
+        }
+      ],
+      "required_files": [
+        "George_W._Bush.html"
+      ],
+      "relevant_files": [
+        "George_W._Bush.html",
+        "Harvard_University.html",
+        "Barack_Obama.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "difficulty_notes": "Shared-target lookup: the Education infobox rows of both Obama and Bush link Harvard_University.html, which exists as a node, so the graph path returns George W. Bush. Harvard's own article also lists Kennedy, both Roosevelts and John Adams among alumni, none of whom have an Education edge to Harvard in the corpus. Answer set widened after the 2026-09-20 baseline run answered John F. Kennedy (correct, grounded in Harvard's article) and was wrongly failed against a Bush-only expected answer. required_files still names Bush for the recall metric; a Kennedy/Roosevelt/Adams answer grounded in Harvard_University.html will therefore show recall 0 with correctness pass - read the two together.",
+      "required_aspects": [
+        "At least one president other than Obama is named who attended Harvard and is listed in Harvard's article (George W. Bush, John F. Kennedy, Franklin D. Roosevelt, Theodore Roosevelt or John Adams)."
+      ],
+      "mechanism": "shared_target_education_edge",
+      "anticipated_outcomes": {
+        "baseline": "possible",
+        "chunker": "likely",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "The fact exists in Harvard's article but is buried in a long alumni list; chunking isolates it, the graph reaches Bush through the shared Harvard node."
+    },
+    {
+      "id": "G07",
+      "group": "complex_precision_chunking",
+      "source_suite": "golden_suite_4.1.json",
+      "query": "Name another president besides Bill Clinton who attended Yale.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "George W. Bush, who attended Yale University from 1964 to 1968 and graduated with a BA in history. Gerald Ford (Yale Law School), George H. W. Bush and William Howard Taft are also acceptable, as Yale's article lists them.",
+      "supporting_quotes": [
+        {
+          "text": "After Oxford, Clinton attended Yale Law School and earned a Juris Doctor (J.D.) degree in 1973.",
+          "source_file": "Bill_Clinton.html"
+        },
+        {
+          "text": "He attended Yale University from 1964 to 1968, graduating with a Bachelor of Arts degree in history.",
+          "source_file": "George_W._Bush.html"
+        },
+        {
+          "text": "Former presidents who attended for undergrad include William Howard Taft, George H. W. Bush, and George W. Bush, while former presidents Gerald Ford and Bill Clinton attended Yale Law School.",
+          "source_file": "Yale_University.html"
+        }
+      ],
+      "required_files": [
+        "George_W._Bush.html"
+      ],
+      "relevant_files": [
+        "George_W._Bush.html",
+        "Yale_University.html",
+        "Bill_Clinton.html",
+        "Gerald_Ford.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "difficulty_notes": "Shared-target lookup: Clinton's and Bush's Education rows both link Yale_University.html. Gerald_Ford.html exists and Yale's article names him, but whether Ford's infobox links Yale (i.e. whether the graph would also return him) was not verified. List_of_presidents_of_the_United_States_by_education.html is on-topic and was retrieved in the baseline run, but trafilatura extracts only ~4k characters of it (the table is dropped), so it contributes little text.",
+      "required_aspects": [
+        "George W. Bush (or Gerald Ford, George H. W. Bush or William Howard Taft) is named as another Yale-educated president."
+      ],
+      "mechanism": "shared_target_education_edge",
+      "anticipated_outcomes": {
+        "baseline": "possible",
+        "chunker": "likely",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "Same shape as G06; Yale's article is 154k characters, so baseline dilution risk is higher."
+    },
+    {
+      "id": "G10",
+      "group": "complex_precision_chunking",
+      "source_suite": "golden_suite_4.1.json",
+      "query": "Name two films by English directors that won Academy Awards.",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Two Academy Award-winning films by English directors, for example: American Beauty (1999, Sam Mendes, Best Picture and Best Director); Oppenheimer (2023, Christopher Nolan, Best Picture and Best Director); or The Bridge on the River Kwai (1957, David Lean, Best Director), which the Academy Award records article attributes to Lean 'from England'. Films by non-English directors (e.g. Clint Eastwood's Unforgiven) do not satisfy the question.",
+      "supporting_quotes": [
+        {
+          "text": "Sir Samuel Alexander Mendes CBE (born 1 August 1965) is an English filmmaker and stage director.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "In 1999, Mendes made his film directorial debut with American Beauty, starring Kevin Spacey.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "The film won the Golden Globe Award, the BAFTA Award and the Academy Award for Best Picture.",
+          "source_file": "Sam_Mendes.html"
+        },
+        {
+          "text": "Christopher Edward Nolan 30 July 1970 London, England",
+          "source_file": "Christopher_Nolan.html"
+        },
+        {
+          "text": "Oppenheimer (2023), which won him Academy Awards for Best Director and Best Picture.",
+          "source_file": "Christopher_Nolan.html"
+        },
+        {
+          "text": "First European to win Best Director - David Lean (from England) for The Bridge on the River Kwai (1957)",
+          "source_file": "List_of_Academy_Award_records.html"
+        }
+      ],
+      "required_files": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html"
+      ],
+      "relevant_files": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Reframed from 'list five films' because only two Oscar-winning films are verifiable in the corpus text; no film articles exist for either director's work. Graph path: 'English film directors' intersected with 'Directors of Best Picture Academy Award winners' yields Mendes and Nolan, then their article text supplies the films. Baseline run 2026-09-20 answered The Bridge on the River Kwai (David Lean, correct via the records list) and Unforgiven (Clint Eastwood - American, so wrong): the model satisfied the award constraint but not the nationality constraint. Lean is now accepted; the nationality check is an explicit required aspect.",
+      "required_aspects": [
+        "Two films are named, each of which won an Academy Award.",
+        "Each named film's director is identified as English (Sam Mendes, Christopher Nolan or David Lean)."
+      ],
+      "mechanism": "category_intersection_plus_text",
+      "anticipated_outcomes": {
+        "baseline": "possible",
+        "chunker": "likely",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "Mendes' lead sentence contains 'English filmmaker', giving lexical retrieval a foothold; Nolan's does not, so the second film is the harder half."
+    },
+    {
+      "id": "G15",
+      "group": "complex_precision_chunking",
+      "source_suite": "golden_suite_4.1.json",
+      "query": "Which city has the larger population, Sarajevo or Dunedin?",
+      "information_need": "fact_lookup",
+      "motivation": "personal_decision",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_answer": "Sarajevo. Its population within its administrative limits is 275,524 (2013 census), against an estimated 132,800 for Dunedin as of June 2025.",
+      "expected_behavior": null,
+      "supporting_quotes": [
+        {
+          "text": "Sarajevo is the capital and largest city of Bosnia and Herzegovina, with a population of 275,524 in its administrative limits.",
+          "source_file": "Sarajevo.html"
+        },
+        {
+          "text": "With an estimated population of 132,800 as of June 2025, Dunedin is New Zealand's seventh-most populous metropolitan and urban area.",
+          "source_file": "Dunedin.html"
+        }
+      ],
+      "required_files": [
+        "Sarajevo.html",
+        "Dunedin.html"
+      ],
+      "relevant_files": [
+        "Sarajevo.html",
+        "Dunedin.html"
+      ],
+      "difficulty_notes": "Cross-document comparison: two parallel lookups and a numeric comparison. The infobox labels differ ('City proper' vs 'Territorial') and the figures are from different years, so a good answer shows which figures it compared. Both names are in the query, so retrieval is easy; the baseline risk is two ~80k-character articles diluting the context.",
+      "required_aspects": [
+        "Sarajevo is identified as the larger city.",
+        "Both population figures are cited."
+      ],
+      "mechanism": "cross_document_comparison_infobox_properties",
+      "anticipated_outcomes": {
+        "baseline": "likely",
+        "chunker": "success",
+        "graph": "success",
+        "decomposition": "success"
+      },
+      "outcome_rationale": "Both entities are named; the only failure mode is losing the population sentence inside whole-article context."
+    },
+    {
+      "id": "G16",
+      "group": "complex_precision_chunking",
+      "source_suite": "golden_suite_4.1.json",
+      "query": "Was Charles III born before his mother's reign began?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Yes. Charles was born on 14 November 1948, during the reign of his grandfather George VI; his mother acceded to the throne as Elizabeth II on 6 February 1952, when Charles was three.",
+      "supporting_quotes": [
+        {
+          "text": "Charles was born at 9:14 pm on 14 November 1948 by caesarean section at Buckingham Palace, during the reign of his maternal grandfather, King George VI.",
+          "source_file": "Charles_III.html"
+        },
+        {
+          "text": "George VI died on 6 February 1952, after which Charles's mother acceded to the throne as Elizabeth II and he became heir apparent.",
+          "source_file": "Charles_III.html"
+        },
+        {
+          "text": "When her father died in February 1952, Elizabeth, then 25 years old, became queen of seven independent Commonwealth countries",
+          "source_file": "Elizabeth_II.html"
+        }
+      ],
+      "required_files": [
+        "Charles_III.html"
+      ],
+      "relevant_files": [
+        "Charles_III.html",
+        "Elizabeth_II.html"
+      ],
+      "difficulty_notes": "Cross-document temporal ordering, but Charles's own article contains both dates, so it doubles as a control. The mother is not named in the query; the relatives/predecessor edge or the article text resolves her.",
+      "required_aspects": [
+        "The answer is yes.",
+        "Both dates (born 14 November 1948; accession 6 February 1952) are given."
+      ],
+      "mechanism": "cross_document_temporal_ordering",
+      "anticipated_outcomes": {
+        "baseline": "success",
+        "chunker": "success",
+        "graph": "success",
+        "decomposition": "success"
+      },
+      "outcome_rationale": "Answerable from Charles III's article alone."
+    },
+    {
+      "id": "G08",
+      "group": "unnamed_entity_graph",
+      "source_suite": "golden_suite_4.1.json",
+      "query": "Which president served in both the 20th and 21st centuries?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Bill Clinton, whose presidency ran from January 1993 to January 2001. George W. Bush took office on January 20, 2001, so his term falls entirely in the 21st century.",
+      "supporting_quotes": [
+        {
+          "text": "who served as the 42nd president of the United States from 1993 to 2001.",
+          "source_file": "Bill_Clinton.html"
+        },
+        {
+          "text": "who was the 43rd president of the United States, serving from 2001 to 2009.",
+          "source_file": "George_W._Bush.html"
+        }
+      ],
+      "required_files": [
+        "Bill_Clinton.html"
+      ],
+      "relevant_files": [
+        "Bill_Clinton.html",
+        "George_W._Bush.html",
+        "Barack_Obama.html",
+        "Ronald_Reagan.html",
+        "Gerald_Ford.html",
+        "Donald_Trump.html"
+      ],
+      "difficulty_notes": "Category intersection: of the six corpus presidents checked, only Clinton carries both '20th-century presidents of the United States' and '21st-century presidents of the United States'. The query has no lexical hook to Clinton's name and requires ruling out the other presidents, which whole-article lexical retrieval cannot do. Strongest expected discriminator for the graph.",
+      "required_aspects": [
+        "Bill Clinton is identified as the president whose term spanned both centuries.",
+        "The answer is grounded in the 1993-2001 term dates."
+      ],
+      "mechanism": "category_intersection",
+      "anticipated_outcomes": {
+        "baseline": "fail",
+        "chunker": "fail",
+        "graph": "success",
+        "decomposition": "possible"
+      },
+      "outcome_rationale": "No query term points at Clinton; decomposition might generate a 1990s/2000s sub-query that happens to retrieve him."
+    },
+    {
+      "id": "G13",
+      "group": "unnamed_entity_graph",
+      "source_suite": "golden_suite_4.1.json",
+      "query": "What was the former name of the university where Barack Obama earned his law degree?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Harvard College. Obama earned his Juris Doctor at Harvard Law School in 1991; Harvard University was founded in 1636 and named Harvard College in 1639, which remains the name of its undergraduate division.",
+      "supporting_quotes": [
+        {
+          "text": "Obama graduated from Harvard Law in 1991 with a Juris Doctor magna cum laude.",
+          "source_file": "Barack_Obama.html"
+        },
+        {
+          "text": "Founded in 1636, and named Harvard College in 1639 in honor of its first benefactor, Puritan clergyman John Harvard, it is the oldest institution of higher learning in the United States.",
+          "source_file": "Harvard_University.html"
+        },
+        {
+          "text": "Former names | Harvard College",
+          "source_file": "Harvard_University.html"
+        }
+      ],
+      "required_files": [
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "relevant_files": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "difficulty_notes": "Bridge through an implicit entity plus alias: the query never says 'Harvard', so the second article can only be reached by following Obama's Education edge (or by the model supplying 'Harvard' from memory). If a decomposition run passes, check chunk_attribution_score - the bridge entity most likely came from parametric knowledge.",
+      "required_aspects": [
+        "Harvard is identified as where Obama earned his law degree.",
+        "Harvard College is given as the former name."
+      ],
+      "mechanism": "bridge_education_edge_plus_infobox_alias",
+      "anticipated_outcomes": {
+        "baseline": "fail",
+        "chunker": "fail",
+        "graph": "success",
+        "decomposition": "likely"
+      },
+      "outcome_rationale": "Lexical retrieval fetches Obama's article but has no reason to fetch Harvard's; the graph follows education -> Harvard_University and reads the former_names property."
+    }
+  ]
+}

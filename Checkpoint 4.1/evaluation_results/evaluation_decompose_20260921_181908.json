@@ -1,0 +1,2959 @@
+{
+  "configuration": {
+    "retriever": "decompose",
+    "unit": "chunk",
+    "top_k": 8,
+    "candidate_pool": 40,
+    "weight_bm25": 0.5,
+    "weight_vector": 0.5,
+    "max_chunk_chars": 2000,
+    "parent": {
+      "mode": "lead_section",
+      "max_chunks": 4,
+      "context_budget_chars": 40000
+    },
+    "graph": null,
+    "llm_model": "openai/gpt-5.4-mini",
+    "embedding_model": "openai/text-embedding-3-small",
+    "temperature": 0.2,
+    "run_at": "2026-09-21T18:24:39"
+  },
+  "results": [
+    {
+      "id": "Q006",
+      "question": "Compare how the Academy handled the introduction of the Best Animated Feature category with the way the Best Original Score category was split and then merged again in the 1990s.",
+      "retriever": "decompose",
+      "group": "comparative_decomposition",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "mechanism": null,
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Animated_Feature.html"
+      ],
+      "retrieved_sources": [
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html",
+        "74th_Academy_Awards.html",
+        "Academy_Award_for_Best_Animated_Feature.html",
+        "Grammy_Award_for_Best_Metal_Performance.html",
+        "Grammy_Award_for_Best_Hard_Rock_Performance.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "68th_Academy_Awards.html#c00000-c00018",
+          "source_file": "68th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.744
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00000-c00033",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 1.4858
+        },
+        {
+          "unit_id": "74th_Academy_Awards.html#c00000-c00018",
+          "source_file": "74th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.4498
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Animated_Feature.html#c00000-c00001",
+          "source_file": "Academy_Award_for_Best_Animated_Feature.html",
+          "role": "primary",
+          "score": 1.2231
+        },
+        {
+          "unit_id": "Grammy_Award_for_Best_Metal_Performance.html#c00000-c00003",
+          "source_file": "Grammy_Award_for_Best_Metal_Performance.html",
+          "role": "primary",
+          "score": 1.0447
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00002-c00003",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 1.0301
+        },
+        {
+          "unit_id": "Grammy_Award_for_Best_Hard_Rock_Performance.html#c00000-c00001",
+          "source_file": "Grammy_Award_for_Best_Hard_Rock_Performance.html",
+          "role": "primary",
+          "score": 0.8513
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 20075,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "sub_queries": [
+          "Academy Award for Best Animated Feature introduction history",
+          "Academy Award for Best Original Score category split and merger in the 1990s",
+          "Academy Award category history changes in the 1990s"
+        ],
+        "child_chunk_ids": [
+          "3e8e548f009bb2b4-c00018",
+          "7584ab2c6b497c73-c00032",
+          "54cc717f4dc58b8c-c00018",
+          "6a36616b15cd55c5-c00000",
+          "6a36616b15cd55c5-c00001",
+          "e9d4c0e8303401c9-c00002",
+          "7584ab2c6b497c73-c00002",
+          "4859b115b846bd05-c00001"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 9.772635700006504,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.42857142857142855,
+      "chunk_precision_at_k": 0.42857142857142855,
+      "article_precision": 0.5,
+      "unique_articles_retrieved": 6,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "The Best Animated Feature award was introduced at the 74th ceremony (2002) as a brand-new competitive category with eligibility rules: at least 70 minutes long, a significant number of animated characters, and at least 75 percent animation",
+        "a minimum of eight qualifying films had to be released in the year to allow three nominees, rising to five nominees if more than twelve films qualified.",
+        "Before this, animated features such as Snow White and the Seven Dwarfs, Who Framed Roger Rabbit and Toy Story had only received Special Achievement Awards.",
+        "By contrast, the score category was not created but divided: beginning with the 68th ceremony (1996) the music branch split Best Original Score into Best Dramatic Score and Best Musical or Comedy Score, seen as a response to Disney's dominance of the score and song categories",
+        "four years later the two scoring categories were merged back into one."
+      ],
+      "response": "The Academy handled these two categories differently.\n\nFor **Best Animated Feature**, the Academy **introduced a new competitive award** at the 74th Academy Awards, beginning with films released in 2001. The documents say AMPAS “introduced a new competitive award that would honor animated feature films,” and that this award “was first given out at the 74th Academy Awards” [74th_Academy_Awards.html] [Academy_Award_for_Best_Animated_Feature.html].\n\nBy contrast, for **Best Original Score**, the Academy **split an existing category into two separate ones** at the 68th Academy Awards: **Best Dramatic Score** and **Best Musical or Comedy Score**. The reason given was to respond to the dominance of Walt Disney Feature Animation films in the Original Score and Original Song categories. Then, **four years later, the two scoring categories were merged back into one category** [68th_Academy_Awards.html].\n\nSo, in short:\n- **Best Animated Feature**: created as a new category and kept as a separate award [74th_Academy_Awards.html] [Academy_Award_for_Best_Animated_Feature.html]\n- **Best Original Score**: an existing category that was split into two, then later recombined [68th_Academy_Awards.html]",
+      "closed_book_response": "The two cases were similar in that the Academy created or changed a category because of concern that the field was being treated inconsistently, but they differed in how stable the change turned out to be.\n\n**Best Animated Feature**\n- The Academy introduced this category in **2001** to give animated films their own Oscar category.\n- Before that, animation could only compete in broader categories like **Best Picture** or **Best Original Song**, and many felt animated features were underrecognized.\n- Unlike the score category’s earlier experiment, this was a **new, permanent category** that stayed in place.\n\n**Best Original Score in the 1990s**\n- The Academy **split** the score category into two separate awards in the 1990s:\n  - **Best Original Dramatic Score**\n  - **Best Original Musical or Comedy Score**\n- The idea was to distinguish between different kinds of film music.\n- But the split proved awkward and controversial, and after a few years the Academy **merged them back** into a single **Best Original Score** category.\n\n**Comparison**\n- **Best Animated Feature** was an expansion: a new category added to reflect a growing medium.\n- The **score category split** was a subdivision: one category temporarily divided into two, then recombined.\n- So, the Academy’s handling of animation was more like a **permanent recognition of a distinct art form**, while the score category experiment was a **temporary structural adjustment that was later reversed**.",
+      "correctness": "pass",
+      "graded_correctness": "substantially_complete",
+      "graded_correctness_score": 0.75,
+      "covered_aspects": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "aspect_coverage": 0.8,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The Academy handled these two categories differently.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "For Best Animated Feature, the Academy introduced a new competitive award at the 74th Academy Awards, beginning with films released in 2001.",
+          "cited_source": "74th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The documents say AMPAS introduced a new competitive award that would honor animated feature films.",
+          "cited_source": "74th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The award was first given out at the 74th Academy Awards.",
+          "cited_source": "74th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "For Best Original Score, the Academy split an existing category into two separate ones at the 68th Academy Awards.",
+          "cited_source": "68th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The two separate categories were Best Dramatic Score and Best Musical or Comedy Score.",
+          "cited_source": "68th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The reason given was to respond to the dominance of Walt Disney Feature Animation films in the Original Score and Original Song categories.",
+          "cited_source": "68th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Four years later, the two scoring categories were merged back into one category.",
+          "cited_source": "68th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Best Animated Feature was created as a new category and kept as a separate award.",
+          "cited_source": "74th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Best Original Score was an existing category that was split into two, then later recombined.",
+          "cited_source": "68th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 10,
+      "graded_groundedness_score": 0.9,
+      "faithfulness": "fail",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "response_quote_count": 2,
+      "quote_fidelity_rate": 0.5,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 3,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.195983699988574,
+      "judge_latency_seconds": 9.266384500078857,
+      "total_latency_seconds": 28.203560700058006,
+      "throttle_seconds": 2.746028500015382,
+      "input_tokens": 22576,
+      "output_tokens": 1179,
+      "total_tokens": 23755,
+      "estimated_cost_usd": 0.0222375
+    },
+    {
+      "id": "Q045",
+      "question": "Compare the audience reactions and awards outcomes for the two films that lost Best Picture in the most talked-about upsets — the 2005 gay romance and the 2016 musical.",
+      "retriever": "decompose",
+      "group": "comparative_decomposition",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "mechanism": null,
+      "information_need": "in_depth",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Brokeback_Mountain.html",
+        "89th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "Brokeback_Mountain.html",
+        "89th_Academy_Awards.html",
+        "La_La_Land.html",
+        "Academy_Award_for_Best_Picture.html",
+        "Emma_Stone.html",
+        "Ryan_Gosling.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Picture.html",
+        "Brokeback_Mountain.html",
+        "89th_Academy_Awards.html",
+        "La_La_Land.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00000-c00030",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 2.1131
+        },
+        {
+          "unit_id": "Brokeback_Mountain.html#c00000-c00040",
+          "source_file": "Brokeback_Mountain.html",
+          "role": "primary",
+          "score": 1.836
+        },
+        {
+          "unit_id": "89th_Academy_Awards.html#c00000-c00019",
+          "source_file": "89th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.6226
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00067-c00070",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 1.3933
+        },
+        {
+          "unit_id": "d7cde549c7664d7f-c00038",
+          "source_file": "Brokeback_Mountain.html",
+          "role": "primary",
+          "score": 1.1934
+        },
+        {
+          "unit_id": "La_La_Land.html#c00000-c00003",
+          "source_file": "La_La_Land.html",
+          "role": "primary",
+          "score": 1.1777
+        },
+        {
+          "unit_id": "List_of_Academy_Award_records.html#c00000-c00013",
+          "source_file": "List_of_Academy_Award_records.html",
+          "role": "primary",
+          "score": 1.1533
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 26251,
+      "evidence_recall": 0.75,
+      "retrieval_trace": {
+        "sub_queries": [
+          "2005 Best Picture upset gay romance audience reaction awards outcome",
+          "2016 Best Picture upset musical audience reaction awards outcome",
+          "Brokeback Mountain audience reaction and awards after losing Best Picture",
+          "La La Land audience reaction and awards after losing Best Picture"
+        ],
+        "child_chunk_ids": [
+          "7584ab2c6b497c73-c00029",
+          "d7cde549c7664d7f-c00039",
+          "86da3fa9f040ab84-c00017",
+          "d7cde549c7664d7f-c00040",
+          "7584ab2c6b497c73-c00069",
+          "d7cde549c7664d7f-c00038",
+          "c1ed16a211777eaf-c00002",
+          "67142f28a712cfd6-c00012"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 7.8950990999583155,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.8571428571428571,
+      "chunk_precision_at_k": 0.8571428571428571,
+      "article_precision": 0.8,
+      "unique_articles_retrieved": 5,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "Brokeback Mountain won three Academy Awards — Best Director, Best Adapted Screenplay and Best Original Score — but lost Best Picture to Crash, prompting accusations of homophobia and more than 800 supporters raising up to $26,000 for an advert in Daily Variety thanking the filmmakers.",
+        "La La Land won six Oscars including Best Director and Best Actress from a record-tying fourteen nominations, but lost Best Picture to Moonlight after the envelope error, setting a record for most nominations without winning Best Picture.",
+        "Both are considered landmark losses, and in a 2015 Hollywood Reporter member poll Brokeback Mountain won the revote for Best Picture."
+      ],
+      "response": "The two films were *Brokeback Mountain* and *La La Land*.\n\nFor *Brokeback Mountain*, its Best Picture loss to *Crash* was “heavily criticized,” with some critics accusing the Academy of “homophobia” and saying the Academy chose “to play it safe” [Brokeback_Mountain.html] [Academy_Award_for_Best_Picture.html]. After the loss, more than 800 supporters raised up to $26,000 for a *Daily Variety* advertisement thanking the filmmakers “for transforming countless lives through the most honored film of the year” [Brokeback_Mountain.html]. In awards terms, it was still nominated for Best Picture and won Best Director, Best Adapted Screenplay, and Original Score at the 78th Academy Awards [Brokeback_Mountain.html].\n\nFor *La La Land*, the reaction was different because it was first mistakenly announced as the Best Picture winner before the error was corrected and *Moonlight* was confirmed as the actual winner [89th_Academy_Awards.html]. The *La La Land* team was later praised for their “professional handling of the situation” [89th_Academy_Awards.html]. Awards-wise, it received a record-tying 14 Oscar nominations and won six categories, but lost Best Picture to *Moonlight* [La_La_Land.html] [89th_Academy_Awards.html].",
+      "closed_book_response": "The two films are **Brokeback Mountain** (2005) and **La La Land** (2016).\n\n### Audience reactions / reception\n- **Brokeback Mountain**: Widely admired by critics and many audiences, but it also provoked notable controversy at the time because of its subject matter. Some viewers embraced it as a landmark love story; others reacted negatively due to homophobia or discomfort with a mainstream gay romance.\n- **La La Land**: Generally had a much more broadly warm audience response. It was a crowd-pleasing musical with strong box-office appeal and was widely liked, though some viewers found it a bit sentimental or overrated compared with more dramatic competitors.\n\n### Awards outcomes\n- **Brokeback Mountain**: It was heavily favored to win Best Picture but lost to **Crash**, which was seen by many as a major upset. Even so, Brokeback Mountain won several major awards, including **Best Director** for Ang Lee, and it became an enduring critical favorite.\n- **La La Land**: It also seemed poised to win Best Picture, but the famous envelope mix-up led to **Moonlight** being announced as the real winner. Unlike Brokeback Mountain’s loss, this one became one of the most infamous Oscars moments ever. La La Land still won multiple Oscars, including **Best Director** for Damien Chazelle, and several technical and musical awards.\n\n### In short\n- **Brokeback Mountain**: stronger controversy, huge critical acclaim, lost Best Picture but won important awards.\n- **La La Land**: more broadly audience-friendly, lost Best Picture in a historic on-stage mistake, but also won several Oscars.",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 0.6666666666666666,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The two films were Brokeback Mountain and La La Land.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Brokeback Mountain's Best Picture loss to Crash was heavily criticized.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Some critics accused the Academy of homophobia.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Some critics said the Academy chose to play it safe.",
+          "cited_source": "Academy_Award_for_Best_Picture.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "More than 800 supporters raised up to $26,000 for a Daily Variety advertisement thanking the filmmakers for transforming countless lives through the most honored film of the year.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Brokeback Mountain was nominated for Best Picture at the 78th Academy Awards.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Brokeback Mountain won Best Director, Best Adapted Screenplay, and Original Score at the 78th Academy Awards.",
+          "cited_source": "Brokeback_Mountain.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "La La Land was first mistakenly announced as the Best Picture winner before the error was corrected.",
+          "cited_source": "89th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Moonlight was confirmed as the actual Best Picture winner.",
+          "cited_source": "89th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The La La Land team was later praised for their professional handling of the situation.",
+          "cited_source": "89th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "La La Land received a record-tying 14 Oscar nominations.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "La La Land won six categories.",
+          "cited_source": "89th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "La La Land lost Best Picture to Moonlight.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 13,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.46153846153846156,
+      "response_quote_count": 5,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 0.2,
+      "citation_count": 4,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.697861600026954,
+      "judge_latency_seconds": 5.7660079000052065,
+      "total_latency_seconds": 19.668730100034736,
+      "throttle_seconds": 2.38010899994988,
+      "input_tokens": 29770,
+      "output_tokens": 1340,
+      "total_tokens": 31110,
+      "estimated_cost_usd": 0.0283575
+    },
+    {
+      "id": "Q049",
+      "question": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+      "retriever": "decompose",
+      "group": "comparative_decomposition",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "mechanism": null,
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html"
+      ],
+      "expected_sources": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html",
+        "Academy_Award_for_Best_Actor.html",
+        "Austin_Butler.html",
+        "Colin_Farrell.html",
+        "Paul_Mescal.html",
+        "Bill_Nighy.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Actor.html",
+        "Academy_Award_for_Best_Supporting_Actor.html",
+        "95th_Academy_Awards.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Academy_Award_for_Best_Actor.html#c00000-c00001",
+          "source_file": "Academy_Award_for_Best_Actor.html",
+          "role": "primary",
+          "score": 1.4311
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Supporting_Actor.html#c00000-c00003",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html",
+          "role": "primary",
+          "score": 1.2071
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Supporting_Actor.html#c00039-c00042",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html",
+          "role": "primary",
+          "score": 1.1673
+        },
+        {
+          "unit_id": "95th_Academy_Awards.html#c00000-c00004",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0259
+        },
+        {
+          "unit_id": "599ff25cc439b524-c00003",
+          "source_file": "Academy_Award_for_Best_Actor.html",
+          "role": "primary",
+          "score": 0.8826
+        },
+        {
+          "unit_id": "List_of_Academy_Award_records.html#c00000-c00018",
+          "source_file": "List_of_Academy_Award_records.html",
+          "role": "primary",
+          "score": 0.6912
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Actor.html#c00042-c00045",
+          "source_file": "Academy_Award_for_Best_Actor.html",
+          "role": "primary",
+          "score": 0.6853
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 22890,
+      "evidence_recall": 0.3333333333333333,
+      "retrieval_trace": {
+        "sub_queries": [
+          "95th Academy Awards Best Actor winner",
+          "95th Academy Awards Best Actor nominees field notable firsts and records"
+        ],
+        "child_chunk_ids": [
+          "599ff25cc439b524-c00000",
+          "f4e49e2bb44a4357-c00003",
+          "f4e49e2bb44a4357-c00041",
+          "110a1f26b577e6e7-c00002",
+          "599ff25cc439b524-c00003",
+          "110a1f26b577e6e7-c00000",
+          "67142f28a712cfd6-c00015",
+          "599ff25cc439b524-c00044"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 4.152244700002484,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.5714285714285714,
+      "chunk_precision_at_k": 0.5714285714285714,
+      "article_precision": 0.5,
+      "unique_articles_retrieved": 4,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "Brendan Fraser won Best Actor for playing Charlie in The Whale.",
+        "Notably, for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+        "The other nominees were Austin Butler (Elvis), Colin Farrell (The Banshees of Inisherin), Paul Mescal (Aftersun) and Bill Nighy (Living)."
+      ],
+      "response": "The documents do not say who won Best Actor at the 95th Academy Awards. They do say that “for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees” [95th_Academy_Awards.html].",
+      "closed_book_response": "At the 95th Academy Awards, **Brendan Fraser won Best Actor** for *The Whale*.\n\nWhat was notable about the nominee field that year was that it was **particularly diverse and international**, with nominees representing a mix of different ages, backgrounds, and nationalities — a strong, widely noted contrast to some earlier years that were criticized for being less varied.",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        2
+      ],
+      "aspect_coverage": 0.3333333333333333,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The documents do not say who won Best Actor at the 95th Academy Awards.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "For the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+          "cited_source": "95th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 0.5,
+      "faithfulness": "fail",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.0847633999655955,
+      "judge_latency_seconds": 3.816414699947927,
+      "total_latency_seconds": 10.383719299861696,
+      "throttle_seconds": 7.2689548000693325,
+      "input_tokens": 26607,
+      "output_tokens": 303,
+      "total_tokens": 26910,
+      "estimated_cost_usd": 0.02131875
+    },
+    {
+      "id": "Q019",
+      "question": "How did the director of La La Land get his start, and what connects his college years to that film's music?",
+      "retriever": "decompose",
+      "group": "high_precision_chunking",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "mechanism": null,
+      "information_need": "in_depth",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "expected_sources": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "retrieved_sources": [
+        "Damien_Chazelle.html",
+        "La_La_Land.html",
+        "Whiplash_(2014_film).html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "4865f8c7e43f6193-c00000",
+          "source_file": "Damien_Chazelle.html",
+          "role": "primary",
+          "score": 2.9955
+        },
+        {
+          "unit_id": "Damien_Chazelle.html#c00019-c00022",
+          "source_file": "Damien_Chazelle.html",
+          "role": "primary",
+          "score": 2.4743
+        },
+        {
+          "unit_id": "Damien_Chazelle.html#c00005-c00008",
+          "source_file": "Damien_Chazelle.html",
+          "role": "primary",
+          "score": 1.9278
+        },
+        {
+          "unit_id": "4865f8c7e43f6193-c00004",
+          "source_file": "Damien_Chazelle.html",
+          "role": "primary",
+          "score": 1.8864
+        },
+        {
+          "unit_id": "Damien_Chazelle.html#c00001-c00002",
+          "source_file": "Damien_Chazelle.html",
+          "role": "primary",
+          "score": 1.8587
+        },
+        {
+          "unit_id": "La_La_Land.html#c00000-c00003",
+          "source_file": "La_La_Land.html",
+          "role": "primary",
+          "score": 1.7851
+        },
+        {
+          "unit_id": "Whiplash_(2014_film).html#c00000-c00009",
+          "source_file": "Whiplash_(2014_film).html",
+          "role": "primary",
+          "score": 1.6761
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 19883,
+      "evidence_recall": 0.25,
+      "retrieval_trace": {
+        "sub_queries": [
+          "Damien Chazelle early career film director start",
+          "Damien Chazelle Harvard University Whiplash La La Land music inspiration",
+          "La La Land soundtrack origins jazz college years Damien Chazelle"
+        ],
+        "child_chunk_ids": [
+          "4865f8c7e43f6193-c00000",
+          "4865f8c7e43f6193-c00021",
+          "4865f8c7e43f6193-c00006",
+          "4865f8c7e43f6193-c00019",
+          "4865f8c7e43f6193-c00004",
+          "4865f8c7e43f6193-c00002",
+          "c1ed16a211777eaf-c00000",
+          "4aa6ccf4b6069bcc-c00008"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 6.308922600001097,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.8571428571428571,
+      "chunk_precision_at_k": 0.8571428571428571,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "Damien Chazelle met composer Justin Hurwitz at Harvard, where they were roommates in Currier House and explored a musical concept in their senior thesis, the low-budget Guy and Madeline on a Park Bench about a Boston jazz musician.",
+        "Both moved to Los Angeles in 2010 and continued writing what became La La Land, altering the location from Boston to Los Angeles.",
+        "Hurwitz composed and orchestrated the songs and score for La La Land, with lyrics by Pasek and Paul except for 'Start a Fire'."
+      ],
+      "response": "Damien Chazelle got his start by writing and directing his debut feature, *Guy and Madeline on a Park Bench*, as his senior thesis project at Harvard with classmate Justin Hurwitz [Damien_Chazelle.html]. After graduation, he moved to Los Angeles and worked as a freelance writer in Hollywood while trying to get *La La Land* made [Damien_Chazelle.html].\n\nWhat connects his college years to *La La Land*’s music is that Chazelle first conceptualized the film with Justin Hurwitz while they were both at Harvard, and Hurwitz later composed the score and songs for the movie [La_La_Land.html]. The documents also say they lived together at Harvard and were original members of the indie-pop group Chester French [Damien_Chazelle.html].",
+      "closed_book_response": "The director of *La La Land* is **Damien Chazelle**.\n\nHe got his start by making **student films** while studying at **Harvard University**, where he originally pursued filmmaking but also spent time around music and jazz. One important connection to *La La Land* is that Chazelle was a **jazz drummer in college** and had a strong personal interest in jazz during those years. That college experience fed directly into the film’s music and overall jazz-centered story, since *La La Land* was shaped by his own background and his earlier jazz-themed work.\n\nIf you want, I can also explain how his earlier film *Whiplash* connects to *La La Land*.",
+      "correctness": "fail",
+      "graded_correctness": "substantially_complete",
+      "graded_correctness_score": 0.75,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Damien Chazelle wrote and directed his debut feature, *Guy and Madeline on a Park Bench*, as part of his senior thesis project with classmate Justin Hurwitz at Harvard.",
+          "cited_source": "Damien_Chazelle.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "After graduation, Chazelle moved to Los Angeles with the goal of attracting interest to produce *La La Land*.",
+          "cited_source": "Damien_Chazelle.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He worked as a freelance writer in Hollywood.",
+          "cited_source": "Damien_Chazelle.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Chazelle and Justin Hurwitz first conceptualized *La La Land* while they were both at Harvard.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Justin Hurwitz later composed the score for *La La Land*.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Justin Hurwitz later composed the songs for *La La Land*.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Chazelle and Hurwitz lived together at Harvard.",
+          "cited_source": "Damien_Chazelle.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Chazelle and Hurwitz were original members of the indie-pop group Chester French.",
+          "cited_source": "Damien_Chazelle.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 8,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.125,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.8093339999904856,
+      "judge_latency_seconds": 5.120754700037651,
+      "total_latency_seconds": 15.158392000070307,
+      "throttle_seconds": 4.607375600002706,
+      "input_tokens": 23192,
+      "output_tokens": 786,
+      "total_tokens": 23978,
+      "estimated_cost_usd": 0.020931
+    },
+    {
+      "id": "Q072",
+      "question": "What is the highest-grossing film of all time?",
+      "retriever": "decompose",
+      "group": "high_precision_chunking",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "mechanism": null,
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": "temporally_stale",
+      "required_sources": [
+        "Titanic_(1997_film).html"
+      ],
+      "expected_sources": [
+        "Titanic_(1997_film).html",
+        "List_of_Academy_Award_records.html",
+        "James_Cameron.html",
+        "Avatar_(2009_film).html"
+      ],
+      "retrieved_sources": [
+        "Avatar_(2009_film).html",
+        "Harry_Potter_(film_series).html",
+        "List_of_1995_box_office_number-one_films_in_the_United_States.html",
+        "The_Lord_of_the_Rings__The_Return_of_the_King.html",
+        "The_Lion_King.html",
+        "E.T._the_Extra-Terrestrial.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Avatar_(2009_film).html#c00000-c00034",
+          "source_file": "Avatar_(2009_film).html",
+          "role": "primary",
+          "score": 1.9736
+        },
+        {
+          "unit_id": "Harry_Potter_(film_series).html#c00000-c00002",
+          "source_file": "Harry_Potter_(film_series).html",
+          "role": "primary",
+          "score": 1.6098
+        },
+        {
+          "unit_id": "List_of_1995_box_office_number-one_films_in_the_United_States.html#c00000-c00006",
+          "source_file": "List_of_1995_box_office_number-one_films_in_the_United_States.html",
+          "role": "primary",
+          "score": 1.5
+        },
+        {
+          "unit_id": "The_Lord_of_the_Rings__The_Return_of_the_King.html#c00000-c00045",
+          "source_file": "The_Lord_of_the_Rings__The_Return_of_the_King.html",
+          "role": "primary",
+          "score": 1.3128
+        },
+        {
+          "unit_id": "The_Lion_King.html#c00000-c00046",
+          "source_file": "The_Lion_King.html",
+          "role": "primary",
+          "score": 1.223
+        },
+        {
+          "unit_id": "Avatar_(2009_film).html#c00099-c00102",
+          "source_file": "Avatar_(2009_film).html",
+          "role": "primary",
+          "score": 0.9334
+        },
+        {
+          "unit_id": "E.T._the_Extra-Terrestrial.html#c00000-c00031",
+          "source_file": "E.T._the_Extra-Terrestrial.html",
+          "role": "primary",
+          "score": 0.9263
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 38105,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {
+        "sub_queries": [
+          "highest-grossing film of all time box office revenue",
+          "list of highest-grossing films worldwide",
+          "Avatar film box office record"
+        ],
+        "child_chunk_ids": [
+          "d5a409e9d5854512-c00034",
+          "e58833efd7cd746a-c00002",
+          "9b714096558cb313-c00006",
+          "a99b8a458e7a973f-c00042",
+          "e9be774ce71669cb-c00043",
+          "d5a409e9d5854512-c00101",
+          "00ab2e20219dcb56-c00031",
+          "d5a409e9d5854512-c00032"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 5.205859699985012,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.2857142857142857,
+      "chunk_precision_at_k": 0.2857142857142857,
+      "article_precision": 0.16666666666666666,
+      "unique_articles_retrieved": 6,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "According to the source material, Titanic was the highest-grossing film of all time until James Cameron's Avatar (2009) surpassed it in 2010",
+        "as of the corpus's records, Titanic stands as the fourth-highest-grossing film with a worldwide total of $2.264 billion.",
+        "These figures reflect the sources' date and may be superseded."
+      ],
+      "response": "According to the documents, *Avatar* became “the highest-grossing film of all time” worldwide [Avatar_(2009_film).html]. The *Avatar* page also says it surpassed *Titanic* on January 25, 2010 to become the highest-grossing film of all time worldwide [Avatar_(2009_film).html].",
+      "closed_book_response": "As of my knowledge cutoff, the highest-grossing film of all time is **Avatar** (2009), especially when looking at worldwide box office totals.  \n\nIf you want, I can also give you the **current top 5** or explain how re-releases can change the ranking.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 0.3333333333333333,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "*Avatar* became “the highest-grossing film of all time” worldwide.",
+          "cited_source": "Avatar_(2009_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The *Avatar* page says it surpassed *Titanic* on January 25, 2010 to become the highest-grossing film of all time worldwide.",
+          "cited_source": "Avatar_(2009_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.5,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "appropriate_refusal",
+      "answer_latency_seconds": 1.2411971999681555,
+      "judge_latency_seconds": 4.49139149999246,
+      "total_latency_seconds": 12.323582799930591,
+      "throttle_seconds": 7.026128300034907,
+      "input_tokens": 43258,
+      "output_tokens": 313,
+      "total_tokens": 43571,
+      "estimated_cost_usd": 0.033852
+    },
+    {
+      "id": "Q080",
+      "question": "Tell me about Anthony Minghella — what did he win and what happened at the Oscars after his death?",
+      "retriever": "decompose",
+      "group": "high_precision_chunking",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "mechanism": null,
+      "information_need": "overview",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "expected_sources": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "retrieved_sources": [
+        "Anthony_Minghella.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "c31b0dd580459bb4-c00000",
+          "source_file": "Anthony_Minghella.html",
+          "role": "primary",
+          "score": 3.2958
+        },
+        {
+          "unit_id": "Anthony_Minghella.html#c00021-c00022",
+          "source_file": "Anthony_Minghella.html",
+          "role": "primary",
+          "score": 3.1784
+        },
+        {
+          "unit_id": "Anthony_Minghella.html#c00016-c00019",
+          "source_file": "Anthony_Minghella.html",
+          "role": "primary",
+          "score": 2.9556
+        },
+        {
+          "unit_id": "c31b0dd580459bb4-c00020",
+          "source_file": "Anthony_Minghella.html",
+          "role": "primary",
+          "score": 1.4731
+        }
+      ],
+      "unit_count": 4,
+      "context_chars": 5946,
+      "evidence_recall": 0.5,
+      "retrieval_trace": {
+        "sub_queries": [
+          "Anthony Minghella awards won Academy Award",
+          "Anthony Minghella Oscars after his death",
+          "Anthony Minghella obituary Academy Awards recognition"
+        ],
+        "child_chunk_ids": [
+          "c31b0dd580459bb4-c00000",
+          "c31b0dd580459bb4-c00021",
+          "c31b0dd580459bb4-c00016",
+          "c31b0dd580459bb4-c00022",
+          "c31b0dd580459bb4-c00017",
+          "c31b0dd580459bb4-c00019",
+          "c31b0dd580459bb4-c00018",
+          "c31b0dd580459bb4-c00020"
+        ],
+        "parent_units": 4
+      },
+      "retrieval_latency_seconds": 3.9912953000166453,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 1.0,
+      "chunk_precision_at_k": 1.0,
+      "article_precision": 1.0,
+      "unique_articles_retrieved": 1,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "Anthony Minghella (1954–2008) was a British playwright and filmmaker who directed Truly, Madly, Deeply, The English Patient, The Talented Mr.",
+        "Ripley and Cold Mountain.",
+        "He won the Academy Award for Best Director for The English Patient, and received three further nominations: Best Adapted Screenplay for both The English Patient and The Talented Mr.",
+        "Ripley, and, posthumously, Best Picture for The Reader (2008) as a producer.",
+        "The Academy made an exception to its normal three-producer limit for Best Picture so that Minghella and Sydney Pollack could be posthumously included among the four producers nominated for The Reader."
+      ],
+      "response": "Anthony Minghella was a British playwright and filmmaker who directed films including *Truly, Madly, Deeply*, *The English Patient*, *The Talented Mr. Ripley*, and *Cold Mountain* [Anthony_Minghella.html]. He won the Academy Award for Best Director for *The English Patient* [Anthony_Minghella.html]. After his death, he was posthumously nominated for Best Picture for *The Reader* (2008) as a producer [Anthony_Minghella.html].",
+      "closed_book_response": "Anthony Minghella was an acclaimed British film director, screenwriter, and producer, best known for films like *The English Patient* and *The Talented Mr. Ripley*.\n\nHe won an Academy Award for Best Director for *The English Patient* in 1997. That film also won Best Picture, among other Oscars.\n\nHe died in March 2008, just before the Academy Awards that year. At the Oscars following his death, he was remembered in the memorial segment, and *The No. 1 Ladies’ Detective Agency*—a project he had helped develop—was among the works associated with his legacy. If you want, I can also give you a short timeline of his major awards and films.",
+      "correctness": "pass",
+      "graded_correctness": "substantially_complete",
+      "graded_correctness_score": 0.75,
+      "covered_aspects": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "aspect_coverage": 0.8,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Anthony Minghella was a British playwright and filmmaker.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He directed *Truly, Madly, Deeply*, *The English Patient*, *The Talented Mr. Ripley*, and *Cold Mountain*.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He won the Academy Award for Best Director for *The English Patient*.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "After his death, he was posthumously nominated for Best Picture for *The Reader* (2008) as a producer.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 4,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.25,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.059286100033205,
+      "judge_latency_seconds": 4.166280999954324,
+      "total_latency_seconds": 12.553629399975762,
+      "throttle_seconds": 4.63725840006955,
+      "input_tokens": 8806,
+      "output_tokens": 543,
+      "total_tokens": 9349,
+      "estimated_cost_usd": 0.009048
+    },
+    {
+      "id": "Q003",
+      "question": "Compare the Academy Awards ceremonies held a decade apart: who hosted the 85th and 95th ceremonies, and which film won Best Picture at each?",
+      "retriever": "decompose",
+      "group": "multi_entity_precision",
+      "source_suite": "golden_suite_2.1.json",
+      "mechanism": null,
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html"
+      ],
+      "retrieved_sources": [
+        "95th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html",
+        "85th_Academy_Awards.html",
+        "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+        "68th_Academy_Awards.html",
+        "74th_Academy_Awards.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "95th_Academy_Awards.html#c00000-c00001",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 2.7798
+        },
+        {
+          "unit_id": "7584ab2c6b497c73-c00000",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 2.0362
+        },
+        {
+          "unit_id": "85th_Academy_Awards.html#c00000-c00029",
+          "source_file": "85th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.8028
+        },
+        {
+          "unit_id": "85th_Academy_Awards.html#c00012-c00013",
+          "source_file": "85th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.6467
+        },
+        {
+          "unit_id": "List_of_awards_and_nominations_received_by_Steven_Spielberg.html#c00000-c00022",
+          "source_file": "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+          "role": "primary",
+          "score": 1.4746
+        },
+        {
+          "unit_id": "68th_Academy_Awards.html#c00000-c00002",
+          "source_file": "68th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.4152
+        },
+        {
+          "unit_id": "74th_Academy_Awards.html#c00000-c00002",
+          "source_file": "74th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.3902
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 23150,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "sub_queries": [
+          "85th Academy Awards host Best Picture winner",
+          "95th Academy Awards host Best Picture winner",
+          "85th Academy Awards ceremony host",
+          "95th Academy Awards ceremony host"
+        ],
+        "child_chunk_ids": [
+          "110a1f26b577e6e7-c00000",
+          "7584ab2c6b497c73-c00000",
+          "f03136cff601fca1-c00028",
+          "f03136cff601fca1-c00012",
+          "f03136cff601fca1-c00000",
+          "198df6a3abe7cc47-c00020",
+          "3e8e548f009bb2b4-c00001",
+          "54cc717f4dc58b8c-c00001"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 5.152943600027356,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.42857142857142855,
+      "chunk_precision_at_k": 0.42857142857142855,
+      "article_precision": 0.3333333333333333,
+      "unique_articles_retrieved": 6,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "Seth MacFarlane hosted the 85th Academy Awards, where Argo won Best Picture.",
+        "Jimmy Kimmel hosted the 95th Academy Awards, where Everything Everywhere All at Once won Best Picture."
+      ],
+      "response": "The 85th Academy Awards were hosted by Seth MacFarlane, and *Argo* won Best Picture [85th_Academy_Awards.html]. The 95th Academy Awards were hosted by Jimmy Kimmel, and *Everything Everywhere All at Once* won Best Picture [95th_Academy_Awards.html].",
+      "closed_book_response": "The **85th Academy Awards** were hosted by **Seth MacFarlane**, and **Argo** won **Best Picture**.\n\nThe **95th Academy Awards** were hosted by **Jimmy Kimmel**, and **Everything Everywhere All at Once** won **Best Picture**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The 85th Academy Awards were hosted by Seth MacFarlane.",
+          "cited_source": "85th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Argo won Best Picture at the 85th Academy Awards.",
+          "cited_source": "85th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The 95th Academy Awards were hosted by Jimmy Kimmel.",
+          "cited_source": "95th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Everything Everywhere All at Once won Best Picture at the 95th Academy Awards.",
+          "cited_source": "95th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 4,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.0344155000057071,
+      "judge_latency_seconds": 4.346477499988396,
+      "total_latency_seconds": 11.716422299970873,
+      "throttle_seconds": 6.814395400090143,
+      "input_tokens": 27510,
+      "output_tokens": 389,
+      "total_tokens": 27899,
+      "estimated_cost_usd": 0.022383
+    },
+    {
+      "id": "Q005",
+      "question": "For each of the 1996, 2004, and 2008 Summer Olympics, list every city mentioned as having submitted a bid but not winning that edition's hosting contest.",
+      "retriever": "decompose",
+      "group": "multi_entity_precision",
+      "source_suite": "golden_suite_2.1.json",
+      "mechanism": null,
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2008_Summer_Olympics.html"
+      ],
+      "expected_sources": [
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2008_Summer_Olympics.html"
+      ],
+      "retrieved_sources": [
+        "1984_Summer_Olympics.html",
+        "2012_Summer_Olympics.html",
+        "2008_Summer_Olympics.html",
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "Australia_at_the_Olympics.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "1984_Summer_Olympics.html#c00000-c00003",
+          "source_file": "1984_Summer_Olympics.html",
+          "role": "primary",
+          "score": 2.7743
+        },
+        {
+          "unit_id": "2012_Summer_Olympics.html#c00000-c00005",
+          "source_file": "2012_Summer_Olympics.html",
+          "role": "primary",
+          "score": 2.5095
+        },
+        {
+          "unit_id": "2008_Summer_Olympics.html#c00000-c00008",
+          "source_file": "2008_Summer_Olympics.html",
+          "role": "primary",
+          "score": 2.2926
+        },
+        {
+          "unit_id": "1996_Summer_Olympics.html#c00000-c00048",
+          "source_file": "1996_Summer_Olympics.html",
+          "role": "primary",
+          "score": 2.111
+        },
+        {
+          "unit_id": "2004_Summer_Olympics.html#c00000-c00005",
+          "source_file": "2004_Summer_Olympics.html",
+          "role": "primary",
+          "score": 2.0275
+        },
+        {
+          "unit_id": "Australia_at_the_Olympics.html#c00000-c00037",
+          "source_file": "Australia_at_the_Olympics.html",
+          "role": "primary",
+          "score": 1.799
+        },
+        {
+          "unit_id": "6a84d9c001b570d2-c00035",
+          "source_file": "Australia_at_the_Olympics.html",
+          "role": "primary",
+          "score": 1.5753
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 30015,
+      "evidence_recall": 0.8333333333333334,
+      "retrieval_trace": {
+        "sub_queries": [
+          "1996 Summer Olympics bid cities",
+          "2004 Summer Olympics bid cities",
+          "2008 Summer Olympics bid cities"
+        ],
+        "child_chunk_ids": [
+          "f758641f89dc68b7-c00003",
+          "0825e4a78793431f-c00003",
+          "b050dab4972144e0-c00007",
+          "170433dfdcecde6c-c00047",
+          "1fdd42c401067e31-c00003",
+          "6a84d9c001b570d2-c00037",
+          "6a84d9c001b570d2-c00035",
+          "1fdd42c401067e31-c00005"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 5.477744199975859,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 0.3333333333333333,
+      "source_precision_at_k": 0.42857142857142855,
+      "chunk_precision_at_k": 0.42857142857142855,
+      "article_precision": 0.5,
+      "unique_articles_retrieved": 6,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "For the 1996 Summer Olympics, the losing bid cities were Athens, Belgrade, Manchester, Melbourne, and Toronto.",
+        "For the 2004 Summer Olympics, the losing bid cities were Rome, Cape Town, Stockholm, and Buenos Aires, plus Istanbul, Lille, Rio de Janeiro, San Juan, Seville, and Saint Petersburg, whose applications were dropped before the shortlist.",
+        "For the 2008 Summer Olympics, the losing bid cities were Toronto, Paris, Istanbul, and Osaka, plus Bangkok, Cairo, Havana, Kuala Lumpur, and Seville, whose bids failed to make the shortlist."
+      ],
+      "response": "For the 1996, 2004, and 2008 Summer Olympics, the cities mentioned as having bid but not won are:\n\n- **1996 Summer Olympics:** Athens [1996_Summer_Olympics.html]\n- **2004 Summer Olympics:** Rome, Cape Town, Stockholm, Buenos Aires, Istanbul, Lille, Rio de Janeiro, San Juan, Seville, Saint Petersburg [2004_Summer_Olympics.html]\n- **2008 Summer Olympics:** Toronto, Paris, Istanbul, Osaka [2008_Summer_Olympics.html]",
+      "closed_book_response": "Here are the cities that were mentioned as bid cities but did **not** win the hosting contest for each edition:\n\n### 1996 Summer Olympics\n- **Belgrade**\n- **Manchester**\n- **Melbourne**\n- **Toronto**\n- **Tashkent**\n\n### 2004 Summer Olympics\n- **Athens**\n- **Baku**\n- **Cape Town**\n- **Buenos Aires**\n- **Istanbul**\n- **Rabat**\n- **Rome**\n- **Stockholm**\n- **San Juan**\n\n### 2008 Summer Olympics\n- **Beijing**\n- **Toronto**\n- **Paris**\n- **Istanbul**\n- **Osaka**\n- **St. Petersburg**\n- **Bangkok**\n- **Cairo**\n- **Havana**\n- **Kuala Lumpur**\n- **Seoul**\n- **Taipei**\n- **Chicago**",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        2,
+        3
+      ],
+      "aspect_coverage": 0.6666666666666666,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "For the 1996 Summer Olympics, Athens is mentioned as a city that bid but did not win.",
+          "cited_source": "1996_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "For the 2004 Summer Olympics, Rome, Cape Town, Stockholm, Buenos Aires, Istanbul, Lille, Rio de Janeiro, San Juan, Seville, and Saint Petersburg are mentioned as cities that bid but did not win.",
+          "cited_source": "2004_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "For the 2008 Summer Olympics, Toronto, Paris, Istanbul, and Osaka are mentioned as cities that bid but did not win.",
+          "cited_source": "2008_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 3,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.09716030000709,
+      "judge_latency_seconds": 4.0558598000206985,
+      "total_latency_seconds": 13.637006600038148,
+      "throttle_seconds": 5.511360599927139,
+      "input_tokens": 33847,
+      "output_tokens": 567,
+      "total_tokens": 34414,
+      "estimated_cost_usd": 0.02793675
+    },
+    {
+      "id": "Q009",
+      "question": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+      "retriever": "decompose",
+      "group": "multi_entity_precision",
+      "source_suite": "golden_suite_2.1.json",
+      "mechanism": null,
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "expected_sources": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "retrieved_sources": [
+        "Nobel_Prize.html",
+        "1964_Nobel_Prize_in_Literature.html",
+        "List_of_Nobel_laureates_in_Literature.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Nobel_Prize.html#c00000-c00050",
+          "source_file": "Nobel_Prize.html",
+          "role": "primary",
+          "score": 2.3706
+        },
+        {
+          "unit_id": "1964_Nobel_Prize_in_Literature.html#c00000-c00001",
+          "source_file": "1964_Nobel_Prize_in_Literature.html",
+          "role": "primary",
+          "score": 2.2804
+        },
+        {
+          "unit_id": "List_of_Nobel_laureates_in_Literature.html#c00000-c00045",
+          "source_file": "List_of_Nobel_laureates_in_Literature.html",
+          "role": "primary",
+          "score": 1.7158
+        },
+        {
+          "unit_id": "List_of_Nobel_laureates_in_Literature.html#c00038-c00041",
+          "source_file": "List_of_Nobel_laureates_in_Literature.html",
+          "role": "primary",
+          "score": 1.3524
+        },
+        {
+          "unit_id": "List_of_Nobel_laureates_in_Literature.html#c00047-c00050",
+          "source_file": "List_of_Nobel_laureates_in_Literature.html",
+          "role": "primary",
+          "score": 1.3007
+        }
+      ],
+      "unit_count": 5,
+      "context_chars": 15664,
+      "evidence_recall": 0.75,
+      "retrieval_trace": {
+        "sub_queries": [
+          "Nobel Prize in Literature 1964 winner initial refusal of the prize",
+          "1964 Alaska earthquake magnitude 9 Nobel Prize in Literature year",
+          "Jean-Paul Sartre refusal of Nobel Prize in Literature reasons"
+        ],
+        "child_chunk_ids": [
+          "3e63e207c636cf56-c00049",
+          "2383c385675d1e75-c00000",
+          "eaba0cc3c4843004-c00044",
+          "eaba0cc3c4843004-c00040",
+          "eaba0cc3c4843004-c00049",
+          "eaba0cc3c4843004-c00039",
+          "eaba0cc3c4843004-c00048",
+          "eaba0cc3c4843004-c00050"
+        ],
+        "parent_units": 5
+      },
+      "retrieval_latency_seconds": 6.483346400025766,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.2,
+      "chunk_precision_at_k": 0.2,
+      "article_precision": 0.3333333333333333,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "The 1964 Nobel Prize in Literature was awarded to French writer Jean-Paul Sartre, the same year a magnitude 9.2-9.3 earthquake struck Alaska.",
+        "Sartre declined the prize, saying he never accepted official honors and did not want the writer to become an institution.",
+        "He also objected on the grounds that the prize went only to Westerners or to rebels of the East."
+      ],
+      "response": "He was **Jean-Paul Sartre**. He declined the 1964 Nobel Prize in Literature because he said he never accepted official honours and did not want the writer to become an institution [1964_Nobel_Prize_in_Literature.html]. The document also says he argued that the Nobel Prize tended to go only to Westerners “or to rebels of the East” [1964_Nobel_Prize_in_Literature.html].",
+      "closed_book_response": "That was **Jean-Paul Sartre**.\n\nHe won the **Nobel Prize in Literature in 1964**, the same year as the **Great Alaska Earthquake**. Sartre **declined the prize because he had a long-standing policy of refusing official honors and awards**, believing a writer should not be turned into an institution or be tied to establishment recognition.",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        2,
+        3
+      ],
+      "aspect_coverage": 0.6666666666666666,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "He was Jean-Paul Sartre.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He declined the 1964 Nobel Prize in Literature.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He said he never accepted official honours.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He said he did not want the writer to become an institution.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He argued that the Nobel Prize tended to go only to Westerners.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He argued that the Nobel Prize tended to go only to 'rebels of the East'.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 6,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.3333333333333333,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 1.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 1.923685599991586,
+      "judge_latency_seconds": 7.5181762999272905,
+      "total_latency_seconds": 17.602219399937894,
+      "throttle_seconds": 4.204117600061,
+      "input_tokens": 20101,
+      "output_tokens": 518,
+      "total_tokens": 20619,
+      "estimated_cost_usd": 0.01740675
+    },
+    {
+      "id": "Q014",
+      "question": "In the IOC vote that awarded the 1992 Winter Games, which two cities tied and were sent to a run-off, what were their run-off vote totals, and which city was eliminated after the very first round?",
+      "retriever": "decompose",
+      "group": "multi_entity_precision",
+      "source_suite": "golden_suite_2.1.json",
+      "mechanism": null,
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "1992_Winter_Olympics.html"
+      ],
+      "expected_sources": [
+        "1992_Winter_Olympics.html"
+      ],
+      "retrieved_sources": [
+        "2004_Summer_Olympics.html",
+        "1992_Winter_Olympics.html",
+        "2020_Summer_Olympics.html",
+        "1988_Winter_Olympics.html",
+        "1972_Winter_Olympics.html",
+        "1936_Summer_Olympics.html",
+        "List_of_Olympic_Games_host_cities.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "2004_Summer_Olympics.html#c00000-c00005",
+          "source_file": "2004_Summer_Olympics.html",
+          "role": "primary",
+          "score": 2.5846
+        },
+        {
+          "unit_id": "1992_Winter_Olympics.html#c00000-c00004",
+          "source_file": "1992_Winter_Olympics.html",
+          "role": "primary",
+          "score": 1.8143
+        },
+        {
+          "unit_id": "2020_Summer_Olympics.html#c00000-c00006",
+          "source_file": "2020_Summer_Olympics.html",
+          "role": "primary",
+          "score": 1.6876
+        },
+        {
+          "unit_id": "1988_Winter_Olympics.html#c00000-c00009",
+          "source_file": "1988_Winter_Olympics.html",
+          "role": "primary",
+          "score": 1.1615
+        },
+        {
+          "unit_id": "1972_Winter_Olympics.html#c00000-c00002",
+          "source_file": "1972_Winter_Olympics.html",
+          "role": "primary",
+          "score": 1.024
+        },
+        {
+          "unit_id": "1988_Winter_Olympics.html#c00004-c00005",
+          "source_file": "1988_Winter_Olympics.html",
+          "role": "primary",
+          "score": 0.9296
+        },
+        {
+          "unit_id": "1936_Summer_Olympics.html#c00000-c00005",
+          "source_file": "1936_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.7822
+        },
+        {
+          "unit_id": "List_of_Olympic_Games_host_cities.html#c00000-c00005",
+          "source_file": "List_of_Olympic_Games_host_cities.html",
+          "role": "primary",
+          "score": 0.7194
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 37274,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "sub_queries": [
+          "1992 Winter Olympics IOC vote cities tied run-off vote totals",
+          "1992 Winter Olympics IOC vote first round eliminated city"
+        ],
+        "child_chunk_ids": [
+          "1fdd42c401067e31-c00005",
+          "588d0cca324541cf-c00004",
+          "708478617d20db02-c00006",
+          "1b17b73a2024e911-c00008",
+          "98fa9cf3765ac4bc-c00001",
+          "1b17b73a2024e911-c00004",
+          "d5848018d1d0ccea-c00003",
+          "8c1929851266f807-c00005"
+        ],
+        "parent_units": 8
+      },
+      "retrieval_latency_seconds": 5.585311400005594,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.125,
+      "chunk_precision_at_k": 0.125,
+      "article_precision": 0.14285714285714285,
+      "unique_articles_retrieved": 7,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "Falun and Lillehammer tied at 11 votes in round 4 and were sent to a run-off.",
+        "Falun won the run-off 41 votes to Lillehammer's 40.",
+        "Berchtesgaden, with 6 votes, was eliminated after the very first round."
+      ],
+      "response": "The 1992 Winter Olympics host-city selection was won by **Albertville**, which beat other finalists in the 91st IOC Session in Lausanne on 17 October 1986 [1992_Winter_Olympics.html]. The provided documents do **not** say that the award was decided by a tie and run-off, so I can’t identify the tied cities or their run-off totals from these documents [1992_Winter_Olympics.html].",
+      "closed_book_response": "In the IOC vote for the **1992 Winter Games**, **Albertville** and **Östersund** tied and were sent to a run-off.\n\n- **Run-off vote totals:** **Albertville 9, Östersund 8**\n- **Eliminated after the first round:** **Anchorage**\n\nIf you want, I can also give the full round-by-round vote breakdown.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [],
+      "aspect_coverage": 0.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The 1992 Winter Olympics host-city selection was won by Albertville.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Albertville beat other finalists in the 91st IOC Session in Lausanne on 17 October 1986.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The provided documents do not say that the award was decided by a tie and run-off.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": false,
+          "citation_supported": false,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "I can’t identify the tied cities from these documents.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": false,
+          "citation_supported": false,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "I can’t identify the run-off totals from these documents.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": false,
+          "citation_supported": false,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 5,
+      "graded_groundedness_score": 0.4,
+      "faithfulness": "fail",
+      "citation_support_rate": 0.4,
+      "chunk_attribution_score": 0.5,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.8239107999834232,
+      "judge_latency_seconds": 5.4613440000102855,
+      "total_latency_seconds": 14.102058699994814,
+      "throttle_seconds": 5.480825900018681,
+      "input_tokens": 41613,
+      "output_tokens": 483,
+      "total_tokens": 42096,
+      "estimated_cost_usd": 0.03338325
+    },
+    {
+      "id": "G06",
+      "question": "Name another president besides Barack Obama who attended Harvard.",
+      "retriever": "decompose",
+      "group": "complex_precision_chunking",
+      "source_suite": "golden_suite_4.1.json",
+      "mechanism": "shared_target_education_edge",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "George_W._Bush.html"
+      ],
+      "expected_sources": [
+        "George_W._Bush.html",
+        "Harvard_University.html",
+        "Barack_Obama.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Ivy_League.html",
+        "Harvard_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Ivy_League.html#c00000-c00056",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 2.2921
+        },
+        {
+          "unit_id": "Harvard_University.html#c00000-c00055",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 1.6845
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html#c00000-c00007",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 1.5255
+        },
+        {
+          "unit_id": "Ivy_League.html#c00052-c00054",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 1.3855
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html#c00022-c00025",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 1.3025
+        },
+        {
+          "unit_id": "Harvard_University.html#c00003-c00004",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 1.2316
+        },
+        {
+          "unit_id": "2f95a5be7329cc28-c00011",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 1.1741
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 22724,
+      "evidence_recall": 0.4,
+      "retrieval_trace": {
+        "sub_queries": [
+          "presidents who attended Harvard University",
+          "Harvard University alumni who became presidents"
+        ],
+        "child_chunk_ids": [
+          "1b3e71a846a884c7-c00055",
+          "7f8730199e3c9d3c-c00054",
+          "2f95a5be7329cc28-c00006",
+          "1b3e71a846a884c7-c00054",
+          "2f95a5be7329cc28-c00024",
+          "7f8730199e3c9d3c-c00004",
+          "1b3e71a846a884c7-c00056",
+          "2f95a5be7329cc28-c00011"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 3.439168799959589,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.7142857142857143,
+      "chunk_precision_at_k": 0.7142857142857143,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "At least one president other than Obama is named who attended Harvard and is listed in Harvard's article (George W. Bush, John F. Kennedy, Franklin D. Roosevelt, Theodore Roosevelt or John Adams)."
+      ],
+      "response": "Another president who attended Harvard was **John Adams** [Ivy_League.html].",
+      "closed_book_response": "Another U.S. president who attended Harvard was **John F. Kennedy**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Another president who attended Harvard was John Adams.",
+          "cited_source": "Ivy_League.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 1,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 0.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 1.2428350999834947,
+      "judge_latency_seconds": 3.8213543000165373,
+      "total_latency_seconds": 9.809586499992292,
+      "throttle_seconds": 7.53077239994891,
+      "input_tokens": 24640,
+      "output_tokens": 145,
+      "total_tokens": 24785,
+      "estimated_cost_usd": 0.0191325
+    },
+    {
+      "id": "G07",
+      "question": "Name another president besides Bill Clinton who attended Yale.",
+      "retriever": "decompose",
+      "group": "complex_precision_chunking",
+      "source_suite": "golden_suite_4.1.json",
+      "mechanism": "shared_target_education_edge",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "George_W._Bush.html"
+      ],
+      "expected_sources": [
+        "George_W._Bush.html",
+        "Yale_University.html",
+        "Bill_Clinton.html",
+        "Gerald_Ford.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Yale_University.html",
+        "Ivy_League.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Yale_University.html#c00000-c00087",
+          "source_file": "Yale_University.html",
+          "role": "primary",
+          "score": 1.9801
+        },
+        {
+          "unit_id": "Yale_University.html#c00026-c00029",
+          "source_file": "Yale_University.html",
+          "role": "primary",
+          "score": 1.9494
+        },
+        {
+          "unit_id": "Ivy_League.html#c00000-c00056",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 1.763
+        },
+        {
+          "unit_id": "Ivy_League.html#c00052-c00054",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 1.6142
+        },
+        {
+          "unit_id": "aa9f74cce6a73154-c00003",
+          "source_file": "Yale_University.html",
+          "role": "primary",
+          "score": 1.3965
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html#c00000-c00005",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 1.1479
+        }
+      ],
+      "unit_count": 6,
+      "context_chars": 25004,
+      "evidence_recall": 0.3333333333333333,
+      "retrieval_trace": {
+        "sub_queries": [
+          "presidents who attended Yale University",
+          "Yale University alumni who became president of the United States"
+        ],
+        "child_chunk_ids": [
+          "aa9f74cce6a73154-c00085",
+          "aa9f74cce6a73154-c00028",
+          "1b3e71a846a884c7-c00055",
+          "1b3e71a846a884c7-c00054",
+          "1b3e71a846a884c7-c00056",
+          "aa9f74cce6a73154-c00003",
+          "2f95a5be7329cc28-c00004",
+          "aa9f74cce6a73154-c00029"
+        ],
+        "parent_units": 6
+      },
+      "retrieval_latency_seconds": 3.2521757000358775,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.6666666666666666,
+      "chunk_precision_at_k": 0.6666666666666666,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "George W. Bush (or Gerald Ford, George H. W. Bush or William Howard Taft) is named as another Yale-educated president."
+      ],
+      "response": "Another president who attended Yale is **George H. W. Bush** [Yale_University.html].",
+      "closed_book_response": "George H. W. Bush also attended Yale.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Another president who attended Yale is George H. W. Bush.",
+          "cited_source": "Yale_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 1,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.468427599989809,
+      "judge_latency_seconds": 3.9673176999785937,
+      "total_latency_seconds": 10.010388800059445,
+      "throttle_seconds": 6.489383799931966,
+      "input_tokens": 26367,
+      "output_tokens": 141,
+      "total_tokens": 26508,
+      "estimated_cost_usd": 0.02040975
+    },
+    {
+      "id": "G10",
+      "question": "Name two films by English directors that won Academy Awards.",
+      "retriever": "decompose",
+      "group": "complex_precision_chunking",
+      "source_suite": "golden_suite_4.1.json",
+      "mechanism": "category_intersection_plus_text",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html"
+      ],
+      "expected_sources": [
+        "Sam_Mendes.html",
+        "Christopher_Nolan.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Director.html",
+        "Academy_Award_for_Best_Picture.html",
+        "England.html",
+        "List_of_Academy_Award_records.html",
+        "Pride_&_Prejudice_(2005_film).html",
+        "Sam_Mendes.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Academy_Award_for_Best_Director.html#c00000-c00001",
+          "source_file": "Academy_Award_for_Best_Director.html",
+          "role": "primary",
+          "score": 2.5767
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Picture.html#c00000-c00006",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 1.5452
+        },
+        {
+          "unit_id": "England.html#c00000-c00098",
+          "source_file": "England.html",
+          "role": "primary",
+          "score": 1.403
+        },
+        {
+          "unit_id": "List_of_Academy_Award_records.html#c00000-c00005",
+          "source_file": "List_of_Academy_Award_records.html",
+          "role": "primary",
+          "score": 1.2804
+        },
+        {
+          "unit_id": "List_of_Academy_Award_records.html#c00085-c00088",
+          "source_file": "List_of_Academy_Award_records.html",
+          "role": "primary",
+          "score": 1.2274
+        },
+        {
+          "unit_id": "Pride_&_Prejudice_(2005_film).html#c00000-c00050",
+          "source_file": "Pride_&_Prejudice_(2005_film).html",
+          "role": "primary",
+          "score": 1.1056
+        },
+        {
+          "unit_id": "Sam_Mendes.html#c00000-c00020",
+          "source_file": "Sam_Mendes.html",
+          "role": "primary",
+          "score": 1.0668
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 34003,
+      "evidence_recall": 0.16666666666666666,
+      "retrieval_trace": {
+        "sub_queries": [
+          "English film directors Academy Award winning films",
+          "films directed by English directors won Academy Awards"
+        ],
+        "child_chunk_ids": [
+          "7e14c0ec0e7bf7d7-c00001",
+          "7e14c0ec0e7bf7d7-c00000",
+          "7584ab2c6b497c73-c00006",
+          "378edf450e1fd4b7-c00097",
+          "67142f28a712cfd6-c00005",
+          "67142f28a712cfd6-c00087",
+          "304cbda13364173e-c00048",
+          "658db4cec8a94cea-c00019"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 4.048994000011589,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.42857142857142855,
+      "chunk_precision_at_k": 0.42857142857142855,
+      "article_precision": 0.3333333333333333,
+      "unique_articles_retrieved": 6,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "Two films are named, each of which won an Academy Award.",
+        "Each named film's director is identified as English (Sam Mendes, Christopher Nolan or David Lean)."
+      ],
+      "response": "Two films by English directors that won Academy Awards are:\n\n- *Pride & Prejudice* (2005), directed by Joe Wright, which received several Academy Award nominations [Pride_&_Prejudice_(2005_film).html]\n- *American Beauty* (1999), directed by Sam Mendes, which earned him the Academy Award for Best Director [Sam_Mendes.html]\n\nIf you want, I can name two that specifically **won Best Director-related Oscars** or two that **won any Academy Award**.",
+      "closed_book_response": "Two examples are:\n\n- **The Bridge on the River Kwai** — directed by **David Lean**  \n- **Gandhi** — directed by **Richard Attenborough**  \n\nBoth were directed by English filmmakers and won Academy Awards.",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Two films by English directors that won Academy Awards are Pride & Prejudice (2005) and American Beauty (1999).",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "Pride & Prejudice (2005) was directed by Joe Wright.",
+          "cited_source": "Pride_&_Prejudice_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Pride & Prejudice received several Academy Award nominations.",
+          "cited_source": "Pride_&_Prejudice_(2005_film).html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "American Beauty (1999) was directed by Sam Mendes.",
+          "cited_source": "Sam_Mendes.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "American Beauty earned Sam Mendes the Academy Award for Best Director.",
+          "cited_source": "Sam_Mendes.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "If you want, I can name two that specifically won Best Director-related Oscars or two that won any Academy Award.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 6,
+      "graded_groundedness_score": 0.6666666666666666,
+      "faithfulness": "fail",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 0.5,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.9238890999695286,
+      "judge_latency_seconds": 4.814617299998645,
+      "total_latency_seconds": 12.602974599984009,
+      "throttle_seconds": 4.6991348000359725,
+      "input_tokens": 37334,
+      "output_tokens": 512,
+      "total_tokens": 37846,
+      "estimated_cost_usd": 0.0303045
+    },
+    {
+      "id": "G15",
+      "question": "Which city has the larger population, Sarajevo or Dunedin?",
+      "retriever": "decompose",
+      "group": "complex_precision_chunking",
+      "source_suite": "golden_suite_4.1.json",
+      "mechanism": "cross_document_comparison_infobox_properties",
+      "information_need": "fact_lookup",
+      "motivation": "personal_decision",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Sarajevo.html",
+        "Dunedin.html"
+      ],
+      "expected_sources": [
+        "Sarajevo.html",
+        "Dunedin.html"
+      ],
+      "retrieved_sources": [
+        "Dunedin.html",
+        "Sarajevo.html",
+        "Otago.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Dunedin.html#c00000-c00003",
+          "source_file": "Dunedin.html",
+          "role": "primary",
+          "score": 1.7475
+        },
+        {
+          "unit_id": "Sarajevo.html#c00000-c00003",
+          "source_file": "Sarajevo.html",
+          "role": "primary",
+          "score": 1.4579
+        },
+        {
+          "unit_id": "Dunedin.html#c00038-c00039",
+          "source_file": "Dunedin.html",
+          "role": "primary",
+          "score": 1.434
+        },
+        {
+          "unit_id": "Otago.html#c00000-c00013",
+          "source_file": "Otago.html",
+          "role": "primary",
+          "score": 1.4245
+        },
+        {
+          "unit_id": "Dunedin.html#c00018-c00021",
+          "source_file": "Dunedin.html",
+          "role": "primary",
+          "score": 1.2799
+        }
+      ],
+      "unit_count": 5,
+      "context_chars": 22996,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "sub_queries": [
+          "Sarajevo population",
+          "Dunedin population"
+        ],
+        "child_chunk_ids": [
+          "475b805b898c67f7-c00003",
+          "70bdf52dcea4b21f-c00001",
+          "475b805b898c67f7-c00038",
+          "4a01c3ed3eaa1e7a-c00010",
+          "475b805b898c67f7-c00019",
+          "475b805b898c67f7-c00001",
+          "475b805b898c67f7-c00000",
+          "70bdf52dcea4b21f-c00000"
+        ],
+        "parent_units": 5
+      },
+      "retrieval_latency_seconds": 3.4294568999903277,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.8,
+      "chunk_precision_at_k": 0.8,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "Sarajevo is identified as the larger city.",
+        "Both population figures are cited."
+      ],
+      "response": "Sarajevo has the larger population. Sarajevo’s population is 275,524 [Sarajevo.html], while Dunedin’s population is 132,800 [Dunedin.html].",
+      "closed_book_response": "Sarajevo has the larger population.\n\nSarajevo is a much larger city than Dunedin, which is a smaller city in New Zealand.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Sarajevo has the larger population.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Sarajevo’s population is 275,524.",
+          "cited_source": "Sarajevo.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Dunedin’s population is 132,800.",
+          "cited_source": "Dunedin.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.6666666666666666,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.2997302999719977,
+      "judge_latency_seconds": 3.9009501000400633,
+      "total_latency_seconds": 11.06961649999721,
+      "throttle_seconds": 5.618460300005973,
+      "input_tokens": 28366,
+      "output_tokens": 248,
+      "total_tokens": 28614,
+      "estimated_cost_usd": 0.0223905
+    },
+    {
+      "id": "G16",
+      "question": "Was Charles III born before his mother's reign began?",
+      "retriever": "decompose",
+      "group": "complex_precision_chunking",
+      "source_suite": "golden_suite_4.1.json",
+      "mechanism": "cross_document_temporal_ordering",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Charles_III.html"
+      ],
+      "expected_sources": [
+        "Charles_III.html",
+        "Elizabeth_II.html"
+      ],
+      "retrieved_sources": [
+        "Charles_III.html",
+        "List_of_Scottish_monarchs.html",
+        "List_of_British_monarchs.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Charles_III.html#c00000-c00187",
+          "source_file": "Charles_III.html",
+          "role": "primary",
+          "score": 2.2353
+        },
+        {
+          "unit_id": "Charles_III.html#c00176-c00179",
+          "source_file": "Charles_III.html",
+          "role": "primary",
+          "score": 1.9432
+        },
+        {
+          "unit_id": "Charles_III.html#c00109-c00112",
+          "source_file": "Charles_III.html",
+          "role": "primary",
+          "score": 1.3776
+        },
+        {
+          "unit_id": "List_of_Scottish_monarchs.html#c00000-c00025",
+          "source_file": "List_of_Scottish_monarchs.html",
+          "role": "primary",
+          "score": 1.1077
+        },
+        {
+          "unit_id": "dc85b7cd3cc95787-c00071",
+          "source_file": "Charles_III.html",
+          "role": "primary",
+          "score": 1.0901
+        },
+        {
+          "unit_id": "Charles_III.html#c00113-c00114",
+          "source_file": "Charles_III.html",
+          "role": "primary",
+          "score": 1.0371
+        },
+        {
+          "unit_id": "List_of_British_monarchs.html#c00000-c00012",
+          "source_file": "List_of_British_monarchs.html",
+          "role": "primary",
+          "score": 1.0015
+        }
+      ],
+      "unit_count": 7,
+      "context_chars": 23512,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {
+        "sub_queries": [
+          "Charles III birth date article",
+          "Elizabeth II reign began article",
+          "Charles III early life article"
+        ],
+        "child_chunk_ids": [
+          "dc85b7cd3cc95787-c00187",
+          "dc85b7cd3cc95787-c00000",
+          "dc85b7cd3cc95787-c00178",
+          "dc85b7cd3cc95787-c00111",
+          "b2f40881843f6170-c00025",
+          "dc85b7cd3cc95787-c00071",
+          "dc85b7cd3cc95787-c00113",
+          "42f5a058281c4238-c00012"
+        ],
+        "parent_units": 7
+      },
+      "retrieval_latency_seconds": 3.372057100001257,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.7142857142857143,
+      "chunk_precision_at_k": 0.7142857142857143,
+      "article_precision": 0.3333333333333333,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "The answer is yes.",
+        "Both dates (born 14 November 1948; accession 6 February 1952) are given."
+      ],
+      "response": "Yes. Charles III was born on 14 November 1948, and his mother Elizabeth II acceded to the throne in 1952, so he was born before her reign began [Charles_III.html].",
+      "closed_book_response": "No. Charles III was born on 14 November 1948, and his mother, Queen Elizabeth II, began her reign on 6 February 1952.",
+      "correctness": "pass",
+      "graded_correctness": "substantially_complete",
+      "graded_correctness_score": 0.75,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Charles III was born on 14 November 1948",
+          "cited_source": "Charles_III.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "His mother Elizabeth II acceded to the throne in 1952",
+          "cited_source": "Charles_III.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He was born before her reign began",
+          "cited_source": "Charles_III.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.3333333333333333,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.3571960999979638,
+      "judge_latency_seconds": 6.547995699977037,
+      "total_latency_seconds": 12.786548599950038,
+      "throttle_seconds": 5.609221100027208,
+      "input_tokens": 28452,
+      "output_tokens": 273,
+      "total_tokens": 28725,
+      "estimated_cost_usd": 0.0225675
+    },
+    {
+      "id": "G08",
+      "question": "Which president served in both the 20th and 21st centuries?",
+      "retriever": "decompose",
+      "group": "unnamed_entity_graph",
+      "source_suite": "golden_suite_4.1.json",
+      "mechanism": "category_intersection",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Bill_Clinton.html"
+      ],
+      "expected_sources": [
+        "Bill_Clinton.html",
+        "George_W._Bush.html",
+        "Barack_Obama.html",
+        "Ronald_Reagan.html",
+        "Gerald_Ford.html",
+        "Donald_Trump.html"
+      ],
+      "retrieved_sources": [
+        "List_of_presidents_of_the_United_States.html",
+        "Herbert_Hoover.html",
+        "President_of_the_United_States.html",
+        "United_States_presidential_election.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "List_of_presidents_of_the_United_States.html#c00000-c00006",
+          "source_file": "List_of_presidents_of_the_United_States.html",
+          "role": "primary",
+          "score": 1.858
+        },
+        {
+          "unit_id": "Herbert_Hoover.html#c00000-c00081",
+          "source_file": "Herbert_Hoover.html",
+          "role": "primary",
+          "score": 1.4961
+        },
+        {
+          "unit_id": "President_of_the_United_States.html#c00000-c00004",
+          "source_file": "President_of_the_United_States.html",
+          "role": "primary",
+          "score": 1.3928
+        },
+        {
+          "unit_id": "35018abab56a294f-c00040",
+          "source_file": "President_of_the_United_States.html",
+          "role": "primary",
+          "score": 1.1783
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States.html#c00017-c00020",
+          "source_file": "List_of_presidents_of_the_United_States.html",
+          "role": "primary",
+          "score": 1.1052
+        },
+        {
+          "unit_id": "United_States_presidential_election.html#c00000-c00043",
+          "source_file": "United_States_presidential_election.html",
+          "role": "primary",
+          "score": 1.0866
+        }
+      ],
+      "unit_count": 6,
+      "context_chars": 27961,
+      "evidence_recall": 0.0,
+      "retrieval_trace": {
+        "sub_queries": [
+          "List of presidents of the United States by century of service",
+          "Presidents of the United States who served from 20th century into 21st century",
+          "United States presidents term dates 20th century 21st century"
+        ],
+        "child_chunk_ids": [
+          "b7450806901ae6fc-c00003",
+          "199fa11be909bac9-c00081",
+          "35018abab56a294f-c00004",
+          "35018abab56a294f-c00002",
+          "35018abab56a294f-c00040",
+          "b7450806901ae6fc-c00000",
+          "b7450806901ae6fc-c00020",
+          "6051bba1edb0c4a4-c00041"
+        ],
+        "parent_units": 6
+      },
+      "retrieval_latency_seconds": 5.143942800001241,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.0,
+      "chunk_precision_at_k": 0.0,
+      "article_precision": 0.0,
+      "unique_articles_retrieved": 4,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "Bill Clinton is identified as the president whose term spanned both centuries.",
+        "The answer is grounded in the 1993-2001 term dates."
+      ],
+      "response": "The documents do not explicitly identify a president who served in both the 20th and 21st centuries. They say the presidency has had expansions “during the presidencies of Franklin D. Roosevelt and George W. Bush” and note the current president is Donald Trump [President_of_the_United_States.html], but they do not state directly which president served across both centuries.\n\nIf you mean a president whose life or career spanned both centuries, the documents here only clearly show Herbert Hoover’s presidency was 1929–1933 [Herbert_Hoover.html], which is entirely in the 20th century.",
+      "closed_book_response": "The president who served in both the 20th and 21st centuries was **George W. Bush**. He served from **2001 to 2009**, entirely in the 21st century.\n\nIf you mean a U.S. president whose **life** spanned both centuries, then several did—but as a president in office across both centuries, **Bill Clinton** also did not; his presidency was entirely in the 20th century. \n\nSo for a presidency spanning the turn of the century, the answer is **George W. Bush**.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [],
+      "aspect_coverage": 0.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The documents do not explicitly identify a president who served in both the 20th and 21st centuries.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "They say the presidency has had expansions “during the presidencies of Franklin D. Roosevelt and George W. Bush”.",
+          "cited_source": "President_of_the_United_States.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "They note the current president is Donald Trump.",
+          "cited_source": "President_of_the_United_States.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The documents do not state directly which president served across both centuries.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "If you mean a president whose life or career spanned both centuries, the documents here only clearly show Herbert Hoover’s presidency was 1929–1933.",
+          "cited_source": "Herbert_Hoover.html",
+          "grounded": false,
+          "citation_supported": false,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "Herbert Hoover’s presidency was entirely in the 20th century.",
+          "cited_source": "Herbert_Hoover.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "George W. Bush served from 2001 to 2009.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "George W. Bush’s presidency was entirely in the 21st century.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "If you mean a U.S. president whose life spanned both centuries, several did.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "Bill Clinton’s presidency was entirely in the 20th century.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "For a presidency spanning the turn of the century, the answer is George W. Bush.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 11,
+      "graded_groundedness_score": 0.45454545454545453,
+      "faithfulness": "fail",
+      "citation_support_rate": 0.75,
+      "chunk_attribution_score": 1.0,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 2,
+      "citation_precision": 0.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.678986300015822,
+      "judge_latency_seconds": 8.359729900024831,
+      "total_latency_seconds": 17.382818400044926,
+      "throttle_seconds": 3.782642200018745,
+      "input_tokens": 31706,
+      "output_tokens": 832,
+      "total_tokens": 32538,
+      "estimated_cost_usd": 0.0275235
+    },
+    {
+      "id": "G13",
+      "question": "What was the former name of the university where Barack Obama earned his law degree?",
+      "retriever": "decompose",
+      "group": "unnamed_entity_graph",
+      "source_suite": "golden_suite_4.1.json",
+      "mechanism": "bridge_education_edge_plus_infobox_alias",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "expected_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Barack_Obama.html",
+        "Ivy_League.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Barack_Obama.html#c00000-c00003",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 1.6577
+        },
+        {
+          "unit_id": "Barack_Obama.html#c00120-c00123",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 1.4374
+        },
+        {
+          "unit_id": "Barack_Obama.html#c00014-c00017",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 1.3097
+        },
+        {
+          "unit_id": "Ivy_League.html#c00000-c00056",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 1.2155
+        },
+        {
+          "unit_id": "Barack_Obama.html#c00007-c00010",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 1.1852
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html#c00000-c00025",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.892
+        }
+      ],
+      "unit_count": 6,
+      "context_chars": 25404,
+      "evidence_recall": 0.3333333333333333,
+      "retrieval_trace": {
+        "sub_queries": [
+          "Barack Obama law degree university",
+          "University former name history law school"
+        ],
+        "child_chunk_ids": [
+          "ce083e780cb76d37-c00002",
+          "ce083e780cb76d37-c00122",
+          "ce083e780cb76d37-c00017",
+          "1b3e71a846a884c7-c00056",
+          "ce083e780cb76d37-c00009",
+          "ce083e780cb76d37-c00123",
+          "ce083e780cb76d37-c00016",
+          "2f95a5be7329cc28-c00024"
+        ],
+        "parent_units": 6
+      },
+      "retrieval_latency_seconds": 3.680905800021719,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.8333333333333334,
+      "chunk_precision_at_k": 0.8333333333333334,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "Harvard is identified as where Obama earned his law degree.",
+        "Harvard College is given as the former name."
+      ],
+      "response": "Barack Obama earned his law degree from Harvard Law School [Barack_Obama.html]. The documents do not provide the former name of that university.",
+      "closed_book_response": "Barack Obama earned his law degree from **Harvard Law School**. Its former name was **Harvard College’s law school**, commonly called **Harvard Law School** since the 19th century, so there isn’t a widely used distinct former name in this context. If you meant the university itself, it’s **Harvard University**.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 0.5,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Barack Obama earned his law degree from Harvard Law School.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The documents do not provide the former name of that university.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 0.5,
+      "faithfulness": "fail",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.0,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.3122388000483625,
+      "judge_latency_seconds": 3.6468210999737494,
+      "total_latency_seconds": 12.245032100006938,
+      "throttle_seconds": 4.649167200061493,
+      "input_tokens": 29211,
+      "output_tokens": 244,
+      "total_tokens": 29455,
+      "estimated_cost_usd": 0.02300625
+    }
+  ]
+}
