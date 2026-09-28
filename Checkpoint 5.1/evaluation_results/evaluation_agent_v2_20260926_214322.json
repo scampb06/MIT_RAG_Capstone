@@ -1,0 +1,1492 @@
+{
+  "configuration": {
+    "retriever": "agent_v2",
+    "agent_version": "v2",
+    "actions": [
+      "answer",
+      "chunks",
+      "clarify",
+      "decompose",
+      "graph",
+      "read_section",
+      "title_search"
+    ],
+    "seed": {
+      "retriever": "chunks",
+      "top_k": 8,
+      "candidate_pool": 40,
+      "parent": "none"
+    },
+    "max_planned_steps": 3,
+    "max_clarify": 1,
+    "planner_evidence_chars": 16000,
+    "context_budget_chars": 40000,
+    "rrf_k": 60,
+    "step_guarantee": 3,
+    "title_max_files": 5,
+    "weight_bm25": 0.5,
+    "weight_vector": 0.5,
+    "max_chunk_chars": 2000,
+    "graph": {
+      "seed_k": 4,
+      "max_category_size": 150,
+      "relation_weights": {
+        "category_match": 4.0,
+        "infobox": 3.0,
+        "category": 2.0,
+        "link": 1.0
+      }
+    },
+    "llm_model": "openai/gpt-5.4-mini",
+    "embedding_model": "openai/text-embedding-3-small",
+    "temperature": 0.2,
+    "run_at": "2026-09-26T21:44:31"
+  },
+  "results": [
+    {
+      "id": "Q049",
+      "question": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+      "retriever": "agent_v2",
+      "group": "comparative_decomposition",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "mechanism": null,
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html"
+      ],
+      "expected_sources": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html",
+        "Academy_Award_for_Best_Actor.html",
+        "Austin_Butler.html",
+        "Colin_Farrell.html",
+        "Paul_Mescal.html",
+        "Bill_Nighy.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Supporting_Actor.html",
+        "95th_Academy_Awards.html",
+        "The_Wolf_of_Wall_Street_(2013_film).html",
+        "Mark_Lee_(singer).html",
+        "Academy_Award_for_Best_Actor.html",
+        "89th_Academy_Awards.html",
+        "85th_Academy_Awards.html",
+        "74th_Academy_Awards.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "f4e49e2bb44a4357-c00003",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html",
+          "role": "primary",
+          "score": 0.5669
+        },
+        {
+          "unit_id": "110a1f26b577e6e7-c00002",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "22662e147b40523a-c00003",
+          "source_file": "The_Wolf_of_Wall_Street_(2013_film).html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "110a1f26b577e6e7-c00003",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "a5b20f1a2caeafe7-c00015",
+          "source_file": "Mark_Lee_(singer).html",
+          "role": "primary",
+          "score": 0.437
+        },
+        {
+          "unit_id": "110a1f26b577e6e7-c00004",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "599ff25cc439b524-c00003",
+          "source_file": "Academy_Award_for_Best_Actor.html",
+          "role": "primary",
+          "score": 0.43
+        },
+        {
+          "unit_id": "110a1f26b577e6e7-c00005",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "86da3fa9f040ab84-c00001",
+          "source_file": "89th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.4285
+        },
+        {
+          "unit_id": "110a1f26b577e6e7-c00006",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "f03136cff601fca1-c00004",
+          "source_file": "85th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.4199
+        },
+        {
+          "unit_id": "110a1f26b577e6e7-c00007",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "110a1f26b577e6e7-c00000",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.3896
+        },
+        {
+          "unit_id": "54cc717f4dc58b8c-c00004",
+          "source_file": "74th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.3808
+        }
+      ],
+      "unit_count": 14,
+      "context_chars": 13755,
+      "evidence_recall": 0.6666666666666666,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "f4e49e2bb44a4357-c00003",
+              "22662e147b40523a-c00003",
+              "a5b20f1a2caeafe7-c00015",
+              "599ff25cc439b524-c00003",
+              "86da3fa9f040ab84-c00001",
+              "f03136cff601fca1-c00004",
+              "110a1f26b577e6e7-c00000",
+              "54cc717f4dc58b8c-c00004"
+            ],
+            "new_unit_ids": [
+              "f4e49e2bb44a4357-c00003",
+              "22662e147b40523a-c00003",
+              "a5b20f1a2caeafe7-c00015",
+              "599ff25cc439b524-c00003",
+              "86da3fa9f040ab84-c00001",
+              "f03136cff601fca1-c00004",
+              "110a1f26b577e6e7-c00000",
+              "54cc717f4dc58b8c-c00004"
+            ],
+            "files": [
+              "Academy_Award_for_Best_Supporting_Actor.html",
+              "The_Wolf_of_Wall_Street_(2013_film).html",
+              "Mark_Lee_(singer).html",
+              "Academy_Award_for_Best_Actor.html",
+              "89th_Academy_Awards.html",
+              "85th_Academy_Awards.html",
+              "95th_Academy_Awards.html",
+              "74th_Academy_Awards.html"
+            ],
+            "trace": {
+              "new_files": [
+                "Academy_Award_for_Best_Supporting_Actor.html",
+                "The_Wolf_of_Wall_Street_(2013_film).html",
+                "Mark_Lee_(singer).html",
+                "Academy_Award_for_Best_Actor.html",
+                "89th_Academy_Awards.html",
+                "85th_Academy_Awards.html",
+                "95th_Academy_Awards.html",
+                "74th_Academy_Awards.html"
+              ]
+            },
+            "seconds": 2.568,
+            "error": null
+          },
+          {
+            "step": 1,
+            "action": "read_section",
+            "args": {
+              "file": "95th_Academy_Awards.html",
+              "section": "Winners and nominees",
+              "query": "Best Actor"
+            },
+            "assessment": "The evidence identifies the 95th Academy Awards and shows the ceremony date and some general highlights, but it does not yet state the Best Actor winner or the notable nominee-field fact.",
+            "missing": [
+              "the Best Actor winner at the 95th Academy Awards",
+              "what was notable about the whole nominee field that year"
+            ],
+            "clues": [
+              "who won Best Actor at the 95th ceremony",
+              "what was notable about the whole nominee field that year"
+            ],
+            "facts": [],
+            "ranked_unit_ids": [
+              "110a1f26b577e6e7-c00002",
+              "110a1f26b577e6e7-c00003",
+              "110a1f26b577e6e7-c00004",
+              "110a1f26b577e6e7-c00005",
+              "110a1f26b577e6e7-c00006",
+              "110a1f26b577e6e7-c00007"
+            ],
+            "new_unit_ids": [
+              "110a1f26b577e6e7-c00002",
+              "110a1f26b577e6e7-c00003",
+              "110a1f26b577e6e7-c00004",
+              "110a1f26b577e6e7-c00005",
+              "110a1f26b577e6e7-c00006",
+              "110a1f26b577e6e7-c00007"
+            ],
+            "files": [
+              "95th_Academy_Awards.html"
+            ],
+            "trace": {
+              "file": "95th_Academy_Awards.html",
+              "section": "Winners and nominees",
+              "matched_chunks": 13,
+              "read_chunks": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "new_files": []
+            },
+            "seconds": 0.103,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 2.6710000000000003,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.5714285714285714,
+      "chunk_precision_at_k": 0.5714285714285714,
+      "article_precision": 0.25,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "Brendan Fraser won Best Actor for playing Charlie in The Whale.",
+        "Notably, for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+        "The other nominees were Austin Butler (Elvis), Colin Farrell (The Banshees of Inisherin), Paul Mescal (Aftersun) and Bill Nighy (Living)."
+      ],
+      "response": "At the 95th Academy Awards, **Brendan Fraser won Best Actor** for *The Whale* as Charlie. The nominee field was notable because **for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees** [95th_Academy_Awards.html].",
+      "closed_book_response": "At the 95th Academy Awards, **Brendan Fraser** won **Best Actor** for *The Whale*.\n\nWhat was notable about the whole nominee field that year was that it was **an especially international, diverse group of nominees**, with **all five Best Actor nominees coming from different countries/regions of origin** rather than the category being dominated by one nationality.",
+      "correctness": "pass",
+      "graded_correctness": "substantially_complete",
+      "graded_correctness_score": 0.75,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 0.6666666666666666,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "At the 95th Academy Awards, Brendan Fraser won Best Actor for The Whale as Charlie.",
+          "cited_source": "95th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "For the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+          "cited_source": "95th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.5,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 0.9116198999981862,
+      "judge_latency_seconds": 2.4406520999982604,
+      "total_latency_seconds": 9.493212899991427,
+      "agent_wall_seconds": 9.685106400000222,
+      "throttle_seconds": 12.340776999999072,
+      "input_tokens": 26924,
+      "output_tokens": 620,
+      "total_tokens": 27544,
+      "estimated_cost_usd": 0.022983,
+      "agent_version": "v2",
+      "agent_actions": [
+        "seed",
+        "read_section",
+        "answer"
+      ],
+      "planned_steps": 1,
+      "stop_reason": "planner_answer",
+      "seed_only_answer": false,
+      "planner_calls": 2,
+      "tool_llm_calls": 0,
+      "llm_calls_total": 3,
+      "planner_input_tokens": 9515,
+      "planner_output_tokens": 299,
+      "planner_latency_seconds": 2.60888469999918,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 0,
+      "answer_facts": [
+        {
+          "clue": 1,
+          "fact": "Brendan Fraser won Best Actor at the 95th Academy Awards.",
+          "source": "95th_Academy_Awards.html",
+          "quote": "Brendan Fraser – *The Whale* as Charlie ‡",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 2,
+          "fact": "All five Best Actor nominees were first-time nominees.",
+          "source": "95th_Academy_Awards.html",
+          "quote": "all five Best Actor nominees were first-time nominees.",
+          "verified": true,
+          "reason": ""
+        }
+      ],
+      "answer_facts_verified": 2,
+      "answer_missing": [],
+      "answer_clues": [
+        "Who won Best Actor at the 95th ceremony",
+        "what was notable about the whole nominee field that year"
+      ],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 14,
+      "units_in_context": 14,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "f4e49e2bb44a4357-c00003",
+            "22662e147b40523a-c00003",
+            "a5b20f1a2caeafe7-c00015",
+            "599ff25cc439b524-c00003",
+            "86da3fa9f040ab84-c00001",
+            "f03136cff601fca1-c00004",
+            "110a1f26b577e6e7-c00000",
+            "54cc717f4dc58b8c-c00004"
+          ],
+          "new_unit_ids": [
+            "f4e49e2bb44a4357-c00003",
+            "22662e147b40523a-c00003",
+            "a5b20f1a2caeafe7-c00015",
+            "599ff25cc439b524-c00003",
+            "86da3fa9f040ab84-c00001",
+            "f03136cff601fca1-c00004",
+            "110a1f26b577e6e7-c00000",
+            "54cc717f4dc58b8c-c00004"
+          ],
+          "files": [
+            "Academy_Award_for_Best_Supporting_Actor.html",
+            "The_Wolf_of_Wall_Street_(2013_film).html",
+            "Mark_Lee_(singer).html",
+            "Academy_Award_for_Best_Actor.html",
+            "89th_Academy_Awards.html",
+            "85th_Academy_Awards.html",
+            "95th_Academy_Awards.html",
+            "74th_Academy_Awards.html"
+          ],
+          "trace": {
+            "new_files": [
+              "Academy_Award_for_Best_Supporting_Actor.html",
+              "The_Wolf_of_Wall_Street_(2013_film).html",
+              "Mark_Lee_(singer).html",
+              "Academy_Award_for_Best_Actor.html",
+              "89th_Academy_Awards.html",
+              "85th_Academy_Awards.html",
+              "95th_Academy_Awards.html",
+              "74th_Academy_Awards.html"
+            ]
+          },
+          "seconds": 2.568,
+          "error": null
+        },
+        {
+          "step": 1,
+          "action": "read_section",
+          "args": {
+            "file": "95th_Academy_Awards.html",
+            "section": "Winners and nominees",
+            "query": "Best Actor"
+          },
+          "assessment": "The evidence identifies the 95th Academy Awards and shows the ceremony date and some general highlights, but it does not yet state the Best Actor winner or the notable nominee-field fact.",
+          "missing": [
+            "the Best Actor winner at the 95th Academy Awards",
+            "what was notable about the whole nominee field that year"
+          ],
+          "clues": [
+            "who won Best Actor at the 95th ceremony",
+            "what was notable about the whole nominee field that year"
+          ],
+          "facts": [],
+          "ranked_unit_ids": [
+            "110a1f26b577e6e7-c00002",
+            "110a1f26b577e6e7-c00003",
+            "110a1f26b577e6e7-c00004",
+            "110a1f26b577e6e7-c00005",
+            "110a1f26b577e6e7-c00006",
+            "110a1f26b577e6e7-c00007"
+          ],
+          "new_unit_ids": [
+            "110a1f26b577e6e7-c00002",
+            "110a1f26b577e6e7-c00003",
+            "110a1f26b577e6e7-c00004",
+            "110a1f26b577e6e7-c00005",
+            "110a1f26b577e6e7-c00006",
+            "110a1f26b577e6e7-c00007"
+          ],
+          "files": [
+            "95th_Academy_Awards.html"
+          ],
+          "trace": {
+            "file": "95th_Academy_Awards.html",
+            "section": "Winners and nominees",
+            "matched_chunks": 13,
+            "read_chunks": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "new_files": []
+          },
+          "seconds": 0.103,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 0.5,
+      "evidence_recall_any_step": 0.6666666666666666
+    },
+    {
+      "id": "Q009",
+      "question": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+      "retriever": "agent_v2",
+      "group": "multi_entity_precision",
+      "source_suite": "golden_suite_2.1.json",
+      "mechanism": null,
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "expected_sources": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "retrieved_sources": [
+        "Nobel_Prize.html",
+        "List_of_Nobel_laureates_in_Literature.html",
+        "List_of_Nobel_laureates_in_Physics.html",
+        "1964_Nobel_Prize_in_Literature.html",
+        "John_Bardeen.html",
+        "Nobel_Peace_Prize.html",
+        "Albert_Einstein.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "3e63e207c636cf56-c00049",
+          "source_file": "Nobel_Prize.html",
+          "role": "primary",
+          "score": 0.7389
+        },
+        {
+          "unit_id": "eaba0cc3c4843004-c00044",
+          "source_file": "List_of_Nobel_laureates_in_Literature.html",
+          "role": "primary",
+          "score": 0.8792
+        },
+        {
+          "unit_id": "d0ab527c61d96461-c00001",
+          "source_file": "List_of_Nobel_laureates_in_Physics.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "eaba0cc3c4843004-c00047",
+          "source_file": "List_of_Nobel_laureates_in_Literature.html",
+          "role": "primary",
+          "score": 0.7112
+        },
+        {
+          "unit_id": "2383c385675d1e75-c00001",
+          "source_file": "1964_Nobel_Prize_in_Literature.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "eaba0cc3c4843004-c00049",
+          "source_file": "List_of_Nobel_laureates_in_Literature.html",
+          "role": "primary",
+          "score": 0.6992
+        },
+        {
+          "unit_id": "1cde5d8da7ccbdc5-c00012",
+          "source_file": "John_Bardeen.html",
+          "role": "primary",
+          "score": 0.3591
+        },
+        {
+          "unit_id": "eaba0cc3c4843004-c00040",
+          "source_file": "List_of_Nobel_laureates_in_Literature.html",
+          "role": "primary",
+          "score": 0.6723
+        },
+        {
+          "unit_id": "4d3f2b122f3bad0b-c00002",
+          "source_file": "Nobel_Peace_Prize.html",
+          "role": "primary",
+          "score": 0.3588
+        },
+        {
+          "unit_id": "eaba0cc3c4843004-c00050",
+          "source_file": "List_of_Nobel_laureates_in_Literature.html",
+          "role": "primary",
+          "score": 0.6487
+        },
+        {
+          "unit_id": "2383c385675d1e75-c00000",
+          "source_file": "1964_Nobel_Prize_in_Literature.html",
+          "role": "primary",
+          "score": 0.3546
+        },
+        {
+          "unit_id": "eaba0cc3c4843004-c00048",
+          "source_file": "List_of_Nobel_laureates_in_Literature.html",
+          "role": "primary",
+          "score": 0.6481
+        },
+        {
+          "unit_id": "3e63e207c636cf56-c00045",
+          "source_file": "Nobel_Prize.html",
+          "role": "primary",
+          "score": 0.3541
+        },
+        {
+          "unit_id": "eaba0cc3c4843004-c00041",
+          "source_file": "List_of_Nobel_laureates_in_Literature.html",
+          "role": "primary",
+          "score": 0.6303
+        },
+        {
+          "unit_id": "81ed86f1f706c67e-c00082",
+          "source_file": "Albert_Einstein.html",
+          "role": "primary",
+          "score": 0.2809
+        },
+        {
+          "unit_id": "eaba0cc3c4843004-c00053",
+          "source_file": "List_of_Nobel_laureates_in_Literature.html",
+          "role": "primary",
+          "score": 0.6205
+        }
+      ],
+      "unit_count": 16,
+      "context_chars": 15274,
+      "evidence_recall": 0.75,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "3e63e207c636cf56-c00049",
+              "d0ab527c61d96461-c00001",
+              "2383c385675d1e75-c00001",
+              "1cde5d8da7ccbdc5-c00012",
+              "4d3f2b122f3bad0b-c00002",
+              "2383c385675d1e75-c00000",
+              "3e63e207c636cf56-c00045",
+              "81ed86f1f706c67e-c00082"
+            ],
+            "new_unit_ids": [
+              "3e63e207c636cf56-c00049",
+              "d0ab527c61d96461-c00001",
+              "2383c385675d1e75-c00001",
+              "1cde5d8da7ccbdc5-c00012",
+              "4d3f2b122f3bad0b-c00002",
+              "2383c385675d1e75-c00000",
+              "3e63e207c636cf56-c00045",
+              "81ed86f1f706c67e-c00082"
+            ],
+            "files": [
+              "Nobel_Prize.html",
+              "List_of_Nobel_laureates_in_Physics.html",
+              "1964_Nobel_Prize_in_Literature.html",
+              "John_Bardeen.html",
+              "Nobel_Peace_Prize.html",
+              "Albert_Einstein.html"
+            ],
+            "trace": {
+              "new_files": [
+                "Nobel_Prize.html",
+                "List_of_Nobel_laureates_in_Physics.html",
+                "1964_Nobel_Prize_in_Literature.html",
+                "John_Bardeen.html",
+                "Nobel_Peace_Prize.html",
+                "Albert_Einstein.html"
+              ]
+            },
+            "seconds": 1.846,
+            "error": null
+          },
+          {
+            "step": 1,
+            "action": "chunks",
+            "args": {
+              "query": "magnitude-9 earthquake struck Alaska year 1964 Nobel Prize in Literature",
+              "parent": "none"
+            },
+            "assessment": "The evidence verifies the refusal and reasons, but not the Alaska-earthquake year needed to identify the author from the clue.",
+            "missing": [
+              "the year a magnitude-9 earthquake struck Alaska",
+              "the author who won the Nobel Prize in Literature in that year"
+            ],
+            "clues": [
+              "the author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska",
+              "why did he decline"
+            ],
+            "facts": [
+              {
+                "clue": 2,
+                "fact": "He declined because he said he never accepted official honours and did not want the writer to become an institution.",
+                "source": "1964_Nobel_Prize_in_Literature.html",
+                "quote": "he never accepted any official honours"
+              },
+              {
+                "clue": 2,
+                "fact": "He also said the Nobel Prize was one that goes only to Westerners or to rebels of the East.",
+                "source": "1964_Nobel_Prize_in_Literature.html",
+                "quote": "one that goes only to Westerners"
+              },
+              {
+                "clue": 2,
+                "fact": "The laureate was Jean-Paul Sartre.",
+                "source": "1964_Nobel_Prize_in_Literature.html",
+                "quote": "The 1964 Nobel Prize in Literature was awarded to the French writer Jean-Paul Sartre"
+              }
+            ],
+            "ranked_unit_ids": [
+              "eaba0cc3c4843004-c00044",
+              "eaba0cc3c4843004-c00047",
+              "eaba0cc3c4843004-c00049",
+              "eaba0cc3c4843004-c00040",
+              "eaba0cc3c4843004-c00050",
+              "eaba0cc3c4843004-c00048",
+              "eaba0cc3c4843004-c00041",
+              "eaba0cc3c4843004-c00053"
+            ],
+            "new_unit_ids": [
+              "eaba0cc3c4843004-c00044",
+              "eaba0cc3c4843004-c00047",
+              "eaba0cc3c4843004-c00049",
+              "eaba0cc3c4843004-c00040",
+              "eaba0cc3c4843004-c00050",
+              "eaba0cc3c4843004-c00048",
+              "eaba0cc3c4843004-c00041",
+              "eaba0cc3c4843004-c00053"
+            ],
+            "files": [
+              "List_of_Nobel_laureates_in_Literature.html"
+            ],
+            "trace": {
+              "new_files": [
+                "List_of_Nobel_laureates_in_Literature.html"
+              ]
+            },
+            "seconds": 0.791,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 2.637,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.125,
+      "chunk_precision_at_k": 0.125,
+      "article_precision": 0.14285714285714285,
+      "unique_articles_retrieved": 7,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "The 1964 Nobel Prize in Literature was awarded to French writer Jean-Paul Sartre, the same year a magnitude 9.2-9.3 earthquake struck Alaska.",
+        "Sartre declined the prize, saying he never accepted official honors and did not want the writer to become an institution.",
+        "He also objected on the grounds that the prize went only to Westerners or to rebels of the East."
+      ],
+      "response": "He was **Jean-Paul Sartre**. He initially refused the 1964 Nobel Prize in Literature because he said **“A writer must refuse to allow himself to be transformed into an institution”** and that he never accepted official honours; he also said he did not want the writer to become an institution.[Nobel_Prize.html] [1964_Nobel_Prize_in_Literature.html]  \n\nThe documents also note that the **1964 Nobel Prize in Literature** was awarded to Sartre.[1964_Nobel_Prize_in_Literature.html] Since the question identifies the year by the Alaska earthquake clue, this is the matching laureate.",
+      "closed_book_response": "The author was **Jean-Paul Sartre**.\n\nHe was awarded the **Nobel Prize in Literature in 1964**, the same year as the **magnitude-9.2 Great Alaska earthquake**. Sartre **declined the prize because he consistently refused official honors and decorations** — he believed a writer should remain independent and not be “institutionalized” by such awards.",
+      "correctness": "pass",
+      "graded_correctness": "substantially_complete",
+      "graded_correctness_score": 0.75,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "He was Jean-Paul Sartre.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He initially refused the 1964 Nobel Prize in Literature.",
+          "cited_source": "Nobel_Prize.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He said, \"A writer must refuse to allow himself to be transformed into an institution.\"",
+          "cited_source": "Nobel_Prize.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He said he never accepted official honours.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He said he did not want the writer to become an institution.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The 1964 Nobel Prize in Literature was awarded to Sartre.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Since the question identifies the year by the Alaska earthquake clue, this is the matching laureate.",
+          "cited_source": null,
+          "grounded": false,
+          "citation_supported": null,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 7,
+      "graded_groundedness_score": 0.8571428571428571,
+      "faithfulness": "fail",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.6666666666666666,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 2,
+      "citation_precision": 0.5,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.1130616000009468,
+      "judge_latency_seconds": 3.1358927999972366,
+      "total_latency_seconds": 12.157488399997703,
+      "agent_wall_seconds": 12.831071600005089,
+      "throttle_seconds": 12.703332700007014,
+      "input_tokens": 33171,
+      "output_tokens": 1439,
+      "total_tokens": 34610,
+      "estimated_cost_usd": 0.03135375,
+      "agent_version": "v2",
+      "agent_actions": [
+        "seed",
+        "chunks",
+        "answer"
+      ],
+      "planned_steps": 1,
+      "stop_reason": "planner_answer",
+      "seed_only_answer": false,
+      "planner_calls": 3,
+      "tool_llm_calls": 0,
+      "llm_calls_total": 4,
+      "planner_input_tokens": 14147,
+      "planner_output_tokens": 836,
+      "planner_latency_seconds": 4.435270900001342,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 1,
+      "answer_facts": [
+        {
+          "clue": 1,
+          "fact": "The 1964 Nobel Prize in Literature was awarded to Jean-Paul Sartre.",
+          "source": "1964_Nobel_Prize_in_Literature.html",
+          "quote": "The 1964 Nobel Prize in Literature was awarded to the French writer Jean-Paul Sartre",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 2,
+          "fact": "He declined the prize.",
+          "source": "1964_Nobel_Prize_in_Literature.html",
+          "quote": "Sartre declined the prize",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 3,
+          "fact": "He said he never accepted any official honours and did not want the writer to become an institution.",
+          "source": "1964_Nobel_Prize_in_Literature.html",
+          "quote": "he never accepted any official honours and that he did not want the writer to become an institution",
+          "verified": true,
+          "reason": ""
+        }
+      ],
+      "answer_facts_verified": 3,
+      "answer_missing": [
+        "The earthquake clue is not explicitly tied to the year in the evidence.",
+        "The question asks why he declined; the evidence has two possible phrasings, but the direct reason needs a verified quote from the same passage that names Sartre.",
+        "A supportable link between the earthquake year and the 1964 Literature Prize year is still needed."
+      ],
+      "answer_clues": [
+        "the author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska",
+        "initially refused the honor",
+        "why did he decline"
+      ],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 16,
+      "units_in_context": 16,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "3e63e207c636cf56-c00049",
+            "d0ab527c61d96461-c00001",
+            "2383c385675d1e75-c00001",
+            "1cde5d8da7ccbdc5-c00012",
+            "4d3f2b122f3bad0b-c00002",
+            "2383c385675d1e75-c00000",
+            "3e63e207c636cf56-c00045",
+            "81ed86f1f706c67e-c00082"
+          ],
+          "new_unit_ids": [
+            "3e63e207c636cf56-c00049",
+            "d0ab527c61d96461-c00001",
+            "2383c385675d1e75-c00001",
+            "1cde5d8da7ccbdc5-c00012",
+            "4d3f2b122f3bad0b-c00002",
+            "2383c385675d1e75-c00000",
+            "3e63e207c636cf56-c00045",
+            "81ed86f1f706c67e-c00082"
+          ],
+          "files": [
+            "Nobel_Prize.html",
+            "List_of_Nobel_laureates_in_Physics.html",
+            "1964_Nobel_Prize_in_Literature.html",
+            "John_Bardeen.html",
+            "Nobel_Peace_Prize.html",
+            "Albert_Einstein.html"
+          ],
+          "trace": {
+            "new_files": [
+              "Nobel_Prize.html",
+              "List_of_Nobel_laureates_in_Physics.html",
+              "1964_Nobel_Prize_in_Literature.html",
+              "John_Bardeen.html",
+              "Nobel_Peace_Prize.html",
+              "Albert_Einstein.html"
+            ]
+          },
+          "seconds": 1.846,
+          "error": null
+        },
+        {
+          "step": 1,
+          "action": "chunks",
+          "args": {
+            "query": "magnitude-9 earthquake struck Alaska year 1964 Nobel Prize in Literature",
+            "parent": "none"
+          },
+          "assessment": "The evidence verifies the refusal and reasons, but not the Alaska-earthquake year needed to identify the author from the clue.",
+          "missing": [
+            "the year a magnitude-9 earthquake struck Alaska",
+            "the author who won the Nobel Prize in Literature in that year"
+          ],
+          "clues": [
+            "the author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska",
+            "why did he decline"
+          ],
+          "facts": [
+            {
+              "clue": 2,
+              "fact": "He declined because he said he never accepted official honours and did not want the writer to become an institution.",
+              "source": "1964_Nobel_Prize_in_Literature.html",
+              "quote": "he never accepted any official honours"
+            },
+            {
+              "clue": 2,
+              "fact": "He also said the Nobel Prize was one that goes only to Westerners or to rebels of the East.",
+              "source": "1964_Nobel_Prize_in_Literature.html",
+              "quote": "one that goes only to Westerners"
+            },
+            {
+              "clue": 2,
+              "fact": "The laureate was Jean-Paul Sartre.",
+              "source": "1964_Nobel_Prize_in_Literature.html",
+              "quote": "The 1964 Nobel Prize in Literature was awarded to the French writer Jean-Paul Sartre"
+            }
+          ],
+          "ranked_unit_ids": [
+            "eaba0cc3c4843004-c00044",
+            "eaba0cc3c4843004-c00047",
+            "eaba0cc3c4843004-c00049",
+            "eaba0cc3c4843004-c00040",
+            "eaba0cc3c4843004-c00050",
+            "eaba0cc3c4843004-c00048",
+            "eaba0cc3c4843004-c00041",
+            "eaba0cc3c4843004-c00053"
+          ],
+          "new_unit_ids": [
+            "eaba0cc3c4843004-c00044",
+            "eaba0cc3c4843004-c00047",
+            "eaba0cc3c4843004-c00049",
+            "eaba0cc3c4843004-c00040",
+            "eaba0cc3c4843004-c00050",
+            "eaba0cc3c4843004-c00048",
+            "eaba0cc3c4843004-c00041",
+            "eaba0cc3c4843004-c00053"
+          ],
+          "files": [
+            "List_of_Nobel_laureates_in_Literature.html"
+          ],
+          "trace": {
+            "new_files": [
+              "List_of_Nobel_laureates_in_Literature.html"
+            ]
+          },
+          "seconds": 0.791,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 0.5,
+      "evidence_recall_any_step": 0.75
+    },
+    {
+      "id": "G13",
+      "question": "What was the former name of the university where Barack Obama earned his law degree?",
+      "retriever": "agent_v2",
+      "group": "unnamed_entity_graph",
+      "source_suite": "golden_suite_4.1.json",
+      "mechanism": "bridge_education_edge_plus_infobox_alias",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "expected_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "Ivy_League.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "ce083e780cb76d37-c00002",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.9075
+        },
+        {
+          "unit_id": "Harvard_University.html#c00000-c00032",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.7577
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00009",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.7878
+        },
+        {
+          "unit_id": "Harvard_University.html#c00000-c00107",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.667
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00122",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.6378
+        },
+        {
+          "unit_id": "Harvard_University.html#c00000-c00097",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.6339
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00016",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.5671
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00017",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.5016
+        },
+        {
+          "unit_id": "1b3e71a846a884c7-c00056",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00123",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.3843
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00014",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.3433
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00238",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.3179
+        }
+      ],
+      "unit_count": 12,
+      "context_chars": 28132,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "What was the former name of the university where Barack Obama earned his law degree?",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "ce083e780cb76d37-c00002",
+              "ce083e780cb76d37-c00009",
+              "ce083e780cb76d37-c00122",
+              "ce083e780cb76d37-c00016",
+              "ce083e780cb76d37-c00017",
+              "ce083e780cb76d37-c00123",
+              "ce083e780cb76d37-c00014",
+              "ce083e780cb76d37-c00238"
+            ],
+            "new_unit_ids": [
+              "ce083e780cb76d37-c00002",
+              "ce083e780cb76d37-c00009",
+              "ce083e780cb76d37-c00122",
+              "ce083e780cb76d37-c00016",
+              "ce083e780cb76d37-c00017",
+              "ce083e780cb76d37-c00123",
+              "ce083e780cb76d37-c00014",
+              "ce083e780cb76d37-c00238"
+            ],
+            "files": [
+              "Barack_Obama.html"
+            ],
+            "trace": {
+              "new_files": [
+                "Barack_Obama.html"
+              ]
+            },
+            "seconds": 1.504,
+            "error": null
+          },
+          {
+            "step": 1,
+            "action": "chunks",
+            "args": {
+              "query": "Harvard Law School former name",
+              "parent": "article"
+            },
+            "assessment": "The evidence shows Barack Obama earned his law degree at Harvard Law School, but it does not state the university’s former name.",
+            "missing": [
+              "the former name of Harvard Law School"
+            ],
+            "clues": [
+              "the former name of the university where Barack Obama earned his law degree"
+            ],
+            "facts": [
+              {
+                "clue": 1,
+                "fact": "Obama earned his law degree at Harvard Law School.",
+                "source": "Barack_Obama.html",
+                "quote": "Obama graduated from Harvard Law in 1991 with a Juris Doctor"
+              },
+              {
+                "clue": 1,
+                "fact": "He enrolled at Harvard Law School in 1988.",
+                "source": "Barack_Obama.html",
+                "quote": "Obama enrolled at Harvard Law School in the fall of 1988"
+              }
+            ],
+            "ranked_unit_ids": [
+              "Harvard_University.html#c00000-c00032",
+              "Harvard_University.html#c00000-c00107",
+              "Harvard_University.html#c00000-c00097",
+              "List_of_presidents_of_the_United_States_by_education.html#c00000-c00027",
+              "1b3e71a846a884c7-c00056"
+            ],
+            "new_unit_ids": [
+              "Harvard_University.html#c00000-c00032",
+              "Harvard_University.html#c00000-c00107",
+              "Harvard_University.html#c00000-c00097",
+              "List_of_presidents_of_the_United_States_by_education.html#c00000-c00027",
+              "1b3e71a846a884c7-c00056"
+            ],
+            "files": [
+              "Harvard_University.html",
+              "List_of_presidents_of_the_United_States_by_education.html",
+              "Ivy_League.html"
+            ],
+            "trace": {
+              "child_chunk_ids": [
+                "7f8730199e3c9d3c-c00031",
+                "7f8730199e3c9d3c-c00106",
+                "7f8730199e3c9d3c-c00096",
+                "2f95a5be7329cc28-c00024",
+                "1b3e71a846a884c7-c00056",
+                "7f8730199e3c9d3c-c00002",
+                "7f8730199e3c9d3c-c00059",
+                "ce083e780cb76d37-c00016"
+              ],
+              "article_too_long": [
+                "Harvard_University.html",
+                "Ivy_League.html",
+                "Barack_Obama.html"
+              ],
+              "new_files": [
+                "Harvard_University.html",
+                "List_of_presidents_of_the_United_States_by_education.html",
+                "Ivy_League.html"
+              ]
+            },
+            "seconds": 0.497,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 2.001,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.9166666666666666,
+      "chunk_precision_at_k": 0.9166666666666666,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "Harvard is identified as where Obama earned his law degree.",
+        "Harvard College is given as the former name."
+      ],
+      "response": "Barack Obama earned his law degree at Harvard Law School [Barack_Obama.html]. The university’s former name was **Harvard College** [Harvard_University.html].",
+      "closed_book_response": "Barack Obama earned his law degree at **Harvard Law School**, which was formerly known as **Harvard Law School’s “School of Law”**?  \n\nIf you mean the **former name of the university** itself, Obama attended **Columbia University**, which was formerly **King’s College** — but he did **not** earn his law degree there.\n\nSo the correct answer is: **Harvard Law School**.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Barack Obama earned his law degree at Harvard Law School",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The university’s former name was Harvard College",
+          "cited_source": "Harvard_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 1.405764300005103,
+      "judge_latency_seconds": 2.8496345999956247,
+      "total_latency_seconds": 9.476474500002746,
+      "agent_wall_seconds": 9.937021600002481,
+      "throttle_seconds": 12.36072130000248,
+      "input_tokens": 41960,
+      "output_tokens": 598,
+      "total_tokens": 42558,
+      "estimated_cost_usd": 0.034161,
+      "agent_version": "v2",
+      "agent_actions": [
+        "seed",
+        "chunks:article",
+        "answer"
+      ],
+      "planned_steps": 1,
+      "stop_reason": "planner_answer",
+      "seed_only_answer": false,
+      "planner_calls": 2,
+      "tool_llm_calls": 0,
+      "llm_calls_total": 3,
+      "planner_input_tokens": 9484,
+      "planner_output_tokens": 323,
+      "planner_latency_seconds": 2.226501899996947,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 0,
+      "answer_facts": [
+        {
+          "clue": 1,
+          "fact": "Obama earned his law degree at Harvard Law School, part of Harvard University",
+          "source": "Barack_Obama.html",
+          "quote": "In 1988, Obama enrolled in Harvard Law School",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 2,
+          "fact": "Harvard University’s former name was Harvard College",
+          "source": "Harvard_University.html",
+          "quote": "Former names | Harvard College",
+          "verified": true,
+          "reason": ""
+        }
+      ],
+      "answer_facts_verified": 2,
+      "answer_missing": [],
+      "answer_clues": [
+        "the university where Barack Obama earned his law degree",
+        "the former name of that university"
+      ],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 13,
+      "units_in_context": 12,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "What was the former name of the university where Barack Obama earned his law degree?",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "ce083e780cb76d37-c00002",
+            "ce083e780cb76d37-c00009",
+            "ce083e780cb76d37-c00122",
+            "ce083e780cb76d37-c00016",
+            "ce083e780cb76d37-c00017",
+            "ce083e780cb76d37-c00123",
+            "ce083e780cb76d37-c00014",
+            "ce083e780cb76d37-c00238"
+          ],
+          "new_unit_ids": [
+            "ce083e780cb76d37-c00002",
+            "ce083e780cb76d37-c00009",
+            "ce083e780cb76d37-c00122",
+            "ce083e780cb76d37-c00016",
+            "ce083e780cb76d37-c00017",
+            "ce083e780cb76d37-c00123",
+            "ce083e780cb76d37-c00014",
+            "ce083e780cb76d37-c00238"
+          ],
+          "files": [
+            "Barack_Obama.html"
+          ],
+          "trace": {
+            "new_files": [
+              "Barack_Obama.html"
+            ]
+          },
+          "seconds": 1.504,
+          "error": null
+        },
+        {
+          "step": 1,
+          "action": "chunks",
+          "args": {
+            "query": "Harvard Law School former name",
+            "parent": "article"
+          },
+          "assessment": "The evidence shows Barack Obama earned his law degree at Harvard Law School, but it does not state the university’s former name.",
+          "missing": [
+            "the former name of Harvard Law School"
+          ],
+          "clues": [
+            "the former name of the university where Barack Obama earned his law degree"
+          ],
+          "facts": [
+            {
+              "clue": 1,
+              "fact": "Obama earned his law degree at Harvard Law School.",
+              "source": "Barack_Obama.html",
+              "quote": "Obama graduated from Harvard Law in 1991 with a Juris Doctor"
+            },
+            {
+              "clue": 1,
+              "fact": "He enrolled at Harvard Law School in 1988.",
+              "source": "Barack_Obama.html",
+              "quote": "Obama enrolled at Harvard Law School in the fall of 1988"
+            }
+          ],
+          "ranked_unit_ids": [
+            "Harvard_University.html#c00000-c00032",
+            "Harvard_University.html#c00000-c00107",
+            "Harvard_University.html#c00000-c00097",
+            "List_of_presidents_of_the_United_States_by_education.html#c00000-c00027",
+            "1b3e71a846a884c7-c00056"
+          ],
+          "new_unit_ids": [
+            "Harvard_University.html#c00000-c00032",
+            "Harvard_University.html#c00000-c00107",
+            "Harvard_University.html#c00000-c00097",
+            "List_of_presidents_of_the_United_States_by_education.html#c00000-c00027",
+            "1b3e71a846a884c7-c00056"
+          ],
+          "files": [
+            "Harvard_University.html",
+            "List_of_presidents_of_the_United_States_by_education.html",
+            "Ivy_League.html"
+          ],
+          "trace": {
+            "child_chunk_ids": [
+              "7f8730199e3c9d3c-c00031",
+              "7f8730199e3c9d3c-c00106",
+              "7f8730199e3c9d3c-c00096",
+              "2f95a5be7329cc28-c00024",
+              "1b3e71a846a884c7-c00056",
+              "7f8730199e3c9d3c-c00002",
+              "7f8730199e3c9d3c-c00059",
+              "ce083e780cb76d37-c00016"
+            ],
+            "article_too_long": [
+              "Harvard_University.html",
+              "Ivy_League.html",
+              "Barack_Obama.html"
+            ],
+            "new_files": [
+              "Harvard_University.html",
+              "List_of_presidents_of_the_United_States_by_education.html",
+              "Ivy_League.html"
+            ]
+          },
+          "seconds": 0.497,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 1.0,
+      "evidence_recall_any_step": 1.0
+    }
+  ]
+}

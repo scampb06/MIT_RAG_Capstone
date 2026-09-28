@@ -1,0 +1,1433 @@
+{
+  "configuration": {
+    "retriever": "agent_v1",
+    "agent_version": "v1",
+    "actions": [
+      "answer",
+      "chunks",
+      "clarify",
+      "decompose",
+      "graph"
+    ],
+    "seed": {
+      "retriever": "chunks",
+      "top_k": 8,
+      "candidate_pool": 40,
+      "parent": "none"
+    },
+    "max_planned_steps": 3,
+    "max_clarify": 1,
+    "planner_evidence_chars": 16000,
+    "context_budget_chars": 40000,
+    "rrf_k": 60,
+    "step_guarantee": 3,
+    "title_max_files": null,
+    "weight_bm25": 0.5,
+    "weight_vector": 0.5,
+    "max_chunk_chars": 2000,
+    "graph": {
+      "seed_k": 4,
+      "max_category_size": 150,
+      "relation_weights": {
+        "category_match": 4.0,
+        "infobox": 3.0,
+        "category": 2.0,
+        "link": 1.0
+      }
+    },
+    "llm_model": "openai/gpt-5.4-mini",
+    "embedding_model": "openai/text-embedding-3-small",
+    "temperature": 0.2,
+    "run_at": "2026-09-26T21:56:36"
+  },
+  "results": [
+    {
+      "id": "Q049",
+      "question": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+      "retriever": "agent_v1",
+      "group": "comparative_decomposition",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "mechanism": null,
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html"
+      ],
+      "expected_sources": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html",
+        "Academy_Award_for_Best_Actor.html",
+        "Austin_Butler.html",
+        "Colin_Farrell.html",
+        "Paul_Mescal.html",
+        "Bill_Nighy.html"
+      ],
+      "retrieved_sources": [
+        "Academy_Award_for_Best_Actor.html",
+        "Academy_Award_for_Best_Supporting_Actor.html",
+        "95th_Academy_Awards.html",
+        "The_Wolf_of_Wall_Street_(2013_film).html",
+        "Mark_Lee_(singer).html",
+        "List_of_Academy_Award_records.html",
+        "Cate_Blanchett.html",
+        "Academy_Award_for_Best_Director.html",
+        "89th_Academy_Awards.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Academy_Award_for_Best_Actor.html#c00000-c00001",
+          "source_file": "Academy_Award_for_Best_Actor.html",
+          "role": "primary",
+          "score": 0.4614
+        },
+        {
+          "unit_id": "f4e49e2bb44a4357-c00003",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html",
+          "role": "primary",
+          "score": 0.5669
+        },
+        {
+          "unit_id": "95th_Academy_Awards.html#c00002-c00004",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.6884
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Supporting_Actor.html#c00038-c00042",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html",
+          "role": "primary",
+          "score": 0.6031
+        },
+        {
+          "unit_id": "599ff25cc439b524-c00003",
+          "source_file": "Academy_Award_for_Best_Actor.html",
+          "role": "primary",
+          "score": 0.43
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Actor.html#c00040-c00044",
+          "source_file": "Academy_Award_for_Best_Actor.html",
+          "role": "primary",
+          "score": 0.4211
+        },
+        {
+          "unit_id": "22662e147b40523a-c00003",
+          "source_file": "The_Wolf_of_Wall_Street_(2013_film).html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Supporting_Actor.html#c00000-c00001",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html",
+          "role": "primary",
+          "score": 0.6282
+        },
+        {
+          "unit_id": "a5b20f1a2caeafe7-c00015",
+          "source_file": "Mark_Lee_(singer).html",
+          "role": "primary",
+          "score": 0.437
+        },
+        {
+          "unit_id": "List_of_Academy_Award_records.html#c00029-c00033",
+          "source_file": "List_of_Academy_Award_records.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "Cate_Blanchett.html#c00060-c00064",
+          "source_file": "Cate_Blanchett.html",
+          "role": "primary",
+          "score": 0.4296
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Director.html#c00044-c00048",
+          "source_file": "Academy_Award_for_Best_Director.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "86da3fa9f040ab84-c00001",
+          "source_file": "89th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.4285
+        },
+        {
+          "unit_id": "95th_Academy_Awards.html#c00000-c00001",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.3001
+        },
+        {
+          "unit_id": "599ff25cc439b524-c00048",
+          "source_file": "Academy_Award_for_Best_Actor.html",
+          "role": "primary",
+          "score": 0.2918
+        }
+      ],
+      "unit_count": 15,
+      "context_chars": 39716,
+      "evidence_recall": 0.3333333333333333,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "f4e49e2bb44a4357-c00003",
+              "22662e147b40523a-c00003",
+              "a5b20f1a2caeafe7-c00015",
+              "599ff25cc439b524-c00003",
+              "86da3fa9f040ab84-c00001",
+              "f03136cff601fca1-c00004",
+              "110a1f26b577e6e7-c00000",
+              "54cc717f4dc58b8c-c00004"
+            ],
+            "new_unit_ids": [
+              "f4e49e2bb44a4357-c00003",
+              "22662e147b40523a-c00003",
+              "a5b20f1a2caeafe7-c00015",
+              "599ff25cc439b524-c00003",
+              "86da3fa9f040ab84-c00001",
+              "f03136cff601fca1-c00004",
+              "110a1f26b577e6e7-c00000",
+              "54cc717f4dc58b8c-c00004"
+            ],
+            "files": [
+              "Academy_Award_for_Best_Supporting_Actor.html",
+              "The_Wolf_of_Wall_Street_(2013_film).html",
+              "Mark_Lee_(singer).html",
+              "Academy_Award_for_Best_Actor.html",
+              "89th_Academy_Awards.html",
+              "85th_Academy_Awards.html",
+              "95th_Academy_Awards.html",
+              "74th_Academy_Awards.html"
+            ],
+            "trace": {
+              "new_files": [
+                "Academy_Award_for_Best_Supporting_Actor.html",
+                "The_Wolf_of_Wall_Street_(2013_film).html",
+                "Mark_Lee_(singer).html",
+                "Academy_Award_for_Best_Actor.html",
+                "89th_Academy_Awards.html",
+                "85th_Academy_Awards.html",
+                "95th_Academy_Awards.html",
+                "74th_Academy_Awards.html"
+              ]
+            },
+            "seconds": 2.497,
+            "error": null
+          },
+          {
+            "step": 1,
+            "action": "chunks",
+            "args": {
+              "query": "95th Academy Awards Best Actor winner nominee field notable all nominees year",
+              "parent": "section"
+            },
+            "assessment": "The evidence identifies the 95th Academy Awards and says the ceremony’s Best Picture and most nominations totals, but it does not yet state the Best Actor winner or any notable fact about the full Best Actor nominee field.",
+            "missing": [
+              "Who won Best Actor at the 95th Academy Awards",
+              "What was notable about the whole nominee field that year"
+            ],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "95th_Academy_Awards.html#c00002-c00004",
+              "Academy_Award_for_Best_Supporting_Actor.html#c00038-c00042",
+              "List_of_Academy_Award_records.html#c00029-c00033",
+              "Academy_Award_for_Best_Actor.html#c00000-c00001",
+              "f4e49e2bb44a4357-c00003",
+              "Academy_Award_for_Best_Actor.html#c00040-c00044",
+              "599ff25cc439b524-c00003"
+            ],
+            "new_unit_ids": [
+              "95th_Academy_Awards.html#c00002-c00004",
+              "Academy_Award_for_Best_Supporting_Actor.html#c00038-c00042",
+              "List_of_Academy_Award_records.html#c00029-c00033",
+              "Academy_Award_for_Best_Actor.html#c00000-c00001",
+              "Academy_Award_for_Best_Actor.html#c00040-c00044"
+            ],
+            "files": [
+              "95th_Academy_Awards.html",
+              "Academy_Award_for_Best_Supporting_Actor.html",
+              "List_of_Academy_Award_records.html",
+              "Academy_Award_for_Best_Actor.html"
+            ],
+            "trace": {
+              "child_chunk_ids": [
+                "110a1f26b577e6e7-c00002",
+                "f4e49e2bb44a4357-c00041",
+                "67142f28a712cfd6-c00031",
+                "599ff25cc439b524-c00000",
+                "f4e49e2bb44a4357-c00003",
+                "599ff25cc439b524-c00042",
+                "f4e49e2bb44a4357-c00039",
+                "599ff25cc439b524-c00003"
+              ],
+              "new_files": [
+                "List_of_Academy_Award_records.html"
+              ]
+            },
+            "seconds": 0.802,
+            "error": null
+          },
+          {
+            "step": 2,
+            "action": "chunks",
+            "args": {
+              "query": "95th Academy Awards Best Actor winner",
+              "parent": "section"
+            },
+            "assessment": "The evidence identifies the 95th ceremony’s Best Actor nominee-field note, but it does not explicitly name the Best Actor winner from the 95th ceremony in the visible passages.",
+            "missing": [
+              "the Best Actor winner at the 95th Academy Awards",
+              "a direct statement of what was notable about the entire Best Actor nominee field that year"
+            ],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "Academy_Award_for_Best_Actor.html#c00000-c00001",
+              "Academy_Award_for_Best_Supporting_Actor.html#c00000-c00001",
+              "Cate_Blanchett.html#c00060-c00064",
+              "List_of_Academy_Award_records.html#c00083-c00087",
+              "95th_Academy_Awards.html#c00000-c00001",
+              "599ff25cc439b524-c00048",
+              "95th_Academy_Awards.html#c00033-c00037",
+              "4755da24a7c6bba5-c00006"
+            ],
+            "new_unit_ids": [
+              "Academy_Award_for_Best_Supporting_Actor.html#c00000-c00001",
+              "Cate_Blanchett.html#c00060-c00064",
+              "List_of_Academy_Award_records.html#c00083-c00087",
+              "95th_Academy_Awards.html#c00000-c00001",
+              "599ff25cc439b524-c00048",
+              "95th_Academy_Awards.html#c00033-c00037",
+              "4755da24a7c6bba5-c00006"
+            ],
+            "files": [
+              "Academy_Award_for_Best_Actor.html",
+              "Academy_Award_for_Best_Supporting_Actor.html",
+              "Cate_Blanchett.html",
+              "List_of_Academy_Award_records.html",
+              "95th_Academy_Awards.html",
+              "Edward_Fox_(actor).html"
+            ],
+            "trace": {
+              "child_chunk_ids": [
+                "599ff25cc439b524-c00000",
+                "f4e49e2bb44a4357-c00000",
+                "b4ee149218176e6c-c00062",
+                "67142f28a712cfd6-c00085",
+                "110a1f26b577e6e7-c00000",
+                "599ff25cc439b524-c00048",
+                "110a1f26b577e6e7-c00035",
+                "4755da24a7c6bba5-c00006"
+              ],
+              "new_files": [
+                "Cate_Blanchett.html",
+                "Edward_Fox_(actor).html"
+              ]
+            },
+            "seconds": 0.512,
+            "error": null
+          },
+          {
+            "step": 3,
+            "action": "chunks",
+            "args": {
+              "query": "95th Academy Awards Best Actor winner named in the winners and nominees list",
+              "parent": "section"
+            },
+            "assessment": "The evidence states the 95th Academy Awards had all five Best Actor nominees as first-time nominees, but it does not yet state who won Best Actor at that ceremony.",
+            "missing": [
+              "the Best Actor winner at the 95th Academy Awards"
+            ],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "95th_Academy_Awards.html#c00002-c00004",
+              "Academy_Award_for_Best_Actor.html#c00000-c00001",
+              "Academy_Award_for_Best_Director.html#c00044-c00048",
+              "Academy_Award_for_Best_Supporting_Actor.html#c00038-c00042",
+              "Academy_Award_for_Best_Actor.html#c00040-c00044",
+              "Academy_Award_for_Best_Director.html#c00028-c00032",
+              "Academy_Award_for_Best_Animated_Feature.html#c00032-c00036",
+              "f4e49e2bb44a4357-c00003"
+            ],
+            "new_unit_ids": [
+              "Academy_Award_for_Best_Director.html#c00044-c00048",
+              "Academy_Award_for_Best_Director.html#c00028-c00032",
+              "Academy_Award_for_Best_Animated_Feature.html#c00032-c00036"
+            ],
+            "files": [
+              "95th_Academy_Awards.html",
+              "Academy_Award_for_Best_Actor.html",
+              "Academy_Award_for_Best_Director.html",
+              "Academy_Award_for_Best_Supporting_Actor.html",
+              "Academy_Award_for_Best_Animated_Feature.html"
+            ],
+            "trace": {
+              "child_chunk_ids": [
+                "110a1f26b577e6e7-c00002",
+                "599ff25cc439b524-c00000",
+                "7e14c0ec0e7bf7d7-c00047",
+                "f4e49e2bb44a4357-c00041",
+                "599ff25cc439b524-c00042",
+                "7e14c0ec0e7bf7d7-c00030",
+                "6a36616b15cd55c5-c00034",
+                "f4e49e2bb44a4357-c00003"
+              ],
+              "new_files": [
+                "Academy_Award_for_Best_Director.html",
+                "Academy_Award_for_Best_Animated_Feature.html"
+              ]
+            },
+            "seconds": 0.915,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 4.726,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.4,
+      "chunk_precision_at_k": 0.4,
+      "article_precision": 0.2222222222222222,
+      "unique_articles_retrieved": 9,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "Brendan Fraser won Best Actor for playing Charlie in The Whale.",
+        "Notably, for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+        "The other nominees were Austin Butler (Elvis), Colin Farrell (The Banshees of Inisherin), Paul Mescal (Aftersun) and Bill Nighy (Living)."
+      ],
+      "response": "The Best Actor winner at the 95th Academy Awards was Brendan Fraser for *The Whale*.[95th_Academy_Awards.html]\n\nWhat was notable about the nominee field was that, for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.[95th_Academy_Awards.html]",
+      "closed_book_response": "At the 95th Academy Awards, **Brendan Fraser** won **Best Actor** for *The Whale*.\n\nWhat was notable about the nominee field that year was that it was **one of the strongest and most diverse Best Actor lineups in recent memory**, with several first-time Oscar nominees and a mix of performances spanning major studio films, international work, and critically acclaimed independent movies. If you mean a different “95th ceremony” or a different award show, tell me which one and I’ll adjust.",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 0.6666666666666666,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The Best Actor winner at the 95th Academy Awards was Brendan Fraser for *The Whale*.",
+          "cited_source": "95th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "For the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+          "cited_source": "95th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.5,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.7090469999966444,
+      "judge_latency_seconds": 2.597287500000675,
+      "total_latency_seconds": 14.398286900000471,
+      "agent_wall_seconds": 14.512184899998829,
+      "throttle_seconds": 10.429513799997222,
+      "input_tokens": 61530,
+      "output_tokens": 657,
+      "total_tokens": 62187,
+      "estimated_cost_usd": 0.049104,
+      "agent_version": "v1",
+      "agent_actions": [
+        "seed",
+        "chunks:section",
+        "chunks:section",
+        "chunks:section",
+        "answer"
+      ],
+      "planned_steps": 3,
+      "stop_reason": "step_budget",
+      "seed_only_answer": false,
+      "planner_calls": 3,
+      "tool_llm_calls": 0,
+      "llm_calls_total": 4,
+      "planner_input_tokens": 14543,
+      "planner_output_tokens": 301,
+      "planner_latency_seconds": 3.2007644999976037,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 0,
+      "answer_facts": [],
+      "answer_facts_verified": 0,
+      "answer_missing": [],
+      "answer_clues": [],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 23,
+      "units_in_context": 15,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "f4e49e2bb44a4357-c00003",
+            "22662e147b40523a-c00003",
+            "a5b20f1a2caeafe7-c00015",
+            "599ff25cc439b524-c00003",
+            "86da3fa9f040ab84-c00001",
+            "f03136cff601fca1-c00004",
+            "110a1f26b577e6e7-c00000",
+            "54cc717f4dc58b8c-c00004"
+          ],
+          "new_unit_ids": [
+            "f4e49e2bb44a4357-c00003",
+            "22662e147b40523a-c00003",
+            "a5b20f1a2caeafe7-c00015",
+            "599ff25cc439b524-c00003",
+            "86da3fa9f040ab84-c00001",
+            "f03136cff601fca1-c00004",
+            "110a1f26b577e6e7-c00000",
+            "54cc717f4dc58b8c-c00004"
+          ],
+          "files": [
+            "Academy_Award_for_Best_Supporting_Actor.html",
+            "The_Wolf_of_Wall_Street_(2013_film).html",
+            "Mark_Lee_(singer).html",
+            "Academy_Award_for_Best_Actor.html",
+            "89th_Academy_Awards.html",
+            "85th_Academy_Awards.html",
+            "95th_Academy_Awards.html",
+            "74th_Academy_Awards.html"
+          ],
+          "trace": {
+            "new_files": [
+              "Academy_Award_for_Best_Supporting_Actor.html",
+              "The_Wolf_of_Wall_Street_(2013_film).html",
+              "Mark_Lee_(singer).html",
+              "Academy_Award_for_Best_Actor.html",
+              "89th_Academy_Awards.html",
+              "85th_Academy_Awards.html",
+              "95th_Academy_Awards.html",
+              "74th_Academy_Awards.html"
+            ]
+          },
+          "seconds": 2.497,
+          "error": null
+        },
+        {
+          "step": 1,
+          "action": "chunks",
+          "args": {
+            "query": "95th Academy Awards Best Actor winner nominee field notable all nominees year",
+            "parent": "section"
+          },
+          "assessment": "The evidence identifies the 95th Academy Awards and says the ceremony’s Best Picture and most nominations totals, but it does not yet state the Best Actor winner or any notable fact about the full Best Actor nominee field.",
+          "missing": [
+            "Who won Best Actor at the 95th Academy Awards",
+            "What was notable about the whole nominee field that year"
+          ],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "95th_Academy_Awards.html#c00002-c00004",
+            "Academy_Award_for_Best_Supporting_Actor.html#c00038-c00042",
+            "List_of_Academy_Award_records.html#c00029-c00033",
+            "Academy_Award_for_Best_Actor.html#c00000-c00001",
+            "f4e49e2bb44a4357-c00003",
+            "Academy_Award_for_Best_Actor.html#c00040-c00044",
+            "599ff25cc439b524-c00003"
+          ],
+          "new_unit_ids": [
+            "95th_Academy_Awards.html#c00002-c00004",
+            "Academy_Award_for_Best_Supporting_Actor.html#c00038-c00042",
+            "List_of_Academy_Award_records.html#c00029-c00033",
+            "Academy_Award_for_Best_Actor.html#c00000-c00001",
+            "Academy_Award_for_Best_Actor.html#c00040-c00044"
+          ],
+          "files": [
+            "95th_Academy_Awards.html",
+            "Academy_Award_for_Best_Supporting_Actor.html",
+            "List_of_Academy_Award_records.html",
+            "Academy_Award_for_Best_Actor.html"
+          ],
+          "trace": {
+            "child_chunk_ids": [
+              "110a1f26b577e6e7-c00002",
+              "f4e49e2bb44a4357-c00041",
+              "67142f28a712cfd6-c00031",
+              "599ff25cc439b524-c00000",
+              "f4e49e2bb44a4357-c00003",
+              "599ff25cc439b524-c00042",
+              "f4e49e2bb44a4357-c00039",
+              "599ff25cc439b524-c00003"
+            ],
+            "new_files": [
+              "List_of_Academy_Award_records.html"
+            ]
+          },
+          "seconds": 0.802,
+          "error": null
+        },
+        {
+          "step": 2,
+          "action": "chunks",
+          "args": {
+            "query": "95th Academy Awards Best Actor winner",
+            "parent": "section"
+          },
+          "assessment": "The evidence identifies the 95th ceremony’s Best Actor nominee-field note, but it does not explicitly name the Best Actor winner from the 95th ceremony in the visible passages.",
+          "missing": [
+            "the Best Actor winner at the 95th Academy Awards",
+            "a direct statement of what was notable about the entire Best Actor nominee field that year"
+          ],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "Academy_Award_for_Best_Actor.html#c00000-c00001",
+            "Academy_Award_for_Best_Supporting_Actor.html#c00000-c00001",
+            "Cate_Blanchett.html#c00060-c00064",
+            "List_of_Academy_Award_records.html#c00083-c00087",
+            "95th_Academy_Awards.html#c00000-c00001",
+            "599ff25cc439b524-c00048",
+            "95th_Academy_Awards.html#c00033-c00037",
+            "4755da24a7c6bba5-c00006"
+          ],
+          "new_unit_ids": [
+            "Academy_Award_for_Best_Supporting_Actor.html#c00000-c00001",
+            "Cate_Blanchett.html#c00060-c00064",
+            "List_of_Academy_Award_records.html#c00083-c00087",
+            "95th_Academy_Awards.html#c00000-c00001",
+            "599ff25cc439b524-c00048",
+            "95th_Academy_Awards.html#c00033-c00037",
+            "4755da24a7c6bba5-c00006"
+          ],
+          "files": [
+            "Academy_Award_for_Best_Actor.html",
+            "Academy_Award_for_Best_Supporting_Actor.html",
+            "Cate_Blanchett.html",
+            "List_of_Academy_Award_records.html",
+            "95th_Academy_Awards.html",
+            "Edward_Fox_(actor).html"
+          ],
+          "trace": {
+            "child_chunk_ids": [
+              "599ff25cc439b524-c00000",
+              "f4e49e2bb44a4357-c00000",
+              "b4ee149218176e6c-c00062",
+              "67142f28a712cfd6-c00085",
+              "110a1f26b577e6e7-c00000",
+              "599ff25cc439b524-c00048",
+              "110a1f26b577e6e7-c00035",
+              "4755da24a7c6bba5-c00006"
+            ],
+            "new_files": [
+              "Cate_Blanchett.html",
+              "Edward_Fox_(actor).html"
+            ]
+          },
+          "seconds": 0.512,
+          "error": null
+        },
+        {
+          "step": 3,
+          "action": "chunks",
+          "args": {
+            "query": "95th Academy Awards Best Actor winner named in the winners and nominees list",
+            "parent": "section"
+          },
+          "assessment": "The evidence states the 95th Academy Awards had all five Best Actor nominees as first-time nominees, but it does not yet state who won Best Actor at that ceremony.",
+          "missing": [
+            "the Best Actor winner at the 95th Academy Awards"
+          ],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "95th_Academy_Awards.html#c00002-c00004",
+            "Academy_Award_for_Best_Actor.html#c00000-c00001",
+            "Academy_Award_for_Best_Director.html#c00044-c00048",
+            "Academy_Award_for_Best_Supporting_Actor.html#c00038-c00042",
+            "Academy_Award_for_Best_Actor.html#c00040-c00044",
+            "Academy_Award_for_Best_Director.html#c00028-c00032",
+            "Academy_Award_for_Best_Animated_Feature.html#c00032-c00036",
+            "f4e49e2bb44a4357-c00003"
+          ],
+          "new_unit_ids": [
+            "Academy_Award_for_Best_Director.html#c00044-c00048",
+            "Academy_Award_for_Best_Director.html#c00028-c00032",
+            "Academy_Award_for_Best_Animated_Feature.html#c00032-c00036"
+          ],
+          "files": [
+            "95th_Academy_Awards.html",
+            "Academy_Award_for_Best_Actor.html",
+            "Academy_Award_for_Best_Director.html",
+            "Academy_Award_for_Best_Supporting_Actor.html",
+            "Academy_Award_for_Best_Animated_Feature.html"
+          ],
+          "trace": {
+            "child_chunk_ids": [
+              "110a1f26b577e6e7-c00002",
+              "599ff25cc439b524-c00000",
+              "7e14c0ec0e7bf7d7-c00047",
+              "f4e49e2bb44a4357-c00041",
+              "599ff25cc439b524-c00042",
+              "7e14c0ec0e7bf7d7-c00030",
+              "6a36616b15cd55c5-c00034",
+              "f4e49e2bb44a4357-c00003"
+            ],
+            "new_files": [
+              "Academy_Award_for_Best_Director.html",
+              "Academy_Award_for_Best_Animated_Feature.html"
+            ]
+          },
+          "seconds": 0.915,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 0.5,
+      "evidence_recall_any_step": 0.3333333333333333
+    },
+    {
+      "id": "Q009",
+      "question": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+      "retriever": "agent_v1",
+      "group": "multi_entity_precision",
+      "source_suite": "golden_suite_2.1.json",
+      "mechanism": null,
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "expected_sources": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "retrieved_sources": [
+        "Nobel_Prize.html",
+        "List_of_Nobel_laureates_in_Physics.html",
+        "1964_Nobel_Prize_in_Literature.html",
+        "John_Bardeen.html",
+        "Nobel_Peace_Prize.html",
+        "Albert_Einstein.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "3e63e207c636cf56-c00049",
+          "source_file": "Nobel_Prize.html",
+          "role": "primary",
+          "score": 0.7389
+        },
+        {
+          "unit_id": "d0ab527c61d96461-c00001",
+          "source_file": "List_of_Nobel_laureates_in_Physics.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "2383c385675d1e75-c00001",
+          "source_file": "1964_Nobel_Prize_in_Literature.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "1cde5d8da7ccbdc5-c00012",
+          "source_file": "John_Bardeen.html",
+          "role": "primary",
+          "score": 0.3591
+        },
+        {
+          "unit_id": "4d3f2b122f3bad0b-c00002",
+          "source_file": "Nobel_Peace_Prize.html",
+          "role": "primary",
+          "score": 0.3588
+        },
+        {
+          "unit_id": "2383c385675d1e75-c00000",
+          "source_file": "1964_Nobel_Prize_in_Literature.html",
+          "role": "primary",
+          "score": 0.3546
+        },
+        {
+          "unit_id": "3e63e207c636cf56-c00045",
+          "source_file": "Nobel_Prize.html",
+          "role": "primary",
+          "score": 0.3541
+        },
+        {
+          "unit_id": "81ed86f1f706c67e-c00082",
+          "source_file": "Albert_Einstein.html",
+          "role": "primary",
+          "score": 0.2809
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 10250,
+      "evidence_recall": 0.75,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "3e63e207c636cf56-c00049",
+              "d0ab527c61d96461-c00001",
+              "2383c385675d1e75-c00001",
+              "1cde5d8da7ccbdc5-c00012",
+              "4d3f2b122f3bad0b-c00002",
+              "2383c385675d1e75-c00000",
+              "3e63e207c636cf56-c00045",
+              "81ed86f1f706c67e-c00082"
+            ],
+            "new_unit_ids": [
+              "3e63e207c636cf56-c00049",
+              "d0ab527c61d96461-c00001",
+              "2383c385675d1e75-c00001",
+              "1cde5d8da7ccbdc5-c00012",
+              "4d3f2b122f3bad0b-c00002",
+              "2383c385675d1e75-c00000",
+              "3e63e207c636cf56-c00045",
+              "81ed86f1f706c67e-c00082"
+            ],
+            "files": [
+              "Nobel_Prize.html",
+              "List_of_Nobel_laureates_in_Physics.html",
+              "1964_Nobel_Prize_in_Literature.html",
+              "John_Bardeen.html",
+              "Nobel_Peace_Prize.html",
+              "Albert_Einstein.html"
+            ],
+            "trace": {
+              "new_files": [
+                "Nobel_Prize.html",
+                "List_of_Nobel_laureates_in_Physics.html",
+                "1964_Nobel_Prize_in_Literature.html",
+                "John_Bardeen.html",
+                "Nobel_Peace_Prize.html",
+                "Albert_Einstein.html"
+              ]
+            },
+            "seconds": 1.817,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 1.817,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.25,
+      "chunk_precision_at_k": 0.25,
+      "article_precision": 0.16666666666666666,
+      "unique_articles_retrieved": 6,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "The 1964 Nobel Prize in Literature was awarded to French writer Jean-Paul Sartre, the same year a magnitude 9.2-9.3 earthquake struck Alaska.",
+        "Sartre declined the prize, saying he never accepted official honors and did not want the writer to become an institution.",
+        "He also objected on the grounds that the prize went only to Westerners or to rebels of the East."
+      ],
+      "response": "He was **Jean-Paul Sartre** [1964_Nobel_Prize_in_Literature.html]. He declined the 1964 Nobel Prize in Literature because he said he never accepted official honors and did not want the writer to become an institution [1964_Nobel_Prize_in_Literature.html]. He also said the prize tended to go only to Westerners “or to rebels of the East” [1964_Nobel_Prize_in_Literature.html].",
+      "closed_book_response": "It was **Jean-Paul Sartre**.\n\nHe was awarded the **Nobel Prize in Literature in 1964**, the same year as the **great Alaska earthquake**. Sartre **declined the prize because he consistently refused official honors and distinctions** — he felt a writer should remain independent of institutions and not be “institutionalized” by awards.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        2,
+        3
+      ],
+      "aspect_coverage": 0.6666666666666666,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "He was Jean-Paul Sartre.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He declined the 1964 Nobel Prize in Literature because he said he never accepted official honors and did not want the writer to become an institution.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "He also said the prize tended to go only to Westerners or to rebels of the East.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.6666666666666666,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 1.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.0868983000036678,
+      "judge_latency_seconds": 2.770708200005174,
+      "total_latency_seconds": 8.038630399995775,
+      "agent_wall_seconds": 6.613754099998914,
+      "throttle_seconds": 10.673286999999256,
+      "input_tokens": 15083,
+      "output_tokens": 480,
+      "total_tokens": 15563,
+      "estimated_cost_usd": 0.01347225,
+      "agent_version": "v1",
+      "agent_actions": [
+        "seed",
+        "answer"
+      ],
+      "planned_steps": 0,
+      "stop_reason": "planner_answer",
+      "seed_only_answer": true,
+      "planner_calls": 1,
+      "tool_llm_calls": 0,
+      "llm_calls_total": 2,
+      "planner_input_tokens": 3402,
+      "planner_output_tokens": 71,
+      "planner_latency_seconds": 1.3460729999933392,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 0,
+      "answer_facts": [],
+      "answer_facts_verified": 0,
+      "answer_missing": [],
+      "answer_clues": [],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 8,
+      "units_in_context": 8,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "3e63e207c636cf56-c00049",
+            "d0ab527c61d96461-c00001",
+            "2383c385675d1e75-c00001",
+            "1cde5d8da7ccbdc5-c00012",
+            "4d3f2b122f3bad0b-c00002",
+            "2383c385675d1e75-c00000",
+            "3e63e207c636cf56-c00045",
+            "81ed86f1f706c67e-c00082"
+          ],
+          "new_unit_ids": [
+            "3e63e207c636cf56-c00049",
+            "d0ab527c61d96461-c00001",
+            "2383c385675d1e75-c00001",
+            "1cde5d8da7ccbdc5-c00012",
+            "4d3f2b122f3bad0b-c00002",
+            "2383c385675d1e75-c00000",
+            "3e63e207c636cf56-c00045",
+            "81ed86f1f706c67e-c00082"
+          ],
+          "files": [
+            "Nobel_Prize.html",
+            "List_of_Nobel_laureates_in_Physics.html",
+            "1964_Nobel_Prize_in_Literature.html",
+            "John_Bardeen.html",
+            "Nobel_Peace_Prize.html",
+            "Albert_Einstein.html"
+          ],
+          "trace": {
+            "new_files": [
+              "Nobel_Prize.html",
+              "List_of_Nobel_laureates_in_Physics.html",
+              "1964_Nobel_Prize_in_Literature.html",
+              "John_Bardeen.html",
+              "Nobel_Peace_Prize.html",
+              "Albert_Einstein.html"
+            ]
+          },
+          "seconds": 1.817,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 0.5,
+      "evidence_recall_any_step": 0.75
+    },
+    {
+      "id": "G13",
+      "question": "What was the former name of the university where Barack Obama earned his law degree?",
+      "retriever": "agent_v1",
+      "group": "unnamed_entity_graph",
+      "source_suite": "golden_suite_4.1.json",
+      "mechanism": "bridge_education_edge_plus_infobox_alias",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "expected_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "Ivy_League.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "ce083e780cb76d37-c00002",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.9075
+        },
+        {
+          "unit_id": "7f8730199e3c9d3c-c00031",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.7475
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00009",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.7877
+        },
+        {
+          "unit_id": "7f8730199e3c9d3c-c00106",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.653
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00122",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.6379
+        },
+        {
+          "unit_id": "7f8730199e3c9d3c-c00096",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.6204
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00016",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.5672
+        },
+        {
+          "unit_id": "7f8730199e3c9d3c-c00002",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.5029
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00017",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.5016
+        },
+        {
+          "unit_id": "1b3e71a846a884c7-c00056",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00123",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.3843
+        },
+        {
+          "unit_id": "2f95a5be7329cc28-c00024",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.4701
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00014",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.3434
+        },
+        {
+          "unit_id": "7f8730199e3c9d3c-c00008",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.4571
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00238",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.3179
+        },
+        {
+          "unit_id": "7f8730199e3c9d3c-c00059",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.4469
+        }
+      ],
+      "unit_count": 16,
+      "context_chars": 16428,
+      "evidence_recall": 0.3333333333333333,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "What was the former name of the university where Barack Obama earned his law degree?",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "ce083e780cb76d37-c00002",
+              "ce083e780cb76d37-c00009",
+              "ce083e780cb76d37-c00122",
+              "ce083e780cb76d37-c00016",
+              "ce083e780cb76d37-c00017",
+              "ce083e780cb76d37-c00123",
+              "ce083e780cb76d37-c00014",
+              "ce083e780cb76d37-c00238"
+            ],
+            "new_unit_ids": [
+              "ce083e780cb76d37-c00002",
+              "ce083e780cb76d37-c00009",
+              "ce083e780cb76d37-c00122",
+              "ce083e780cb76d37-c00016",
+              "ce083e780cb76d37-c00017",
+              "ce083e780cb76d37-c00123",
+              "ce083e780cb76d37-c00014",
+              "ce083e780cb76d37-c00238"
+            ],
+            "files": [
+              "Barack_Obama.html"
+            ],
+            "trace": {
+              "new_files": [
+                "Barack_Obama.html"
+              ]
+            },
+            "seconds": 0.959,
+            "error": null
+          },
+          {
+            "step": 1,
+            "action": "chunks",
+            "args": {
+              "query": "former name of Harvard Law School",
+              "parent": "none"
+            },
+            "assessment": "The evidence shows Barack Obama earned his law degree at Harvard Law School, but does not state the former name of that university.",
+            "missing": [
+              "the former name of Harvard Law School"
+            ],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "7f8730199e3c9d3c-c00031",
+              "7f8730199e3c9d3c-c00106",
+              "7f8730199e3c9d3c-c00096",
+              "7f8730199e3c9d3c-c00002",
+              "1b3e71a846a884c7-c00056",
+              "2f95a5be7329cc28-c00024",
+              "7f8730199e3c9d3c-c00008",
+              "7f8730199e3c9d3c-c00059"
+            ],
+            "new_unit_ids": [
+              "7f8730199e3c9d3c-c00031",
+              "7f8730199e3c9d3c-c00106",
+              "7f8730199e3c9d3c-c00096",
+              "7f8730199e3c9d3c-c00002",
+              "1b3e71a846a884c7-c00056",
+              "2f95a5be7329cc28-c00024",
+              "7f8730199e3c9d3c-c00008",
+              "7f8730199e3c9d3c-c00059"
+            ],
+            "files": [
+              "Harvard_University.html",
+              "Ivy_League.html",
+              "List_of_presidents_of_the_United_States_by_education.html"
+            ],
+            "trace": {
+              "new_files": [
+                "Harvard_University.html",
+                "Ivy_League.html",
+                "List_of_presidents_of_the_United_States_by_education.html"
+              ]
+            },
+            "seconds": 0.588,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 1.547,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.9375,
+      "chunk_precision_at_k": 0.9375,
+      "article_precision": 0.75,
+      "unique_articles_retrieved": 4,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "Harvard is identified as where Obama earned his law degree.",
+        "Harvard College is given as the former name."
+      ],
+      "response": "Barack Obama earned his law degree from Harvard Law School [Barack_Obama.html]. The documents do not state a former name for Harvard Law School specifically. They do say that Harvard University was once referred to as the “Medical Institution of Harvard University” for a new medical school in 1782, but that was a medical school name, not Harvard Law School’s former name [Harvard_University.html].",
+      "closed_book_response": "Barack Obama earned his law degree at **Harvard Law School**, whose former name was **Harvard University Law School**.",
+      "correctness": "fail",
+      "graded_correctness": "partial",
+      "graded_correctness_score": 0.5,
+      "covered_aspects": [
+        1
+      ],
+      "aspect_coverage": 0.5,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Barack Obama earned his law degree from Harvard Law School",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The documents do not state a former name for Harvard Law School specifically",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Harvard University was once referred to as the “Medical Institution of Harvard University” for a new medical school in 1782",
+          "cited_source": "Harvard_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "That was a medical school name, not Harvard Law School’s former name",
+          "cited_source": "Harvard_University.html",
+          "grounded": false,
+          "citation_supported": false,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 4,
+      "graded_groundedness_score": 0.75,
+      "faithfulness": "fail",
+      "citation_support_rate": 0.6666666666666666,
+      "chunk_attribution_score": 0.6666666666666666,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.053653299997677,
+      "judge_latency_seconds": 3.035156999998435,
+      "total_latency_seconds": 9.110456599993515,
+      "agent_wall_seconds": 9.553516899999522,
+      "throttle_seconds": 12.744235800000025,
+      "input_tokens": 27440,
+      "output_tokens": 490,
+      "total_tokens": 27930,
+      "estimated_cost_usd": 0.022785,
+      "agent_version": "v1",
+      "agent_actions": [
+        "seed",
+        "chunks",
+        "answer"
+      ],
+      "planned_steps": 1,
+      "stop_reason": "planner_answer",
+      "seed_only_answer": false,
+      "planner_calls": 2,
+      "tool_llm_calls": 0,
+      "llm_calls_total": 3,
+      "planner_input_tokens": 8243,
+      "planner_output_tokens": 131,
+      "planner_latency_seconds": 2.560196200000064,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 0,
+      "answer_facts": [],
+      "answer_facts_verified": 0,
+      "answer_missing": [
+        "No explicit gap remains in the evidence for the asked former name."
+      ],
+      "answer_clues": [],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 16,
+      "units_in_context": 16,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "What was the former name of the university where Barack Obama earned his law degree?",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "ce083e780cb76d37-c00002",
+            "ce083e780cb76d37-c00009",
+            "ce083e780cb76d37-c00122",
+            "ce083e780cb76d37-c00016",
+            "ce083e780cb76d37-c00017",
+            "ce083e780cb76d37-c00123",
+            "ce083e780cb76d37-c00014",
+            "ce083e780cb76d37-c00238"
+          ],
+          "new_unit_ids": [
+            "ce083e780cb76d37-c00002",
+            "ce083e780cb76d37-c00009",
+            "ce083e780cb76d37-c00122",
+            "ce083e780cb76d37-c00016",
+            "ce083e780cb76d37-c00017",
+            "ce083e780cb76d37-c00123",
+            "ce083e780cb76d37-c00014",
+            "ce083e780cb76d37-c00238"
+          ],
+          "files": [
+            "Barack_Obama.html"
+          ],
+          "trace": {
+            "new_files": [
+              "Barack_Obama.html"
+            ]
+          },
+          "seconds": 0.959,
+          "error": null
+        },
+        {
+          "step": 1,
+          "action": "chunks",
+          "args": {
+            "query": "former name of Harvard Law School",
+            "parent": "none"
+          },
+          "assessment": "The evidence shows Barack Obama earned his law degree at Harvard Law School, but does not state the former name of that university.",
+          "missing": [
+            "the former name of Harvard Law School"
+          ],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "7f8730199e3c9d3c-c00031",
+            "7f8730199e3c9d3c-c00106",
+            "7f8730199e3c9d3c-c00096",
+            "7f8730199e3c9d3c-c00002",
+            "1b3e71a846a884c7-c00056",
+            "2f95a5be7329cc28-c00024",
+            "7f8730199e3c9d3c-c00008",
+            "7f8730199e3c9d3c-c00059"
+          ],
+          "new_unit_ids": [
+            "7f8730199e3c9d3c-c00031",
+            "7f8730199e3c9d3c-c00106",
+            "7f8730199e3c9d3c-c00096",
+            "7f8730199e3c9d3c-c00002",
+            "1b3e71a846a884c7-c00056",
+            "2f95a5be7329cc28-c00024",
+            "7f8730199e3c9d3c-c00008",
+            "7f8730199e3c9d3c-c00059"
+          ],
+          "files": [
+            "Harvard_University.html",
+            "Ivy_League.html",
+            "List_of_presidents_of_the_United_States_by_education.html"
+          ],
+          "trace": {
+            "new_files": [
+              "Harvard_University.html",
+              "Ivy_League.html",
+              "List_of_presidents_of_the_United_States_by_education.html"
+            ]
+          },
+          "seconds": 0.588,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 1.0,
+      "evidence_recall_any_step": 0.3333333333333333
+    }
+  ]
+}
