@@ -1,0 +1,2552 @@
+{
+  "configuration": {
+    "run_label": "v2-without-clues",
+    "v2_features": [
+      "tables",
+      "sections",
+      "facets"
+    ],
+    "chunk_index": "wikipedia_chunks2000_tables_cache",
+    "retriever": "agent_v2",
+    "agent_version": "v2",
+    "actions": [
+      "answer",
+      "chunks",
+      "clarify",
+      "decompose",
+      "graph",
+      "read_section",
+      "title_search"
+    ],
+    "seed": {
+      "retriever": "chunks",
+      "top_k": 8,
+      "candidate_pool": 40,
+      "parent": "none"
+    },
+    "max_planned_steps": 3,
+    "max_clarify": 1,
+    "planner_evidence_chars": 16000,
+    "context_budget_chars": 40000,
+    "rrf_k": 60,
+    "step_guarantee": 3,
+    "title_max_files": 5,
+    "weight_bm25": 0.5,
+    "weight_vector": 0.5,
+    "max_chunk_chars": 2000,
+    "graph": {
+      "seed_k": 4,
+      "max_category_size": 150,
+      "relation_weights": {
+        "category_match": 4.0,
+        "infobox": 3.0,
+        "category": 2.0,
+        "link": 1.0
+      }
+    },
+    "llm_model": "openai/gpt-5.4-mini",
+    "embedding_model": "openai/text-embedding-3-small",
+    "temperature": 0.2,
+    "run_at": "2026-09-28T21:06:58"
+  },
+  "results": [
+    {
+      "id": "Q006",
+      "question": "Compare how the Academy handled the introduction of the Best Animated Feature category with the way the Best Original Score category was split and then merged again in the 1990s.",
+      "retriever": "agent_v2",
+      "group": "comparative_decomposition",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "mechanism": null,
+      "information_need": "in_depth",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "74th_Academy_Awards.html",
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Animated_Feature.html"
+      ],
+      "retrieved_sources": [
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html",
+        "74th_Academy_Awards.html",
+        "Grammy_Award_for_Best_Metal_Performance.html",
+        "Academy_Award_for_Best_Animated_Feature.html",
+        "Avatar_(franchise).html",
+        "Trolls_(film).html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "3e8e548f009bb2b4-c00028",
+          "source_file": "68th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "7584ab2c6b497c73-c00032",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 0.6519
+        },
+        {
+          "unit_id": "54cc717f4dc58b8c-c00027",
+          "source_file": "74th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.5519
+        },
+        {
+          "unit_id": "e9d4c0e8303401c9-c00002",
+          "source_file": "Grammy_Award_for_Best_Metal_Performance.html",
+          "role": "primary",
+          "score": 0.344
+        },
+        {
+          "unit_id": "6a36616b15cd55c5-c00000",
+          "source_file": "Academy_Award_for_Best_Animated_Feature.html",
+          "role": "primary",
+          "score": 0.3433
+        },
+        {
+          "unit_id": "6fe892554f0afcc7-c00017",
+          "source_file": "Avatar_(franchise).html",
+          "role": "primary",
+          "score": 0.3236
+        },
+        {
+          "unit_id": "6a36616b15cd55c5-c00001",
+          "source_file": "Academy_Award_for_Best_Animated_Feature.html",
+          "role": "primary",
+          "score": 0.3043
+        },
+        {
+          "unit_id": "2133cfb7d02f53ed-c00017",
+          "source_file": "Trolls_(film).html",
+          "role": "primary",
+          "score": 0.2467
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 8160,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "Compare how the Academy handled the introduction of the Best Animated Feature category with the way the Best Original Score category was split and then merged again in the 1990s.",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "3e8e548f009bb2b4-c00028",
+              "7584ab2c6b497c73-c00032",
+              "54cc717f4dc58b8c-c00027",
+              "e9d4c0e8303401c9-c00002",
+              "6a36616b15cd55c5-c00000",
+              "6fe892554f0afcc7-c00017",
+              "6a36616b15cd55c5-c00001",
+              "2133cfb7d02f53ed-c00017"
+            ],
+            "new_unit_ids": [
+              "3e8e548f009bb2b4-c00028",
+              "7584ab2c6b497c73-c00032",
+              "54cc717f4dc58b8c-c00027",
+              "e9d4c0e8303401c9-c00002",
+              "6a36616b15cd55c5-c00000",
+              "6fe892554f0afcc7-c00017",
+              "6a36616b15cd55c5-c00001",
+              "2133cfb7d02f53ed-c00017"
+            ],
+            "files": [
+              "68th_Academy_Awards.html",
+              "Academy_Award_for_Best_Picture.html",
+              "74th_Academy_Awards.html",
+              "Grammy_Award_for_Best_Metal_Performance.html",
+              "Academy_Award_for_Best_Animated_Feature.html",
+              "Avatar_(franchise).html",
+              "Trolls_(film).html"
+            ],
+            "trace": {
+              "new_files": [
+                "68th_Academy_Awards.html",
+                "Academy_Award_for_Best_Picture.html",
+                "74th_Academy_Awards.html",
+                "Grammy_Award_for_Best_Metal_Performance.html",
+                "Academy_Award_for_Best_Animated_Feature.html",
+                "Avatar_(franchise).html",
+                "Trolls_(film).html"
+              ]
+            },
+            "seconds": 4.148,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 4.148,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.5,
+      "chunk_precision_at_k": 0.5,
+      "article_precision": 0.42857142857142855,
+      "unique_articles_retrieved": 7,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "The Best Animated Feature award was introduced at the 74th ceremony (2002) as a brand-new competitive category with eligibility rules: at least 70 minutes long, a significant number of animated characters, and at least 75 percent animation",
+        "a minimum of eight qualifying films had to be released in the year to allow three nominees, rising to five nominees if more than twelve films qualified.",
+        "Before this, animated features such as Snow White and the Seven Dwarfs, Who Framed Roger Rabbit and Toy Story had only received Special Achievement Awards.",
+        "By contrast, the score category was not created but divided: beginning with the 68th ceremony (1996) the music branch split Best Original Score into Best Dramatic Score and Best Musical or Comedy Score, seen as a response to Disney's dominance of the score and song categories",
+        "four years later the two scoring categories were merged back into one."
+      ],
+      "response": "The Academy Award for Best Animated Feature was introduced as a new competitive award at the 74th Academy Awards, and the Academy later kept it as a separate category for animated feature films. [74th_Academy_Awards.html] [Academy_Award_for_Best_Animated_Feature.html]  \nThe Best Original Score category was divided beginning with the 68th Academy Awards into Best Dramatic Score and Best Musical or Comedy Score, and four years later those two scoring categories were merged back into one category. [68th_Academy_Awards.html]  \nSo, the Academy introduced Best Animated Feature as a new permanent category, while the Best Original Score category was split temporarily and then reunited. [74th_Academy_Awards.html] [68th_Academy_Awards.html]",
+      "closed_book_response": "The Academy’s handling of the two situations was quite different in tone and structure:\n\n- **Best Animated Feature**: when this category was introduced, it was created as a **new, permanent Oscar category** to recognize animated films as a distinct form of achievement. Its introduction was a response to the growing importance and legitimacy of animation, and it was meant to give the field its own regular place in the awards.\n\n- **Best Original Score in the 1990s**: this category was handled in a more **administrative and experimental** way. The Academy **split it into separate subcategories** for a period, typically to distinguish between different kinds of scores or musical approaches, but then later **merged it back together** when the split proved unworkable or unnecessary. That suggests the Academy was testing a classification system and then reversing course.\n\nSo, in short: **Best Animated Feature was an addition of a new category for a recognized art form**, while **Best Original Score was temporarily divided and then recombined as the Academy adjusted its rules and reverted to a simpler structure**.",
+      "correctness": "pass",
+      "graded_correctness": "substantially_complete",
+      "graded_correctness_score": 0.75,
+      "covered_aspects": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The Academy Award for Best Animated Feature was introduced as a new competitive award at the 74th Academy Awards.",
+          "cited_source": "74th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The Academy later kept Best Animated Feature as a separate category for animated feature films.",
+          "cited_source": "Academy_Award_for_Best_Animated_Feature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The Best Original Score category was divided beginning with the 68th Academy Awards into Best Dramatic Score and Best Musical or Comedy Score.",
+          "cited_source": "68th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Four years later, those two scoring categories were merged back into one category.",
+          "cited_source": "68th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The Academy introduced Best Animated Feature as a new permanent category.",
+          "cited_source": "74th_Academy_Awards.html",
+          "grounded": false,
+          "citation_supported": true,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "The Best Original Score category was split temporarily and then reunited.",
+          "cited_source": "68th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 6,
+      "graded_groundedness_score": 0.8333333333333334,
+      "faithfulness": "fail",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.8,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 3,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.320477100001881,
+      "judge_latency_seconds": 3.633457800024189,
+      "total_latency_seconds": 12.76948359999992,
+      "agent_wall_seconds": 8.576227899990045,
+      "throttle_seconds": 8.115669399994658,
+      "input_tokens": 14516,
+      "output_tokens": 1067,
+      "total_tokens": 15583,
+      "estimated_cost_usd": 0.0156885,
+      "judge_votes": [
+        "pass",
+        "pass",
+        "fail"
+      ],
+      "graded_correctness_votes": [
+        0.75,
+        1.0,
+        0.5
+      ],
+      "correctness_majority": "pass",
+      "graded_correctness_mean": 0.75,
+      "rejudge_cost_usd": 0.004608,
+      "agent_version": "v2",
+      "agent_features": [
+        "facets",
+        "sections",
+        "tables"
+      ],
+      "frozen_clues": [],
+      "agent_actions": [
+        "seed",
+        "answer"
+      ],
+      "planned_steps": 0,
+      "stop_reason": "planner_answer",
+      "seed_only_answer": true,
+      "planner_calls": 1,
+      "tool_llm_calls": 0,
+      "llm_calls_total": 2,
+      "planner_input_tokens": 3827,
+      "planner_output_tokens": 285,
+      "planner_latency_seconds": 1.8384548999893013,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 0,
+      "answer_facts": [
+        {
+          "clue": 1,
+          "fact": "Best Animated Feature was introduced as a new competitive award for animated feature films.",
+          "source": "74th_Academy_Awards.html",
+          "quote": "introduced a new competitive award that would honor animated feature films",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 2,
+          "fact": "Best Original Score was divided into two categories.",
+          "source": "68th_Academy_Awards.html",
+          "quote": "divided the category of Best Original Score into two categories",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 2,
+          "fact": "Those two scoring categories were merged back into one category four years later.",
+          "source": "68th_Academy_Awards.html",
+          "quote": "Four years later, the two scoring categories were merged back into one category.",
+          "verified": true,
+          "reason": ""
+        }
+      ],
+      "answer_facts_verified": 3,
+      "answer_missing": [
+        "a supported statement that Best Animated Feature was introduced as a new regular competitive award for animated feature films",
+        "a supported statement that Best Original Score was split into two named categories and then merged back into one in the 1990s/after four years"
+      ],
+      "answer_clues": [
+        "the introduction of the Best Animated Feature category",
+        "the way the Best Original Score category was split and then merged again in the 1990s"
+      ],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 8,
+      "units_in_context": 8,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "Compare how the Academy handled the introduction of the Best Animated Feature category with the way the Best Original Score category was split and then merged again in the 1990s.",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "3e8e548f009bb2b4-c00028",
+            "7584ab2c6b497c73-c00032",
+            "54cc717f4dc58b8c-c00027",
+            "e9d4c0e8303401c9-c00002",
+            "6a36616b15cd55c5-c00000",
+            "6fe892554f0afcc7-c00017",
+            "6a36616b15cd55c5-c00001",
+            "2133cfb7d02f53ed-c00017"
+          ],
+          "new_unit_ids": [
+            "3e8e548f009bb2b4-c00028",
+            "7584ab2c6b497c73-c00032",
+            "54cc717f4dc58b8c-c00027",
+            "e9d4c0e8303401c9-c00002",
+            "6a36616b15cd55c5-c00000",
+            "6fe892554f0afcc7-c00017",
+            "6a36616b15cd55c5-c00001",
+            "2133cfb7d02f53ed-c00017"
+          ],
+          "files": [
+            "68th_Academy_Awards.html",
+            "Academy_Award_for_Best_Picture.html",
+            "74th_Academy_Awards.html",
+            "Grammy_Award_for_Best_Metal_Performance.html",
+            "Academy_Award_for_Best_Animated_Feature.html",
+            "Avatar_(franchise).html",
+            "Trolls_(film).html"
+          ],
+          "trace": {
+            "new_files": [
+              "68th_Academy_Awards.html",
+              "Academy_Award_for_Best_Picture.html",
+              "74th_Academy_Awards.html",
+              "Grammy_Award_for_Best_Metal_Performance.html",
+              "Academy_Award_for_Best_Animated_Feature.html",
+              "Avatar_(franchise).html",
+              "Trolls_(film).html"
+            ]
+          },
+          "seconds": 4.148,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 1.0,
+      "evidence_recall_any_step": 1.0
+    },
+    {
+      "id": "Q019",
+      "question": "How did the director of La La Land get his start, and what connects his college years to that film's music?",
+      "retriever": "agent_v2",
+      "group": "high_precision_chunking",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "mechanism": null,
+      "information_need": "in_depth",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "expected_sources": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html"
+      ],
+      "retrieved_sources": [
+        "La_La_Land.html",
+        "Damien_Chazelle.html",
+        "Whiplash_(2014_film).html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "c1ed16a211777eaf-c00011",
+          "source_file": "La_La_Land.html",
+          "role": "primary",
+          "score": 0.815
+        },
+        {
+          "unit_id": "4865f8c7e43f6193-c00006",
+          "source_file": "Damien_Chazelle.html",
+          "role": "primary",
+          "score": 0.6511
+        },
+        {
+          "unit_id": "4aa6ccf4b6069bcc-c00008",
+          "source_file": "Whiplash_(2014_film).html",
+          "role": "primary",
+          "score": 0.5067
+        },
+        {
+          "unit_id": "c1ed16a211777eaf-c00024",
+          "source_file": "La_La_Land.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "c1ed16a211777eaf-c00010",
+          "source_file": "La_La_Land.html",
+          "role": "primary",
+          "score": 0.4815
+        },
+        {
+          "unit_id": "c1ed16a211777eaf-c00067",
+          "source_file": "La_La_Land.html",
+          "role": "primary",
+          "score": 0.4702
+        },
+        {
+          "unit_id": "4865f8c7e43f6193-c00002",
+          "source_file": "Damien_Chazelle.html",
+          "role": "primary",
+          "score": 0.4691
+        },
+        {
+          "unit_id": "4865f8c7e43f6193-c00004",
+          "source_file": "Damien_Chazelle.html",
+          "role": "primary",
+          "score": 0.4641
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 9190,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "How did the director of La La Land get his start, and what connects his college years to that film's music?",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "c1ed16a211777eaf-c00011",
+              "4865f8c7e43f6193-c00006",
+              "4aa6ccf4b6069bcc-c00008",
+              "c1ed16a211777eaf-c00024",
+              "c1ed16a211777eaf-c00010",
+              "c1ed16a211777eaf-c00067",
+              "4865f8c7e43f6193-c00002",
+              "4865f8c7e43f6193-c00004"
+            ],
+            "new_unit_ids": [
+              "c1ed16a211777eaf-c00011",
+              "4865f8c7e43f6193-c00006",
+              "4aa6ccf4b6069bcc-c00008",
+              "c1ed16a211777eaf-c00024",
+              "c1ed16a211777eaf-c00010",
+              "c1ed16a211777eaf-c00067",
+              "4865f8c7e43f6193-c00002",
+              "4865f8c7e43f6193-c00004"
+            ],
+            "files": [
+              "La_La_Land.html",
+              "Damien_Chazelle.html",
+              "Whiplash_(2014_film).html"
+            ],
+            "trace": {
+              "new_files": [
+                "La_La_Land.html",
+                "Damien_Chazelle.html",
+                "Whiplash_(2014_film).html"
+              ]
+            },
+            "seconds": 1.667,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 1.667,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.875,
+      "chunk_precision_at_k": 0.875,
+      "article_precision": 0.6666666666666666,
+      "unique_articles_retrieved": 3,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "Damien Chazelle met composer Justin Hurwitz at Harvard, where they were roommates in Currier House and explored a musical concept in their senior thesis, the low-budget Guy and Madeline on a Park Bench about a Boston jazz musician.",
+        "Both moved to Los Angeles in 2010 and continued writing what became La La Land, altering the location from Boston to Los Angeles.",
+        "Hurwitz composed and orchestrated the songs and score for La La Land, with lyrics by Pasek and Paul except for 'Start a Fire'."
+      ],
+      "response": "Damien Chazelle got his start by studying filmmaking in the Visual and Environmental Studies department at Harvard University, where he graduated in 2007, and he wrote and directed his debut feature, *Guy and Madeline on a Park Bench*, as part of his senior thesis project with classmate Justin Hurwitz at Harvard.[Damien_Chazelle.html]  \nHis college years connect to *La La Land*’s music because he lived in Currier House with Justin Hurwitz, who later composed and orchestrated the songs and score for *La La Land*.[Damien_Chazelle.html] [La_La_Land.html]",
+      "closed_book_response": "Damien Chazelle got his start making **low-budget student films**, especially during and after his time at **Harvard**, where he studied **visual and environmental studies**. Before *La La Land*, he made *Guy and Madeline on a Park Bench* and then broke through with *Whiplash*.\n\nWhat connects his college years to *La La Land*’s music is that Chazelle was **in a college jazz band as a drummer**, and that experience strongly shaped his later work. His background in jazz as a student helped inspire the film’s **jazz-centered story and soundtrack**.",
+      "correctness": "pass",
+      "graded_correctness": "substantially_complete",
+      "graded_correctness_score": 0.75,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Damien Chazelle studied filmmaking in the Visual and Environmental Studies department at Harvard University and graduated in 2007.",
+          "cited_source": "Damien_Chazelle.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He wrote and directed his debut feature, *Guy and Madeline on a Park Bench*, as part of his senior thesis project with classmate Justin Hurwitz at Harvard.",
+          "cited_source": "Damien_Chazelle.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Chazelle lived in Currier House at Harvard with Justin Hurwitz.",
+          "cited_source": "Damien_Chazelle.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Justin Hurwitz later composed and orchestrated the songs and score for *La La Land*.",
+          "cited_source": "La_La_Land.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Chazelle's college years connect to *La La Land*'s music because he lived with Justin Hurwitz in college.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 5,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.6,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.1631766999780666,
+      "judge_latency_seconds": 4.737465099984547,
+      "total_latency_seconds": 10.923306799943559,
+      "agent_wall_seconds": 6.248911799979396,
+      "throttle_seconds": 8.206419499992627,
+      "input_tokens": 15983,
+      "output_tokens": 857,
+      "total_tokens": 16840,
+      "estimated_cost_usd": 0.01584375,
+      "judge_votes": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "graded_correctness_votes": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "correctness_majority": "pass",
+      "graded_correctness_mean": 0.75,
+      "rejudge_cost_usd": 0.0048915,
+      "agent_version": "v2",
+      "agent_features": [
+        "facets",
+        "sections",
+        "tables"
+      ],
+      "frozen_clues": [],
+      "agent_actions": [
+        "seed",
+        "answer"
+      ],
+      "planned_steps": 0,
+      "stop_reason": "planner_answer",
+      "seed_only_answer": true,
+      "planner_calls": 1,
+      "tool_llm_calls": 0,
+      "llm_calls_total": 2,
+      "planner_input_tokens": 4145,
+      "planner_output_tokens": 258,
+      "planner_latency_seconds": 1.6015569999872241,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 0,
+      "answer_facts": [
+        {
+          "clue": 1,
+          "fact": "He wrote and directed his debut feature as his senior thesis project at Harvard.",
+          "source": "Damien_Chazelle.html",
+          "quote": "wrote and directed his debut feature, Guy and Madeline on a Park Bench, as part of his senior thesis project",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 2,
+          "fact": "The songs and score for La La Land were composed and orchestrated by his Harvard University classmate Justin Hurwitz.",
+          "source": "La_La_Land.html",
+          "quote": "composed and orchestrated by Justin Hurwitz, Chazelle's Harvard University classmate",
+          "verified": true,
+          "reason": ""
+        }
+      ],
+      "answer_facts_verified": 2,
+      "answer_missing": [
+        "what is meant by “get his start” in the question: his first filmmaking project or his first career move after graduation?",
+        "the specific connection between his college years and La La Land’s music, if the question expects more than Hurwitz being his classmate"
+      ],
+      "answer_clues": [
+        "how did the director of La La Land get his start",
+        "what connects his college years to that film's music"
+      ],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 8,
+      "units_in_context": 8,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "How did the director of La La Land get his start, and what connects his college years to that film's music?",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "c1ed16a211777eaf-c00011",
+            "4865f8c7e43f6193-c00006",
+            "4aa6ccf4b6069bcc-c00008",
+            "c1ed16a211777eaf-c00024",
+            "c1ed16a211777eaf-c00010",
+            "c1ed16a211777eaf-c00067",
+            "4865f8c7e43f6193-c00002",
+            "4865f8c7e43f6193-c00004"
+          ],
+          "new_unit_ids": [
+            "c1ed16a211777eaf-c00011",
+            "4865f8c7e43f6193-c00006",
+            "4aa6ccf4b6069bcc-c00008",
+            "c1ed16a211777eaf-c00024",
+            "c1ed16a211777eaf-c00010",
+            "c1ed16a211777eaf-c00067",
+            "4865f8c7e43f6193-c00002",
+            "4865f8c7e43f6193-c00004"
+          ],
+          "files": [
+            "La_La_Land.html",
+            "Damien_Chazelle.html",
+            "Whiplash_(2014_film).html"
+          ],
+          "trace": {
+            "new_files": [
+              "La_La_Land.html",
+              "Damien_Chazelle.html",
+              "Whiplash_(2014_film).html"
+            ]
+          },
+          "seconds": 1.667,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 1.0,
+      "evidence_recall_any_step": 1.0
+    },
+    {
+      "id": "Q080",
+      "question": "Tell me about Anthony Minghella — what did he win and what happened at the Oscars after his death?",
+      "retriever": "agent_v2",
+      "group": "high_precision_chunking",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "mechanism": null,
+      "information_need": "overview",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "expected_sources": [
+        "Anthony_Minghella.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "retrieved_sources": [
+        "Anthony_Minghella.html",
+        "89th_Academy_Awards.html",
+        "Midnight_in_the_Garden_of_Good_and_Evil.html",
+        "Steve_Jobs.html",
+        "Gus_Van_Sant.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "Anthony_Minghella.html#c00000-c00022",
+          "source_file": "Anthony_Minghella.html",
+          "role": "primary",
+          "score": 0.9383
+        },
+        {
+          "unit_id": "89th_Academy_Awards.html#c00000-c00069",
+          "source_file": "89th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.4103
+        },
+        {
+          "unit_id": "999c77a6809a9722-c00005",
+          "source_file": "Midnight_in_the_Garden_of_Good_and_Evil.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "89th_Academy_Awards.html#c00000-c00058",
+          "source_file": "89th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.3826
+        },
+        {
+          "unit_id": "89e776ac849fe224-c00078",
+          "source_file": "Steve_Jobs.html",
+          "role": "primary",
+          "score": 0.4363
+        },
+        {
+          "unit_id": "c678c96e1784788f-c00011",
+          "source_file": "Gus_Van_Sant.html",
+          "role": "primary",
+          "score": 0.4329
+        }
+      ],
+      "unit_count": 6,
+      "context_chars": 31703,
+      "evidence_recall": 0.5,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "Tell me about Anthony Minghella — what did he win and what happened at the Oscars after his death?",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "c31b0dd580459bb4-c00000",
+              "c31b0dd580459bb4-c00021",
+              "999c77a6809a9722-c00005",
+              "c31b0dd580459bb4-c00007",
+              "89e776ac849fe224-c00078",
+              "c678c96e1784788f-c00011",
+              "c31b0dd580459bb4-c00016",
+              "c31b0dd580459bb4-c00022"
+            ],
+            "new_unit_ids": [
+              "c31b0dd580459bb4-c00000",
+              "c31b0dd580459bb4-c00021",
+              "999c77a6809a9722-c00005",
+              "c31b0dd580459bb4-c00007",
+              "89e776ac849fe224-c00078",
+              "c678c96e1784788f-c00011",
+              "c31b0dd580459bb4-c00016",
+              "c31b0dd580459bb4-c00022"
+            ],
+            "files": [
+              "Anthony_Minghella.html",
+              "Midnight_in_the_Garden_of_Good_and_Evil.html",
+              "Steve_Jobs.html",
+              "Gus_Van_Sant.html"
+            ],
+            "trace": {
+              "new_files": [
+                "Anthony_Minghella.html",
+                "Midnight_in_the_Garden_of_Good_and_Evil.html",
+                "Steve_Jobs.html",
+                "Gus_Van_Sant.html"
+              ]
+            },
+            "seconds": 1.28,
+            "error": null
+          },
+          {
+            "step": 1,
+            "action": "chunks",
+            "args": {
+              "query": "Oscars after Anthony Minghella's death tribute in 2008",
+              "parent": "article"
+            },
+            "assessment": "The evidence identifies Anthony Minghella and says he won an Academy Award, but it does not yet state what happened at the Oscars after his death.",
+            "missing": [
+              "what he won, stated with the specific award name",
+              "what happened at the Oscars after his death"
+            ],
+            "clues": [
+              "what did he win",
+              "what happened at the Oscars after his death"
+            ],
+            "facts": [
+              {
+                "clue": 1,
+                "fact": "He won the Academy Award for Best Director.",
+                "source": "Anthony_Minghella.html",
+                "quote": "He received the Academy Award for Best Director"
+              },
+              {
+                "clue": 2,
+                "fact": "He died on 18 March 2008.",
+                "source": "Anthony_Minghella.html",
+                "quote": "Minghella died of a haemorrhage on 18 March 2008"
+              }
+            ],
+            "ranked_unit_ids": [
+              "Anthony_Minghella.html#c00000-c00022"
+            ],
+            "new_unit_ids": [
+              "Anthony_Minghella.html#c00000-c00022"
+            ],
+            "files": [
+              "Anthony_Minghella.html"
+            ],
+            "trace": {
+              "child_chunk_ids": [
+                "c31b0dd580459bb4-c00021",
+                "c31b0dd580459bb4-c00016",
+                "c31b0dd580459bb4-c00022",
+                "c31b0dd580459bb4-c00019",
+                "c31b0dd580459bb4-c00000",
+                "c31b0dd580459bb4-c00017",
+                "c31b0dd580459bb4-c00020",
+                "c31b0dd580459bb4-c00007"
+              ],
+              "article_too_long": [],
+              "new_files": []
+            },
+            "seconds": 0.867,
+            "error": null
+          },
+          {
+            "step": 2,
+            "action": "chunks",
+            "args": {
+              "query": "Oscars after Anthony Minghella's death posthumous at the Oscars tribute award 2008",
+              "parent": "article"
+            },
+            "assessment": "The evidence says Anthony Minghella won an Academy Award for Best Director and later mentions his posthumous Oscar nomination, but it does not yet state what happened at the Oscars after his death in the form the question asks.",
+            "missing": [
+              "what happened at the Oscars after his death"
+            ],
+            "clues": [
+              "what did he win",
+              "what happened at the Oscars after his death"
+            ],
+            "facts": [
+              {
+                "clue": 1,
+                "fact": "He won the Academy Award for Best Director for The English Patient.",
+                "source": "Anthony_Minghella.html",
+                "quote": "He received the Academy Award for Best Director for *The English Patient*."
+              }
+            ],
+            "ranked_unit_ids": [
+              "Anthony_Minghella.html#c00000-c00022"
+            ],
+            "new_unit_ids": [],
+            "files": [
+              "Anthony_Minghella.html"
+            ],
+            "trace": {
+              "child_chunk_ids": [
+                "c31b0dd580459bb4-c00021",
+                "c31b0dd580459bb4-c00000",
+                "c31b0dd580459bb4-c00019",
+                "c31b0dd580459bb4-c00016",
+                "c31b0dd580459bb4-c00022",
+                "c31b0dd580459bb4-c00017",
+                "c31b0dd580459bb4-c00020",
+                "c31b0dd580459bb4-c00018"
+              ],
+              "article_too_long": [],
+              "new_files": []
+            },
+            "seconds": 1.063,
+            "error": null
+          },
+          {
+            "step": 3,
+            "action": "chunks",
+            "args": {
+              "query": "Oscars after Anthony Minghella's death tribute posthumously nominated at the Oscars ceremony",
+              "parent": "article"
+            },
+            "assessment": "The evidence covers Anthony Minghella’s awards and notes that he was posthumously nominated at the Oscars, but it does not yet state what happened after his death at the Oscars.",
+            "missing": [
+              "what happened at the Oscars after his death"
+            ],
+            "clues": [
+              "what did he win",
+              "what happened at the Oscars after his death"
+            ],
+            "facts": [
+              {
+                "clue": 1,
+                "fact": "He won the Academy Award for Best Director for The English Patient.",
+                "source": "Anthony_Minghella.html",
+                "quote": "He received the Academy Award for Best Director for *The English Patient*."
+              },
+              {
+                "clue": 1,
+                "fact": "The English Patient won 9 Academy Awards and Minghella had 10 total Academy Awards wins listed.",
+                "source": "Anthony_Minghella.html",
+                "quote": "Year: 1996; Title: *The English Patient* ; Academy Awards Nominations: 12; Academy Awards Wins: 9"
+              },
+              {
+                "clue": 2,
+                "fact": "He was posthumously nominated for Best Picture for The Reader (2008) as a producer.",
+                "source": "Anthony_Minghella.html",
+                "quote": "he was posthumously nominated for Best Picture for *The Reader* (2008), as a producer."
+              }
+            ],
+            "ranked_unit_ids": [
+              "Anthony_Minghella.html#c00000-c00022",
+              "89th_Academy_Awards.html#c00000-c00069",
+              "89th_Academy_Awards.html#c00000-c00058"
+            ],
+            "new_unit_ids": [
+              "89th_Academy_Awards.html#c00000-c00069",
+              "89th_Academy_Awards.html#c00000-c00058"
+            ],
+            "files": [
+              "Anthony_Minghella.html",
+              "89th_Academy_Awards.html"
+            ],
+            "trace": {
+              "child_chunk_ids": [
+                "c31b0dd580459bb4-c00000",
+                "c31b0dd580459bb4-c00021",
+                "c31b0dd580459bb4-c00019",
+                "c31b0dd580459bb4-c00022",
+                "c31b0dd580459bb4-c00016",
+                "c31b0dd580459bb4-c00020",
+                "86da3fa9f040ab84-c00069",
+                "86da3fa9f040ab84-c00057"
+              ],
+              "article_too_long": [
+                "89th_Academy_Awards.html"
+              ],
+              "new_files": [
+                "89th_Academy_Awards.html"
+              ]
+            },
+            "seconds": 0.997,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 4.207,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.16666666666666666,
+      "chunk_precision_at_k": 0.16666666666666666,
+      "article_precision": 0.2,
+      "unique_articles_retrieved": 5,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "Anthony Minghella (1954–2008) was a British playwright and filmmaker who directed Truly, Madly, Deeply, The English Patient, The Talented Mr.",
+        "Ripley and Cold Mountain.",
+        "He won the Academy Award for Best Director for The English Patient, and received three further nominations: Best Adapted Screenplay for both The English Patient and The Talented Mr.",
+        "Ripley, and, posthumously, Best Picture for The Reader (2008) as a producer.",
+        "The Academy made an exception to its normal three-producer limit for Best Picture so that Minghella and Sydney Pollack could be posthumously included among the four producers nominated for The Reader."
+      ],
+      "response": "Anthony Minghella was born on 6 January 1954 in Ryde, Isle of Wight, and died on 18 March 2008 in London. [Anthony_Minghella.html] He received the Academy Award for Best Director for *The English Patient*, and the document also says he was posthumously nominated for Best Picture for *The Reader* (2008) as a producer. [Anthony_Minghella.html] After his death, *The No. 1 Ladies' Detective Agency*, which he co-wrote and directed, was broadcast posthumously on BBC One on 23 March 2008. [Anthony_Minghella.html] The documents do not say that anything specific happened to him at the 89th Academy Awards after his death. [Anthony_Minghella.html]",
+      "closed_book_response": "Anthony Minghella was a British film director, screenwriter, and producer, best known for films like *The English Patient*, *The Talented Mr. Ripley*, and *Cold Mountain*.\n\nWhat he won:\n- He won the Academy Award for **Best Director** for *The English Patient*.\n- The film itself won **Best Picture** as well, and it received multiple Oscars overall.\n\nWhat happened at the Oscars after his death:\n- Minghella died in **2008**.\n- At the **2009 Academy Awards**, he was **remembered in the “In Memoriam” segment**.\n- *The Reader*, which he had helped write and produce, was part of the awards conversation that year, but he was not alive to attend or receive anything personally.\n\nIf you want, I can also give you a short timeline of his career and major awards.",
+      "correctness": "pass",
+      "graded_correctness": "substantially_complete",
+      "graded_correctness_score": 0.75,
+      "covered_aspects": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "aspect_coverage": 0.8,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Anthony Minghella was born on 6 January 1954 in Ryde, Isle of Wight, and died on 18 March 2008 in London.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He received the Academy Award for Best Director for *The English Patient*.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The document also says he was posthumously nominated for Best Picture for *The Reader* (2008) as a producer.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "After his death, *The No. 1 Ladies' Detective Agency*, which he co-wrote and directed, was broadcast posthumously on BBC One on 23 March 2008.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The documents do not say that anything specific happened to him at the 89th Academy Awards after his death.",
+          "cited_source": "Anthony_Minghella.html",
+          "grounded": true,
+          "citation_supported": false,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 5,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 0.8,
+      "chunk_attribution_score": 0.6,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.4115651000174694,
+      "judge_latency_seconds": 4.157260300009511,
+      "total_latency_seconds": 16.692464700002922,
+      "agent_wall_seconds": 12.917336200014688,
+      "throttle_seconds": 8.144991700025276,
+      "input_tokens": 54017,
+      "output_tokens": 1378,
+      "total_tokens": 55395,
+      "estimated_cost_usd": 0.04671375,
+      "judge_votes": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "graded_correctness_votes": [
+        0.75,
+        0.75,
+        1.0
+      ],
+      "correctness_majority": "pass",
+      "graded_correctness_mean": 0.8333333333333334,
+      "rejudge_cost_usd": 0.0147615,
+      "agent_version": "v2",
+      "agent_features": [
+        "facets",
+        "sections",
+        "tables"
+      ],
+      "frozen_clues": [],
+      "agent_actions": [
+        "seed",
+        "chunks:article",
+        "chunks:article",
+        "chunks:article",
+        "answer"
+      ],
+      "planned_steps": 3,
+      "stop_reason": "step_budget",
+      "seed_only_answer": false,
+      "planner_calls": 3,
+      "tool_llm_calls": 0,
+      "llm_calls_total": 4,
+      "planner_input_tokens": 16045,
+      "planner_output_tokens": 662,
+      "planner_latency_seconds": 5.195030599978054,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 0,
+      "answer_facts": [],
+      "answer_facts_verified": 0,
+      "answer_missing": [],
+      "answer_clues": [],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 11,
+      "units_in_context": 6,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "Tell me about Anthony Minghella — what did he win and what happened at the Oscars after his death?",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "c31b0dd580459bb4-c00000",
+            "c31b0dd580459bb4-c00021",
+            "999c77a6809a9722-c00005",
+            "c31b0dd580459bb4-c00007",
+            "89e776ac849fe224-c00078",
+            "c678c96e1784788f-c00011",
+            "c31b0dd580459bb4-c00016",
+            "c31b0dd580459bb4-c00022"
+          ],
+          "new_unit_ids": [
+            "c31b0dd580459bb4-c00000",
+            "c31b0dd580459bb4-c00021",
+            "999c77a6809a9722-c00005",
+            "c31b0dd580459bb4-c00007",
+            "89e776ac849fe224-c00078",
+            "c678c96e1784788f-c00011",
+            "c31b0dd580459bb4-c00016",
+            "c31b0dd580459bb4-c00022"
+          ],
+          "files": [
+            "Anthony_Minghella.html",
+            "Midnight_in_the_Garden_of_Good_and_Evil.html",
+            "Steve_Jobs.html",
+            "Gus_Van_Sant.html"
+          ],
+          "trace": {
+            "new_files": [
+              "Anthony_Minghella.html",
+              "Midnight_in_the_Garden_of_Good_and_Evil.html",
+              "Steve_Jobs.html",
+              "Gus_Van_Sant.html"
+            ]
+          },
+          "seconds": 1.28,
+          "error": null
+        },
+        {
+          "step": 1,
+          "action": "chunks",
+          "args": {
+            "query": "Oscars after Anthony Minghella's death tribute in 2008",
+            "parent": "article"
+          },
+          "assessment": "The evidence identifies Anthony Minghella and says he won an Academy Award, but it does not yet state what happened at the Oscars after his death.",
+          "missing": [
+            "what he won, stated with the specific award name",
+            "what happened at the Oscars after his death"
+          ],
+          "clues": [
+            "what did he win",
+            "what happened at the Oscars after his death"
+          ],
+          "facts": [
+            {
+              "clue": 1,
+              "fact": "He won the Academy Award for Best Director.",
+              "source": "Anthony_Minghella.html",
+              "quote": "He received the Academy Award for Best Director"
+            },
+            {
+              "clue": 2,
+              "fact": "He died on 18 March 2008.",
+              "source": "Anthony_Minghella.html",
+              "quote": "Minghella died of a haemorrhage on 18 March 2008"
+            }
+          ],
+          "ranked_unit_ids": [
+            "Anthony_Minghella.html#c00000-c00022"
+          ],
+          "new_unit_ids": [
+            "Anthony_Minghella.html#c00000-c00022"
+          ],
+          "files": [
+            "Anthony_Minghella.html"
+          ],
+          "trace": {
+            "child_chunk_ids": [
+              "c31b0dd580459bb4-c00021",
+              "c31b0dd580459bb4-c00016",
+              "c31b0dd580459bb4-c00022",
+              "c31b0dd580459bb4-c00019",
+              "c31b0dd580459bb4-c00000",
+              "c31b0dd580459bb4-c00017",
+              "c31b0dd580459bb4-c00020",
+              "c31b0dd580459bb4-c00007"
+            ],
+            "article_too_long": [],
+            "new_files": []
+          },
+          "seconds": 0.867,
+          "error": null
+        },
+        {
+          "step": 2,
+          "action": "chunks",
+          "args": {
+            "query": "Oscars after Anthony Minghella's death posthumous at the Oscars tribute award 2008",
+            "parent": "article"
+          },
+          "assessment": "The evidence says Anthony Minghella won an Academy Award for Best Director and later mentions his posthumous Oscar nomination, but it does not yet state what happened at the Oscars after his death in the form the question asks.",
+          "missing": [
+            "what happened at the Oscars after his death"
+          ],
+          "clues": [
+            "what did he win",
+            "what happened at the Oscars after his death"
+          ],
+          "facts": [
+            {
+              "clue": 1,
+              "fact": "He won the Academy Award for Best Director for The English Patient.",
+              "source": "Anthony_Minghella.html",
+              "quote": "He received the Academy Award for Best Director for *The English Patient*."
+            }
+          ],
+          "ranked_unit_ids": [
+            "Anthony_Minghella.html#c00000-c00022"
+          ],
+          "new_unit_ids": [],
+          "files": [
+            "Anthony_Minghella.html"
+          ],
+          "trace": {
+            "child_chunk_ids": [
+              "c31b0dd580459bb4-c00021",
+              "c31b0dd580459bb4-c00000",
+              "c31b0dd580459bb4-c00019",
+              "c31b0dd580459bb4-c00016",
+              "c31b0dd580459bb4-c00022",
+              "c31b0dd580459bb4-c00017",
+              "c31b0dd580459bb4-c00020",
+              "c31b0dd580459bb4-c00018"
+            ],
+            "article_too_long": [],
+            "new_files": []
+          },
+          "seconds": 1.063,
+          "error": null
+        },
+        {
+          "step": 3,
+          "action": "chunks",
+          "args": {
+            "query": "Oscars after Anthony Minghella's death tribute posthumously nominated at the Oscars ceremony",
+            "parent": "article"
+          },
+          "assessment": "The evidence covers Anthony Minghella’s awards and notes that he was posthumously nominated at the Oscars, but it does not yet state what happened after his death at the Oscars.",
+          "missing": [
+            "what happened at the Oscars after his death"
+          ],
+          "clues": [
+            "what did he win",
+            "what happened at the Oscars after his death"
+          ],
+          "facts": [
+            {
+              "clue": 1,
+              "fact": "He won the Academy Award for Best Director for The English Patient.",
+              "source": "Anthony_Minghella.html",
+              "quote": "He received the Academy Award for Best Director for *The English Patient*."
+            },
+            {
+              "clue": 1,
+              "fact": "The English Patient won 9 Academy Awards and Minghella had 10 total Academy Awards wins listed.",
+              "source": "Anthony_Minghella.html",
+              "quote": "Year: 1996; Title: *The English Patient* ; Academy Awards Nominations: 12; Academy Awards Wins: 9"
+            },
+            {
+              "clue": 2,
+              "fact": "He was posthumously nominated for Best Picture for The Reader (2008) as a producer.",
+              "source": "Anthony_Minghella.html",
+              "quote": "he was posthumously nominated for Best Picture for *The Reader* (2008), as a producer."
+            }
+          ],
+          "ranked_unit_ids": [
+            "Anthony_Minghella.html#c00000-c00022",
+            "89th_Academy_Awards.html#c00000-c00069",
+            "89th_Academy_Awards.html#c00000-c00058"
+          ],
+          "new_unit_ids": [
+            "89th_Academy_Awards.html#c00000-c00069",
+            "89th_Academy_Awards.html#c00000-c00058"
+          ],
+          "files": [
+            "Anthony_Minghella.html",
+            "89th_Academy_Awards.html"
+          ],
+          "trace": {
+            "child_chunk_ids": [
+              "c31b0dd580459bb4-c00000",
+              "c31b0dd580459bb4-c00021",
+              "c31b0dd580459bb4-c00019",
+              "c31b0dd580459bb4-c00022",
+              "c31b0dd580459bb4-c00016",
+              "c31b0dd580459bb4-c00020",
+              "86da3fa9f040ab84-c00069",
+              "86da3fa9f040ab84-c00057"
+            ],
+            "article_too_long": [
+              "89th_Academy_Awards.html"
+            ],
+            "new_files": [
+              "89th_Academy_Awards.html"
+            ]
+          },
+          "seconds": 0.997,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 0.5,
+      "evidence_recall_any_step": 0.5
+    },
+    {
+      "id": "Q009",
+      "question": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+      "retriever": "agent_v2",
+      "group": "multi_entity_precision",
+      "source_suite": "golden_suite_2.1.json",
+      "mechanism": null,
+      "information_need": "overview",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "expected_sources": [
+        "1964_Nobel_Prize_in_Literature.html",
+        "1964_Alaska_earthquake.html"
+      ],
+      "retrieved_sources": [
+        "Nobel_Prize.html",
+        "List_of_Nobel_laureates_in_Physics.html",
+        "1964_Nobel_Prize_in_Literature.html",
+        "John_Bardeen.html",
+        "Nobel_Peace_Prize.html",
+        "Alfred_A._Knopf.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "3e63e207c636cf56-c00049",
+          "source_file": "Nobel_Prize.html",
+          "role": "primary",
+          "score": 0.7409
+        },
+        {
+          "unit_id": "d0ab527c61d96461-c00001",
+          "source_file": "List_of_Nobel_laureates_in_Physics.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "2383c385675d1e75-c00001",
+          "source_file": "1964_Nobel_Prize_in_Literature.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "1cde5d8da7ccbdc5-c00012",
+          "source_file": "John_Bardeen.html",
+          "role": "primary",
+          "score": 0.3698
+        },
+        {
+          "unit_id": "2383c385675d1e75-c00000",
+          "source_file": "1964_Nobel_Prize_in_Literature.html",
+          "role": "primary",
+          "score": 0.363
+        },
+        {
+          "unit_id": "4d3f2b122f3bad0b-c00002",
+          "source_file": "Nobel_Peace_Prize.html",
+          "role": "primary",
+          "score": 0.3625
+        },
+        {
+          "unit_id": "3e63e207c636cf56-c00045",
+          "source_file": "Nobel_Prize.html",
+          "role": "primary",
+          "score": 0.3544
+        },
+        {
+          "unit_id": "66552bb39271263f-c00022",
+          "source_file": "Alfred_A._Knopf.html",
+          "role": "primary",
+          "score": 0.3064
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 11047,
+      "evidence_recall": 0.75,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "3e63e207c636cf56-c00049",
+              "d0ab527c61d96461-c00001",
+              "2383c385675d1e75-c00001",
+              "1cde5d8da7ccbdc5-c00012",
+              "2383c385675d1e75-c00000",
+              "4d3f2b122f3bad0b-c00002",
+              "3e63e207c636cf56-c00045",
+              "66552bb39271263f-c00022"
+            ],
+            "new_unit_ids": [
+              "3e63e207c636cf56-c00049",
+              "d0ab527c61d96461-c00001",
+              "2383c385675d1e75-c00001",
+              "1cde5d8da7ccbdc5-c00012",
+              "2383c385675d1e75-c00000",
+              "4d3f2b122f3bad0b-c00002",
+              "3e63e207c636cf56-c00045",
+              "66552bb39271263f-c00022"
+            ],
+            "files": [
+              "Nobel_Prize.html",
+              "List_of_Nobel_laureates_in_Physics.html",
+              "1964_Nobel_Prize_in_Literature.html",
+              "John_Bardeen.html",
+              "Nobel_Peace_Prize.html",
+              "Alfred_A._Knopf.html"
+            ],
+            "trace": {
+              "new_files": [
+                "Nobel_Prize.html",
+                "List_of_Nobel_laureates_in_Physics.html",
+                "1964_Nobel_Prize_in_Literature.html",
+                "John_Bardeen.html",
+                "Nobel_Peace_Prize.html",
+                "Alfred_A._Knopf.html"
+              ]
+            },
+            "seconds": 2.42,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 2.42,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.25,
+      "chunk_precision_at_k": 0.25,
+      "article_precision": 0.16666666666666666,
+      "unique_articles_retrieved": 6,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "The 1964 Nobel Prize in Literature was awarded to French writer Jean-Paul Sartre, the same year a magnitude 9.2-9.3 earthquake struck Alaska.",
+        "Sartre declined the prize, saying he never accepted official honors and did not want the writer to become an institution.",
+        "He also objected on the grounds that the prize went only to Westerners or to rebels of the East."
+      ],
+      "response": "He was Jean-Paul Sartre, who was awarded the 1964 Nobel Prize in Literature and initially refused it.[1964_Nobel_Prize_in_Literature.html]  \nHe said that he never accepted any official honours, that he did not want the writer to become an institution, and that the Nobel Prize was one that goes only to Westerners “or to rebels of the East.”[1964_Nobel_Prize_in_Literature.html]  \nThe Alaska earthquake clue matches 1964, the same year Sartre won the prize.[1964_Nobel_Prize_in_Literature.html]",
+      "closed_book_response": "It was **Jean-Paul Sartre**.\n\nHe **declined the Nobel Prize in Literature in 1964** because he consistently refused official honors and awards. Sartre felt that accepting such distinctions would compromise his independence as a writer and thinker. He also said that a writer should not allow himself to be turned into an institution.\n\nA note on the earthquake part: a major **Alaska earthquake (the 1964 Good Friday earthquake)** did occur the same year, but it was not the reason for his refusal.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "He was Jean-Paul Sartre, who was awarded the 1964 Nobel Prize in Literature and initially refused it.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "He said that he never accepted any official honours, that he did not want the writer to become an institution, and that the Nobel Prize was one that goes only to Westerners “or to rebels of the East.”",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The Alaska earthquake clue matches 1964, the same year Sartre won the prize.",
+          "cited_source": "1964_Nobel_Prize_in_Literature.html",
+          "grounded": false,
+          "citation_supported": false,
+          "attributable_to_retrieval": null
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 0.6666666666666666,
+      "faithfulness": "fail",
+      "citation_support_rate": 0.6666666666666666,
+      "chunk_attribution_score": 0.5,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 0.0,
+      "quote_attribution_accuracy": 0.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.195160000002943,
+      "judge_latency_seconds": 3.4911775999935344,
+      "total_latency_seconds": 10.290416899997508,
+      "agent_wall_seconds": 6.7179005999933,
+      "throttle_seconds": 8.61502389999805,
+      "input_tokens": 17321,
+      "output_tokens": 714,
+      "total_tokens": 18035,
+      "estimated_cost_usd": 0.01620375,
+      "judge_votes": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "graded_correctness_votes": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "correctness_majority": "pass",
+      "graded_correctness_mean": 1.0,
+      "rejudge_cost_usd": 0.0051765,
+      "agent_version": "v2",
+      "agent_features": [
+        "facets",
+        "sections",
+        "tables"
+      ],
+      "frozen_clues": [],
+      "agent_actions": [
+        "seed",
+        "answer"
+      ],
+      "planned_steps": 0,
+      "stop_reason": "planner_answer",
+      "seed_only_answer": true,
+      "planner_calls": 1,
+      "tool_llm_calls": 0,
+      "llm_calls_total": 2,
+      "planner_input_tokens": 4444,
+      "planner_output_tokens": 225,
+      "planner_latency_seconds": 1.7502781999937724,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 0,
+      "answer_facts": [
+        {
+          "clue": 1,
+          "fact": "The 1964 Nobel Prize in Literature was awarded to Jean-Paul Sartre.",
+          "source": "1964_Nobel_Prize_in_Literature.html",
+          "quote": "The **1964 Nobel Prize in Literature** was awarded to the French writer Jean-Paul Sartre",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 2,
+          "fact": "He declined because he never accepted official honours and did not want the writer to become an institution.",
+          "source": "1964_Nobel_Prize_in_Literature.html",
+          "quote": "he never accepted any official honours and that he did not want the writer to become an institution",
+          "verified": true,
+          "reason": ""
+        }
+      ],
+      "answer_facts_verified": 2,
+      "answer_missing": [
+        "the year of the magnitude-9 earthquake in Alaska"
+      ],
+      "answer_clues": [
+        "the author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska",
+        "why he declined"
+      ],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 8,
+      "units_in_context": 8,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "3e63e207c636cf56-c00049",
+            "d0ab527c61d96461-c00001",
+            "2383c385675d1e75-c00001",
+            "1cde5d8da7ccbdc5-c00012",
+            "2383c385675d1e75-c00000",
+            "4d3f2b122f3bad0b-c00002",
+            "3e63e207c636cf56-c00045",
+            "66552bb39271263f-c00022"
+          ],
+          "new_unit_ids": [
+            "3e63e207c636cf56-c00049",
+            "d0ab527c61d96461-c00001",
+            "2383c385675d1e75-c00001",
+            "1cde5d8da7ccbdc5-c00012",
+            "2383c385675d1e75-c00000",
+            "4d3f2b122f3bad0b-c00002",
+            "3e63e207c636cf56-c00045",
+            "66552bb39271263f-c00022"
+          ],
+          "files": [
+            "Nobel_Prize.html",
+            "List_of_Nobel_laureates_in_Physics.html",
+            "1964_Nobel_Prize_in_Literature.html",
+            "John_Bardeen.html",
+            "Nobel_Peace_Prize.html",
+            "Alfred_A._Knopf.html"
+          ],
+          "trace": {
+            "new_files": [
+              "Nobel_Prize.html",
+              "List_of_Nobel_laureates_in_Physics.html",
+              "1964_Nobel_Prize_in_Literature.html",
+              "John_Bardeen.html",
+              "Nobel_Peace_Prize.html",
+              "Alfred_A._Knopf.html"
+            ]
+          },
+          "seconds": 2.42,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 0.5,
+      "evidence_recall_any_step": 0.75
+    },
+    {
+      "id": "G07",
+      "question": "Name another president besides Bill Clinton who attended Yale.",
+      "retriever": "agent_v2",
+      "group": "complex_precision_chunking",
+      "source_suite": "golden_suite_4.1.json",
+      "mechanism": "shared_target_education_edge",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "familiar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "George_W._Bush.html"
+      ],
+      "expected_sources": [
+        "George_W._Bush.html",
+        "Yale_University.html",
+        "Bill_Clinton.html",
+        "Gerald_Ford.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "List_of_presidents_of_the_United_States_by_education.html",
+        "Yale_University.html",
+        "Ivy_League.html",
+        "Bill_Clinton.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "2f95a5be7329cc28-c00014",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.9897
+        },
+        {
+          "unit_id": "aa9f74cce6a73154-c00085",
+          "source_file": "Yale_University.html",
+          "role": "primary",
+          "score": 0.8642
+        },
+        {
+          "unit_id": "aa9f74cce6a73154-c00028",
+          "source_file": "Yale_University.html",
+          "role": "primary",
+          "score": 0.8532
+        },
+        {
+          "unit_id": "1b3e71a846a884c7-c00057",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 0.7895
+        },
+        {
+          "unit_id": "1b3e71a846a884c7-c00055",
+          "source_file": "Ivy_League.html",
+          "role": "primary",
+          "score": 0.6963
+        },
+        {
+          "unit_id": "2f95a5be7329cc28-c00007",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.6943
+        },
+        {
+          "unit_id": "2f95a5be7329cc28-c00009",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.631
+        },
+        {
+          "unit_id": "270eebd3786920c2-c00102",
+          "source_file": "Bill_Clinton.html",
+          "role": "primary",
+          "score": 0.426
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 8867,
+      "evidence_recall": 0.3333333333333333,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "Name another president besides Bill Clinton who attended Yale.",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "2f95a5be7329cc28-c00014",
+              "aa9f74cce6a73154-c00085",
+              "aa9f74cce6a73154-c00028",
+              "1b3e71a846a884c7-c00057",
+              "1b3e71a846a884c7-c00055",
+              "2f95a5be7329cc28-c00007",
+              "2f95a5be7329cc28-c00009",
+              "270eebd3786920c2-c00102"
+            ],
+            "new_unit_ids": [
+              "2f95a5be7329cc28-c00014",
+              "aa9f74cce6a73154-c00085",
+              "aa9f74cce6a73154-c00028",
+              "1b3e71a846a884c7-c00057",
+              "1b3e71a846a884c7-c00055",
+              "2f95a5be7329cc28-c00007",
+              "2f95a5be7329cc28-c00009",
+              "270eebd3786920c2-c00102"
+            ],
+            "files": [
+              "List_of_presidents_of_the_United_States_by_education.html",
+              "Yale_University.html",
+              "Ivy_League.html",
+              "Bill_Clinton.html"
+            ],
+            "trace": {
+              "new_files": [
+                "List_of_presidents_of_the_United_States_by_education.html",
+                "Yale_University.html",
+                "Ivy_League.html",
+                "Bill_Clinton.html"
+              ]
+            },
+            "seconds": 0.73,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 0.73,
+      "source_hit_at_k": 0,
+      "source_recall_at_k": 0.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.75,
+      "chunk_precision_at_k": 0.75,
+      "article_precision": 0.75,
+      "unique_articles_retrieved": 4,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "George W. Bush (or Gerald Ford, George H. W. Bush or William Howard Taft) is named as another Yale-educated president."
+      ],
+      "response": "Gerald Ford attended Yale Law School. [Yale_University.html] “former presidents Gerald Ford and Bill Clinton attended Yale Law School” and [List_of_presidents_of_the_United_States_by_education.html] “Gerald Ford (LLB)”.",
+      "closed_book_response": "George W. Bush also attended Yale.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [],
+      "aspect_coverage": 0.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Gerald Ford attended Yale Law School.",
+          "cited_source": "Yale_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Former presidents Gerald Ford and Bill Clinton attended Yale Law School.",
+          "cited_source": "Yale_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Gerald Ford (LLB).",
+          "cited_source": "List_of_presidents_of_the_United_States_by_education.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 3,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.6666666666666666,
+      "response_quote_count": 2,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 1.0,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.0075545000145212,
+      "judge_latency_seconds": 4.104120700008934,
+      "total_latency_seconds": 8.039315600025002,
+      "agent_wall_seconds": 6.080558899993775,
+      "throttle_seconds": 11.131301299954067,
+      "input_tokens": 14575,
+      "output_tokens": 423,
+      "total_tokens": 14998,
+      "estimated_cost_usd": 0.01283475,
+      "judge_votes": [
+        "fail",
+        "fail",
+        "fail"
+      ],
+      "graded_correctness_votes": [
+        0.0,
+        0.5,
+        0.0
+      ],
+      "correctness_majority": "fail",
+      "graded_correctness_mean": 0.16666666666666666,
+      "rejudge_cost_usd": 0.004236,
+      "agent_version": "v2",
+      "agent_features": [
+        "facets",
+        "sections",
+        "tables"
+      ],
+      "frozen_clues": [],
+      "agent_actions": [
+        "seed",
+        "answer"
+      ],
+      "planned_steps": 0,
+      "stop_reason": "planner_answer",
+      "seed_only_answer": true,
+      "planner_calls": 1,
+      "tool_llm_calls": 0,
+      "llm_calls_total": 2,
+      "planner_input_tokens": 3953,
+      "planner_output_tokens": 170,
+      "planner_latency_seconds": 1.4637814000016078,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 0,
+      "answer_facts": [
+        {
+          "clue": 1,
+          "fact": "George H. W. Bush attended Yale University.",
+          "source": "Ivy_League.html",
+          "quote": "George H. W. Bush; School(s): Yale University",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 1,
+          "fact": "George W. Bush attended Yale University.",
+          "source": "Ivy_League.html",
+          "quote": "George W. Bush; School(s): Yale UniversityHarvard Business School",
+          "verified": true,
+          "reason": ""
+        }
+      ],
+      "answer_facts_verified": 2,
+      "answer_missing": [
+        "Which one ‘another president besides Bill Clinton’ should be named is not uniquely specified, but the question only needs any valid example."
+      ],
+      "answer_clues": [
+        "another president besides Bill Clinton who attended Yale"
+      ],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 8,
+      "units_in_context": 8,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "Name another president besides Bill Clinton who attended Yale.",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "2f95a5be7329cc28-c00014",
+            "aa9f74cce6a73154-c00085",
+            "aa9f74cce6a73154-c00028",
+            "1b3e71a846a884c7-c00057",
+            "1b3e71a846a884c7-c00055",
+            "2f95a5be7329cc28-c00007",
+            "2f95a5be7329cc28-c00009",
+            "270eebd3786920c2-c00102"
+          ],
+          "new_unit_ids": [
+            "2f95a5be7329cc28-c00014",
+            "aa9f74cce6a73154-c00085",
+            "aa9f74cce6a73154-c00028",
+            "1b3e71a846a884c7-c00057",
+            "1b3e71a846a884c7-c00055",
+            "2f95a5be7329cc28-c00007",
+            "2f95a5be7329cc28-c00009",
+            "270eebd3786920c2-c00102"
+          ],
+          "files": [
+            "List_of_presidents_of_the_United_States_by_education.html",
+            "Yale_University.html",
+            "Ivy_League.html",
+            "Bill_Clinton.html"
+          ],
+          "trace": {
+            "new_files": [
+              "List_of_presidents_of_the_United_States_by_education.html",
+              "Yale_University.html",
+              "Ivy_League.html",
+              "Bill_Clinton.html"
+            ]
+          },
+          "seconds": 0.73,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 0.0,
+      "evidence_recall_any_step": 0.3333333333333333
+    },
+    {
+      "id": "G13",
+      "question": "What was the former name of the university where Barack Obama earned his law degree?",
+      "retriever": "agent_v2",
+      "group": "unnamed_entity_graph",
+      "source_suite": "golden_suite_4.1.json",
+      "mechanism": "bridge_education_edge_plus_infobox_alias",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html"
+      ],
+      "expected_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_sources": [
+        "Barack_Obama.html",
+        "Harvard_University.html",
+        "Chicago.html",
+        "List_of_presidents_of_the_United_States_by_education.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "ce083e780cb76d37-c00002",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.9038
+        },
+        {
+          "unit_id": "Harvard_University.html#c00000-c00036",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.7696
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00009",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.7825
+        },
+        {
+          "unit_id": "Harvard_University.html#c00106-c00111",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.7183
+        },
+        {
+          "unit_id": "e28c247c2e7a5487-c00108",
+          "source_file": "Chicago.html",
+          "role": "primary",
+          "score": 0.6317
+        },
+        {
+          "unit_id": "Harvard_University.html#c00092-c00097",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.6554
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00122",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.6224
+        },
+        {
+          "unit_id": "List_of_presidents_of_the_United_States_by_education.html#c00000-c00041",
+          "source_file": "List_of_presidents_of_the_United_States_by_education.html",
+          "role": "primary",
+          "score": 0.6088
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00016",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.5593
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00017",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.4778
+        },
+        {
+          "unit_id": "Harvard_University.html#c00057-c00060",
+          "source_file": "Harvard_University.html",
+          "role": "primary",
+          "score": 0.466
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00123",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.3656
+        },
+        {
+          "unit_id": "ce083e780cb76d37-c00014",
+          "source_file": "Barack_Obama.html",
+          "role": "primary",
+          "score": 0.3396
+        }
+      ],
+      "unit_count": 13,
+      "context_chars": 37484,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "What was the former name of the university where Barack Obama earned his law degree?",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "ce083e780cb76d37-c00002",
+              "ce083e780cb76d37-c00009",
+              "e28c247c2e7a5487-c00108",
+              "ce083e780cb76d37-c00122",
+              "ce083e780cb76d37-c00016",
+              "ce083e780cb76d37-c00017",
+              "ce083e780cb76d37-c00123",
+              "ce083e780cb76d37-c00014"
+            ],
+            "new_unit_ids": [
+              "ce083e780cb76d37-c00002",
+              "ce083e780cb76d37-c00009",
+              "e28c247c2e7a5487-c00108",
+              "ce083e780cb76d37-c00122",
+              "ce083e780cb76d37-c00016",
+              "ce083e780cb76d37-c00017",
+              "ce083e780cb76d37-c00123",
+              "ce083e780cb76d37-c00014"
+            ],
+            "files": [
+              "Barack_Obama.html",
+              "Chicago.html"
+            ],
+            "trace": {
+              "new_files": [
+                "Barack_Obama.html",
+                "Chicago.html"
+              ]
+            },
+            "seconds": 2.967,
+            "error": null
+          },
+          {
+            "step": 1,
+            "action": "chunks",
+            "args": {
+              "query": "Harvard Law School former name",
+              "parent": "lead_section"
+            },
+            "assessment": "The evidence shows that Barack Obama earned his law degree at Harvard Law School, but it does not explicitly state Harvard Law School’s former name.",
+            "missing": [
+              "the former name of Harvard Law School"
+            ],
+            "clues": [
+              "the university where Barack Obama earned his law degree",
+              "its former name"
+            ],
+            "facts": [
+              {
+                "clue": 1,
+                "fact": "Obama earned his law degree at Harvard Law School.",
+                "source": "Barack_Obama.html",
+                "quote": "Obama graduated from Harvard Law in 1991 with a Juris Doctor"
+              },
+              {
+                "clue": 1,
+                "fact": "He enrolled at Harvard Law School in 1988.",
+                "source": "Barack_Obama.html",
+                "quote": "Obama enrolled at Harvard Law School in the fall of 1988"
+              }
+            ],
+            "ranked_unit_ids": [
+              "Harvard_University.html#c00000-c00036",
+              "Harvard_University.html#c00106-c00111",
+              "Harvard_University.html#c00092-c00097",
+              "List_of_presidents_of_the_United_States_by_education.html#c00000-c00041",
+              "Ivy_League.html#c00000-c00057",
+              "Harvard_University.html#c00057-c00060"
+            ],
+            "new_unit_ids": [
+              "Harvard_University.html#c00000-c00036",
+              "Harvard_University.html#c00106-c00111",
+              "Harvard_University.html#c00092-c00097",
+              "List_of_presidents_of_the_United_States_by_education.html#c00000-c00041",
+              "Ivy_League.html#c00000-c00057",
+              "Harvard_University.html#c00057-c00060"
+            ],
+            "files": [
+              "Harvard_University.html",
+              "List_of_presidents_of_the_United_States_by_education.html",
+              "Ivy_League.html"
+            ],
+            "trace": {
+              "child_chunk_ids": [
+                "7f8730199e3c9d3c-c00031",
+                "7f8730199e3c9d3c-c00106",
+                "7f8730199e3c9d3c-c00096",
+                "2f95a5be7329cc28-c00038",
+                "1b3e71a846a884c7-c00057",
+                "7f8730199e3c9d3c-c00059",
+                "ce083e780cb76d37-c00016",
+                "7f8730199e3c9d3c-c00002"
+              ],
+              "new_files": [
+                "Harvard_University.html",
+                "List_of_presidents_of_the_United_States_by_education.html",
+                "Ivy_League.html"
+              ]
+            },
+            "seconds": 0.912,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 3.879,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.9230769230769231,
+      "chunk_precision_at_k": 0.9230769230769231,
+      "article_precision": 0.75,
+      "unique_articles_retrieved": 4,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "Harvard is identified as where Obama earned his law degree.",
+        "Harvard College is given as the former name."
+      ],
+      "response": "Harvard University’s former name was Harvard College.[Harvard_University.html] “Former names | Harvard College”[Harvard_University.html] “Founded in 1636, and named Harvard College in 1639...” Barack Obama earned his law degree from Harvard Law School, which is part of Harvard University.[Barack_Obama.html] “Obama graduated from Harvard Law in 1991 with a Juris Doctor magna cum laude.”",
+      "closed_book_response": "Barack Obama earned his law degree at **Harvard Law School**, which was formerly called **Harvard Law School’s LL.B. program** in the sense that the degree used to be the **Bachelor of Laws (LL.B.)** rather than today’s **J.D.** \n\nIf you mean the university itself, it was **Harvard University**, which was not formerly known by a different name.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Harvard University’s former name was Harvard College.",
+          "cited_source": "Harvard_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Harvard was founded in 1636 and named Harvard College in 1639.",
+          "cited_source": "Harvard_University.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Barack Obama earned his law degree from Harvard Law School.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Harvard Law School is part of Harvard University.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": false,
+          "citation_supported": false,
+          "attributable_to_retrieval": null
+        },
+        {
+          "text": "Obama graduated from Harvard Law in 1991 with a Juris Doctor magna cum laude.",
+          "cited_source": "Barack_Obama.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 5,
+      "graded_groundedness_score": 0.8,
+      "faithfulness": "fail",
+      "citation_support_rate": 0.8,
+      "chunk_attribution_score": 1.0,
+      "response_quote_count": 3,
+      "quote_fidelity_rate": 0.6666666666666666,
+      "quote_attribution_accuracy": 0.6666666666666666,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 1.474602699978277,
+      "judge_latency_seconds": 4.426530000026105,
+      "total_latency_seconds": 14.509769800016423,
+      "agent_wall_seconds": 10.648667100002058,
+      "throttle_seconds": 8.482037800009131,
+      "input_tokens": 52280,
+      "output_tokens": 815,
+      "total_tokens": 53095,
+      "estimated_cost_usd": 0.0428775,
+      "judge_votes": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "graded_correctness_votes": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "correctness_majority": "pass",
+      "graded_correctness_mean": 1.0,
+      "rejudge_cost_usd": 0.016308,
+      "agent_version": "v2",
+      "agent_features": [
+        "facets",
+        "sections",
+        "tables"
+      ],
+      "frozen_clues": [],
+      "agent_actions": [
+        "seed",
+        "chunks:lead_section",
+        "answer"
+      ],
+      "planned_steps": 1,
+      "stop_reason": "planner_answer",
+      "seed_only_answer": false,
+      "planner_calls": 2,
+      "tool_llm_calls": 0,
+      "llm_calls_total": 3,
+      "planner_input_tokens": 9502,
+      "planner_output_tokens": 354,
+      "planner_latency_seconds": 3.6406159000180196,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 0,
+      "answer_facts": [
+        {
+          "clue": 1,
+          "fact": "Obama earned his law degree at Harvard Law School, which is part of Harvard University.",
+          "source": "Barack_Obama.html",
+          "quote": "In 1988, Obama enrolled in Harvard Law School",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 2,
+          "fact": "Harvard University’s former name was Harvard College.",
+          "source": "Harvard_University.html",
+          "quote": "Former names | Harvard College",
+          "verified": true,
+          "reason": ""
+        }
+      ],
+      "answer_facts_verified": 2,
+      "answer_missing": [
+        "The university’s former name must be supported as the answer to the question’s target university, not just as a general fact about Harvard University."
+      ],
+      "answer_clues": [
+        "the university where Barack Obama earned his law degree",
+        "the former name of that university"
+      ],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 14,
+      "units_in_context": 13,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "What was the former name of the university where Barack Obama earned his law degree?",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "ce083e780cb76d37-c00002",
+            "ce083e780cb76d37-c00009",
+            "e28c247c2e7a5487-c00108",
+            "ce083e780cb76d37-c00122",
+            "ce083e780cb76d37-c00016",
+            "ce083e780cb76d37-c00017",
+            "ce083e780cb76d37-c00123",
+            "ce083e780cb76d37-c00014"
+          ],
+          "new_unit_ids": [
+            "ce083e780cb76d37-c00002",
+            "ce083e780cb76d37-c00009",
+            "e28c247c2e7a5487-c00108",
+            "ce083e780cb76d37-c00122",
+            "ce083e780cb76d37-c00016",
+            "ce083e780cb76d37-c00017",
+            "ce083e780cb76d37-c00123",
+            "ce083e780cb76d37-c00014"
+          ],
+          "files": [
+            "Barack_Obama.html",
+            "Chicago.html"
+          ],
+          "trace": {
+            "new_files": [
+              "Barack_Obama.html",
+              "Chicago.html"
+            ]
+          },
+          "seconds": 2.967,
+          "error": null
+        },
+        {
+          "step": 1,
+          "action": "chunks",
+          "args": {
+            "query": "Harvard Law School former name",
+            "parent": "lead_section"
+          },
+          "assessment": "The evidence shows that Barack Obama earned his law degree at Harvard Law School, but it does not explicitly state Harvard Law School’s former name.",
+          "missing": [
+            "the former name of Harvard Law School"
+          ],
+          "clues": [
+            "the university where Barack Obama earned his law degree",
+            "its former name"
+          ],
+          "facts": [
+            {
+              "clue": 1,
+              "fact": "Obama earned his law degree at Harvard Law School.",
+              "source": "Barack_Obama.html",
+              "quote": "Obama graduated from Harvard Law in 1991 with a Juris Doctor"
+            },
+            {
+              "clue": 1,
+              "fact": "He enrolled at Harvard Law School in 1988.",
+              "source": "Barack_Obama.html",
+              "quote": "Obama enrolled at Harvard Law School in the fall of 1988"
+            }
+          ],
+          "ranked_unit_ids": [
+            "Harvard_University.html#c00000-c00036",
+            "Harvard_University.html#c00106-c00111",
+            "Harvard_University.html#c00092-c00097",
+            "List_of_presidents_of_the_United_States_by_education.html#c00000-c00041",
+            "Ivy_League.html#c00000-c00057",
+            "Harvard_University.html#c00057-c00060"
+          ],
+          "new_unit_ids": [
+            "Harvard_University.html#c00000-c00036",
+            "Harvard_University.html#c00106-c00111",
+            "Harvard_University.html#c00092-c00097",
+            "List_of_presidents_of_the_United_States_by_education.html#c00000-c00041",
+            "Ivy_League.html#c00000-c00057",
+            "Harvard_University.html#c00057-c00060"
+          ],
+          "files": [
+            "Harvard_University.html",
+            "List_of_presidents_of_the_United_States_by_education.html",
+            "Ivy_League.html"
+          ],
+          "trace": {
+            "child_chunk_ids": [
+              "7f8730199e3c9d3c-c00031",
+              "7f8730199e3c9d3c-c00106",
+              "7f8730199e3c9d3c-c00096",
+              "2f95a5be7329cc28-c00038",
+              "1b3e71a846a884c7-c00057",
+              "7f8730199e3c9d3c-c00059",
+              "ce083e780cb76d37-c00016",
+              "7f8730199e3c9d3c-c00002"
+            ],
+            "new_files": [
+              "Harvard_University.html",
+              "List_of_presidents_of_the_United_States_by_education.html",
+              "Ivy_League.html"
+            ]
+          },
+          "seconds": 0.912,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 1.0,
+      "evidence_recall_any_step": 1.0
+    }
+  ]
+}

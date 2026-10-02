@@ -8,6 +8,8 @@ Provides functions to:
 1. Extract the main text from HTML files.
 2. Process HTML files into document chunks that include links and come with metadata.
 3. Create nodes and edges needed to build a graph of articles and their hyperlink relationships.
+4. Optionally rewrite wikitables before extraction (render_tables=True) so each table row
+   or award cell carries its own labels; see render_wikitables().
 
 1. To extract the main text from HTML files, use the `extract_wikipedia_text` function e.g.
 
@@ -40,13 +42,14 @@ and WIKIPEDIA_GRAPH_DATA.edges while using WIKIPEDIA_GRAPH_DATA.documents for ve
 The function process_wikipedia_with_nodes_and_edges performs the extraction and normalization; it does not itself create a NetworkX graph.
 
 """
+import copy
 import os
 import re
 import hashlib
 from dataclasses import dataclass
 from urllib.parse import unquote, urlparse
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 import trafilatura
 from langchain_core.documents import Document
 from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
@@ -185,6 +188,189 @@ def extract_infobox_data(
     return edges, properties
 
 
+# Table rendering (opt-in; used by the Checkpoint 5.1 v2 agent's index)
+
+MAX_TABLE_COLUMNS = 20
+MAX_CELL_HEADING_CHARS = 100
+
+
+def _own_rows(table: Tag) -> list[Tag]:
+    return [row for row in table.find_all("tr") if row.find_parent("table") is table]
+
+
+def _cells(row: Tag) -> list[Tag]:
+    return row.find_all(["th", "td"], recursive=False)
+
+
+def _span(cell: Tag, name: str) -> int:
+    try:
+        return max(1, min(int(re.sub(r"\D", "", cell.get(name, "1")) or 1), 50))
+    except ValueError:
+        return 1
+
+
+def _grid(rows: list[Tag]) -> list[list[Tag | None]]:
+    """Rows x columns of cells with rowspan/colspan expanded (a spanning cell
+    appears in every position it covers)."""
+    grid: list[list[Tag | None]] = []
+    pending: dict[tuple[int, int], Tag] = {}
+    for r, row in enumerate(rows):
+        line: list[Tag | None] = []
+        col = 0
+        for cell in _cells(row):
+            while (r, col) in pending:
+                line.append(pending.pop((r, col)))
+                col += 1
+            rowspan, colspan = _span(cell, "rowspan"), _span(cell, "colspan")
+            for c in range(colspan):
+                line.append(cell)
+                for extra in range(1, rowspan):
+                    pending[(r + extra, col + c)] = cell
+            col += colspan
+        while (r, col) in pending:
+            line.append(pending.pop((r, col)))
+            col += 1
+        grid.append(line)
+    return grid
+
+
+def _inner_html(cell: Tag, unwrap_bold: bool) -> str:
+    cell = copy.copy(cell)
+    for sup in cell.find_all("sup", class_="reference"):
+        sup.decompose()
+    for br in cell.find_all("br"):
+        br.replace_with(" ")
+    if unwrap_bold:
+        for bold in cell.find_all(["b", "strong"]):
+            bold.unwrap()
+    return "".join(str(child) for child in cell.contents).strip()
+
+
+def _text(cell: Tag | None) -> str:
+    return re.sub(r"\s+", " ", cell.get_text(" ", strip=True)) if cell is not None else ""
+
+
+def _is_layout(table: Tag) -> bool:
+    """A grid of 'heading + list' cells, e.g. the Academy Awards winners table."""
+    for cell in table.find_all("td"):
+        lists = cell.find(["ul", "ol"], recursive=False)
+        if lists is not None:
+            first = next((child for child in cell.children if isinstance(child, Tag)), None)
+            if first is not None and first.name not in ("ul", "ol") and 0 < len(_text(first)) <= MAX_CELL_HEADING_CHARS:
+                return True
+    return False
+
+
+def _render_layout(soup: BeautifulSoup, table: Tag) -> Tag:
+    """Each cell becomes '<b>Heading</b>: item; item; ...' as one paragraph."""
+    out = soup.new_tag("div")
+    for cell in table.find_all(["td", "th"]):
+        if cell.find_parent("table") is not table:
+            continue
+        heading_parts, items = [], []
+        for child in cell.children:
+            if isinstance(child, Tag) and child.name in ("ul", "ol"):
+                for item in child.find_all("li"):
+                    item = copy.copy(item)
+                    for nested in item.find_all(["ul", "ol"]):
+                        nested.decompose()
+                    html = _inner_html(item, unwrap_bold=False)
+                    if html:
+                        items.append(html)
+            elif not items:
+                # Plain text: the heading usually sits in a <div>, which cannot
+                # be nested inside the <p> built below.
+                text = re.sub(r"\s+", " ", child) if isinstance(child, str) else _text(child)
+                if text.strip():
+                    heading_parts.append(text.strip())
+        heading = " ".join(heading_parts).strip()
+        if not heading and not items:
+            continue
+        paragraph = BeautifulSoup(
+            f"<p><b>{heading}</b>: {'; '.join(items)}</p>" if heading and items
+            else f"<p>{heading or '; '.join(items)}</p>", "html.parser")
+        out.append(paragraph)
+    return out
+
+
+def _render_data(soup: BeautifulSoup, table: Tag) -> Tag | None:
+    """Header rows are merged into one label per column; every data row
+    becomes a list item 'Label: value; Label: value; ...'."""
+    rows = _own_rows(table)
+    grid = _grid(rows)
+    header_count = 0
+    for row in rows:
+        if _cells(row) and all(cell.name == "th" for cell in _cells(row)):
+            header_count += 1
+        else:
+            break
+    if header_count == 0 or header_count == len(rows):
+        return None
+    width = max(len(line) for line in grid)
+    if width > MAX_TABLE_COLUMNS:
+        return None
+    labels = []
+    for col in range(width):
+        parts: list[str] = []
+        for line in grid[:header_count]:
+            text = _text(line[col]) if col < len(line) else ""
+            text = re.sub(r"\[\s*[a-z0-9]{1,3}\s*\]", "", text).strip()
+            if text and text not in parts:
+                parts.append(text)
+        labels.append(" ".join(parts))
+    out = soup.new_tag("div")
+    if table.caption is not None:
+        caption = re.sub(r"\[\s*[a-z0-9]{1,3}\s*\]", "", _text(table.caption)).strip()
+        if caption:
+            out.append(BeautifulSoup(f"<p><b>{caption}</b></p>", "html.parser"))
+    items = soup.new_tag("ul")
+    for line in grid[header_count:]:
+        distinct = list(dict.fromkeys(cell for cell in line if cell is not None))
+        if len(distinct) == 1 and width > 1:          # a full-width note row
+            out.append(BeautifulSoup(f"<p>{_inner_html(distinct[0], True)}</p>", "html.parser"))
+            continue
+        fields, seen = [], set()
+        for col, cell in enumerate(line):
+            if cell is None or (id(cell), labels[col] if col < len(labels) else "") in seen:
+                continue
+            seen.add((id(cell), labels[col] if col < len(labels) else ""))
+            value = _inner_html(cell, unwrap_bold=True)
+            if not _text(cell):
+                continue
+            label = labels[col] if col < len(labels) else ""
+            fields.append(f"{label}: {value}" if label else value)
+        if fields:
+            items.append(BeautifulSoup(f"<li>{'; '.join(fields)}</li>", "html.parser"))
+    out.append(items)
+    return out
+
+
+def render_wikitables(html: str) -> str:
+    """Rewrite every table.wikitable so trafilatura's markdown keeps its labels.
+
+    trafilatura drops the heading inside a layout cell (the 95th Academy
+    Awards grid loses "Best Actor in a Leading Role" and keeps only the
+    nominee list) and renders data tables with split, unlabelled header rows.
+    Here a layout table becomes one "Heading: item; item" paragraph per cell,
+    and a data table becomes one "Label: value; Label: value" list item per
+    row, header rows merged and row/column spans expanded, so every record
+    carries its own labels wherever a chunk boundary falls. Tables that
+    cannot be parsed are left unchanged. Infoboxes and navboxes are not
+    wikitables and are untouched.
+    """
+    soup = BeautifulSoup(html, "lxml")
+    for table in soup.select("table.wikitable"):
+        if table.find_parent("table") is not None:
+            continue                                   # nested: handled with its parent
+        try:
+            replacement = _render_layout(soup, table) if _is_layout(table) else _render_data(soup, table)
+        except Exception:
+            replacement = None                         # leave any table we cannot parse as it was
+        if replacement is not None:
+            table.replace_with(replacement)
+    return str(soup)
+
+
 def extract_wikipedia_text(directory_path: str) -> list[tuple[str, str]]:
     """Return the filename and extracted main text for each HTML file."""
     articles = []
@@ -217,9 +403,13 @@ def process_wikipedia_with_links(
 
 
 def process_wikipedia_with_nodes_and_edges(
-    directory_path: str, max_chunk_chars: int = 2000
+    directory_path: str, max_chunk_chars: int = 2000, render_tables: bool = False
 ) -> WikipediaGraphData:
-    """Extract document chunks plus normalized article nodes and hyperlink edges."""
+    """Extract document chunks plus normalized article nodes and hyperlink edges.
+
+    render_tables=True passes the HTML through render_wikitables() before
+    text extraction. Nodes and edges are unaffected; only chunk text changes.
+    """
     all_chunks = []
     nodes = []
     edges = []
@@ -336,8 +526,9 @@ def process_wikipedia_with_nodes_and_edges(
                 )
 
             # --- Text chunks ---
+            text_html = render_wikitables(html_content) if render_tables else html_content
             markdown_text = trafilatura.extract(
-                html_content, output_format="markdown", include_links=True
+                text_html, output_format="markdown", include_links=True
             )
             if not markdown_text:
                 raise ValueError("Trafilatura extracted no article text")

@@ -1,0 +1,2957 @@
+{
+  "configuration": {
+    "run_label": "v2-without-tables-answer-claude-haiku-4.5",
+    "planner_model": "openai/gpt-5.4-mini",
+    "answer_model": "anthropic/claude-haiku-4.5",
+    "judge_model": "openai/gpt-5.4-mini",
+    "reasoning_effort": null,
+    "v2_features": [
+      "sections",
+      "clues",
+      "facets"
+    ],
+    "chunk_index": "wikipedia_chunks2000_cache",
+    "retriever": "agent_v2",
+    "agent_version": "v2",
+    "actions": [
+      "answer",
+      "chunks",
+      "clarify",
+      "decompose",
+      "graph",
+      "read_section",
+      "title_search"
+    ],
+    "seed": {
+      "retriever": "chunks",
+      "top_k": 8,
+      "candidate_pool": 40,
+      "parent": "none"
+    },
+    "max_planned_steps": 3,
+    "max_clarify": 1,
+    "planner_evidence_chars": 16000,
+    "context_budget_chars": 40000,
+    "rrf_k": 60,
+    "step_guarantee": 3,
+    "title_max_files": 5,
+    "weight_bm25": 0.5,
+    "weight_vector": 0.5,
+    "max_chunk_chars": 2000,
+    "graph": {
+      "seed_k": 4,
+      "max_category_size": 150,
+      "relation_weights": {
+        "category_match": 4.0,
+        "infobox": 3.0,
+        "category": 2.0,
+        "link": 1.0
+      }
+    },
+    "llm_model": "openai/gpt-5.4-mini",
+    "embedding_model": "openai/text-embedding-3-small",
+    "temperature": 0.2,
+    "run_at": "2026-09-29T10:00:58"
+  },
+  "results": [
+    {
+      "id": "Q049",
+      "question": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+      "retriever": "agent_v2",
+      "group": "comparative_decomposition",
+      "source_suite": "golden_suite.subset.wholecorpus.json",
+      "mechanism": null,
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html"
+      ],
+      "expected_sources": [
+        "95th_Academy_Awards.html",
+        "Brendan_Fraser.html",
+        "Academy_Award_for_Best_Actor.html",
+        "Austin_Butler.html",
+        "Colin_Farrell.html",
+        "Paul_Mescal.html",
+        "Bill_Nighy.html"
+      ],
+      "retrieved_sources": [
+        "95th_Academy_Awards.html",
+        "Academy_Award_for_Best_Supporting_Actor.html",
+        "The_Wolf_of_Wall_Street_(2013_film).html",
+        "Mark_Lee_(singer).html",
+        "Academy_Award_for_Best_Actor.html",
+        "89th_Academy_Awards.html",
+        "85th_Academy_Awards.html",
+        "74th_Academy_Awards.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "110a1f26b577e6e7-c00002",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "110a1f26b577e6e7-c00003",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "110a1f26b577e6e7-c00004",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "110a1f26b577e6e7-c00005",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "110a1f26b577e6e7-c00006",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "110a1f26b577e6e7-c00007",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "f4e49e2bb44a4357-c00003",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html",
+          "role": "primary",
+          "score": 0.5669
+        },
+        {
+          "unit_id": "22662e147b40523a-c00003",
+          "source_file": "The_Wolf_of_Wall_Street_(2013_film).html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "a5b20f1a2caeafe7-c00015",
+          "source_file": "Mark_Lee_(singer).html",
+          "role": "primary",
+          "score": 0.437
+        },
+        {
+          "unit_id": "599ff25cc439b524-c00003",
+          "source_file": "Academy_Award_for_Best_Actor.html",
+          "role": "primary",
+          "score": 0.43
+        },
+        {
+          "unit_id": "86da3fa9f040ab84-c00001",
+          "source_file": "89th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.4285
+        },
+        {
+          "unit_id": "f03136cff601fca1-c00004",
+          "source_file": "85th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.4199
+        },
+        {
+          "unit_id": "110a1f26b577e6e7-c00000",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.3896
+        },
+        {
+          "unit_id": "54cc717f4dc58b8c-c00004",
+          "source_file": "74th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.3808
+        }
+      ],
+      "unit_count": 14,
+      "context_chars": 13755,
+      "evidence_recall": 0.6666666666666666,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "f4e49e2bb44a4357-c00003",
+              "22662e147b40523a-c00003",
+              "a5b20f1a2caeafe7-c00015",
+              "599ff25cc439b524-c00003",
+              "86da3fa9f040ab84-c00001",
+              "f03136cff601fca1-c00004",
+              "110a1f26b577e6e7-c00000",
+              "54cc717f4dc58b8c-c00004"
+            ],
+            "new_unit_ids": [
+              "f4e49e2bb44a4357-c00003",
+              "22662e147b40523a-c00003",
+              "a5b20f1a2caeafe7-c00015",
+              "599ff25cc439b524-c00003",
+              "86da3fa9f040ab84-c00001",
+              "f03136cff601fca1-c00004",
+              "110a1f26b577e6e7-c00000",
+              "54cc717f4dc58b8c-c00004"
+            ],
+            "files": [
+              "Academy_Award_for_Best_Supporting_Actor.html",
+              "The_Wolf_of_Wall_Street_(2013_film).html",
+              "Mark_Lee_(singer).html",
+              "Academy_Award_for_Best_Actor.html",
+              "89th_Academy_Awards.html",
+              "85th_Academy_Awards.html",
+              "95th_Academy_Awards.html",
+              "74th_Academy_Awards.html"
+            ],
+            "trace": {
+              "new_files": [
+                "Academy_Award_for_Best_Supporting_Actor.html",
+                "The_Wolf_of_Wall_Street_(2013_film).html",
+                "Mark_Lee_(singer).html",
+                "Academy_Award_for_Best_Actor.html",
+                "89th_Academy_Awards.html",
+                "85th_Academy_Awards.html",
+                "95th_Academy_Awards.html",
+                "74th_Academy_Awards.html"
+              ]
+            },
+            "seconds": 2.813,
+            "error": null
+          },
+          {
+            "step": 1,
+            "action": "read_section",
+            "args": {
+              "file": "95th_Academy_Awards.html",
+              "section": "Winners and nominees",
+              "query": "Best Actor nominee field notable whole nominee field"
+            },
+            "assessment": "The evidence identifies the 95th Academy Awards and notes the Best Picture winner, but it does not yet state the Best Actor winner or the notable feature of the nominee field.",
+            "missing": [
+              "the Best Actor winner at the 95th Academy Awards",
+              "what was notable about the whole nominee field that year"
+            ],
+            "clues": [
+              "the 95th ceremony",
+              "that year",
+              "won Best Actor",
+              "what was notable about the whole nominee field"
+            ],
+            "facts": [
+              {
+                "clue": 1,
+                "fact": "The 95th Academy Awards took place on March 12, 2023.",
+                "source": "95th_Academy_Awards.html",
+                "quote": "The 95th Academy Awards ceremony... took place on March 12, 2023"
+              },
+              {
+                "clue": 2,
+                "fact": "The ceremony honored films released in 2022.",
+                "source": "95th_Academy_Awards.html",
+                "quote": "honoring films released in 2022"
+              },
+              {
+                "clue": 4,
+                "fact": "The available evidence does not yet state what was notable about the whole nominee field.",
+                "source": "95th_Academy_Awards.html",
+                "quote": "Most nominations | *Everything Everywhere All at Once* (11)"
+              }
+            ],
+            "ranked_unit_ids": [
+              "110a1f26b577e6e7-c00002",
+              "110a1f26b577e6e7-c00003",
+              "110a1f26b577e6e7-c00004",
+              "110a1f26b577e6e7-c00005",
+              "110a1f26b577e6e7-c00006",
+              "110a1f26b577e6e7-c00007"
+            ],
+            "new_unit_ids": [
+              "110a1f26b577e6e7-c00002",
+              "110a1f26b577e6e7-c00003",
+              "110a1f26b577e6e7-c00004",
+              "110a1f26b577e6e7-c00005",
+              "110a1f26b577e6e7-c00006",
+              "110a1f26b577e6e7-c00007"
+            ],
+            "files": [
+              "95th_Academy_Awards.html"
+            ],
+            "trace": {
+              "file": "95th_Academy_Awards.html",
+              "section": "Winners and nominees",
+              "matched_chunks": 13,
+              "read_chunks": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "new_files": []
+            },
+            "seconds": 0.485,
+            "error": null
+          },
+          {
+            "step": 2,
+            "action": "read_section",
+            "args": {
+              "file": "95th_Academy_Awards.html",
+              "section": "Winners and nominees › Awards",
+              "query": "Best Actor winner"
+            },
+            "assessment": "The evidence identifies the 95th Academy Awards and says the Best Actor nominees were all first-time nominees, but it does not yet explicitly state the Best Actor winner in the 95th ceremony in the passage shown.",
+            "missing": [
+              "the Best Actor winner at the 95th ceremony"
+            ],
+            "clues": [
+              "the 95th ceremony",
+              "that year",
+              "won Best Actor",
+              "what was notable about the whole nominee field"
+            ],
+            "facts": [
+              {
+                "clue": 1,
+                "fact": "The 95th Academy Awards ceremony took place on March 12, 2023.",
+                "source": "95th_Academy_Awards.html",
+                "quote": "The 95th Academy Awards ceremony ... took place on March 12, 2023"
+              },
+              {
+                "clue": 2,
+                "fact": "That year, the Best Actor nominees were all first-time nominees.",
+                "source": "95th_Academy_Awards.html",
+                "quote": "all five Best Actor nominees were first-time nominees"
+              },
+              {
+                "clue": 4,
+                "fact": "What was notable about the whole nominee field was that all five Best Actor nominees were first-time nominees.",
+                "source": "95th_Academy_Awards.html",
+                "quote": "all five Best Actor nominees were first-time nominees"
+              }
+            ],
+            "ranked_unit_ids": [
+              "110a1f26b577e6e7-c00002",
+              "110a1f26b577e6e7-c00003",
+              "110a1f26b577e6e7-c00004",
+              "110a1f26b577e6e7-c00005",
+              "110a1f26b577e6e7-c00006",
+              "110a1f26b577e6e7-c00007"
+            ],
+            "new_unit_ids": [],
+            "files": [
+              "95th_Academy_Awards.html"
+            ],
+            "trace": {
+              "file": "95th_Academy_Awards.html",
+              "section": "Winners and nominees › Awards",
+              "matched_chunks": 13,
+              "read_chunks": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "new_files": []
+            },
+            "seconds": 0.29,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 3.588,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 0.5,
+      "source_recall_at_3_articles": 0.5,
+      "source_precision_at_k": 0.5714285714285714,
+      "chunk_precision_at_k": 0.5714285714285714,
+      "article_precision": 0.25,
+      "unique_articles_retrieved": 8,
+      "source_recall_strict": 0.0,
+      "all_required_present": false,
+      "required_aspects": [
+        "Brendan Fraser won Best Actor for playing Charlie in The Whale.",
+        "Notably, for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+        "The other nominees were Austin Butler (Elvis), Colin Farrell (The Banshees of Inisherin), Paul Mescal (Aftersun) and Bill Nighy (Living)."
+      ],
+      "response": "[95th_Academy_Awards.html] Brendan Fraser won Best Actor at the 95th Academy Awards for his role in *The Whale*. [95th_Academy_Awards.html] What was notable about the whole Best Actor nominee field that year is that \"for the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.\"",
+      "closed_book_response": "# 95th Academy Awards (2023)\n\n**Best Actor Winner:** Austin Butler won Best Actor for his role in \"Elvis.\"\n\n**Notable about the nominee field:** The 2023 ceremony was notable for being heavily dominated by one film - \"Everything Everywhere All at Once\" - which received a record-breaking number of nominations and won multiple awards across various categories. \n\nMore specifically regarding the Best Actor category, it was notable for featuring Austin Butler's win, as he was a relatively younger actor at the time gaining major recognition. The field that year also reflected a mix of established actors and some newer talent.\n\nHowever, I should note that I'm not entirely certain about specific details regarding what made the overall nominee field particularly distinctive that year beyond the \"Everything Everywhere All at Once\" phenomenon. If you're looking for more specific observations about the 2023 Best Actor nominees as a group, I'd recommend checking the official Academy Awards records for more precise details.",
+      "correctness": "fail",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Brendan Fraser won Best Actor at the 95th Academy Awards for his role in *The Whale*.",
+          "cited_source": "95th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "For the first time since the 7th ceremony in 1935, all five Best Actor nominees were first-time nominees.",
+          "cited_source": "95th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 2,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 1.0,
+      "response_quote_count": 1,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 1.0,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 1.7374814999930095,
+      "judge_latency_seconds": 3.6399665999924764,
+      "total_latency_seconds": 18.50846749999281,
+      "agent_wall_seconds": 16.95656489999965,
+      "throttle_seconds": 10.310555200045929,
+      "input_tokens": 34564,
+      "output_tokens": 1399,
+      "total_tokens": 35963,
+      "estimated_cost_usd": 0.033600500000000005,
+      "planner_model": "openai/gpt-5.4-mini",
+      "answer_model": "anthropic/claude-haiku-4.5",
+      "reasoning_effort": null,
+      "answer_cost_usd": 0.006404,
+      "planner_cost_usd": 0.016476,
+      "judge_votes": [
+        "fail",
+        "pass",
+        "pass"
+      ],
+      "graded_correctness_votes": [
+        1.0,
+        1.0,
+        0.75
+      ],
+      "correctness_majority": "pass",
+      "graded_correctness_mean": 0.9166666666666666,
+      "rejudge_cost_usd": 0.006933,
+      "agent_version": "v2",
+      "agent_features": [
+        "clues",
+        "facets",
+        "sections"
+      ],
+      "frozen_clues": [
+        "the 95th ceremony",
+        "that year",
+        "won Best Actor",
+        "what was notable about the whole nominee field"
+      ],
+      "agent_actions": [
+        "seed",
+        "read_section",
+        "read_section",
+        "answer"
+      ],
+      "planned_steps": 2,
+      "stop_reason": "planner_answer",
+      "seed_only_answer": false,
+      "planner_calls": 3,
+      "tool_llm_calls": 1,
+      "llm_calls_total": 5,
+      "planner_input_tokens": 16100,
+      "planner_output_tokens": 888,
+      "planner_latency_seconds": 5.677468699985184,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 0,
+      "answer_facts": [
+        {
+          "clue": 1,
+          "fact": "95th Academy Awards took place on March 12, 2023",
+          "source": "95th_Academy_Awards.html",
+          "quote": "The **95th Academy Awards** ceremony... took place on March 12, 2023",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 2,
+          "fact": "the year was 2023",
+          "source": "95th_Academy_Awards.html",
+          "quote": "The nominees for the 95th Academy Awards were announced on January 24, 2023",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 4,
+          "fact": "all five Best Actor nominees were first-time nominees",
+          "source": "95th_Academy_Awards.html",
+          "quote": "all five Best Actor nominees were first-time nominees",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 3,
+          "fact": "Brendan Fraser won Best Actor for *The Whale* as Charlie",
+          "source": "95th_Academy_Awards.html",
+          "quote": "**Brendan Fraser – *The Whale* as Charlie**",
+          "verified": true,
+          "reason": ""
+        }
+      ],
+      "answer_facts_verified": 4,
+      "answer_missing": [
+        "the Best Actor winner at the 95th ceremony",
+        "what was notable about the whole nominee field, stated as the question asks"
+      ],
+      "answer_clues": [
+        "the 95th ceremony",
+        "that year",
+        "won Best Actor",
+        "what was notable about the whole nominee field"
+      ],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 14,
+      "units_in_context": 14,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "f4e49e2bb44a4357-c00003",
+            "22662e147b40523a-c00003",
+            "a5b20f1a2caeafe7-c00015",
+            "599ff25cc439b524-c00003",
+            "86da3fa9f040ab84-c00001",
+            "f03136cff601fca1-c00004",
+            "110a1f26b577e6e7-c00000",
+            "54cc717f4dc58b8c-c00004"
+          ],
+          "new_unit_ids": [
+            "f4e49e2bb44a4357-c00003",
+            "22662e147b40523a-c00003",
+            "a5b20f1a2caeafe7-c00015",
+            "599ff25cc439b524-c00003",
+            "86da3fa9f040ab84-c00001",
+            "f03136cff601fca1-c00004",
+            "110a1f26b577e6e7-c00000",
+            "54cc717f4dc58b8c-c00004"
+          ],
+          "files": [
+            "Academy_Award_for_Best_Supporting_Actor.html",
+            "The_Wolf_of_Wall_Street_(2013_film).html",
+            "Mark_Lee_(singer).html",
+            "Academy_Award_for_Best_Actor.html",
+            "89th_Academy_Awards.html",
+            "85th_Academy_Awards.html",
+            "95th_Academy_Awards.html",
+            "74th_Academy_Awards.html"
+          ],
+          "trace": {
+            "new_files": [
+              "Academy_Award_for_Best_Supporting_Actor.html",
+              "The_Wolf_of_Wall_Street_(2013_film).html",
+              "Mark_Lee_(singer).html",
+              "Academy_Award_for_Best_Actor.html",
+              "89th_Academy_Awards.html",
+              "85th_Academy_Awards.html",
+              "95th_Academy_Awards.html",
+              "74th_Academy_Awards.html"
+            ]
+          },
+          "seconds": 2.813,
+          "error": null
+        },
+        {
+          "step": 1,
+          "action": "read_section",
+          "args": {
+            "file": "95th_Academy_Awards.html",
+            "section": "Winners and nominees",
+            "query": "Best Actor nominee field notable whole nominee field"
+          },
+          "assessment": "The evidence identifies the 95th Academy Awards and notes the Best Picture winner, but it does not yet state the Best Actor winner or the notable feature of the nominee field.",
+          "missing": [
+            "the Best Actor winner at the 95th Academy Awards",
+            "what was notable about the whole nominee field that year"
+          ],
+          "clues": [
+            "the 95th ceremony",
+            "that year",
+            "won Best Actor",
+            "what was notable about the whole nominee field"
+          ],
+          "facts": [
+            {
+              "clue": 1,
+              "fact": "The 95th Academy Awards took place on March 12, 2023.",
+              "source": "95th_Academy_Awards.html",
+              "quote": "The 95th Academy Awards ceremony... took place on March 12, 2023"
+            },
+            {
+              "clue": 2,
+              "fact": "The ceremony honored films released in 2022.",
+              "source": "95th_Academy_Awards.html",
+              "quote": "honoring films released in 2022"
+            },
+            {
+              "clue": 4,
+              "fact": "The available evidence does not yet state what was notable about the whole nominee field.",
+              "source": "95th_Academy_Awards.html",
+              "quote": "Most nominations | *Everything Everywhere All at Once* (11)"
+            }
+          ],
+          "ranked_unit_ids": [
+            "110a1f26b577e6e7-c00002",
+            "110a1f26b577e6e7-c00003",
+            "110a1f26b577e6e7-c00004",
+            "110a1f26b577e6e7-c00005",
+            "110a1f26b577e6e7-c00006",
+            "110a1f26b577e6e7-c00007"
+          ],
+          "new_unit_ids": [
+            "110a1f26b577e6e7-c00002",
+            "110a1f26b577e6e7-c00003",
+            "110a1f26b577e6e7-c00004",
+            "110a1f26b577e6e7-c00005",
+            "110a1f26b577e6e7-c00006",
+            "110a1f26b577e6e7-c00007"
+          ],
+          "files": [
+            "95th_Academy_Awards.html"
+          ],
+          "trace": {
+            "file": "95th_Academy_Awards.html",
+            "section": "Winners and nominees",
+            "matched_chunks": 13,
+            "read_chunks": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "new_files": []
+          },
+          "seconds": 0.485,
+          "error": null
+        },
+        {
+          "step": 2,
+          "action": "read_section",
+          "args": {
+            "file": "95th_Academy_Awards.html",
+            "section": "Winners and nominees › Awards",
+            "query": "Best Actor winner"
+          },
+          "assessment": "The evidence identifies the 95th Academy Awards and says the Best Actor nominees were all first-time nominees, but it does not yet explicitly state the Best Actor winner in the 95th ceremony in the passage shown.",
+          "missing": [
+            "the Best Actor winner at the 95th ceremony"
+          ],
+          "clues": [
+            "the 95th ceremony",
+            "that year",
+            "won Best Actor",
+            "what was notable about the whole nominee field"
+          ],
+          "facts": [
+            {
+              "clue": 1,
+              "fact": "The 95th Academy Awards ceremony took place on March 12, 2023.",
+              "source": "95th_Academy_Awards.html",
+              "quote": "The 95th Academy Awards ceremony ... took place on March 12, 2023"
+            },
+            {
+              "clue": 2,
+              "fact": "That year, the Best Actor nominees were all first-time nominees.",
+              "source": "95th_Academy_Awards.html",
+              "quote": "all five Best Actor nominees were first-time nominees"
+            },
+            {
+              "clue": 4,
+              "fact": "What was notable about the whole nominee field was that all five Best Actor nominees were first-time nominees.",
+              "source": "95th_Academy_Awards.html",
+              "quote": "all five Best Actor nominees were first-time nominees"
+            }
+          ],
+          "ranked_unit_ids": [
+            "110a1f26b577e6e7-c00002",
+            "110a1f26b577e6e7-c00003",
+            "110a1f26b577e6e7-c00004",
+            "110a1f26b577e6e7-c00005",
+            "110a1f26b577e6e7-c00006",
+            "110a1f26b577e6e7-c00007"
+          ],
+          "new_unit_ids": [],
+          "files": [
+            "95th_Academy_Awards.html"
+          ],
+          "trace": {
+            "file": "95th_Academy_Awards.html",
+            "section": "Winners and nominees › Awards",
+            "matched_chunks": 13,
+            "read_chunks": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "new_files": []
+          },
+          "seconds": 0.29,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 0.5,
+      "evidence_recall_any_step": 0.6666666666666666
+    },
+    {
+      "id": "Q003",
+      "question": "Compare the Academy Awards ceremonies held a decade apart: who hosted the 85th and 95th ceremonies, and which film won Best Picture at each?",
+      "retriever": "agent_v2",
+      "group": "multi_entity_precision",
+      "source_suite": "golden_suite_2.1.json",
+      "mechanism": null,
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html"
+      ],
+      "expected_sources": [
+        "85th_Academy_Awards.html",
+        "95th_Academy_Awards.html"
+      ],
+      "retrieved_sources": [
+        "95th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html",
+        "85th_Academy_Awards.html",
+        "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+        "Academy_Award_for_Best_Production_Design.html",
+        "List_of_awards_and_nominations_received_by_Denzel_Washington.html",
+        "Academy_Award_for_Best_Actor.html",
+        "Academy_Award_for_Best_Animated_Feature.html",
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "110a1f26b577e6e7-c00000",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "7584ab2c6b497c73-c00000",
+          "source_file": "Academy_Award_for_Best_Picture.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "f03136cff601fca1-c00000",
+          "source_file": "85th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "List_of_awards_and_nominations_received_by_Steven_Spielberg.html#c00000-c00024",
+          "source_file": "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+          "role": "primary",
+          "score": 0.8123
+        },
+        {
+          "unit_id": "b51c20e390fe1693-c00034",
+          "source_file": "Academy_Award_for_Best_Production_Design.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "f03136cff601fca1-c00004",
+          "source_file": "85th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Production_Design.html#c00000-c00037",
+          "source_file": "Academy_Award_for_Best_Production_Design.html",
+          "role": "primary",
+          "score": 0.6858
+        },
+        {
+          "unit_id": "List_of_awards_and_nominations_received_by_Denzel_Washington.html#c00000-c00016",
+          "source_file": "List_of_awards_and_nominations_received_by_Denzel_Washington.html",
+          "role": "primary",
+          "score": 0.3273
+        },
+        {
+          "unit_id": "599ff25cc439b524-c00040",
+          "source_file": "Academy_Award_for_Best_Actor.html",
+          "role": "primary",
+          "score": 0.4105
+        },
+        {
+          "unit_id": "110a1f26b577e6e7-c00003",
+          "source_file": "95th_Academy_Awards.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "Academy_Award_for_Best_Animated_Feature.html#c00000-c00034",
+          "source_file": "Academy_Award_for_Best_Animated_Feature.html",
+          "role": "primary",
+          "score": 0.3246
+        },
+        {
+          "unit_id": "7e14c0ec0e7bf7d7-c00040",
+          "source_file": "Academy_Award_for_Best_Director.html",
+          "role": "primary",
+          "score": 0.3577
+        },
+        {
+          "unit_id": "f03136cff601fca1-c00028",
+          "source_file": "85th_Academy_Awards.html",
+          "role": "primary",
+          "score": 0.294
+        }
+      ],
+      "unit_count": 13,
+      "context_chars": 39860,
+      "evidence_recall": 0.25,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "Compare the Academy Awards ceremonies held a decade apart: who hosted the 85th and 95th ceremonies, and which film won Best Picture at each?",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "7584ab2c6b497c73-c00000",
+              "b51c20e390fe1693-c00034",
+              "198df6a3abe7cc47-c00020",
+              "599ff25cc439b524-c00040",
+              "7e14c0ec0e7bf7d7-c00040",
+              "f4e49e2bb44a4357-c00039",
+              "7e14c0ec0e7bf7d7-c00044",
+              "6a36616b15cd55c5-c00031"
+            ],
+            "new_unit_ids": [
+              "7584ab2c6b497c73-c00000",
+              "b51c20e390fe1693-c00034",
+              "198df6a3abe7cc47-c00020",
+              "599ff25cc439b524-c00040",
+              "7e14c0ec0e7bf7d7-c00040",
+              "f4e49e2bb44a4357-c00039",
+              "7e14c0ec0e7bf7d7-c00044",
+              "6a36616b15cd55c5-c00031"
+            ],
+            "files": [
+              "Academy_Award_for_Best_Picture.html",
+              "Academy_Award_for_Best_Production_Design.html",
+              "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+              "Academy_Award_for_Best_Actor.html",
+              "Academy_Award_for_Best_Director.html",
+              "Academy_Award_for_Best_Supporting_Actor.html",
+              "Academy_Award_for_Best_Animated_Feature.html"
+            ],
+            "trace": {
+              "new_files": [
+                "Academy_Award_for_Best_Picture.html",
+                "Academy_Award_for_Best_Production_Design.html",
+                "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+                "Academy_Award_for_Best_Actor.html",
+                "Academy_Award_for_Best_Director.html",
+                "Academy_Award_for_Best_Supporting_Actor.html",
+                "Academy_Award_for_Best_Animated_Feature.html"
+              ]
+            },
+            "seconds": 2.382,
+            "error": null
+          },
+          {
+            "step": 1,
+            "action": "title_search",
+            "args": {
+              "pattern": "^85th_Academy_Awards$|^95th_Academy_Awards$",
+              "query": "host and Best Picture winner"
+            },
+            "assessment": "The evidence only shows that the 85th and 95th Academy Awards exist and that Best Picture is an Academy Awards category; it does not yet state the hosts or winners.",
+            "missing": [
+              "the 85th ceremony hosted by",
+              "the 85th ceremony Best Picture winner",
+              "the 95th ceremony hosted by",
+              "the 95th ceremony Best Picture winner"
+            ],
+            "clues": [
+              "a decade apart",
+              "the 85th ceremony",
+              "the 95th ceremony",
+              "who hosted",
+              "which film won Best Picture at each"
+            ],
+            "facts": [
+              {
+                "clue": 2,
+                "fact": "The 85th Academy Awards are identified in the evidence.",
+                "source": "Academy_Award_for_Best_Production_Design.html",
+                "quote": "\"The 85th Academy Awards - 2013\""
+              },
+              {
+                "clue": 3,
+                "fact": "The 95th Academy Awards are identified in the evidence.",
+                "source": "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+                "quote": "\"95th Academy Awards\""
+              },
+              {
+                "clue": 5,
+                "fact": "Best Picture is an Academy Awards category.",
+                "source": "Academy_Award_for_Best_Picture.html",
+                "quote": "\"Academy Award for Best Picture\""
+              }
+            ],
+            "ranked_unit_ids": [
+              "f03136cff601fca1-c00000",
+              "f03136cff601fca1-c00004",
+              "110a1f26b577e6e7-c00000",
+              "110a1f26b577e6e7-c00003"
+            ],
+            "new_unit_ids": [
+              "f03136cff601fca1-c00000",
+              "f03136cff601fca1-c00004",
+              "110a1f26b577e6e7-c00000",
+              "110a1f26b577e6e7-c00003"
+            ],
+            "files": [
+              "85th_Academy_Awards.html",
+              "95th_Academy_Awards.html"
+            ],
+            "trace": {
+              "pattern": "^85th_Academy_Awards$|^95th_Academy_Awards$",
+              "match_count": 2,
+              "matched_files": [
+                "85th_Academy_Awards.html",
+                "95th_Academy_Awards.html"
+              ],
+              "new_files": [
+                "85th_Academy_Awards.html",
+                "95th_Academy_Awards.html"
+              ]
+            },
+            "seconds": 0.314,
+            "error": null
+          },
+          {
+            "step": 2,
+            "action": "chunks",
+            "args": {
+              "query": "85th and 95th Academy Awards a decade apart years",
+              "parent": "lead_section"
+            },
+            "assessment": "The evidence identifies both ceremonies, but the previous facts need quotes that explicitly verify each hosting and Best Picture result, and there is still no explicit support for the 'a decade apart' clue.",
+            "missing": [
+              "an explicit fact or link establishing the two ceremonies are a decade apart",
+              "a verified quote for who hosted the 85th ceremony",
+              "a verified quote for who hosted the 95th ceremony",
+              "a verified quote for which film won Best Picture at the 85th ceremony",
+              "a verified quote for which film won Best Picture at the 95th ceremony"
+            ],
+            "clues": [
+              "a decade apart",
+              "the 85th ceremony",
+              "the 95th ceremony",
+              "who hosted",
+              "which film won Best Picture at each"
+            ],
+            "facts": [
+              {
+                "clue": 2,
+                "fact": "The 85th ceremony was hosted by Seth MacFarlane.",
+                "source": "85th_Academy_Awards.html",
+                "quote": "| Hosted by | Seth MacFarlane"
+              },
+              {
+                "clue": 2,
+                "fact": "The 85th ceremony's Best Picture winner was Argo.",
+                "source": "85th_Academy_Awards.html",
+                "quote": "| Best Picture | *Argo*"
+              },
+              {
+                "clue": 3,
+                "fact": "The 95th ceremony was hosted by Jimmy Kimmel.",
+                "source": "95th_Academy_Awards.html",
+                "quote": "| Hosted by | Jimmy Kimmel"
+              },
+              {
+                "clue": 3,
+                "fact": "The 95th ceremony's Best Picture winner was Everything Everywhere All at Once.",
+                "source": "95th_Academy_Awards.html",
+                "quote": "| Best Picture | *Everything Everywhere All at Once*"
+              }
+            ],
+            "ranked_unit_ids": [
+              "List_of_awards_and_nominations_received_by_Steven_Spielberg.html#c00000-c00024",
+              "Academy_Award_for_Best_Production_Design.html#c00000-c00037",
+              "List_of_awards_and_nominations_received_by_Denzel_Washington.html#c00000-c00016",
+              "Academy_Award_for_Best_Animated_Feature.html#c00000-c00034",
+              "List_of_Walt_Disney_Animation_Studios_films.html#c00000-c00089",
+              "f03136cff601fca1-c00028"
+            ],
+            "new_unit_ids": [
+              "List_of_awards_and_nominations_received_by_Steven_Spielberg.html#c00000-c00024",
+              "Academy_Award_for_Best_Production_Design.html#c00000-c00037",
+              "List_of_awards_and_nominations_received_by_Denzel_Washington.html#c00000-c00016",
+              "Academy_Award_for_Best_Animated_Feature.html#c00000-c00034",
+              "List_of_Walt_Disney_Animation_Studios_films.html#c00000-c00089",
+              "f03136cff601fca1-c00028"
+            ],
+            "files": [
+              "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+              "Academy_Award_for_Best_Production_Design.html",
+              "List_of_awards_and_nominations_received_by_Denzel_Washington.html",
+              "Academy_Award_for_Best_Animated_Feature.html",
+              "List_of_Walt_Disney_Animation_Studios_films.html",
+              "85th_Academy_Awards.html"
+            ],
+            "trace": {
+              "child_chunk_ids": [
+                "198df6a3abe7cc47-c00020",
+                "b51c20e390fe1693-c00034",
+                "b51c20e390fe1693-c00033",
+                "b51c20e390fe1693-c00036",
+                "9f6dc76cf388f87c-c00012",
+                "6a36616b15cd55c5-c00034",
+                "cae6383757d258ce-c00088",
+                "f03136cff601fca1-c00028"
+              ],
+              "new_files": [
+                "List_of_awards_and_nominations_received_by_Denzel_Washington.html",
+                "List_of_Walt_Disney_Animation_Studios_films.html"
+              ]
+            },
+            "seconds": 1.448,
+            "error": null
+          },
+          {
+            "step": 3,
+            "action": "title_search",
+            "args": {
+              "pattern": "^95th_Academy_Awards$",
+              "query": "Hosted by Best Picture"
+            },
+            "assessment": "The evidence identifies the 85th ceremony’s host and Best Picture winner, but the 95th ceremony details are not yet explicitly stated.",
+            "missing": [
+              "the 95th ceremony's host",
+              "the 95th ceremony's Best Picture winner",
+              "a direct source tying the 95th ceremony to its ceremony article"
+            ],
+            "clues": [
+              "a decade apart",
+              "the 85th ceremony",
+              "the 95th ceremony",
+              "who hosted",
+              "which film won Best Picture at each"
+            ],
+            "facts": [
+              {
+                "clue": 2,
+                "fact": "Hosted by Seth MacFarlane",
+                "source": "85th_Academy_Awards.html",
+                "quote": "Hosted by | Seth MacFarlane"
+              },
+              {
+                "clue": 5,
+                "fact": "Best Picture was *Argo*",
+                "source": "85th_Academy_Awards.html",
+                "quote": "Best Picture | *Argo*"
+              }
+            ],
+            "ranked_unit_ids": [
+              "110a1f26b577e6e7-c00000"
+            ],
+            "new_unit_ids": [],
+            "files": [
+              "95th_Academy_Awards.html"
+            ],
+            "trace": {
+              "pattern": "^95th_Academy_Awards$",
+              "match_count": 1,
+              "matched_files": [
+                "95th_Academy_Awards.html"
+              ],
+              "new_files": []
+            },
+            "seconds": 0.271,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 4.415,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.38461538461538464,
+      "chunk_precision_at_k": 0.38461538461538464,
+      "article_precision": 0.2222222222222222,
+      "unique_articles_retrieved": 9,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "Seth MacFarlane hosted the 85th Academy Awards, where Argo won Best Picture.",
+        "Jimmy Kimmel hosted the 95th Academy Awards, where Everything Everywhere All at Once won Best Picture."
+      ],
+      "response": "# Comparison of 85th and 95th Academy Awards Ceremonies\n\n**85th Academy Awards (2013):**\n[85th_Academy_Awards.html] The 85th Academy Awards ceremony took place on February 24, 2013, and was hosted by Seth MacFarlane. [85th_Academy_Awards.html] *Argo* won Best Picture.\n\n**95th Academy Awards (2023):**\n[95th_Academy_Awards.html] The 95th Academy Awards ceremony took place on March 12, 2023, and was hosted by Jimmy Kimmel. [95th_Academy_Awards.html] *Everything Everywhere All at Once* won Best Picture.\n\nThese ceremonies were held a decade apart (2013-02-24 and 2023-03-12), with different hosts and different Best Picture winners.",
+      "closed_book_response": "# Academy Awards: 85th vs 95th Ceremonies\n\n**85th Academy Awards (2013)**\n- Host: Seth MacFarlane\n- Best Picture: *Argo*\n\n**95th Academy Awards (2023)**\n- Host: Jimmy Kimmel\n- Best Picture: *Everything Everywhere All at Once*\n\nThese ceremonies were indeed a decade apart, and both featured notable moments—the 85th for MacFarlane's comedy-heavy hosting style, and the 95th for the incident involving Will Smith on stage.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The 85th Academy Awards ceremony took place on February 24, 2013.",
+          "cited_source": "85th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The 85th Academy Awards ceremony was hosted by Seth MacFarlane.",
+          "cited_source": "85th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Argo won Best Picture at the 85th Academy Awards.",
+          "cited_source": "85th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The 95th Academy Awards ceremony took place on March 12, 2023.",
+          "cited_source": "95th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The 95th Academy Awards ceremony was hosted by Jimmy Kimmel.",
+          "cited_source": "95th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Everything Everywhere All at Once won Best Picture at the 95th Academy Awards.",
+          "cited_source": "95th_Academy_Awards.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "These ceremonies were held a decade apart, with dates 2013-02-24 and 2023-03-12.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The ceremonies had different hosts.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The ceremonies had different Best Picture winners.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        }
+      ],
+      "claim_count": 9,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.1111111111111111,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 2,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 2.386847800022224,
+      "judge_latency_seconds": 4.514415399986319,
+      "total_latency_seconds": 23.543389399993465,
+      "agent_wall_seconds": 21.928517499996815,
+      "throttle_seconds": 9.499563800008037,
+      "input_tokens": 72114,
+      "output_tokens": 2195,
+      "total_tokens": 74309,
+      "estimated_cost_usd": 0.0674275,
+      "planner_model": "openai/gpt-5.4-mini",
+      "answer_model": "anthropic/claude-haiku-4.5",
+      "reasoning_effort": null,
+      "answer_cost_usd": 0.014797000000000001,
+      "planner_cost_usd": 0.0231945,
+      "judge_votes": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "graded_correctness_votes": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "correctness_majority": "pass",
+      "graded_correctness_mean": 1.0,
+      "rejudge_cost_usd": 0.0183945,
+      "agent_version": "v2",
+      "agent_features": [
+        "clues",
+        "facets",
+        "sections"
+      ],
+      "frozen_clues": [
+        "a decade apart",
+        "the 85th ceremony",
+        "the 95th ceremony",
+        "who hosted",
+        "which film won Best Picture at each"
+      ],
+      "agent_actions": [
+        "seed",
+        "title_search",
+        "chunks:lead_section",
+        "title_search",
+        "answer"
+      ],
+      "planned_steps": 3,
+      "stop_reason": "step_budget",
+      "seed_only_answer": false,
+      "planner_calls": 4,
+      "tool_llm_calls": 1,
+      "llm_calls_total": 6,
+      "planner_input_tokens": 22319,
+      "planner_output_tokens": 1338,
+      "planner_latency_seconds": 8.141803999984404,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 1,
+      "answer_facts": [],
+      "answer_facts_verified": 0,
+      "answer_missing": [],
+      "answer_clues": [],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 18,
+      "units_in_context": 13,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "Compare the Academy Awards ceremonies held a decade apart: who hosted the 85th and 95th ceremonies, and which film won Best Picture at each?",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "7584ab2c6b497c73-c00000",
+            "b51c20e390fe1693-c00034",
+            "198df6a3abe7cc47-c00020",
+            "599ff25cc439b524-c00040",
+            "7e14c0ec0e7bf7d7-c00040",
+            "f4e49e2bb44a4357-c00039",
+            "7e14c0ec0e7bf7d7-c00044",
+            "6a36616b15cd55c5-c00031"
+          ],
+          "new_unit_ids": [
+            "7584ab2c6b497c73-c00000",
+            "b51c20e390fe1693-c00034",
+            "198df6a3abe7cc47-c00020",
+            "599ff25cc439b524-c00040",
+            "7e14c0ec0e7bf7d7-c00040",
+            "f4e49e2bb44a4357-c00039",
+            "7e14c0ec0e7bf7d7-c00044",
+            "6a36616b15cd55c5-c00031"
+          ],
+          "files": [
+            "Academy_Award_for_Best_Picture.html",
+            "Academy_Award_for_Best_Production_Design.html",
+            "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+            "Academy_Award_for_Best_Actor.html",
+            "Academy_Award_for_Best_Director.html",
+            "Academy_Award_for_Best_Supporting_Actor.html",
+            "Academy_Award_for_Best_Animated_Feature.html"
+          ],
+          "trace": {
+            "new_files": [
+              "Academy_Award_for_Best_Picture.html",
+              "Academy_Award_for_Best_Production_Design.html",
+              "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+              "Academy_Award_for_Best_Actor.html",
+              "Academy_Award_for_Best_Director.html",
+              "Academy_Award_for_Best_Supporting_Actor.html",
+              "Academy_Award_for_Best_Animated_Feature.html"
+            ]
+          },
+          "seconds": 2.382,
+          "error": null
+        },
+        {
+          "step": 1,
+          "action": "title_search",
+          "args": {
+            "pattern": "^85th_Academy_Awards$|^95th_Academy_Awards$",
+            "query": "host and Best Picture winner"
+          },
+          "assessment": "The evidence only shows that the 85th and 95th Academy Awards exist and that Best Picture is an Academy Awards category; it does not yet state the hosts or winners.",
+          "missing": [
+            "the 85th ceremony hosted by",
+            "the 85th ceremony Best Picture winner",
+            "the 95th ceremony hosted by",
+            "the 95th ceremony Best Picture winner"
+          ],
+          "clues": [
+            "a decade apart",
+            "the 85th ceremony",
+            "the 95th ceremony",
+            "who hosted",
+            "which film won Best Picture at each"
+          ],
+          "facts": [
+            {
+              "clue": 2,
+              "fact": "The 85th Academy Awards are identified in the evidence.",
+              "source": "Academy_Award_for_Best_Production_Design.html",
+              "quote": "\"The 85th Academy Awards - 2013\""
+            },
+            {
+              "clue": 3,
+              "fact": "The 95th Academy Awards are identified in the evidence.",
+              "source": "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+              "quote": "\"95th Academy Awards\""
+            },
+            {
+              "clue": 5,
+              "fact": "Best Picture is an Academy Awards category.",
+              "source": "Academy_Award_for_Best_Picture.html",
+              "quote": "\"Academy Award for Best Picture\""
+            }
+          ],
+          "ranked_unit_ids": [
+            "f03136cff601fca1-c00000",
+            "f03136cff601fca1-c00004",
+            "110a1f26b577e6e7-c00000",
+            "110a1f26b577e6e7-c00003"
+          ],
+          "new_unit_ids": [
+            "f03136cff601fca1-c00000",
+            "f03136cff601fca1-c00004",
+            "110a1f26b577e6e7-c00000",
+            "110a1f26b577e6e7-c00003"
+          ],
+          "files": [
+            "85th_Academy_Awards.html",
+            "95th_Academy_Awards.html"
+          ],
+          "trace": {
+            "pattern": "^85th_Academy_Awards$|^95th_Academy_Awards$",
+            "match_count": 2,
+            "matched_files": [
+              "85th_Academy_Awards.html",
+              "95th_Academy_Awards.html"
+            ],
+            "new_files": [
+              "85th_Academy_Awards.html",
+              "95th_Academy_Awards.html"
+            ]
+          },
+          "seconds": 0.314,
+          "error": null
+        },
+        {
+          "step": 2,
+          "action": "chunks",
+          "args": {
+            "query": "85th and 95th Academy Awards a decade apart years",
+            "parent": "lead_section"
+          },
+          "assessment": "The evidence identifies both ceremonies, but the previous facts need quotes that explicitly verify each hosting and Best Picture result, and there is still no explicit support for the 'a decade apart' clue.",
+          "missing": [
+            "an explicit fact or link establishing the two ceremonies are a decade apart",
+            "a verified quote for who hosted the 85th ceremony",
+            "a verified quote for who hosted the 95th ceremony",
+            "a verified quote for which film won Best Picture at the 85th ceremony",
+            "a verified quote for which film won Best Picture at the 95th ceremony"
+          ],
+          "clues": [
+            "a decade apart",
+            "the 85th ceremony",
+            "the 95th ceremony",
+            "who hosted",
+            "which film won Best Picture at each"
+          ],
+          "facts": [
+            {
+              "clue": 2,
+              "fact": "The 85th ceremony was hosted by Seth MacFarlane.",
+              "source": "85th_Academy_Awards.html",
+              "quote": "| Hosted by | Seth MacFarlane"
+            },
+            {
+              "clue": 2,
+              "fact": "The 85th ceremony's Best Picture winner was Argo.",
+              "source": "85th_Academy_Awards.html",
+              "quote": "| Best Picture | *Argo*"
+            },
+            {
+              "clue": 3,
+              "fact": "The 95th ceremony was hosted by Jimmy Kimmel.",
+              "source": "95th_Academy_Awards.html",
+              "quote": "| Hosted by | Jimmy Kimmel"
+            },
+            {
+              "clue": 3,
+              "fact": "The 95th ceremony's Best Picture winner was Everything Everywhere All at Once.",
+              "source": "95th_Academy_Awards.html",
+              "quote": "| Best Picture | *Everything Everywhere All at Once*"
+            }
+          ],
+          "ranked_unit_ids": [
+            "List_of_awards_and_nominations_received_by_Steven_Spielberg.html#c00000-c00024",
+            "Academy_Award_for_Best_Production_Design.html#c00000-c00037",
+            "List_of_awards_and_nominations_received_by_Denzel_Washington.html#c00000-c00016",
+            "Academy_Award_for_Best_Animated_Feature.html#c00000-c00034",
+            "List_of_Walt_Disney_Animation_Studios_films.html#c00000-c00089",
+            "f03136cff601fca1-c00028"
+          ],
+          "new_unit_ids": [
+            "List_of_awards_and_nominations_received_by_Steven_Spielberg.html#c00000-c00024",
+            "Academy_Award_for_Best_Production_Design.html#c00000-c00037",
+            "List_of_awards_and_nominations_received_by_Denzel_Washington.html#c00000-c00016",
+            "Academy_Award_for_Best_Animated_Feature.html#c00000-c00034",
+            "List_of_Walt_Disney_Animation_Studios_films.html#c00000-c00089",
+            "f03136cff601fca1-c00028"
+          ],
+          "files": [
+            "List_of_awards_and_nominations_received_by_Steven_Spielberg.html",
+            "Academy_Award_for_Best_Production_Design.html",
+            "List_of_awards_and_nominations_received_by_Denzel_Washington.html",
+            "Academy_Award_for_Best_Animated_Feature.html",
+            "List_of_Walt_Disney_Animation_Studios_films.html",
+            "85th_Academy_Awards.html"
+          ],
+          "trace": {
+            "child_chunk_ids": [
+              "198df6a3abe7cc47-c00020",
+              "b51c20e390fe1693-c00034",
+              "b51c20e390fe1693-c00033",
+              "b51c20e390fe1693-c00036",
+              "9f6dc76cf388f87c-c00012",
+              "6a36616b15cd55c5-c00034",
+              "cae6383757d258ce-c00088",
+              "f03136cff601fca1-c00028"
+            ],
+            "new_files": [
+              "List_of_awards_and_nominations_received_by_Denzel_Washington.html",
+              "List_of_Walt_Disney_Animation_Studios_films.html"
+            ]
+          },
+          "seconds": 1.448,
+          "error": null
+        },
+        {
+          "step": 3,
+          "action": "title_search",
+          "args": {
+            "pattern": "^95th_Academy_Awards$",
+            "query": "Hosted by Best Picture"
+          },
+          "assessment": "The evidence identifies the 85th ceremony’s host and Best Picture winner, but the 95th ceremony details are not yet explicitly stated.",
+          "missing": [
+            "the 95th ceremony's host",
+            "the 95th ceremony's Best Picture winner",
+            "a direct source tying the 95th ceremony to its ceremony article"
+          ],
+          "clues": [
+            "a decade apart",
+            "the 85th ceremony",
+            "the 95th ceremony",
+            "who hosted",
+            "which film won Best Picture at each"
+          ],
+          "facts": [
+            {
+              "clue": 2,
+              "fact": "Hosted by Seth MacFarlane",
+              "source": "85th_Academy_Awards.html",
+              "quote": "Hosted by | Seth MacFarlane"
+            },
+            {
+              "clue": 5,
+              "fact": "Best Picture was *Argo*",
+              "source": "85th_Academy_Awards.html",
+              "quote": "Best Picture | *Argo*"
+            }
+          ],
+          "ranked_unit_ids": [
+            "110a1f26b577e6e7-c00000"
+          ],
+          "new_unit_ids": [],
+          "files": [
+            "95th_Academy_Awards.html"
+          ],
+          "trace": {
+            "pattern": "^95th_Academy_Awards$",
+            "match_count": 1,
+            "matched_files": [
+              "95th_Academy_Awards.html"
+            ],
+            "new_files": []
+          },
+          "seconds": 0.271,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 1.0,
+      "evidence_recall_any_step": 0.25
+    },
+    {
+      "id": "Q005",
+      "question": "For each of the 1996, 2004, and 2008 Summer Olympics, list every city mentioned as having submitted a bid but not winning that edition's hosting contest.",
+      "retriever": "agent_v2",
+      "group": "multi_entity_precision",
+      "source_suite": "golden_suite_2.1.json",
+      "mechanism": null,
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "multi_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2008_Summer_Olympics.html"
+      ],
+      "expected_sources": [
+        "1996_Summer_Olympics.html",
+        "2004_Summer_Olympics.html",
+        "2008_Summer_Olympics.html"
+      ],
+      "retrieved_sources": [
+        "2004_Summer_Olympics.html",
+        "1996_Summer_Olympics.html",
+        "2008_Summer_Olympics.html",
+        "1984_Summer_Olympics.html",
+        "2012_Summer_Olympics.html",
+        "Australia_at_the_Olympics.html",
+        "List_of_Olympic_Games_host_cities.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "1fdd42c401067e31-c00003",
+          "source_file": "2004_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5143
+        },
+        {
+          "unit_id": "170433dfdcecde6c-c00008",
+          "source_file": "1996_Summer_Olympics.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "b050dab4972144e0-c00007",
+          "source_file": "2008_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5435
+        },
+        {
+          "unit_id": "170433dfdcecde6c-c00047",
+          "source_file": "1996_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5748
+        },
+        {
+          "unit_id": "170433dfdcecde6c-c00000",
+          "source_file": "1996_Summer_Olympics.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "170433dfdcecde6c-c00005",
+          "source_file": "1996_Summer_Olympics.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "170433dfdcecde6c-c00006",
+          "source_file": "1996_Summer_Olympics.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "1fdd42c401067e31-c00004",
+          "source_file": "2004_Summer_Olympics.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "f758641f89dc68b7-c00003",
+          "source_file": "1984_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5272
+        },
+        {
+          "unit_id": "1fdd42c401067e31-c00000",
+          "source_file": "2004_Summer_Olympics.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "170433dfdcecde6c-c00007",
+          "source_file": "1996_Summer_Olympics.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "1fdd42c401067e31-c00005",
+          "source_file": "2004_Summer_Olympics.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "0825e4a78793431f-c00003",
+          "source_file": "2012_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5061
+        },
+        {
+          "unit_id": "b050dab4972144e0-c00000",
+          "source_file": "2008_Summer_Olympics.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "170433dfdcecde6c-c00009",
+          "source_file": "1996_Summer_Olympics.html",
+          "role": "primary",
+          "score": 1.0
+        },
+        {
+          "unit_id": "6a84d9c001b570d2-c00035",
+          "source_file": "Australia_at_the_Olympics.html",
+          "role": "primary",
+          "score": 0.5
+        },
+        {
+          "unit_id": "8c1929851266f807-c00000",
+          "source_file": "List_of_Olympic_Games_host_cities.html",
+          "role": "primary",
+          "score": 0.3782
+        },
+        {
+          "unit_id": "8c1929851266f807-c00006",
+          "source_file": "List_of_Olympic_Games_host_cities.html",
+          "role": "primary",
+          "score": 0.374
+        }
+      ],
+      "unit_count": 18,
+      "context_chars": 14170,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "For each of the 1996, 2004, and 2008 Summer Olympics, list every city mentioned as having submitted a bid but not winning that edition's hosting contest.",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "170433dfdcecde6c-c00047",
+              "b050dab4972144e0-c00007",
+              "f758641f89dc68b7-c00003",
+              "1fdd42c401067e31-c00003",
+              "0825e4a78793431f-c00003",
+              "6a84d9c001b570d2-c00035",
+              "8c1929851266f807-c00000",
+              "8c1929851266f807-c00006"
+            ],
+            "new_unit_ids": [
+              "170433dfdcecde6c-c00047",
+              "b050dab4972144e0-c00007",
+              "f758641f89dc68b7-c00003",
+              "1fdd42c401067e31-c00003",
+              "0825e4a78793431f-c00003",
+              "6a84d9c001b570d2-c00035",
+              "8c1929851266f807-c00000",
+              "8c1929851266f807-c00006"
+            ],
+            "files": [
+              "1996_Summer_Olympics.html",
+              "2008_Summer_Olympics.html",
+              "1984_Summer_Olympics.html",
+              "2004_Summer_Olympics.html",
+              "2012_Summer_Olympics.html",
+              "Australia_at_the_Olympics.html",
+              "List_of_Olympic_Games_host_cities.html"
+            ],
+            "trace": {
+              "new_files": [
+                "1996_Summer_Olympics.html",
+                "2008_Summer_Olympics.html",
+                "1984_Summer_Olympics.html",
+                "2004_Summer_Olympics.html",
+                "2012_Summer_Olympics.html",
+                "Australia_at_the_Olympics.html",
+                "List_of_Olympic_Games_host_cities.html"
+              ]
+            },
+            "seconds": 2.918,
+            "error": null
+          },
+          {
+            "step": 1,
+            "action": "title_search",
+            "args": {
+              "pattern": "^(1996|2004|2008)_Summer_Olympics$",
+              "query": "bidding results host city selection bid submitted votes short list"
+            },
+            "assessment": "The evidence identifies the host cities for 1996 and 2004, and gives partial bid information for 2008, but it does not yet list every losing bid city for each requested Games.",
+            "missing": [
+              "Every city that submitted a bid but did not win the 1996 Summer Olympics hosting contest.",
+              "Every city that submitted a bid but did not win the 2004 Summer Olympics hosting contest.",
+              "Every city that submitted a bid but did not win the 2008 Summer Olympics hosting contest, beyond the cities named in the current 2008 passage."
+            ],
+            "clues": [
+              "the 1996 Summer Olympics",
+              "the 2004 Summer Olympics",
+              "the 2008 Summer Olympics",
+              "submitted a bid but not winning that edition's hosting contest"
+            ],
+            "facts": [
+              {
+                "clue": 1,
+                "fact": "Atlanta won the 1996 host city vote.",
+                "source": "2004_Summer_Olympics.html",
+                "quote": "the American city of Atlanta"
+              },
+              {
+                "clue": 2,
+                "fact": "Athens won the 2004 host city vote.",
+                "source": "2004_Summer_Olympics.html",
+                "quote": "Athens was chosen as the host city"
+              },
+              {
+                "clue": 3,
+                "fact": "Beijing won the 2008 host city vote.",
+                "source": "2008_Summer_Olympics.html",
+                "quote": "Beijing was elected as the host city"
+              },
+              {
+                "clue": 4,
+                "fact": "For 2008, Bangkok, Cairo, Havana, Kuala Lumpur, and Seville had submitted bids but failed to make the short list.",
+                "source": "2008_Summer_Olympics.html",
+                "quote": "Bangkok, Cairo, Havana, Kuala Lumpur, and Seville"
+              }
+            ],
+            "ranked_unit_ids": [
+              "170433dfdcecde6c-c00000",
+              "170433dfdcecde6c-c00008",
+              "1fdd42c401067e31-c00000",
+              "1fdd42c401067e31-c00003",
+              "b050dab4972144e0-c00000",
+              "b050dab4972144e0-c00007"
+            ],
+            "new_unit_ids": [
+              "170433dfdcecde6c-c00000",
+              "170433dfdcecde6c-c00008",
+              "1fdd42c401067e31-c00000",
+              "b050dab4972144e0-c00000"
+            ],
+            "files": [
+              "1996_Summer_Olympics.html",
+              "2004_Summer_Olympics.html",
+              "2008_Summer_Olympics.html"
+            ],
+            "trace": {
+              "pattern": "^(1996|2004|2008)_Summer_Olympics$",
+              "match_count": 3,
+              "matched_files": [
+                "1996_Summer_Olympics.html",
+                "2004_Summer_Olympics.html",
+                "2008_Summer_Olympics.html"
+              ],
+              "new_files": []
+            },
+            "seconds": 0.608,
+            "error": null
+          },
+          {
+            "step": 2,
+            "action": "read_section",
+            "args": {
+              "file": "1996_Summer_Olympics.html",
+              "section": "Bidding process",
+              "query": "bidding results cities submitted bids host city selection"
+            },
+            "assessment": "The evidence gives the 1996, 2004, and 2008 Olympics articles, but only partial bidding information for each edition.",
+            "missing": [
+              "The full list of cities that submitted bids but did not win the 1996 Summer Olympics hosting contest.",
+              "The full list of cities that submitted bids but did not win the 2004 Summer Olympics hosting contest.",
+              "The full list of cities that submitted bids but did not win the 2008 Summer Olympics hosting contest."
+            ],
+            "clues": [
+              "the 1996 Summer Olympics",
+              "the 2004 Summer Olympics",
+              "the 2008 Summer Olympics",
+              "submitted a bid but not winning that edition's hosting contest"
+            ],
+            "facts": [
+              {
+                "clue": 1,
+                "fact": "Atlanta won the 1996 Games; Athens and Toronto also appear in the bidding results.",
+                "source": "1996_Summer_Olympics.html",
+                "quote": "Atlanta | United States | 19 | 20 | 26 | 34 | 51"
+              },
+              {
+                "clue": 2,
+                "fact": "Athens was chosen for the 2004 Games, after an earlier bid for the 1996 Games was lost to Atlanta.",
+                "source": "2004_Summer_Olympics.html",
+                "quote": "Athens was chosen as the host city"
+              },
+              {
+                "clue": 3,
+                "fact": "Beijing was elected host for 2008, defeating bids from Toronto, Paris, Istanbul, and Osaka.",
+                "source": "2008_Summer_Olympics.html",
+                "quote": "defeating bids from Toronto, Paris, Istanbul, and Osaka"
+              },
+              {
+                "clue": 4,
+                "fact": "The 2008 bid article says five other cities had submitted bids but failed to make the short list.",
+                "source": "2008_Summer_Olympics.html",
+                "quote": "five other cities (Bangkok, Cairo, Havana, Kuala Lumpur, and Seville) had submitted bids"
+              }
+            ],
+            "ranked_unit_ids": [
+              "170433dfdcecde6c-c00005",
+              "170433dfdcecde6c-c00006",
+              "170433dfdcecde6c-c00007",
+              "170433dfdcecde6c-c00008",
+              "170433dfdcecde6c-c00009"
+            ],
+            "new_unit_ids": [
+              "170433dfdcecde6c-c00005",
+              "170433dfdcecde6c-c00006",
+              "170433dfdcecde6c-c00007",
+              "170433dfdcecde6c-c00009"
+            ],
+            "files": [
+              "1996_Summer_Olympics.html"
+            ],
+            "trace": {
+              "file": "1996_Summer_Olympics.html",
+              "section": "Bidding process",
+              "matched_chunks": 5,
+              "read_chunks": [
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "new_files": []
+            },
+            "seconds": 0.001,
+            "error": null
+          },
+          {
+            "step": 3,
+            "action": "read_section",
+            "args": {
+              "file": "2004_Summer_Olympics.html",
+              "section": "Host city selection",
+              "query": "cities submitted bids defeated bids shortlist voting results"
+            },
+            "assessment": "The evidence names the bid cities for 1996 and identifies the winning host cities for 2004 and 2008, but it does not yet fully show the non-winning bid cities for all three editions.",
+            "missing": [
+              "The complete list of cities that submitted bids but did not win for the 2004 Summer Olympics.",
+              "The complete list of cities that submitted bids but did not win for the 2008 Summer Olympics.",
+              "Verification from evidence that the listed cities are the full set of non-winning bids for each of the 1996, 2004, and 2008 Summer Olympics."
+            ],
+            "clues": [
+              "the 1996 Summer Olympics",
+              "the 2004 Summer Olympics",
+              "the 2008 Summer Olympics",
+              "submitted a bid but not winning that edition's hosting contest"
+            ],
+            "facts": [
+              {
+                "clue": 1,
+                "fact": "1996 bidding cities listed in the table are Athens, Toronto, Melbourne, Manchester, and Belgrade, and Atlanta won.",
+                "source": "1996_Summer_Olympics.html",
+                "quote": "Athens | Greece | **23** | **23** | **26** | 30 | 35"
+              },
+              {
+                "clue": 2,
+                "fact": "The 2004 host city was Athens, so other bidding cities for that edition are not yet listed in the evidence.",
+                "source": "2004_Summer_Olympics.html",
+                "quote": "Athens was chosen as the host city"
+              },
+              {
+                "clue": 3,
+                "fact": "The 2008 host city was Beijing, and the evidence says it defeated bids from Toronto, Paris, Istanbul, and Osaka.",
+                "source": "2008_Summer_Olympics.html",
+                "quote": "defeating bids from Toronto, Paris, Istanbul, and Osaka"
+              },
+              {
+                "clue": 4,
+                "fact": "For 2008, additional cities had submitted bids but failed to make the short list: Bangkok, Cairo, Havana, Kuala Lumpur, and Seville.",
+                "source": "2008_Summer_Olympics.html",
+                "quote": "five other cities (Bangkok, Cairo, Havana, Kuala Lumpur, and Seville) had submitted bids"
+              }
+            ],
+            "ranked_unit_ids": [
+              "1fdd42c401067e31-c00003",
+              "1fdd42c401067e31-c00004",
+              "1fdd42c401067e31-c00005"
+            ],
+            "new_unit_ids": [
+              "1fdd42c401067e31-c00004",
+              "1fdd42c401067e31-c00005"
+            ],
+            "files": [
+              "2004_Summer_Olympics.html"
+            ],
+            "trace": {
+              "file": "2004_Summer_Olympics.html",
+              "section": "Host city selection",
+              "matched_chunks": 3,
+              "read_chunks": [
+                3,
+                4,
+                5
+              ],
+              "new_files": []
+            },
+            "seconds": 0.001,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 3.528,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 1.0,
+      "source_precision_at_k": 0.7222222222222222,
+      "chunk_precision_at_k": 0.7222222222222222,
+      "article_precision": 0.42857142857142855,
+      "unique_articles_retrieved": 7,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "For the 1996 Summer Olympics, the losing bid cities were Athens, Belgrade, Manchester, Melbourne, and Toronto.",
+        "For the 2004 Summer Olympics, the losing bid cities were Rome, Cape Town, Stockholm, and Buenos Aires, plus Istanbul, Lille, Rio de Janeiro, San Juan, Seville, and Saint Petersburg, whose applications were dropped before the shortlist.",
+        "For the 2008 Summer Olympics, the losing bid cities were Toronto, Paris, Istanbul, and Osaka, plus Bangkok, Cairo, Havana, Kuala Lumpur, and Seville, whose bids failed to make the shortlist."
+      ],
+      "response": "# Cities that submitted bids but did not win\n\n## 1996 Summer Olympics\n\n[1996_Summer_Olympics.html] \"Atlanta was selected on September 18, 1990, in Tokyo, Japan, over Athens, Belgrade, Manchester, Melbourne, and Toronto at the 96th IOC Session.\"\n\nThe cities that submitted bids but did not win were: [1996_Summer_Olympics.html] Athens, Belgrade, Manchester, Melbourne, and Toronto.\n\n## 2004 Summer Olympics\n\n[2004_Summer_Olympics.html] \"After leading all voting rounds, Athens easily defeated Rome in the fifth and final vote. Cape Town, Stockholm, and Buenos Aires (the latter won the rights to host the 2018 Summer Youth Olympics in 2013), the three other cities that made the IOC shortlist, were eliminated in prior rounds of voting. Six other cities submitted applications, but their bids were dropped by the IOC in 1996. These cities were Istanbul, Lille, Rio de Janeiro (the latter won the rights to host the 2016 Summer Olympics in 2009), San Juan, Seville, and Saint Petersburg.\"\n\nThe cities that submitted bids but did not win were: [2004_Summer_Olympics.html] Rome, Cape Town, Stockholm, Buenos Aires, Istanbul, Lille, Rio de Janeiro, San Juan, Seville, and Saint Petersburg.\n\n## 2008 Summer Olympics\n\n[2008_Summer_Olympics.html] \"Beijing was elected as the host city for the 2008 Summer Olympics on 13 July 2001, during the 112th IOC Session in Moscow, defeating bids from Toronto, Paris, Istanbul, and Osaka. Prior to the session, five other cities (Bangkok, Cairo, Havana, Kuala Lumpur, and Seville) had submitted bids to the IOC, but failed to make the short list chosen by the IOC Executive Committee in 2000.\"\n\nThe cities that submitted bids but did not win were: [2008_Summer_Olympics.html] Toronto, Paris, Istanbul, Osaka, Bangkok, Cairo, Havana, Kuala Lumpur, and Seville.",
+      "closed_book_response": "I don't have reliable detailed information about all the bidding cities for those three Olympic years readily available in my memory. While I know some of the major contenders for certain years, I'm not confident I could provide a complete and accurate list of every city that submitted a bid for 1996, 2004, and 2008 without risking significant omissions or errors.\n\nFor example, I know Atlanta won 1996, Sydney won 2004, and Beijing won 2008, and I could name some runner-up cities, but I'm not certain I could comprehensively list all bidding cities for each year.\n\nTo get accurate, complete information on this, I'd recommend checking:\n- The International Olympic Committee (IOC) official records\n- Historical Olympic bid documentation\n- Reliable sports history sources that document Olympic bidding processes\n\nI'd rather acknowledge this limitation than guess and potentially give you incomplete or inaccurate information.",
+      "correctness": "pass",
+      "graded_correctness": "complete",
+      "graded_correctness_score": 1.0,
+      "covered_aspects": [
+        1,
+        2,
+        3
+      ],
+      "aspect_coverage": 1.0,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "Atlanta was selected on September 18, 1990, in Tokyo, Japan, over Athens, Belgrade, Manchester, Melbourne, and Toronto at the 96th IOC Session.",
+          "cited_source": "1996_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The cities that submitted bids but did not win for the 1996 Summer Olympics were Athens, Belgrade, Manchester, Melbourne, and Toronto.",
+          "cited_source": "1996_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Athens was chosen as the host city during the 106th IOC Session held in Lausanne, Switzerland, on 5 September 1997.",
+          "cited_source": "2004_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The Greek capital had lost its bid to organize the 1996 Summer Olympics to Atlanta nearly seven years before, during the 96th IOC Session in Tokyo, Japan on 18 September 1990.",
+          "cited_source": "2004_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Athens pursued another bid for the right to host the Summer Olympics in 2004.",
+          "cited_source": "2004_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Athens had been seen as arrogant and poorly prepared in its unsuccessful 1996 bid.",
+          "cited_source": "1996_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Athens later won the right to host the 2004 Summer Olympics.",
+          "cited_source": "1996_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "After leading all voting rounds, Athens easily defeated Rome in the fifth and final vote.",
+          "cited_source": "2004_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Cape Town, Stockholm, and Buenos Aires were the three other cities that made the IOC shortlist for 2004 and were eliminated in prior rounds of voting.",
+          "cited_source": "2004_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Six other cities submitted applications for the 2004 Olympics, but their bids were dropped by the IOC in 1996.",
+          "cited_source": "2004_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Those six cities were Istanbul, Lille, Rio de Janeiro, San Juan, Seville, and Saint Petersburg.",
+          "cited_source": "2004_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The cities that submitted bids but did not win for the 2004 Summer Olympics were Rome, Cape Town, Stockholm, Buenos Aires, Istanbul, Lille, Rio de Janeiro, San Juan, Seville, and Saint Petersburg.",
+          "cited_source": "2004_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Beijing was elected as the host city for the 2008 Summer Olympics on 13 July 2001, during the 112th IOC Session in Moscow.",
+          "cited_source": "2008_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Beijing defeated bids from Toronto, Paris, Istanbul, and Osaka.",
+          "cited_source": "2008_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Prior to the session, five other cities had submitted bids to the IOC but failed to make the short list chosen by the IOC Executive Committee in 2000.",
+          "cited_source": "2008_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Those five cities were Bangkok, Cairo, Havana, Kuala Lumpur, and Seville.",
+          "cited_source": "2008_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "The cities that submitted bids but did not win for the 2008 Summer Olympics were Toronto, Paris, Istanbul, Osaka, Bangkok, Cairo, Havana, Kuala Lumpur, and Seville.",
+          "cited_source": "2008_Summer_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 17,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.5882352941176471,
+      "response_quote_count": 3,
+      "quote_fidelity_rate": 1.0,
+      "quote_attribution_accuracy": 1.0,
+      "citation_count": 3,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "n/a",
+      "answer_latency_seconds": 6.262405399989802,
+      "judge_latency_seconds": 7.422341400000732,
+      "total_latency_seconds": 30.196739499989896,
+      "agent_wall_seconds": 22.5856735999987,
+      "throttle_seconds": 5.1735679000034,
+      "input_tokens": 33540,
+      "output_tokens": 3122,
+      "total_tokens": 36662,
+      "estimated_cost_usd": 0.040808000000000004,
+      "planner_model": "openai/gpt-5.4-mini",
+      "answer_model": "anthropic/claude-haiku-4.5",
+      "reasoning_effort": null,
+      "answer_cost_usd": 0.008477,
+      "planner_cost_usd": 0.0163575,
+      "judge_votes": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "graded_correctness_votes": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "correctness_majority": "pass",
+      "graded_correctness_mean": 1.0,
+      "rejudge_cost_usd": 0.0076935,
+      "agent_version": "v2",
+      "agent_features": [
+        "clues",
+        "facets",
+        "sections"
+      ],
+      "frozen_clues": [
+        "the 1996 Summer Olympics",
+        "the 2004 Summer Olympics",
+        "the 2008 Summer Olympics",
+        "submitted a bid but not winning that edition's hosting contest"
+      ],
+      "agent_actions": [
+        "seed",
+        "title_search",
+        "read_section",
+        "read_section",
+        "answer"
+      ],
+      "planned_steps": 3,
+      "stop_reason": "step_budget",
+      "seed_only_answer": false,
+      "planner_calls": 3,
+      "tool_llm_calls": 1,
+      "llm_calls_total": 5,
+      "planner_input_tokens": 13617,
+      "planner_output_tokens": 1262,
+      "planner_latency_seconds": 8.547936199989635,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 0,
+      "answer_facts": [],
+      "answer_facts_verified": 0,
+      "answer_missing": [],
+      "answer_clues": [],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 18,
+      "units_in_context": 18,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "For each of the 1996, 2004, and 2008 Summer Olympics, list every city mentioned as having submitted a bid but not winning that edition's hosting contest.",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "170433dfdcecde6c-c00047",
+            "b050dab4972144e0-c00007",
+            "f758641f89dc68b7-c00003",
+            "1fdd42c401067e31-c00003",
+            "0825e4a78793431f-c00003",
+            "6a84d9c001b570d2-c00035",
+            "8c1929851266f807-c00000",
+            "8c1929851266f807-c00006"
+          ],
+          "new_unit_ids": [
+            "170433dfdcecde6c-c00047",
+            "b050dab4972144e0-c00007",
+            "f758641f89dc68b7-c00003",
+            "1fdd42c401067e31-c00003",
+            "0825e4a78793431f-c00003",
+            "6a84d9c001b570d2-c00035",
+            "8c1929851266f807-c00000",
+            "8c1929851266f807-c00006"
+          ],
+          "files": [
+            "1996_Summer_Olympics.html",
+            "2008_Summer_Olympics.html",
+            "1984_Summer_Olympics.html",
+            "2004_Summer_Olympics.html",
+            "2012_Summer_Olympics.html",
+            "Australia_at_the_Olympics.html",
+            "List_of_Olympic_Games_host_cities.html"
+          ],
+          "trace": {
+            "new_files": [
+              "1996_Summer_Olympics.html",
+              "2008_Summer_Olympics.html",
+              "1984_Summer_Olympics.html",
+              "2004_Summer_Olympics.html",
+              "2012_Summer_Olympics.html",
+              "Australia_at_the_Olympics.html",
+              "List_of_Olympic_Games_host_cities.html"
+            ]
+          },
+          "seconds": 2.918,
+          "error": null
+        },
+        {
+          "step": 1,
+          "action": "title_search",
+          "args": {
+            "pattern": "^(1996|2004|2008)_Summer_Olympics$",
+            "query": "bidding results host city selection bid submitted votes short list"
+          },
+          "assessment": "The evidence identifies the host cities for 1996 and 2004, and gives partial bid information for 2008, but it does not yet list every losing bid city for each requested Games.",
+          "missing": [
+            "Every city that submitted a bid but did not win the 1996 Summer Olympics hosting contest.",
+            "Every city that submitted a bid but did not win the 2004 Summer Olympics hosting contest.",
+            "Every city that submitted a bid but did not win the 2008 Summer Olympics hosting contest, beyond the cities named in the current 2008 passage."
+          ],
+          "clues": [
+            "the 1996 Summer Olympics",
+            "the 2004 Summer Olympics",
+            "the 2008 Summer Olympics",
+            "submitted a bid but not winning that edition's hosting contest"
+          ],
+          "facts": [
+            {
+              "clue": 1,
+              "fact": "Atlanta won the 1996 host city vote.",
+              "source": "2004_Summer_Olympics.html",
+              "quote": "the American city of Atlanta"
+            },
+            {
+              "clue": 2,
+              "fact": "Athens won the 2004 host city vote.",
+              "source": "2004_Summer_Olympics.html",
+              "quote": "Athens was chosen as the host city"
+            },
+            {
+              "clue": 3,
+              "fact": "Beijing won the 2008 host city vote.",
+              "source": "2008_Summer_Olympics.html",
+              "quote": "Beijing was elected as the host city"
+            },
+            {
+              "clue": 4,
+              "fact": "For 2008, Bangkok, Cairo, Havana, Kuala Lumpur, and Seville had submitted bids but failed to make the short list.",
+              "source": "2008_Summer_Olympics.html",
+              "quote": "Bangkok, Cairo, Havana, Kuala Lumpur, and Seville"
+            }
+          ],
+          "ranked_unit_ids": [
+            "170433dfdcecde6c-c00000",
+            "170433dfdcecde6c-c00008",
+            "1fdd42c401067e31-c00000",
+            "1fdd42c401067e31-c00003",
+            "b050dab4972144e0-c00000",
+            "b050dab4972144e0-c00007"
+          ],
+          "new_unit_ids": [
+            "170433dfdcecde6c-c00000",
+            "170433dfdcecde6c-c00008",
+            "1fdd42c401067e31-c00000",
+            "b050dab4972144e0-c00000"
+          ],
+          "files": [
+            "1996_Summer_Olympics.html",
+            "2004_Summer_Olympics.html",
+            "2008_Summer_Olympics.html"
+          ],
+          "trace": {
+            "pattern": "^(1996|2004|2008)_Summer_Olympics$",
+            "match_count": 3,
+            "matched_files": [
+              "1996_Summer_Olympics.html",
+              "2004_Summer_Olympics.html",
+              "2008_Summer_Olympics.html"
+            ],
+            "new_files": []
+          },
+          "seconds": 0.608,
+          "error": null
+        },
+        {
+          "step": 2,
+          "action": "read_section",
+          "args": {
+            "file": "1996_Summer_Olympics.html",
+            "section": "Bidding process",
+            "query": "bidding results cities submitted bids host city selection"
+          },
+          "assessment": "The evidence gives the 1996, 2004, and 2008 Olympics articles, but only partial bidding information for each edition.",
+          "missing": [
+            "The full list of cities that submitted bids but did not win the 1996 Summer Olympics hosting contest.",
+            "The full list of cities that submitted bids but did not win the 2004 Summer Olympics hosting contest.",
+            "The full list of cities that submitted bids but did not win the 2008 Summer Olympics hosting contest."
+          ],
+          "clues": [
+            "the 1996 Summer Olympics",
+            "the 2004 Summer Olympics",
+            "the 2008 Summer Olympics",
+            "submitted a bid but not winning that edition's hosting contest"
+          ],
+          "facts": [
+            {
+              "clue": 1,
+              "fact": "Atlanta won the 1996 Games; Athens and Toronto also appear in the bidding results.",
+              "source": "1996_Summer_Olympics.html",
+              "quote": "Atlanta | United States | 19 | 20 | 26 | 34 | 51"
+            },
+            {
+              "clue": 2,
+              "fact": "Athens was chosen for the 2004 Games, after an earlier bid for the 1996 Games was lost to Atlanta.",
+              "source": "2004_Summer_Olympics.html",
+              "quote": "Athens was chosen as the host city"
+            },
+            {
+              "clue": 3,
+              "fact": "Beijing was elected host for 2008, defeating bids from Toronto, Paris, Istanbul, and Osaka.",
+              "source": "2008_Summer_Olympics.html",
+              "quote": "defeating bids from Toronto, Paris, Istanbul, and Osaka"
+            },
+            {
+              "clue": 4,
+              "fact": "The 2008 bid article says five other cities had submitted bids but failed to make the short list.",
+              "source": "2008_Summer_Olympics.html",
+              "quote": "five other cities (Bangkok, Cairo, Havana, Kuala Lumpur, and Seville) had submitted bids"
+            }
+          ],
+          "ranked_unit_ids": [
+            "170433dfdcecde6c-c00005",
+            "170433dfdcecde6c-c00006",
+            "170433dfdcecde6c-c00007",
+            "170433dfdcecde6c-c00008",
+            "170433dfdcecde6c-c00009"
+          ],
+          "new_unit_ids": [
+            "170433dfdcecde6c-c00005",
+            "170433dfdcecde6c-c00006",
+            "170433dfdcecde6c-c00007",
+            "170433dfdcecde6c-c00009"
+          ],
+          "files": [
+            "1996_Summer_Olympics.html"
+          ],
+          "trace": {
+            "file": "1996_Summer_Olympics.html",
+            "section": "Bidding process",
+            "matched_chunks": 5,
+            "read_chunks": [
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "new_files": []
+          },
+          "seconds": 0.001,
+          "error": null
+        },
+        {
+          "step": 3,
+          "action": "read_section",
+          "args": {
+            "file": "2004_Summer_Olympics.html",
+            "section": "Host city selection",
+            "query": "cities submitted bids defeated bids shortlist voting results"
+          },
+          "assessment": "The evidence names the bid cities for 1996 and identifies the winning host cities for 2004 and 2008, but it does not yet fully show the non-winning bid cities for all three editions.",
+          "missing": [
+            "The complete list of cities that submitted bids but did not win for the 2004 Summer Olympics.",
+            "The complete list of cities that submitted bids but did not win for the 2008 Summer Olympics.",
+            "Verification from evidence that the listed cities are the full set of non-winning bids for each of the 1996, 2004, and 2008 Summer Olympics."
+          ],
+          "clues": [
+            "the 1996 Summer Olympics",
+            "the 2004 Summer Olympics",
+            "the 2008 Summer Olympics",
+            "submitted a bid but not winning that edition's hosting contest"
+          ],
+          "facts": [
+            {
+              "clue": 1,
+              "fact": "1996 bidding cities listed in the table are Athens, Toronto, Melbourne, Manchester, and Belgrade, and Atlanta won.",
+              "source": "1996_Summer_Olympics.html",
+              "quote": "Athens | Greece | **23** | **23** | **26** | 30 | 35"
+            },
+            {
+              "clue": 2,
+              "fact": "The 2004 host city was Athens, so other bidding cities for that edition are not yet listed in the evidence.",
+              "source": "2004_Summer_Olympics.html",
+              "quote": "Athens was chosen as the host city"
+            },
+            {
+              "clue": 3,
+              "fact": "The 2008 host city was Beijing, and the evidence says it defeated bids from Toronto, Paris, Istanbul, and Osaka.",
+              "source": "2008_Summer_Olympics.html",
+              "quote": "defeating bids from Toronto, Paris, Istanbul, and Osaka"
+            },
+            {
+              "clue": 4,
+              "fact": "For 2008, additional cities had submitted bids but failed to make the short list: Bangkok, Cairo, Havana, Kuala Lumpur, and Seville.",
+              "source": "2008_Summer_Olympics.html",
+              "quote": "five other cities (Bangkok, Cairo, Havana, Kuala Lumpur, and Seville) had submitted bids"
+            }
+          ],
+          "ranked_unit_ids": [
+            "1fdd42c401067e31-c00003",
+            "1fdd42c401067e31-c00004",
+            "1fdd42c401067e31-c00005"
+          ],
+          "new_unit_ids": [
+            "1fdd42c401067e31-c00004",
+            "1fdd42c401067e31-c00005"
+          ],
+          "files": [
+            "2004_Summer_Olympics.html"
+          ],
+          "trace": {
+            "file": "2004_Summer_Olympics.html",
+            "section": "Host city selection",
+            "matched_chunks": 3,
+            "read_chunks": [
+              3,
+              4,
+              5
+            ],
+            "new_files": []
+          },
+          "seconds": 0.001,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 1.0,
+      "evidence_recall_any_step": 1.0
+    },
+    {
+      "id": "Q014",
+      "question": "In the IOC vote that awarded the 1992 Winter Games, which two cities tied and were sent to a run-off, what were their run-off vote totals, and which city was eliminated after the very first round?",
+      "retriever": "agent_v2",
+      "group": "multi_entity_precision",
+      "source_suite": "golden_suite_2.1.json",
+      "mechanism": null,
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "required_sources": [
+        "1992_Winter_Olympics.html"
+      ],
+      "expected_sources": [
+        "1992_Winter_Olympics.html"
+      ],
+      "retrieved_sources": [
+        "2004_Summer_Olympics.html",
+        "2020_Summer_Olympics.html",
+        "1972_Winter_Olympics.html",
+        "1992_Winter_Olympics.html",
+        "1988_Winter_Olympics.html",
+        "List_of_Olympic_Games_host_cities.html",
+        "Australia_at_the_Olympics.html"
+      ],
+      "retrieved_units": [
+        {
+          "unit_id": "1fdd42c401067e31-c00005",
+          "source_file": "2004_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.9771
+        },
+        {
+          "unit_id": "708478617d20db02-c00006",
+          "source_file": "2020_Summer_Olympics.html",
+          "role": "primary",
+          "score": 0.5563
+        },
+        {
+          "unit_id": "98fa9cf3765ac4bc-c00001",
+          "source_file": "1972_Winter_Olympics.html",
+          "role": "primary",
+          "score": 0.5145
+        },
+        {
+          "unit_id": "588d0cca324541cf-c00004",
+          "source_file": "1992_Winter_Olympics.html",
+          "role": "primary",
+          "score": 0.5113
+        },
+        {
+          "unit_id": "1b17b73a2024e911-c00008",
+          "source_file": "1988_Winter_Olympics.html",
+          "role": "primary",
+          "score": 0.4569
+        },
+        {
+          "unit_id": "8c1929851266f807-c00005",
+          "source_file": "List_of_Olympic_Games_host_cities.html",
+          "role": "primary",
+          "score": 0.3275
+        },
+        {
+          "unit_id": "1b17b73a2024e911-c00004",
+          "source_file": "1988_Winter_Olympics.html",
+          "role": "primary",
+          "score": 0.3092
+        },
+        {
+          "unit_id": "6a84d9c001b570d2-c00009",
+          "source_file": "Australia_at_the_Olympics.html",
+          "role": "primary",
+          "score": 0.2848
+        }
+      ],
+      "unit_count": 8,
+      "context_chars": 10158,
+      "evidence_recall": 1.0,
+      "retrieval_trace": {
+        "steps": [
+          {
+            "step": 0,
+            "action": "seed",
+            "args": {
+              "query": "In the IOC vote that awarded the 1992 Winter Games, which two cities tied and were sent to a run-off, what were their run-off vote totals, and which city was eliminated after the very first round?",
+              "parent": "none"
+            },
+            "assessment": "",
+            "missing": [],
+            "clues": [],
+            "facts": [],
+            "ranked_unit_ids": [
+              "1fdd42c401067e31-c00005",
+              "708478617d20db02-c00006",
+              "98fa9cf3765ac4bc-c00001",
+              "588d0cca324541cf-c00004",
+              "1b17b73a2024e911-c00008",
+              "8c1929851266f807-c00005",
+              "1b17b73a2024e911-c00004",
+              "6a84d9c001b570d2-c00009"
+            ],
+            "new_unit_ids": [
+              "1fdd42c401067e31-c00005",
+              "708478617d20db02-c00006",
+              "98fa9cf3765ac4bc-c00001",
+              "588d0cca324541cf-c00004",
+              "1b17b73a2024e911-c00008",
+              "8c1929851266f807-c00005",
+              "1b17b73a2024e911-c00004",
+              "6a84d9c001b570d2-c00009"
+            ],
+            "files": [
+              "2004_Summer_Olympics.html",
+              "2020_Summer_Olympics.html",
+              "1972_Winter_Olympics.html",
+              "1992_Winter_Olympics.html",
+              "1988_Winter_Olympics.html",
+              "List_of_Olympic_Games_host_cities.html",
+              "Australia_at_the_Olympics.html"
+            ],
+            "trace": {
+              "new_files": [
+                "2004_Summer_Olympics.html",
+                "2020_Summer_Olympics.html",
+                "1972_Winter_Olympics.html",
+                "1992_Winter_Olympics.html",
+                "1988_Winter_Olympics.html",
+                "List_of_Olympic_Games_host_cities.html",
+                "Australia_at_the_Olympics.html"
+              ]
+            },
+            "seconds": 2.906,
+            "error": null
+          }
+        ]
+      },
+      "retrieval_latency_seconds": 2.906,
+      "source_hit_at_k": 1,
+      "source_recall_at_k": 1.0,
+      "source_recall_at_3_articles": 0.0,
+      "source_precision_at_k": 0.125,
+      "chunk_precision_at_k": 0.125,
+      "article_precision": 0.14285714285714285,
+      "unique_articles_retrieved": 7,
+      "source_recall_strict": 1.0,
+      "all_required_present": true,
+      "required_aspects": [
+        "Falun and Lillehammer tied at 11 votes in round 4 and were sent to a run-off.",
+        "Falun won the run-off 41 votes to Lillehammer's 40.",
+        "Berchtesgaden, with 6 votes, was eliminated after the very first round."
+      ],
+      "response": "Based on the documents provided, I can answer most of your question, but there is a discrepancy in how it's phrased.\n\n**The very first round:** In Round 1 of the 1992 Winter Olympics bidding, Sofia received 25 votes and Albertville received 19 votes—they did not tie. [1992_Winter_Olympics.html]\n\n**The cities that tied and went to a run-off:** Sofia and Falun tied in the run-off vote. [1992_Winter_Olympics.html]\n\n**Their run-off vote totals:** Sofia received 41 votes and Falun received 41 votes in the run-off. [1992_Winter_Olympics.html]\n\n**Which city was eliminated after the very first round:** Berchtesgaden was eliminated after Round 1, receiving only 6 votes. [1992_Winter_Olympics.html]\n\nTo clarify: the run-off was not held after the very first round. Rather, after multiple rounds of voting, Sofia and Falun tied in the run-off vote, and then Falun was eliminated in Round 5 when Albertville won with 51 votes to Falun's 9 votes. [1992_Winter_Olympics.html]",
+      "closed_book_response": "I don't have reliable specific details about the IOC voting process for the 1992 Winter Olympics host city selection. While I know the 1992 Winter Games were held in Albertville, France, I'm not confident about the exact details of which cities tied in the voting, what the run-off vote totals were, or which city was eliminated in the first round.\n\nTo get accurate information about this specific voting history, I'd recommend checking IOC historical records or reliable sources on Olympic history.",
+      "correctness": "fail",
+      "graded_correctness": "incorrect",
+      "graded_correctness_score": 0.0,
+      "covered_aspects": [
+        3
+      ],
+      "aspect_coverage": 0.3333333333333333,
+      "answer_relevance": "pass",
+      "claims": [
+        {
+          "text": "The response says there is a discrepancy in how the question is phrased.",
+          "cited_source": null,
+          "grounded": true,
+          "citation_supported": null,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "In Round 1 of the 1992 Winter Olympics bidding, Sofia received 25 votes and Albertville received 19 votes.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Sofia and Albertville did not tie in the first round.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Sofia and Falun tied in the run-off vote.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Sofia received 41 votes in the run-off.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Falun received 41 votes in the run-off.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Berchtesgaden was eliminated after Round 1.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Berchtesgaden received only 6 votes.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "The run-off was not held after the very first round.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "After multiple rounds of voting, Sofia and Falun tied in the run-off vote.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": false
+        },
+        {
+          "text": "Falun was eliminated in Round 5.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Albertville won in Round 5 with 51 votes.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        },
+        {
+          "text": "Falun had 9 votes in Round 5.",
+          "cited_source": "1992_Winter_Olympics.html",
+          "grounded": true,
+          "citation_supported": true,
+          "attributable_to_retrieval": true
+        }
+      ],
+      "claim_count": 13,
+      "graded_groundedness_score": 1.0,
+      "faithfulness": "pass",
+      "citation_support_rate": 1.0,
+      "chunk_attribution_score": 0.23076923076923078,
+      "response_quote_count": 0,
+      "quote_fidelity_rate": null,
+      "quote_attribution_accuracy": null,
+      "citation_count": 1,
+      "citation_precision": 1.0,
+      "unsupported_citation_rate": 0.0,
+      "refusal_outcome": "hallucinated",
+      "answer_latency_seconds": 3.2672351999790408,
+      "judge_latency_seconds": 4.823618299997179,
+      "total_latency_seconds": 15.667649599968223,
+      "agent_wall_seconds": 12.375616400007857,
+      "throttle_seconds": 6.916415699990466,
+      "input_tokens": 19213,
+      "output_tokens": 1571,
+      "total_tokens": 20784,
+      "estimated_cost_usd": 0.022624500000000002,
+      "planner_model": "openai/gpt-5.4-mini",
+      "answer_model": "anthropic/claude-haiku-4.5",
+      "reasoning_effort": null,
+      "answer_cost_usd": 0.005769000000000001,
+      "planner_cost_usd": 0.0060262499999999995,
+      "judge_votes": [
+        "fail",
+        "fail",
+        "fail"
+      ],
+      "graded_correctness_votes": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "correctness_majority": "fail",
+      "graded_correctness_mean": 0.0,
+      "rejudge_cost_usd": 0.005454,
+      "agent_version": "v2",
+      "agent_features": [
+        "clues",
+        "facets",
+        "sections"
+      ],
+      "frozen_clues": [
+        "the IOC vote that awarded the 1992 Winter Games",
+        "the very first round",
+        "which two cities tied and were sent to a run-off",
+        "what were their run-off vote totals",
+        "which city was eliminated"
+      ],
+      "agent_actions": [
+        "seed",
+        "answer"
+      ],
+      "planned_steps": 0,
+      "stop_reason": "planner_answer",
+      "seed_only_answer": true,
+      "planner_calls": 1,
+      "tool_llm_calls": 1,
+      "llm_calls_total": 3,
+      "planner_input_tokens": 4755,
+      "planner_output_tokens": 433,
+      "planner_latency_seconds": 2.2041073000000324,
+      "clarify_used": false,
+      "clarifications": [],
+      "verification_retries": 0,
+      "answer_facts": [
+        {
+          "clue": 1,
+          "fact": "The 1992 Winter Olympics were awarded at the 91st IOC Session.",
+          "source": "1992_Winter_Olympics.html",
+          "quote": "The 91st IOC Session, held in Lausanne on 17October 1986, voted Albertville the host of the Games.",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 2,
+          "fact": "The first-round votes included Albertville 19, Sofia 25, Falun 10, Lillehammer 10, Cortina d'Ampezzo 7, Anchorage 7, and Berchtesgaden 6.",
+          "source": "1992_Winter_Olympics.html",
+          "quote": "|  |  | 1 | 2 | 3 | 4 | Run-off | 5 |",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 3,
+          "fact": "Falun and Lillehammer were the two cities tied and sent to a run-off.",
+          "source": "1992_Winter_Olympics.html",
+          "quote": "Falun | Sweden | 10 | 11 | 11 | 11 | **41** | 9",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 4,
+          "fact": "Their run-off vote totals were Falun 41 and Lillehammer 40.",
+          "source": "1992_Winter_Olympics.html",
+          "quote": "Lillehammer | Norway | 10 | 11 | 9 | 11 | 40 | —",
+          "verified": true,
+          "reason": ""
+        },
+        {
+          "clue": 5,
+          "fact": "The city eliminated after the first round was Berchtesgaden.",
+          "source": "1992_Winter_Olympics.html",
+          "quote": "Berchtesgaden | West Germany | 6 | — | — | — | — | —",
+          "verified": true,
+          "reason": ""
+        }
+      ],
+      "answer_facts_verified": 5,
+      "answer_missing": [],
+      "answer_clues": [
+        "the IOC vote that awarded the 1992 Winter Games",
+        "the very first round",
+        "which two cities tied and were sent to a run-off",
+        "what were their run-off vote totals",
+        "which city was eliminated"
+      ],
+      "answer_clues_uncovered": [],
+      "units_retrieved_total": 8,
+      "units_in_context": 8,
+      "agent_steps": [
+        {
+          "step": 0,
+          "action": "seed",
+          "args": {
+            "query": "In the IOC vote that awarded the 1992 Winter Games, which two cities tied and were sent to a run-off, what were their run-off vote totals, and which city was eliminated after the very first round?",
+            "parent": "none"
+          },
+          "assessment": "",
+          "missing": [],
+          "clues": [],
+          "facts": [],
+          "ranked_unit_ids": [
+            "1fdd42c401067e31-c00005",
+            "708478617d20db02-c00006",
+            "98fa9cf3765ac4bc-c00001",
+            "588d0cca324541cf-c00004",
+            "1b17b73a2024e911-c00008",
+            "8c1929851266f807-c00005",
+            "1b17b73a2024e911-c00004",
+            "6a84d9c001b570d2-c00009"
+          ],
+          "new_unit_ids": [
+            "1fdd42c401067e31-c00005",
+            "708478617d20db02-c00006",
+            "98fa9cf3765ac4bc-c00001",
+            "588d0cca324541cf-c00004",
+            "1b17b73a2024e911-c00008",
+            "8c1929851266f807-c00005",
+            "1b17b73a2024e911-c00004",
+            "6a84d9c001b570d2-c00009"
+          ],
+          "files": [
+            "2004_Summer_Olympics.html",
+            "2020_Summer_Olympics.html",
+            "1972_Winter_Olympics.html",
+            "1992_Winter_Olympics.html",
+            "1988_Winter_Olympics.html",
+            "List_of_Olympic_Games_host_cities.html",
+            "Australia_at_the_Olympics.html"
+          ],
+          "trace": {
+            "new_files": [
+              "2004_Summer_Olympics.html",
+              "2020_Summer_Olympics.html",
+              "1972_Winter_Olympics.html",
+              "1992_Winter_Olympics.html",
+              "1988_Winter_Olympics.html",
+              "List_of_Olympic_Games_host_cities.html",
+              "Australia_at_the_Olympics.html"
+            ]
+          },
+          "seconds": 2.906,
+          "error": null
+        }
+      ],
+      "source_recall_any_step": 1.0,
+      "evidence_recall_any_step": 1.0
+    }
+  ]
+}

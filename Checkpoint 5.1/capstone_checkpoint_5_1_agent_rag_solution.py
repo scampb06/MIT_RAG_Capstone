@@ -72,8 +72,17 @@ STEP_GUARANTEE = 3               # each step's top units always reach the contex
 TITLE_MAX_FILES = 5
 READ_MAX_CHUNKS = 6              # read_section: consecutive chunks returned (~12k chars)
 ARTICLE_MAX_CHARS = 20_000       # parent=article above this reads lead_section instead
+FACET_MAX = 3                    # graph facets per call (v2 round 2)
+FACET_CATEGORIES = 3             # categories matched per facet
 GRAPH_RELATIONS = ("category", "infobox", "link")
 HISTORY_TURNS = 3                # chat mode: prior turns shown to planner and answerer
+
+# v2 round-2 refinements, each switchable with --disable for attribution runs.
+V2_FEATURES = ("tables", "sections", "clues", "facets")
+# The tables feature reads a second chunk index built with the 2.1 module's
+# render_tables=True, so v0, v1 and the 4.1 runs keep their original index.
+TABLES_CACHE_DIR = adv.CHECKPOINT_2_1_DIR / f"wikipedia_chunks{adv.MAX_CHUNK_CHARS}_tables_cache"
+TABLES_CHROMA_DIR = adv.CHECKPOINT_2_1_DIR / f"wikipedia_chunks{adv.MAX_CHUNK_CHARS}_tables_chroma_db"
 
 GOLDEN_SUITE_PATH = CHECKPOINT_4_1_DIR / "mini-4.1-test-suite.json"
 RESULTS_DIR = Path(__file__).with_name("evaluation_results")
@@ -222,13 +231,88 @@ Reply with a single complete JSON object in the same format (assessment, missing
 facts, action, args)."""
 
 
-def planner_system(version: str) -> str:
-    actions = [_PLANNER_CHUNKS, _PLANNER_DECOMPOSE, _PLANNER_GRAPH]
-    rules = _PLANNER_RULES + "\n" + _PLANNER_RULE_5[version]
+# --- v2 round 2: each text below replaces or extends round-1 text only while
+# its feature is on, so --disable reproduces the round-1 prompt exactly. ---
+
+_PLANNER_CHUNKS_SECTIONS = """\
+- chunks {"query": str, "parent": str}: keyword and semantic search over article passages. \
+Best for a single named entity or fact. "parent" widens each passage found: "none" (the \
+passage only), "window" (neighbouring passages), "section" (the passage's whole section \
+including its subsections, e.g. a table under a sub-heading; a long section is read as the \
+part that best matches the query), "lead_section" (the article introduction plus that \
+section), "article" (the whole article; costly, use last)."""                       # sections
+
+_PLANNER_GRAPH_FACETS = """\
+- graph {"query": str, "relations": [str], "facets": [str]}: expands the best-matching \
+articles through Wikipedia's structure. "relations" is any of: "category" (articles sharing \
+categories, and categories whose names match the query); "infobox" (typed facts such as \
+Education, Spouse, Successor, Mother; best for "the university where X studied" or "X's \
+successor"); "link" (hyperlinked articles; broad and noisy). "facets" (optional, up to 3) \
+finds articles that meet several properties at once: give one short category-style phrase \
+per property, e.g. for "a German-born composer who won an Oscar" the facets ["German \
+composers", "Academy Award for Best Original Score winners"]. Each facet is matched to \
+Wikipedia categories separately and only articles in categories for every facet are \
+returned first."""                                                                  # facets
+
+_PLANNER_RULE_5_FACETS = (
+    "5. Prefer the cheapest action likely to close the gap: read_section when the right "
+    "article is already in the evidence, title_search when a title is predictable, then "
+    "chunks, then decompose; a narrower parent before a wider one. Exception: when the "
+    "question describes its answer only by a combination of properties rather than a name "
+    "(\"a German-born composer who won an Oscar\", \"a novelist who also served as a "
+    "diplomat\"), use graph with one facet per property first: Wikipedia's categories group "
+    "articles by exactly such properties, and a passage search for the description rarely "
+    "finds the entity. graph also makes no model call. A step that returned 0 new passages "
+    "will not help if repeated with small changes."
+)                                                                                   # facets
+
+_PLANNER_RULE_6_CLUES = """\
+The clue list is fixed before your first turn and shown in the message. Repeat those clues \
+exactly and in the same order, numbered the same way; you may only append new ones."""   # clues
+
+
+CLUES_SYSTEM = """\
+You prepare a question for a retrieval agent over English Wikipedia articles. Do not answer it.
+
+"indirect": list every value the question refers to only through another fact instead of \
+stating it, as the phrase that identifies it. For "Who composed the anthem adopted the year \
+the dam was completed?" the year is given only as "the year the dam was completed", so \
+indirect = ["the year the dam was completed"]. For "Who designed the bridge in the city where \
+the treaty was signed?" indirect = ["the city where the treaty was signed"]. If every value \
+is stated, give [].
+
+"clues": the other conditions the answer depends on, one per clue, in the question's words.
+
+"facets": only when the question asks for people or things described by properties instead of \
+names, as in "which painter was also a diplomat" or "name a composer born in Germany who won \
+an Oscar": one short Wikipedia-category-style phrase per property. Otherwise [].
+
+Do not add names, dates or facts from your own knowledge.
+Respond with ONLY a JSON object: {"indirect": ["..."], "clues": ["..."], "facets": ["..."]}"""   # clues
+# Asked directly to "split nested clues", gpt-5.4-mini kept Q009's bridge as one
+# clue in 6 of 6 calls at temperature 0; asked which values are given only
+# indirectly, it named the earthquake year in 3 of 3.
+
+
+def planner_system(version: str, features: set[str] | frozenset[str] | None = None) -> str:
+    """features: the round-2 refinements that are on (v2 only; default all)."""
+    features = set(V2_FEATURES if features is None else features) if version == "v2" else set()
+    chunks = _PLANNER_CHUNKS_SECTIONS if "sections" in features else _PLANNER_CHUNKS
+    graph = _PLANNER_GRAPH_FACETS if "facets" in features else _PLANNER_GRAPH
+    actions = [chunks, _PLANNER_DECOMPOSE, graph]
+    rule_5 = _PLANNER_RULE_5_FACETS if "facets" in features else _PLANNER_RULE_5[version]
+    rules = _PLANNER_RULES + "\n" + rule_5
     if version == "v2":
         actions += [_PLANNER_TITLE_SEARCH, _PLANNER_READ_SECTION]
         rules += "\n" + _PLANNER_RULE_6_V2
+        if "clues" in features:
+            rules += " " + _PLANNER_RULE_6_CLUES
     actions.append(_PLANNER_CLARIFY_ANSWER)
+    if version == "v2":
+        # G07 (round 2): the planner asked which of several Yale presidents was meant.
+        actions.append("  Several correct answers are not ambiguity: when the question asks for "
+                       "\"another\", \"an example\" or a number of items, choose from the evidence "
+                       "instead of clarifying.")
     return "\n\n".join([
         _PLANNER_INTRO + "\n" + "\n".join(actions),
         rules,
@@ -261,8 +345,8 @@ ANSWER_REASON_FIRST = (
     "happened'), state the fact from the documents that satisfies each clue, with its "
     "citation, as part of the answer. When the question asks why, give every reason the "
     "documents state. When comparing dates, write each date as YYYY-MM-DD, say which is "
-    "earlier, and only then answer the question as asked: \"born before X\" is yes when the "
-    "birth date is the earlier one. Answer other questions directly. Every sentence, "
+    "earlier, and only then answer the question as asked: \"did A happen before B?\" is yes "
+    "when A's date is the earlier one. Answer other questions directly. Every sentence, "
     "including any conclusion, must cite its source; a concluding or comparing sentence may "
     "only restate facts already cited. Do not restate the question, add a summary judgement "
     "the documents do not state, or offer further help."
@@ -325,6 +409,9 @@ class AgentState(TypedDict):
     steps: Annotated[list[StepRecord], add]
     planned_steps: int
     clarify_count: int
+    clues: list[str]                 # v2 round 2: frozen at the first planner reply
+    features: list[str]              # v2 round-2 refinements active in this run
+    auto_facets_pending: bool        # v2 round 2: run the clue step's facet search next
     clarifications: Annotated[list[str], add]
     stop_reason: StopReason | None
     verification_retries: int        # v2: answers sent back for unverifiable facts
@@ -361,13 +448,94 @@ class RelationFilteredGraph:
         return [item for item in self._graph.neighbours(article_id) if item[1] in self._relations]
 
 
-class Toolbox:
-    """Loads the 4.1 chunk corpus, index, parent expander and graph once and
-    exposes each agent action as a function returning (hits, trace)."""
+def load_or_build_tables_corpus() -> Any:
+    """The 4.1 chunk cache builder, pointed at TABLES_CACHE_DIR and run with
+    the 2.1 module's render_tables=True. The 4.1 module is not modified: its
+    two module globals are swapped for the call and restored afterwards."""
+    saved = adv.CHUNK_CACHE_DIR, adv.process_wikipedia_with_nodes_and_edges
+    original = adv.process_wikipedia_with_nodes_and_edges
+    adv.CHUNK_CACHE_DIR = TABLES_CACHE_DIR
+    adv.process_wikipedia_with_nodes_and_edges = (
+        lambda directory, max_chars: original(directory, max_chars, render_tables=True)
+    )
+    try:
+        return adv.load_or_build_chunk_corpus()
+    finally:
+        adv.CHUNK_CACHE_DIR, adv.process_wikipedia_with_nodes_and_edges = saved
 
-    def __init__(self) -> None:
-        corpus = adv.load_or_build_chunk_corpus()
-        db = adv.build_or_load_chunk_db(corpus)
+
+def build_or_load_tables_db(corpus: Any) -> Any:
+    """Vector index for the tables corpus. A chunk whose embedded text is
+    identical to a chunk of the original index reuses that chunk's stored
+    embedding; only new or changed text is sent to the embedding model.
+    Resumable, like the 4.1 builder."""
+    from langchain_chroma import Chroma
+
+    complete_marker = TABLES_CHROMA_DIR / "index_complete.json"
+    db = Chroma(persist_directory=str(TABLES_CHROMA_DIR), embedding_function=adv.get_embeddings())
+    if complete_marker.is_file():
+        print(f"Loading existing tables chunk vector DB from {TABLES_CHROMA_DIR}")
+        return db
+    print("Loading the original chunk corpus to find reusable embeddings...")
+    original_corpus = adv.load_or_build_chunk_corpus()
+    original_id_by_text = {}
+    for unit_id, _file, text in original_corpus.units:
+        original_id_by_text.setdefault(text, unit_id)
+    original_db = adv.build_or_load_chunk_db(original_corpus)
+    embedder = adv.get_embeddings()
+    total = len(corpus.units)
+    existing = db._collection.count()
+    start = (existing // adv.INDEX_BATCH_SIZE) * adv.INDEX_BATCH_SIZE
+    print(f"Building tables chunk vector DB at {TABLES_CHROMA_DIR} ({total} chunks, {existing} already present)")
+    reused = embedded = 0
+    started = time.perf_counter()
+    for begin in range(start, total, adv.INDEX_BATCH_SIZE):
+        batch = corpus.chunks[begin:begin + adv.INDEX_BATCH_SIZE]
+        units = corpus.units[begin:begin + adv.INDEX_BATCH_SIZE]
+        ids = [unit_id for unit_id, _file, _text in units]
+        texts = [text for _id, _file, text in units]
+        metadatas = [adv._scalar_metadata(chunk["metadata"]) for chunk in batch]
+        vectors: list[Any] = [None] * len(units)
+        old_ids = {i: original_id_by_text[text] for i, text in enumerate(texts) if text in original_id_by_text}
+        if old_ids:
+            stored = original_db._collection.get(ids=list(dict.fromkeys(old_ids.values())), include=["embeddings"])
+            by_id = dict(zip(stored["ids"], stored["embeddings"]))
+            for i, old_id in old_ids.items():
+                if old_id in by_id:
+                    vectors[i] = list(by_id[old_id])
+        missing = [i for i, vector in enumerate(vectors) if vector is None]
+        if missing:
+            for i, vector in zip(missing, embedder.embed_documents([texts[i] for i in missing])):
+                vectors[i] = vector
+        reused += len(units) - len(missing)
+        embedded += len(missing)
+        db._collection.add(ids=ids, embeddings=vectors, documents=texts, metadatas=metadatas)
+        done = min(begin + adv.INDEX_BATCH_SIZE, total)
+        print(f"  indexed {done}/{total} chunks ({reused} reused, {embedded} embedded, "
+              f"{time.perf_counter() - started:.0f}s elapsed)")
+    complete_marker.write_text(json.dumps({
+        "chunk_count": total, "embedding_model": adv.EMBEDDING_MODEL,
+        "reused_this_session": reused, "embedded_this_session": embedded,
+        "built_at": datetime.now().isoformat(timespec="seconds"),
+    }, indent=2), encoding="utf-8")
+    print(f"Indexed {total} chunks ({reused} reused, {embedded} newly embedded).")
+    return db
+
+
+class Toolbox:
+    """Loads the chunk corpus, index, parent expander and graph once and
+    exposes each agent action as a function returning (hits, trace).
+    tables=True uses the table-rendered index (v2 round 2); otherwise the
+    original 4.1 index."""
+
+    def __init__(self, tables: bool = False) -> None:
+        self.tables = tables
+        if tables:
+            corpus = load_or_build_tables_corpus()
+            db = build_or_load_tables_db(corpus)
+        else:
+            corpus = adv.load_or_build_chunk_corpus()
+            db = adv.build_or_load_chunk_db(corpus)
         print(f"Building BM25 index over {len(corpus.units)} chunks...")
         self.index = adv.HybridIndex(corpus.units, db, metadata_id_key="chunk_id")
         self.expander = adv.ParentExpander(corpus, self.index)
@@ -381,16 +549,72 @@ class Toolbox:
         self.stems = {file: file[:-5] if file.endswith(".html") else file for file in self.files}
 
     # --- chunks: 4.1 fused chunk search, optional parent expansion ---
-    def chunks(self, query: str, parent: str = "none", article_fallback: bool = False) -> tuple[list[Hit], dict[str, Any]]:
+    def chunks(self, query: str, parent: str = "none", article_fallback: bool = False,
+               h2_sections: bool = False) -> tuple[list[Hit], dict[str, Any]]:
         hits = self.index.get_top_k(query, SEED_TOP_K, SEED_POOL)
         trace: dict[str, Any] = {}
         if parent != "none":
             trace["child_chunk_ids"] = [hit.unit_id for hit in hits]
             if parent == "article" and article_fallback:          # v2
                 hits, trace["article_too_long"] = self._expand_articles(hits)
+            elif parent in ("section", "lead_section") and h2_sections:   # v2 round 2
+                hits = self._expand_h2_sections(hits, parent, query)
             else:
                 hits = self.expander.expand(hits, parent, CONTEXT_BUDGET)
         return hits, trace
+
+    def _h2_window(self, position: int, query_scores: list[float]) -> list[int]:
+        """The hit's Header 2 section, subsections included, as at most
+        READ_MAX_CHUNKS consecutive chunks: the window containing the hit with
+        the highest BM25 score for the query. The 4.1 section parent keys on
+        (Header 2, Header 3), so a hit in 'Winners and nominees' could never
+        reach the 'Awards' table below it (Q049)."""
+        file = self.index.source_files[position]
+        positions = self.expander.positions_by_file[file]
+        h1, h2, _h3 = self.expander.section_key[position]
+        if h2 is None:                                  # lead or H1-level: nothing wider to read
+            return [position]
+        i = positions.index(position)
+        lo = hi = i
+        while lo > 0 and self.expander.section_key[positions[lo - 1]][:2] == (h1, h2):
+            lo -= 1
+        while hi < len(positions) - 1 and self.expander.section_key[positions[hi + 1]][:2] == (h1, h2):
+            hi += 1
+        span = positions[lo:hi + 1]
+        if len(span) <= READ_MAX_CHUNKS:
+            return span
+        hit_at = i - lo
+        starts = range(max(0, hit_at - READ_MAX_CHUNKS + 1), min(hit_at, len(span) - READ_MAX_CHUNKS) + 1)
+        start = max(starts, key=lambda s: (sum(query_scores[p] for p in span[s:s + READ_MAX_CHUNKS]), -abs(s + READ_MAX_CHUNKS // 2 - hit_at)))
+        return span[start:start + READ_MAX_CHUNKS]
+
+    def _expand_h2_sections(self, hits: list[Hit], parent: str, query: str) -> list[Hit]:
+        scores = self.index.bm25_scores(query)
+        expanded: list[Hit] = []
+        covered: set[int] = set()
+        remaining = CONTEXT_BUDGET
+        for hit in hits:
+            position = self.index.index_of.get(hit.unit_id)
+            if position is None or position in covered:
+                continue
+            window = self._h2_window(position, scores)
+            if parent == "lead_section":
+                positions = self.expander.positions_by_file[hit.source_file]
+                lead = [p for p in positions if self.expander.section_key[p][1] is None
+                        and self.expander.section_key[p][2] is None][:adv.LEAD_MAX_CHUNKS]
+                window = sorted(set(lead) | set(window), key=lambda p: self.expander.chunk_index_of[p])
+            window = [p for p in window if p not in covered]
+            text = "\n\n".join(self.index.texts[p] for p in window)
+            if len(text) > remaining:
+                window, text = [position], self.index.texts[position]
+                if len(text) > remaining:
+                    break
+            remaining -= len(text)
+            covered.update(window)
+            first, last = self.expander.chunk_index_of[window[0]], self.expander.chunk_index_of[window[-1]]
+            unit_id = f"{hit.source_file}#c{first:05d}-c{last:05d}" if len(window) > 1 else hit.unit_id
+            expanded.append(Hit(unit_id, hit.source_file, text, hit.score, hit.role, hit.article_id))
+        return expanded
 
     def _expand_articles(self, hits: list[Hit]) -> tuple[list[Hit], list[str]]:
         """Whole-article parents where the article fits in ARTICLE_MAX_CHARS,
@@ -436,6 +660,73 @@ class Toolbox:
         finally:
             self.retriever.graph = self.graph
         return hits, {**trace, "relations": relations}
+
+    # --- graph facets (v2 round 2): per-property category intersection ---
+    def graph_facets(self, facets: list[str], query: str) -> tuple[list[Hit], dict[str, Any]]:
+        """Match each facet to categories on its own and rank articles by how
+        many facets they satisfy. A single query cannot do this: on G10 the
+        4.1 matcher filled all 8 category slots with 'Films that won the X
+        Academy Award' and never matched 'English film directors'."""
+        graph = self.graph
+        facets = facets[:FACET_MAX]
+        # Candidate categories per facet at three strictness levels:
+        #   0: every facet word and the fewest extra words ("English film directors",
+        #      not "English-language film directors");
+        #   1: every category with the highest word overlap;
+        #   2: the top FACET_CATEGORIES matches.
+        # The strictest level whose intersection is non-empty is used, so
+        # "21st-century presidents" does not also admit "19th-century presidents".
+        levels_by_facet: list[list[list[tuple[str, int]]]] = []
+        for facet in facets:
+            facet_tokens = adv._content_tokens(facet)
+            matched = graph.match_categories(facet)
+            scored = [(c, overlap, len(adv._content_tokens(graph.category_title[c]) - facet_tokens))
+                      for c, overlap in matched]
+            best = max((o for _c, o, _e in scored), default=0)
+            top = [(c, e) for c, o, e in scored if o == best]
+            fewest = min((e for _c, e in top), default=0)
+            levels_by_facet.append([
+                [(c, e) for c, e in top if e == fewest],
+                top,
+                [(c, e) for c, _o, e in scored[:FACET_CATEGORIES]],
+            ])
+        counts: dict[str, int] = defaultdict(int)
+        extra: dict[str, int] = defaultdict(int)
+        level_used = None
+        for level in range(3):
+            counts.clear(); extra.clear()
+            for levels in levels_by_facet:
+                best_extra: dict[str, int] = {}
+                for category_id, extra_words in levels[level]:
+                    for article_id in graph.category_members.get(category_id, []):
+                        best_extra[article_id] = min(extra_words, best_extra.get(article_id, extra_words))
+                for article_id, extra_words in best_extra.items():
+                    counts[article_id] += 1
+                    extra[article_id] += extra_words
+            level_used = level
+            if any(n == len(facets) for n in counts.values()):
+                break
+        facet_trace = [{"facet": facet, "categories": [
+            {"title": graph.category_title[c], "members": len(graph.category_members.get(c, []))}
+            for c, _e in levels[level_used]]} for facet, levels in zip(facets, levels_by_facet)]
+        ranked = sorted(
+            (article_id for article_id in counts if article_id in graph.file_by_article),
+            key=lambda article_id: (-counts[article_id], extra[article_id], graph.file_by_article[article_id]),
+        )
+        members_by_facet = facets
+        bm25_scores = self.index.bm25_scores(query)
+        hits: list[Hit] = []
+        for article_id in ranked[:SEED_TOP_K]:
+            position, _score = graph.best_chunk(graph.file_by_article[article_id], bm25_scores)
+            if position < 0:
+                continue
+            met = counts[article_id]
+            hit = self.index.hit(self.index.unit_ids[position], float(met),
+                                 f"context: meets {met} of {len(members_by_facet)} facets")
+            hit.article_id = article_id
+            hits.append(hit)
+        return hits, {"facets": facet_trace, "strictness_level": level_used,
+                      "all_facets_met": [graph.file_by_article[a] for a in ranked if counts[a] == len(members_by_facet)][:20]}
 
     # --- title_search (v2): regex over filename stems, no model call ---
     def title_search(self, pattern: str, query: str) -> tuple[list[Hit], dict[str, Any]]:
@@ -544,10 +835,36 @@ def _parse_string_list(raw: str) -> list[str]:
 
 # %%
 class WikipediaAgent:
-    def __init__(self, llm: ChatOpenAI, toolbox: Toolbox, version: str = "v2", answer_enabled: bool = True):
+    def __init__(self, llm: ChatOpenAI, toolbox: Toolbox, version: str = "v2", answer_enabled: bool = True,
+                 disabled: set[str] | None = None, planner_model: str | None = None,
+                 answer_model: str | None = None, reasoning_effort: str | None = None):
         self.llm = llm
         self.tools = toolbox
         self.version = version
+        # Round-2 refinements active in this run (v2 only; --disable removes some).
+        self.features = set(V2_FEATURES) - set(disabled or ()) if version == "v2" else set()
+        # --planner-model: the planner and the clue step can use a different
+        # model; decompose, the answer and every judge keep adv.LLM_MODEL.
+        self.planner_model = planner_model or adv.LLM_MODEL
+        self.planner_llm = llm if self.planner_model == adv.LLM_MODEL else llm.model_copy(update={"model_name": self.planner_model})
+        # --answer-model: the answer and the closed-book answer used for chunk
+        # attribution (which compares the answer with what the same model says
+        # without retrieval). Decompose and every judge keep adv.LLM_MODEL.
+        self.answer_model = answer_model or adv.LLM_MODEL
+        self.answer_llm = llm if self.answer_model == adv.LLM_MODEL else llm.model_copy(update={"model_name": self.answer_model})
+        # --reasoning-effort: OpenRouter's reasoning setting for the planner, the
+        # clue step and the answer (not decompose or the judges). Reasoning uses
+        # part of max_tokens for hidden thinking (about half at "medium"), so
+        # these clients get REASONING_MAX_TOKENS to leave room for the reply.
+        self.reasoning_effort = reasoning_effort
+        if reasoning_effort:
+            with_reasoning = {"extra_body": {"reasoning": {"effort": reasoning_effort}},
+                              "max_tokens": REASONING_MAX_TOKENS}
+            self.planner_llm = self.planner_llm.model_copy(update=with_reasoning)
+            self.answer_llm = self.answer_llm.model_copy(update=with_reasoning)
+        # temperature=0 is requested for the clue step, but OpenRouter lists no
+        # temperature parameter for the gpt-5.4 models, so it has no effect there.
+        self.clue_llm = self.planner_llm.model_copy(update={"temperature": 0.0}) if "clues" in self.features else None
         self.answer_enabled = answer_enabled
         self.app = self._build()
 
@@ -566,7 +883,7 @@ class WikipediaAgent:
         workflow.add_node("answer", self.answer_node)
         workflow.set_entry_point("seed_retrieve")
         workflow.add_edge("seed_retrieve", "fuse")
-        workflow.add_conditional_edges("fuse", self.route_after_fuse, {"plan": "plan", "answer": "answer"})
+        workflow.add_conditional_edges("fuse", self.route_after_fuse, {"plan": "plan", "answer": "answer", "graph": "graph"})
         workflow.add_conditional_edges(
             "plan", self.route_after_plan,
             {name: name for name in RETRIEVAL_ACTIONS | {"clarify", "answer"}},
@@ -581,7 +898,8 @@ class WikipediaAgent:
         initial: AgentState = {
             "question": question, "mode": mode, "version": self.version,
             "history": list(history or [])[-HISTORY_TURNS:],
-            "next_action": None, "steps": [], "planned_steps": 0, "clarify_count": 0,
+            "next_action": None, "steps": [], "planned_steps": 0, "clarify_count": 0, "clues": [],
+            "features": sorted(self.features), "auto_facets_pending": False,
             "clarifications": [], "stop_reason": None, "verification_retries": 0,
             "pending_hits": [], "evidence": {}, "context": [], "response": "", "usage": [],
         }
@@ -589,6 +907,8 @@ class WikipediaAgent:
 
     # ---------------------------------------------------------------- routing
     def route_after_fuse(self, state: AgentState) -> str:
+        if state.get("auto_facets_pending"):
+            return "graph"
         return "plan" if state["planned_steps"] < MAX_PLANNED_STEPS else "answer"
 
     def route_after_plan(self, state: AgentState) -> str:
@@ -600,19 +920,56 @@ class WikipediaAgent:
         hits, trace = self.tools.chunks(state["question"], "none")
         record = self._step_record(state, 0, "seed", {"query": state["question"], "parent": "none"},
                                    None, hits, trace, time.perf_counter() - started, None)
-        return {"steps": [record], "pending_hits": hits}
+        update: dict[str, Any] = {"steps": [record], "pending_hits": hits}
+        if "clues" in self.features:
+            update.update(self._extract_clues(state["question"]))
+        return update
+
+    def _extract_clues(self, question: str) -> dict[str, Any]:
+        """v2 round 2: one question-only call splits the question into clues
+        (frozen for the whole run) and, for questions that describe their
+        answer by properties, category-style facets. The planner, asked to do
+        this inside its own reply, bundled Q009's earthquake clue and never
+        used facets. With facets, one graph facet search runs automatically
+        before the first planner turn, outside the planned-step budget."""
+        messages = [SystemMessage(content=CLUES_SYSTEM), HumanMessage(content=question)]
+        raw, usage = adv.invoke_measured(self.clue_llm, messages)
+        log(f"CLUES {question[:60]}", raw)
+        try:
+            reply = adv._json_object(raw)
+        except (ValueError, json.JSONDecodeError):
+            reply = {}
+        def strings(key: str) -> list[str]:
+            value = reply.get(key)
+            return [str(item).strip() for item in value if str(item).strip()] if isinstance(value, list) else []
+        # Indirectly given values come first: each must be found before the
+        # clues that depend on it can be checked.
+        clues = list(dict.fromkeys(strings("indirect") + strings("clues")))
+        facets = [str(f).strip() for f in reply.get("facets", []) if str(f).strip()] if isinstance(reply.get("facets"), list) else []
+        update: dict[str, Any] = {"clues": clues, "usage": [{**usage, "role": "clues", "model": self.planner_model}]}
+        if len(facets) >= 2 and "facets" in self.features:
+            update["next_action"] = {
+                "action": "graph",
+                "args": {"query": question, "relations": ["category"], "facets": facets[:FACET_MAX]},
+                "assessment": "[agent: facet search from the question's properties]",
+                "missing": [], "clues": clues, "facts": [], "auto": True,
+            }
+            update["auto_facets_pending"] = True
+        return update
 
     def fuse(self, state: AgentState) -> dict[str, Any]:
-        step = state["steps"][-1]
+        # Keyed by the step's position, which is unique; step numbers are not
+        # (the automatic facet search shares number 0 with the seed).
+        step_key = len(state["steps"]) - 1
         hits = state["pending_hits"]
         evidence = {unit_id: dict(entry) for unit_id, entry in state["evidence"].items()}
         for rank, hit in enumerate(hits, 1):
             entry = evidence.get(hit.unit_id)
             if entry is None:
-                entry = {"hit": hit, "rrf": 0.0, "first_step": step["step"], "step_ranks": {}}
+                entry = {"hit": hit, "rrf": 0.0, "first_step": step_key, "step_ranks": {}}
                 evidence[hit.unit_id] = entry
-            if step["step"] not in entry["step_ranks"]:
-                entry["step_ranks"] = {**entry["step_ranks"], step["step"]: rank}
+            if step_key not in entry["step_ranks"]:
+                entry["step_ranks"] = {**entry["step_ranks"], step_key: rank}
                 entry["rrf"] += 1.0 / (RRF_K + rank)
         update: dict[str, Any] = {"pending_hits": [], "evidence": evidence, "context": self._assemble(evidence)}
         if state["planned_steps"] >= MAX_PLANNED_STEPS:
@@ -648,17 +1005,27 @@ class WikipediaAgent:
 
     def plan(self, state: AgentState) -> dict[str, Any]:
         messages = [
-            SystemMessage(content=planner_system(self.version)),
+            SystemMessage(content=planner_system(self.version, self.features)),
             HumanMessage(content=self._planner_message(state)),
         ]
         usages: list[dict[str, Any]] = []
         retries = 0
+        frozen = list(state["clues"])
         while True:
-            raw, usage = adv.invoke_measured(self.llm, messages)
-            usages.append({**usage, "role": "plan"})
+            raw, usage = adv.invoke_measured(self.planner_llm, messages)
+            usages.append({**usage, "role": "plan", "model": self.planner_model})
             log(f"PLAN {state['question'][:60]}", raw)
             update = self._interpret(raw, state)
             planned = update["next_action"]
+            if "clues" in self.features and (planned.get("clues") or frozen):
+                # Applied even when the reply omits "clues", so the frozen list
+                # is always what the coverage check uses.
+                # v2 round 2: the first reply's clues are frozen; later replies
+                # can only append, and each fact's clue number is mapped onto
+                # the frozen list by the clue's text. On Q009 the planner split
+                # the earthquake clue at one step and merged it back at the next.
+                frozen, planned["facts"] = _align_clues(frozen, planned["clues"], planned["facts"])
+                planned["clues"] = list(frozen)
             # v2: an answer must give every clue of the question at least one
             # fact whose quote is verified against the evidence. The first
             # answer that falls short is sent back with the problems named.
@@ -706,6 +1073,8 @@ class WikipediaAgent:
                     update["stop_reason"] = "unverified_answer"
             break
         update["usage"] = usages
+        if "clues" in self.features and frozen:
+            update["clues"] = frozen
         if retries:
             update["verification_retries"] = state["verification_retries"] + retries
         return update
@@ -716,7 +1085,10 @@ class WikipediaAgent:
         try:
             reply = _planner_json(raw)
         except ValueError:
-            return self._force_answer("parse_failure", raw[:200])
+            reply = _args_only_reply(raw) if self.version == "v2" else None
+            if reply is None:
+                return self._force_answer("parse_failure", raw[:200])
+            log("INFERRED ACTION", json.dumps(reply, ensure_ascii=False))
         action = str(reply.get("action", "")).strip()
         args = reply.get("args") if isinstance(reply.get("args"), dict) else {}
         planned: PlannedAction = {
@@ -761,7 +1133,11 @@ class WikipediaAgent:
             return {"query": query}
         if action == "graph":
             relations = [r for r in args.get("relations", []) if r in GRAPH_RELATIONS] if isinstance(args.get("relations"), list) else []
-            return {"query": query, "relations": relations or list(GRAPH_RELATIONS)}
+            normalised = {"query": query, "relations": relations or list(GRAPH_RELATIONS)}
+            facets = [str(f).strip() for f in args.get("facets", []) if str(f).strip()] if isinstance(args.get("facets"), list) else []
+            if facets:
+                normalised["facets"] = facets[:FACET_MAX]
+            return normalised
         if action == "title_search":
             return {"pattern": str(args.get("pattern", "")), "query": query}
         if action == "read_section":
@@ -799,19 +1175,28 @@ class WikipediaAgent:
         seconds = time.perf_counter() - started - sum(
             float(u["latency_seconds"]) + float(u.get("throttle_seconds", 0.0)) for u in usage
         )
-        step_number = state["planned_steps"] + 1
+        auto = bool(planned.get("auto"))        # the free facet search after the seed
+        step_number = state["planned_steps"] + (0 if auto else 1)
         record = self._step_record(state, step_number, action, planned["args"], planned,
                                    hits, trace, seconds, error)
-        return {"steps": [record], "planned_steps": step_number, "usage": usage, "pending_hits": hits}
+        update = {"steps": [record], "planned_steps": step_number, "usage": usage, "pending_hits": hits}
+        if auto:
+            update["auto_facets_pending"] = False
+        return update
 
     def chunks_node(self, state: AgentState) -> dict[str, Any]:
-        return self._run_tool(state, "chunks", lambda a: self.tools.chunks(a["query"], a["parent"], self.version == "v2"))
+        return self._run_tool(state, "chunks", lambda a: self.tools.chunks(
+            a["query"], a["parent"], self.version == "v2", h2_sections="sections" in self.features))
 
     def decompose_node(self, state: AgentState) -> dict[str, Any]:
         return self._run_tool(state, "decompose", lambda a: self.tools.decompose(self.llm, a["query"], decompose_system(self.version)))
 
     def graph_node(self, state: AgentState) -> dict[str, Any]:
-        return self._run_tool(state, "graph", lambda a: self.tools.graph_expand(a["query"], a["relations"]))
+        def call(a: dict[str, Any]):
+            if a.get("facets") and "facets" in self.features:          # v2 round 2
+                return self.tools.graph_facets(a["facets"], a["query"])
+            return self.tools.graph_expand(a["query"], a["relations"])
+        return self._run_tool(state, "graph", call)
 
     def title_search_node(self, state: AgentState) -> dict[str, Any]:
         return self._run_tool(state, "title_search", lambda a: self.tools.title_search(a["pattern"], a["query"]))
@@ -856,10 +1241,15 @@ class WikipediaAgent:
             parts.append(self._history_text(state["history"]))
         if state["clarifications"]:
             parts.append("Clarifications:\n" + "\n".join(f"- {note}" for note in state["clarifications"]))
+        if "clues" in self.features and state["clues"]:
+            # v2 round 2: the frozen clues as a checklist, so every part of the
+            # question is answered (Q009 dropped one of Sartre's two reasons).
+            parts.append("The answer must address each of these parts of the question:\n"
+                         + "\n".join(f"- {clue}" for clue in state["clues"]))
         parts.append(f"Question: {state['question']}")
         messages = [SystemMessage(content=answer_system(self.version)), HumanMessage(content="\n\n".join(parts))]
-        response, usage = adv.invoke_measured(self.llm, messages)
-        return {"response": response, "usage": [{**usage, "role": "answer"}]}
+        response, usage = adv.invoke_measured(self.answer_llm, messages)
+        return {"response": response, "usage": [{**usage, "role": "answer", "model": self.answer_model}]}
 
     # --------------------------------------------------------------- helpers
     def _step_record(self, state: AgentState, step: int, action: str, args: dict[str, Any],
@@ -892,6 +1282,10 @@ class WikipediaAgent:
         if state["history"]:
             lines.append(self._history_text(state["history"]))
         lines.append("Clarifications: " + ("; ".join(state["clarifications"]) or "(none)"))
+        if "clues" in self.features and state["clues"]:
+            lines.append("Clues (fixed before your first turn; repeat them exactly, in this order, and "
+                         "number facts by them; you may only append new ones):")
+            lines.extend(f"  {number}. {clue}" for number, clue in enumerate(state["clues"], 1))
         lines.append(f"Planned retrieval steps used: {state['planned_steps']} of {MAX_PLANNED_STEPS}")
         lines.append("\nActions taken:")
         for step in state["steps"]:
@@ -949,6 +1343,62 @@ def _parse_facts(value: Any) -> list[dict[str, Any]]:
         facts.append({"clue": clue, "fact": str(fact.get("fact", "")),
                       "source": str(fact.get("source", "")), "quote": str(fact.get("quote", ""))})
     return facts
+
+
+def _args_only_reply(raw: str) -> dict[str, Any] | None:
+    """v2: a reply that is only an args object (seen on Q003 and Q009) is
+    read as the action its keys identify unambiguously; anything else is
+    still a parse failure."""
+    text = raw.strip()
+    fence = re.match(r"^```(?:json)?\s*(.*?)\s*```$", text, re.DOTALL | re.IGNORECASE)
+    if fence:
+        text = fence.group(1)
+    start = text.find("{")
+    if start < 0:
+        return None
+    try:
+        args, _end = json.JSONDecoder().raw_decode(text, start)
+    except json.JSONDecodeError:
+        return None
+    if not isinstance(args, dict):
+        return None
+    keys = set(args)
+    if "pattern" in keys:
+        action = "title_search"
+    elif {"file", "section"} <= keys:
+        action = "read_section"
+    elif keys & {"facets", "relations"}:
+        action = "graph"
+    elif "query" in keys and "parent" in keys:
+        action = "chunks"
+    else:
+        return None
+    return {"action": action, "args": args, "assessment": "[agent: action inferred from an args-only reply]",
+            "missing": [], "facts": []}
+
+
+def _clue_key(clue: str) -> str:
+    return re.sub(r"[^0-9a-z]+", " ", clue.casefold()).strip()
+
+
+def _align_clues(frozen: list[str], reply_clues: list[str],
+                 facts: list[dict[str, Any]]) -> tuple[list[str], list[dict[str, Any]]]:
+    """Merge a reply's clues into the frozen list (unknown ones are appended,
+    none are dropped or merged) and renumber the reply's facts by the merged
+    list, matching each fact's clue through its text."""
+    merged = list(frozen)
+    keys = [_clue_key(clue) for clue in merged]
+    for clue in reply_clues:
+        if _clue_key(clue) not in keys:
+            merged.append(clue)
+            keys.append(_clue_key(clue))
+    aligned = []
+    reference = reply_clues or frozen     # no list in the reply: its numbers refer to the frozen one
+    for fact in facts:
+        number = fact.get("clue")
+        text = reference[number - 1] if isinstance(number, int) and 1 <= number <= len(reference) else None
+        aligned.append({**fact, "clue": keys.index(_clue_key(text)) + 1 if text is not None else None})
+    return merged, aligned
 
 
 def _uncovered_clues(clues: list[str], facts: list[dict[str, Any]]) -> list[str]:
@@ -1085,7 +1535,7 @@ class BaselinePipeline:
                 response = "(no documents retrieved)"
         return {
             "question": question, "mode": mode, "version": "v0", "history": list(history or []),
-            "next_action": None, "steps": [step], "planned_steps": 0, "clarify_count": 0,
+            "next_action": None, "steps": [step], "planned_steps": 0, "clarify_count": 0, "clues": [], "features": [], "auto_facets_pending": False,
             "clarifications": [], "stop_reason": "fixed_pipeline", "verification_retries": 0,
             "pending_hits": [],
             "evidence": {hit.unit_id: {"hit": hit, "rrf": 1.0 / (RRF_K + rank), "first_step": 0,
@@ -1118,12 +1568,14 @@ def agent_metrics(item: dict[str, Any] | None, state: AgentState) -> dict[str, A
     answer_facts = final.get("facts", []) if final.get("action") == "answer" else []
     metrics: dict[str, Any] = {
         "agent_version": state["version"],
+        "agent_features": state.get("features", []),
+        "frozen_clues": state.get("clues", []),
         "agent_actions": actions,
         "planned_steps": state["planned_steps"],
         "stop_reason": state["stop_reason"],
         "seed_only_answer": len(retrieval_steps) == 1,
         "planner_calls": len(by_role["plan"]),
-        "tool_llm_calls": len(by_role["decompose"]),
+        "tool_llm_calls": len(by_role["decompose"]) + len(by_role["clues"]),   # decompose + v2 clue step
         "llm_calls_total": len(usage),
         "planner_input_tokens": sum(int(u["input_tokens"]) for u in by_role["plan"]),
         "planner_output_tokens": sum(int(u["output_tokens"]) for u in by_role["plan"]),
@@ -1162,6 +1614,9 @@ def _print_trace(state: AgentState) -> None:
             print(f"      -> {step['trace'].get('clarification')}")
         else:
             print(f"      -> {len(step['ranked_unit_ids'])} units, new files: {step['trace'].get('new_files')}")
+            if step["trace"].get("facets"):
+                print(f"      facets met by: {step['trace'].get('all_facets_met', [])[:6]} "
+                      f"(strictness level {step['trace'].get('strictness_level')})")
         if step["error"]:
             print(f"      error: {step['error']}")
     final = state["next_action"]
@@ -1189,7 +1644,9 @@ def _evaluate_item(agent: WikipediaAgent, llm: ChatOpenAI, item: dict[str, Any],
     response = state["response"]
     retrieved_context = adv._format_context(hits)
     retrieval_seconds = sum(step["seconds"] for step in state["steps"])
-    closed_book_response, closed_book_usage = adv.answer_closed_book(llm, item["question"])
+    answer_llm = getattr(agent, "answer_llm", llm)
+    closed_book_response, closed_book_usage = adv.answer_closed_book(answer_llm, item["question"])
+    closed_book_usage = {**closed_book_usage, "model": getattr(agent, "answer_model", adv.LLM_MODEL)}
     quality, quality_usage = adv.judge(
         llm, response, item["expected_answer"], item["required_aspects"], retrieved_context,
     )
@@ -1251,7 +1708,12 @@ def _evaluate_item(agent: WikipediaAgent, llm: ChatOpenAI, item: dict[str, Any],
         "input_tokens": input_tokens,
         "output_tokens": output_tokens,
         "total_tokens": input_tokens + output_tokens,
-        "estimated_cost_usd": adv._estimated_cost_usd(input_tokens, output_tokens),
+        "estimated_cost_usd": _usage_cost(usages),
+        "planner_model": agent.planner_model if isinstance(agent, WikipediaAgent) else None,
+        "answer_model": agent.answer_model if isinstance(agent, WikipediaAgent) else adv.LLM_MODEL,
+        "reasoning_effort": getattr(agent, "reasoning_effort", None),
+        "answer_cost_usd": _usage_cost([u for u in list(agent_usage) + [closed_book_usage] if u.get("role") == "answer" or u is closed_book_usage]),
+        "planner_cost_usd": _usage_cost([u for u in agent_usage if u.get("role") in ("plan", "clues")]),
         "judge_votes": [vote["correctness"] for vote in votes],
         "graded_correctness_votes": [vote["graded_correctness_score"] for vote in votes],
         "correctness_majority": (
@@ -1264,8 +1726,64 @@ def _evaluate_item(agent: WikipediaAgent, llm: ChatOpenAI, item: dict[str, Any],
     return result, state
 
 
+_RUN_FEATURES: list[str] = []     # set by main(): the v2 round-2 refinements on in this run
+_RUN_PLANNER_MODEL: list[str] = []  # set by main() when --planner-model differs from adv.LLM_MODEL
+_RUN_ANSWER_MODEL: list[str] = []   # set by main() when --answer-model differs from adv.LLM_MODEL
+_RUN_REASONING: list[str] = []      # set by main() when --reasoning-effort is given
+REASONING_MAX_TOKENS = 8192
+
+# OpenRouter list prices, USD per million tokens (input, output), read from
+# https://openrouter.ai/api/v1/models on 2026-09-29. The default model's rates
+# come from .env as in 4.1; these cover calls made with --planner-model.
+MODEL_PRICES = {
+    "openai/gpt-5.4-mini": (0.75, 4.50),
+    "openai/gpt-5.4": (2.50, 15.00),
+    "anthropic/claude-haiku-4.5": (1.00, 5.00),
+}
+
+
+def _usage_cost(usages: list[dict[str, Any]]) -> float | None:
+    """Estimated cost with each call priced at its own model's rates."""
+    total = 0.0
+    for usage in usages:
+        model = usage.get("model", adv.LLM_MODEL)
+        if model == adv.LLM_MODEL:
+            cost = adv._estimated_cost_usd(int(usage["input_tokens"]), int(usage["output_tokens"]))
+        elif model in MODEL_PRICES:
+            rate_in, rate_out = MODEL_PRICES[model]
+            cost = (int(usage["input_tokens"]) * rate_in + int(usage["output_tokens"]) * rate_out) / 1_000_000
+        else:
+            return None
+        if cost is None:
+            return None
+        total += cost
+    return total
+
+
+def _run_label(version: str) -> str:
+    """'v2' with every refinement on; 'v2-without-clues+facets' when some are disabled."""
+    if version != "v2":
+        return version
+    off = [name for name in V2_FEATURES if name not in _RUN_FEATURES]
+    label = version + ("-without-" + "+".join(off) if off else "")
+    if _RUN_PLANNER_MODEL:
+        label += "-planner-" + _RUN_PLANNER_MODEL[0].split("/")[-1]
+    if _RUN_ANSWER_MODEL:
+        label += "-answer-" + _RUN_ANSWER_MODEL[0].split("/")[-1]
+    if _RUN_REASONING:
+        label += "-reasoning-" + _RUN_REASONING[0]
+    return label
+
+
 def _configuration(version: str) -> dict[str, Any]:
     return {
+        "run_label": _run_label(version),
+        "planner_model": _RUN_PLANNER_MODEL[0] if _RUN_PLANNER_MODEL else adv.LLM_MODEL,
+        "answer_model": _RUN_ANSWER_MODEL[0] if _RUN_ANSWER_MODEL else adv.LLM_MODEL,
+        "judge_model": adv.LLM_MODEL,
+        "reasoning_effort": _RUN_REASONING[0] if _RUN_REASONING else None,
+        "v2_features": list(_RUN_FEATURES) if version == "v2" else None,
+        "chunk_index": str(TABLES_CACHE_DIR.name if version == "v2" and "tables" in _RUN_FEATURES else adv.CHUNK_CACHE_DIR.name),
         "retriever": f"agent_{version}",
         "agent_version": version,
         "actions": sorted(ACTIONS_BY_VERSION[version]),
@@ -1392,7 +1910,7 @@ def _load_items(input_path: Path, ids: list[str] | None, limit: int | None) -> l
 def run_evaluation(agent: WikipediaAgent, llm: ChatOpenAI, items: list[dict[str, Any]], output_path: Path | None,
                    judge_repeats: int = 1) -> None:
     if output_path is None:
-        output_path = RESULTS_DIR / f"evaluation_agent_{agent.version}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        output_path = RESULTS_DIR / f"evaluation_agent_{_run_label(agent.version)}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
     print(f"Checkpoint 5.1 - evaluation  |  scenario: {SCENARIO}  |  agent: {agent.version}  |  {len(items)} records\n")
     results: list[dict[str, Any]] = []
     for index, item in enumerate(items, 1):
@@ -1412,7 +1930,7 @@ def run_retrieval_only(agent: WikipediaAgent, items: list[dict[str, Any]], outpu
     """Run the agent's retrieval loop (planner included) without the answer
     model or judges. Planner calls still cost money, but only ~3 per query."""
     if output_path is None:
-        output_path = RESULTS_DIR / f"retrieval_agent_{agent.version}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        output_path = RESULTS_DIR / f"retrieval_agent_{_run_label(agent.version)}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
     results: list[dict[str, Any]] = []
     for index, item in enumerate(items, 1):
         state = agent.run(item["question"], mode="batch")
@@ -1530,7 +2048,24 @@ def main() -> None:
     parser.add_argument("--plan", action="store_true", help="print my_agent_plan() and exit")
     parser.add_argument("--judge-repeats", type=int, default=1,
                         help="correctness verdicts per record (majority vote reported; first verdict fills the 4.1 fields)")
+    parser.add_argument("--reasoning-effort", choices=("low", "medium", "high"),
+                        help="OpenRouter reasoning effort for the planner, clue step and answer (not decompose or judges)")
+    parser.add_argument("--answer-model",
+                        help=f"model for the answer and the closed-book answer (default {adv.LLM_MODEL}); judges keep the default")
+    parser.add_argument("--planner-model",
+                        help=f"model for the planner and clue step (default {adv.LLM_MODEL}); decompose, answer and judges keep the default")
+    parser.add_argument("--disable", default="",
+                        help=f"v2 only: comma-separated round-2 refinements to switch off, from {','.join(V2_FEATURES)}")
+    parser.add_argument("--build-tables-index", action="store_true",
+                        help="build the table-rendered chunk cache and vector index used by v2, then exit")
     args = parser.parse_args()
+    disabled = {name.strip() for name in args.disable.split(",") if name.strip()}
+    unknown = disabled - set(V2_FEATURES)
+    if unknown:
+        parser.error(f"--disable: unknown feature(s) {sorted(unknown)}; choose from {list(V2_FEATURES)}")
+    if args.build_tables_index:
+        build_or_load_tables_db(load_or_build_tables_corpus())
+        return
     if args.plan:
         print(json.dumps(my_agent_plan(), indent=2))
         return
@@ -1543,7 +2078,22 @@ def main() -> None:
     if args.agent_version == "v0":
         agent = BaselinePipeline(llm, answer_enabled=not args.retrieval_only)
     else:
-        agent = WikipediaAgent(llm, Toolbox(), args.agent_version, answer_enabled=not args.retrieval_only)
+        tables = args.agent_version == "v2" and "tables" not in disabled
+        _RUN_FEATURES[:] = [name for name in V2_FEATURES if name not in disabled] if args.agent_version == "v2" else []
+        if args.planner_model and args.planner_model != adv.LLM_MODEL:
+            if args.planner_model not in MODEL_PRICES:
+                parser.error(f"--planner-model: no price for {args.planner_model}; add it to MODEL_PRICES")
+            _RUN_PLANNER_MODEL[:] = [args.planner_model]
+        if args.answer_model and args.answer_model != adv.LLM_MODEL:
+            if args.answer_model not in MODEL_PRICES:
+                parser.error(f"--answer-model: no price for {args.answer_model}; add it to MODEL_PRICES")
+            _RUN_ANSWER_MODEL[:] = [args.answer_model]
+        if args.reasoning_effort:
+            _RUN_REASONING[:] = [args.reasoning_effort]
+        agent = WikipediaAgent(llm, Toolbox(tables=tables), args.agent_version,
+                               answer_enabled=not args.retrieval_only, disabled=disabled,
+                               planner_model=args.planner_model, answer_model=args.answer_model,
+                               reasoning_effort=args.reasoning_effort)
     if args.chat:
         chat(agent)
         return
