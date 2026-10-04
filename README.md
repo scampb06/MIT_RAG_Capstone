@@ -2,6 +2,59 @@
 
 A retrieval-augmented question answering system over a corpus of 2,419 English Wikipedia articles, built checkpoint by checkpoint: from a no-retrieval baseline, through hybrid retrieval and an evaluation harness, to chunked, decomposed and graph-based advanced retrieval, and finally an agent-based system that plans its own retrieval.
 
+## Installation
+
+Tested on Windows 11 with Python 3.12.
+
+1. **Create and activate a virtual environment**, then install the dependencies:
+
+   ```powershell
+   python -m venv .venv
+   .venv\Scripts\Activate.ps1
+   python -m pip install -r requirements.txt
+   ```
+
+   [`requirements.txt`](requirements.txt) lists the direct dependencies, pinned to the tested
+   versions. [`requirements-lock.txt`](requirements-lock.txt) is the exact environment the
+   results were produced with, including every transitive package
+   (`python -m pip install -r requirements-lock.txt`). It also contains packages used by the
+   course modules outside this folder.
+
+2. **Add an OpenRouter API key.** All model and embedding calls go through
+   [OpenRouter](https://openrouter.ai/keys). Create a `.env` file in this folder or any folder
+   above it:
+
+   ```text
+   OPENROUTER_API_KEY=sk-or-v1-...
+   ```
+
+   `.env` is git-ignored. Never commit it.
+
+3. **The corpus is included; the indexes are not.** The 2,419 Wikipedia articles are in
+   `Checkpoint 1.1/Wikipedia/`. The chunk caches and Chroma vector indexes under
+   `Checkpoint 2.1/` are git-ignored, and are built automatically the first time a script
+   needs them:
+   - Parsing the corpus into chunks takes about 35 minutes.
+   - Embedding the chunks with `openai/text-embedding-3-small` costs roughly $1–2 per index
+     (estimate).
+   - The table-rendered index used by the 5.1 v2 agent can be built ahead of time with
+     `python "Checkpoint 5.1/capstone_checkpoint_5_1_agent_rag_solution.py" --build-tables-index`.
+
+4. **Checkpoint 6.1 security tools (optional).** Install these outside the project
+   environment, so their dependencies cannot change the packages the agent needs:
+   - [promptfoo](https://www.promptfoo.dev/) (Node.js) for the red-team and prompt-injection
+     tests in `Checkpoint 6.1/redteam/`.
+   - `semgrep` and `pip-audit`, each in its own virtual environment, for example:
+
+     ```powershell
+     python -m venv $HOME\.venvs\pip-audit
+     & $HOME\.venvs\pip-audit\Scripts\python.exe -m pip install pip-audit
+     & $HOME\.venvs\pip-audit\Scripts\pip-audit.exe -r requirements-lock.txt --no-deps --disable-pip
+     ```
+
+   Installing `semgrep` into the project environment downgrades the OpenTelemetry packages
+   that `chromadb` depends on, and `import chromadb` then fails.
+
 ## Checkpoints
 
 | Checkpoint | Summary |

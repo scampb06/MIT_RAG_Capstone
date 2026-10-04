@@ -1,0 +1,32 @@
+Run started:2026-10-04 11:17:42.054022+00:00
+
+Test results:
+>> Issue: [B110:try_except_pass] Try, Except, Pass detected.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b110_try_except_pass.html
+   Location: .\..\..\Checkpoint 4.1\capstone_checkpoint_4_1_advanced_retrieval_solution.py:840:4
+839	            return parsed
+840	    except Exception:
+841	        pass
+842	    return [query]
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 3789
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 1
+		Medium: 0
+		High: 0
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 0
+		Medium: 0
+		High: 1
+Files skipped (0):
