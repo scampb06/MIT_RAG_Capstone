@@ -99,8 +99,22 @@ Observations:
 - **`parse_failure`** (1–2 per 34 queries): the planner returned JSON that couldn't be parsed,
   so the agent fell back to answering.
 - **The work is sequential.** Each planner turn chooses one action, waits for it, then plans
-  again, so latency grows linearly with the number of steps. The clue step runs before the first
-  planner turn on every v2 query, including questions the seed search already answers.
+  again, so every extra step adds a planner call plus a retrieval. The clue step runs before the
+  first planner turn on every v2 query, including questions the seed search already answers.
+
+  Median agent latency by number of planned steps (n = queries in each group):
+
+  | Configuration | 0 steps | 1 step | 2 steps | 3 steps |
+  |---|---|---|---|---|
+  | v2 gpt-5.4-mini | 9.8 s (13) | 12.9 s (9) | 17.1 s (5) | 18.5 s (7) |
+  | v2 gpt-5.4 planner | 10.3 s (13) | 15.4 s (9) | 35.7 s (5) | 21.5 s (7) |
+  | v2 Haiku planner + answer | 11.1 s (10) | 21.4 s (2) | 23.7 s (6) | 24.0 s (16) |
+  | v2 Haiku + medium reasoning | 29.9 s (11) | 42.9 s (7) | 47.3 s (4) | 68.8 s (12) |
+
+  Latency rises with the number of steps, but not linearly. The first step beyond the seed
+  search adds the most, and the later increments vary. The groups are small, and the queries
+  that take more steps are also the harder ones, with more verification retries and longer
+  evidence, so the step count is not the only cause.
 
 ## 5. Bottlenecks and contributing design decisions (for the Step 3 boxes)
 
