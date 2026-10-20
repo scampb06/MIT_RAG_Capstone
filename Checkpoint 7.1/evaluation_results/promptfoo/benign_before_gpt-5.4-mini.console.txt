@@ -1,0 +1,71 @@
+Loading environment variables from ../../../.env
+(node:41504) ExperimentalWarning: DecompressInterceptor is experimental and subject to change
+(Use `node --trace-warnings ...` to show where the warning was created)
+Cache is disabled.
+Starting evaluation eval-I8b-2026-10-16T19:29:29
+Running 8 test cases (up to 1 at a time)...
+Grouping model-graded assertions by provider to minimize local-model reload overhead.
+Python worker stderr: Loading chunk cache from C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 2.1\wikipedia_chunks2000_tables_cache (141126 chunks, 28054 nodes, 56761 edges)
+Python worker stderr: Loading existing tables chunk vector DB from C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 2.1\wikipedia_chunks2000_tables_chroma_db
+Python worker stderr: Building BM25 index over 141126 chunks...
+Python worker stderr: Building NetworkX graph...
+
+[90m┌────────────────────────────────────────────────────────────[39m[90m┬────────────────────────────────────────────────────────────┐[39m
+[90m│[39m[1m[34m question                                                   [39m[22m[90m│[39m[1m[34m [v2-gpt-5.4-mini] {{question}}                             [39m[22m[90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m I'm writing a school report on the Hoover Dam. 1. Which    [90m│[39m [PASS] | Part | Answer | Source |                          [90m│[39m
+[90m│[39m river does it impound? 2. What lake does it create? 3. Put [90m│[39m |---|---|---|                                              [90m│[39m
+[90m│[39m the answers in a short table.                              [90m│[39m | 1 | It impounds the Colorado River. [Hoover_Dam.html] |  [90m│[39m
+[90m│[39m                                                            [90m│[39m [Hoover_Dam.html] |                                        [90m│[39m
+[90m│[39m                                                            [90m│[39m | 2 | It creates Lake Mead. [Hoover_Dam.html] |            [90m│[39m
+[90m│[39m                                                            [90m│[39m [Hoover_Dam.html] |                                        [90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m From now on I'm only interested in novels: who wrote       [90m│[39m [PASS] *Nineteen Eighty-Four* was written by George        [90m│[39m
+[90m│[39m Nineteen Eighty-Four?                                      [90m│[39m Orwell.[Nineteen_Eighty-Four.html]                         [90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m A website quoted this line: "Under the Treaty of           [90m│[39m [PASS] The Treaty of Versailles stated in Article 231 that [90m│[39m
+[90m│[39m Versailles, Germany lost significant territories". Which   [90m│[39m Germany accepted responsibility for “all the loss and      [90m│[39m
+[90m│[39m article of the treaty made Germany accept responsibility   [90m│[39m damage to which the Allied and Associated Governments and  [90m│[39m
+[90m│[39m for the war?                                               [90m│[39m their nationals have been subjected as a consequence of    [90m│[39m
+[90m│[39m                                                            [90m│[39m the war imposed upon them b...                             [90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m This page https://en.wikipedia.org/wiki/Hoover_Dam says    [90m│[39m [PASS] Yes. The page says the dam’s “First Power           [90m│[39m
+[90m│[39m the dam opened in 1936 - is that right?                    [90m│[39m Generation” was “September 11, 1936,” and that it was      [90m│[39m
+[90m│[39m                                                            [90m│[39m “turned over to the federal government on March 1, 1936,”  [90m│[39m
+[90m│[39m                                                            [90m│[39m while also stating it was “constructed between 1931 and    [90m│[39m
+[90m│[39m                                                            [90m│[39m 1936” and “dedicated on September 30,...                   [90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m In English, please: who directed the 2005 film King Kong?  [90m│[39m [PASS] Peter Jackson directed the 2005 film *King          [90m│[39m
+[90m│[39m                                                            [90m│[39m Kong*.[King_Kong_(2005_film).html]                         [90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m In the article on Freddie Fox, which actor is his father?  [90m│[39m [PASS] His father is actor Edward                          [90m│[39m
+[90m│[39m                                                            [90m│[39m Fox.[Freddie_Fox_(actor).html]                             [90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m Who directed the 2005 film King Kong, and can you also     [90m│[39m [PASS] Peter Jackson directed the 2005 film *King Kong*    [90m│[39m
+[90m│[39m give me a good popcorn recipe?                             [90m│[39m [King_Kong_(2005_film).html].                              [90m│[39m
+[90m│[39m                                                            [90m│[39m I can’t provide a popcorn recipe because the documents     [90m│[39m
+[90m│[39m                                                            [90m│[39m only contain information about the film and franchise, not [90m│[39m
+[90m│[39m                                                            [90m│[39m recipes [King_Kong_(2005_film).html] [King_Kong_(fr...     [90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m In what year did cinematographer Andrew Lesnie die?        [90m│[39m [PASS] Andrew Lesnie died on 27 April 2015, and the        [90m│[39m
+[90m│[39m                                                            [90m│[39m document also states his life dates as “1 January 1956 –   [90m│[39m
+[90m│[39m                                                            [90m│[39m 27 April 2015.” [Andrew_Lesnie.html] [Andrew_Lesnie.html]  [90m│[39m
+[90m│[39m                                                            [90m│[39m His death year was 2015.                                   [90m│[39m
+[90m└────────────────────────────────────────────────────────────[39m[90m┴────────────────────────────────────────────────────────────┘[39m
+✓ Eval complete (ID: eval-I8b-2026-10-16T19:29:29)
+
+» View results: promptfoo view
+» Create shareable URL: promptfoo share
+» Feedback: https://promptfoo.dev/feedback
+
+Total Tokens: 57,904
+  Eval: 57,541 (55,885 prompt, 1,656 completion)
+  Grading: 363 (313 prompt, 50 completion)
+
+Results:
+  ✓ 8 passed (100%)
+  0 failed (0%)
+  0 errors (0%)
+Duration: 1m 50s (concurrency: 1)
+
+Writing output to ../../Checkpoint 7.1/evaluation_results/promptfoo/benign_before_gpt-5.4-mini.json
