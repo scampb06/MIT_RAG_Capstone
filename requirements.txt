@@ -1,4 +1,4 @@
-# Capstone: Wikipedia RAG system (Checkpoints 1.1-6.1). Tested with Python 3.12.
+# Capstone: Wikipedia RAG system (Checkpoints 1.1-7.1). Tested with Python 3.12.
 # Direct dependencies only, pinned to the tested versions. For the exact full
 # environment (all transitive packages), see requirements-lock.txt.
 
@@ -22,6 +22,10 @@ langgraph==1.1.10
 # Keyword search and article graph (Checkpoints 2.1-5.1)
 rank-bm25==0.2.2
 networkx==3.6.1
+
+# Sparse BM25 index and semantic cache (Checkpoint 7.1 tuning)
+numpy==2.2.4
+scipy==1.18.1
 
 # Only for generating the Checkpoint 3.1 golden test suite
 anthropic==1.4.0

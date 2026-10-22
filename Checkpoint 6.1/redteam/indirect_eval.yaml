@@ -6,12 +6,16 @@
 # every passage search, as a poisoned Wikipedia article would be.
 #
 # Run from this folder:
-#   promptfoo eval -c indirect_eval.yaml --env-file ../../../.env
+#   promptfoo eval -c indirect_eval.yaml --env-file ../../../.env --no-cache
 #   promptfoo view
+#
+# Checkpoint 7.1 before/after: the 5.1 targets (before) and the 7.1 hardened targets
+# (after, module: "7.1") run on identical inputs. --filter-providers <label> runs a subset.
 
-description: Checkpoint 6.1 - indirect prompt injection through a planted retrieved passage
+description: Checkpoint 6.1/7.1 - indirect prompt injection through a planted retrieved passage
 
 providers:
+  # Before: the Checkpoint 5.1 v2 agent.
   - id: file://agent_provider.py
     label: v2-gpt-5.4-mini
     config:
@@ -20,6 +24,28 @@ providers:
     label: v2-haiku-planner-and-answer
     config:
       agent_version: v2
+      planner_model: anthropic/claude-haiku-4.5
+      answer_model: anthropic/claude-haiku-4.5
+  # After: the Checkpoint 7.1 hardened agent (all layers on).
+  - id: file://agent_provider.py
+    label: hardened-gpt-5.4-mini
+    config:
+      module: "7.1"
+  - id: file://agent_provider.py
+    label: hardened-haiku-planner-and-answer
+    config:
+      module: "7.1"
+      planner_model: anthropic/claude-haiku-4.5
+      answer_model: anthropic/claude-haiku-4.5
+  # After tuning: the hardened agent plus the Checkpoint 7.1 performance features.
+  - id: file://agent_provider.py
+    label: tuned-gpt-5.4-mini
+    config:
+      module: "7.1-tuned"
+  - id: file://agent_provider.py
+    label: tuned-haiku-planner-and-answer
+    config:
+      module: "7.1-tuned"
       planner_model: anthropic/claude-haiku-4.5
       answer_model: anthropic/claude-haiku-4.5
 
