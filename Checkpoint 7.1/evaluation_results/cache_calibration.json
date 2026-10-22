@@ -1,0 +1,167 @@
+{
+ "threshold": 0.934,
+ "rows": [
+  {
+   "id": "R1",
+   "kind": "repeat",
+   "change": null,
+   "similarity": 1.0,
+   "number_guard_blocks": false,
+   "question": "Which film won Best Picture at the 68th Academy Awards?",
+   "original": "Which film won Best Picture at the 68th Academy Awards?"
+  },
+  {
+   "id": "R3",
+   "kind": "repeat",
+   "change": null,
+   "similarity": 1.0,
+   "number_guard_blocks": false,
+   "question": "Who wrote Nineteen Eighty-Four?",
+   "original": "Who wrote Nineteen Eighty-Four?"
+  },
+  {
+   "id": "R5",
+   "kind": "repeat",
+   "change": null,
+   "similarity": 1.0,
+   "number_guard_blocks": false,
+   "question": "What river does the Hoover Dam impound?",
+   "original": "What river does the Hoover Dam impound?"
+  },
+  {
+   "id": "R7",
+   "kind": "repeat",
+   "change": null,
+   "similarity": 1.0,
+   "number_guard_blocks": false,
+   "question": "Why did Spielberg step down as an advisor to the Beijing Olympics?",
+   "original": "Why did Spielberg step down as an advisor to the Beijing Olympics?"
+  },
+  {
+   "id": "P1",
+   "kind": "paraphrase",
+   "change": null,
+   "similarity": 0.9198,
+   "number_guard_blocks": false,
+   "question": "Which movie took Best Picture at the 68th Oscars?",
+   "original": "Which film won Best Picture at the 68th Academy Awards?"
+  },
+  {
+   "id": "P2",
+   "kind": "paraphrase",
+   "change": null,
+   "similarity": 0.9711,
+   "number_guard_blocks": false,
+   "question": "Who was the director of the 2005 film King Kong?",
+   "original": "Who directed the 2005 film King Kong?"
+  },
+  {
+   "id": "P3",
+   "kind": "paraphrase",
+   "change": null,
+   "similarity": 0.941,
+   "number_guard_blocks": false,
+   "question": "Who is the author of Nineteen Eighty-Four?",
+   "original": "Who wrote Nineteen Eighty-Four?"
+  },
+  {
+   "id": "P4",
+   "kind": "paraphrase",
+   "change": null,
+   "similarity": 0.9682,
+   "number_guard_blocks": false,
+   "question": "When did the cinematographer Andrew Lesnie die?",
+   "original": "In what year did cinematographer Andrew Lesnie die?"
+  },
+  {
+   "id": "P5",
+   "kind": "paraphrase",
+   "change": null,
+   "similarity": 0.9474,
+   "number_guard_blocks": false,
+   "question": "Which river is impounded by the Hoover Dam?",
+   "original": "What river does the Hoover Dam impound?"
+  },
+  {
+   "id": "P6",
+   "kind": "paraphrase",
+   "change": null,
+   "similarity": 0.9254,
+   "number_guard_blocks": false,
+   "question": "Who turned down the role of Hyman Roth?",
+   "original": "Who was offered the Hyman Roth role and turned it down?"
+  },
+  {
+   "id": "P7",
+   "kind": "paraphrase",
+   "change": null,
+   "similarity": 0.9532,
+   "number_guard_blocks": false,
+   "question": "Why did Steven Spielberg quit as an adviser for the Beijing Olympics?",
+   "original": "Why did Spielberg step down as an advisor to the Beijing Olympics?"
+  },
+  {
+   "id": "P8",
+   "kind": "paraphrase",
+   "change": null,
+   "similarity": 0.9603,
+   "number_guard_blocks": false,
+   "question": "Who was the director of A Beautiful Day in the Neighborhood, and what did Tom Hanks get for it?",
+   "original": "Who directed A Beautiful Day in the Neighborhood and what did Tom Hanks receive for it?"
+  },
+  {
+   "id": "N1",
+   "kind": "near_miss",
+   "change": "number",
+   "similarity": 0.873,
+   "number_guard_blocks": true,
+   "question": "Which film won Best Picture at the 89th Academy Awards?",
+   "original": "Which film won Best Picture at the 68th Academy Awards?"
+  },
+  {
+   "id": "N2",
+   "kind": "near_miss",
+   "change": "number",
+   "similarity": 0.8265,
+   "number_guard_blocks": true,
+   "question": "Who directed the 1976 film King Kong?",
+   "original": "Who directed the 2005 film King Kong?"
+  },
+  {
+   "id": "N3",
+   "kind": "near_miss",
+   "change": "entity",
+   "similarity": 0.5575,
+   "number_guard_blocks": false,
+   "question": "Who wrote Brave New World?",
+   "original": "Who wrote Nineteen Eighty-Four?"
+  },
+  {
+   "id": "N4",
+   "kind": "near_miss",
+   "change": "attribute",
+   "similarity": 0.928,
+   "number_guard_blocks": false,
+   "question": "In what year was cinematographer Andrew Lesnie born?",
+   "original": "In what year did cinematographer Andrew Lesnie die?"
+  },
+  {
+   "id": "N5",
+   "kind": "near_miss",
+   "change": "attribute",
+   "similarity": 0.7988,
+   "number_guard_blocks": false,
+   "question": "What lake does the Hoover Dam create?",
+   "original": "What river does the Hoover Dam impound?"
+  },
+  {
+   "id": "N6",
+   "kind": "near_miss",
+   "change": "attribute",
+   "similarity": 0.6033,
+   "number_guard_blocks": false,
+   "question": "Who played Hyman Roth in The Godfather Part II?",
+   "original": "Who was offered the Hyman Roth role and turned it down?"
+  }
+ ]
+}

@@ -1,0 +1,82 @@
+[
+ {
+  "cache_size": 25,
+  "policy": "lfu_aging",
+  "hit_rate": 0.294
+ },
+ {
+  "cache_size": 25,
+  "policy": "lfu",
+  "hit_rate": 0.191
+ },
+ {
+  "cache_size": 25,
+  "policy": "lru",
+  "hit_rate": 0.17
+ },
+ {
+  "cache_size": 25,
+  "policy": "fifo",
+  "hit_rate": 0.15
+ },
+ {
+  "cache_size": 50,
+  "policy": "lfu_aging",
+  "hit_rate": 0.399
+ },
+ {
+  "cache_size": 50,
+  "policy": "lfu",
+  "hit_rate": 0.246
+ },
+ {
+  "cache_size": 50,
+  "policy": "lru",
+  "hit_rate": 0.277
+ },
+ {
+  "cache_size": 50,
+  "policy": "fifo",
+  "hit_rate": 0.238
+ },
+ {
+  "cache_size": 100,
+  "policy": "lfu_aging",
+  "hit_rate": 0.478
+ },
+ {
+  "cache_size": 100,
+  "policy": "lfu",
+  "hit_rate": 0.337
+ },
+ {
+  "cache_size": 100,
+  "policy": "lru",
+  "hit_rate": 0.394
+ },
+ {
+  "cache_size": 100,
+  "policy": "fifo",
+  "hit_rate": 0.341
+ },
+ {
+  "cache_size": 200,
+  "policy": "lfu_aging",
+  "hit_rate": 0.559
+ },
+ {
+  "cache_size": 200,
+  "policy": "lfu",
+  "hit_rate": 0.45
+ },
+ {
+  "cache_size": 200,
+  "policy": "lru",
+  "hit_rate": 0.516
+ },
+ {
+  "cache_size": 200,
+  "policy": "fifo",
+  "hit_rate": 0.458
+ }
+]

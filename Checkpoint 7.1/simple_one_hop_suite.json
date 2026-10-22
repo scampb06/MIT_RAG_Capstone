@@ -1,0 +1,817 @@
+{
+  "suite_notes": "Checkpoint 7.1 fast-path test set: the 24 answerable, single-document fact-lookup records (no adversarial kind) of Checkpoint 3.1 golden_suite.json, unchanged. Simple one-hop questions, the traffic a fast path is meant for; the 17-question mini suite remains the regression check.",
+  "source_suite": "Checkpoint 3.1/golden_suite.json",
+  "queries": [
+    {
+      "id": "Q001",
+      "query": "Which film won Best Picture at the 68th Academy Awards?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Braveheart won Best Picture at the 68th Academy Awards.",
+      "supporting_quotes": [
+        {
+          "text": "Braveheart won five awards, including Best Picture.",
+          "source_file": "68th_Academy_Awards.html"
+        }
+      ],
+      "required_files": [
+        "68th_Academy_Awards.html"
+      ],
+      "relevant_files": [
+        "68th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "Simple single-sentence lookup; tests basic retrieval of ceremony-to-winner mapping without confusing it with the 'most nominations' figure.",
+      "required_aspects": [
+        "Braveheart won Best Picture at the 68th Academy Awards."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q007",
+      "query": "What are the eligibility requirements a film must meet to be considered an animated feature at the Oscars?",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "An animated feature must run more than 40 minutes, have characters' performances created using a frame-by-frame technique, feature a significant number of animated major characters, and consist of at least 75 percent animation of its running time. Motion capture by itself does not count as an animation technique.",
+      "supporting_quotes": [
+        {
+          "text": "An animated feature is defined by the academy as a film with a running time of more than 40 minutes in which characters' performances are created using a frame-by-frame technique, a significant number of the major characters are animated, and animation figures in no less than 75 percent of the running time.",
+          "source_file": "Academy_Award_for_Best_Animated_Feature.html"
+        },
+        {
+          "text": "Motion capture by itself is not an animation technique.",
+          "source_file": "Academy_Award_for_Best_Animated_Feature.html"
+        }
+      ],
+      "required_files": [
+        "Academy_Award_for_Best_Animated_Feature.html"
+      ],
+      "relevant_files": [
+        "Academy_Award_for_Best_Animated_Feature.html"
+      ],
+      "difficulty_notes": "Note the 40-minute threshold in the category article versus the 70-minute figure quoted from 2002 in the ceremony article — a system must not conflate the two.",
+      "required_aspects": [
+        "An animated feature must run more than 40 minutes, have characters' performances created using a frame-by-frame technique, feature a significant number of animated major characters, and consist of at least 75 percent animation of its running time.",
+        "Motion capture by itself does not count as an animation technique."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q008",
+      "query": "which studio has won the most best picture oscars",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Columbia Pictures and United Artists are tied with the most Best Picture wins, at 12 each.",
+      "supporting_quotes": [
+        {
+          "text": "Columbia Pictures and United Artists have the most wins with 12, while 20th Century Fox has the most nominations with 64.",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        }
+      ],
+      "required_files": [
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "relevant_files": [
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "Terse conversational query; tests whether the system distinguishes wins from nominations in a single sentence containing both.",
+      "required_aspects": [
+        "Columbia Pictures and United Artists are tied with the most Best Picture wins, at 12 each."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q009",
+      "query": "Only six films have taken the top prize without their director being nominated — can you list them and their directors?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Wings (William A. Wellman, 1927/28), Grand Hotel (Edmund Goulding, 1931/32), Driving Miss Daisy (Bruce Beresford, 1989), Argo (Ben Affleck, 2012), Green Book (Peter Farrelly, 2018), and CODA (Sian Heder, 2021).",
+      "supporting_quotes": [
+        {
+          "text": "Only six films have been awarded Best Picture without receiving a Best Director nomination: Wings directed by William A. Wellman (1927/28), Grand Hotel directed by Edmund Goulding (1931/32), Driving Miss Daisy directed by Bruce Beresford (1989), Argo directed by Ben Affleck (2012), Green Book directed by Peter Farrelly (2018), and CODA directed by Sian Heder (2021).",
+          "source_file": "Academy_Award_for_Best_Picture.html"
+        }
+      ],
+      "required_files": [
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "relevant_files": [
+        "Academy_Award_for_Best_Picture.html",
+        "85th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Familiar-reader phrasing omits the phrase 'Best Picture'; a keyword system may struggle with 'top prize'. Note the 85th ceremony article gives a slightly different (four-film) framing at the time of Argo.",
+      "required_aspects": [
+        "Wings (William A.",
+        "Wellman, 1927/28), Grand Hotel (Edmund Goulding, 1931/32), Driving Miss Daisy (Bruce Beresford, 1989), Argo (Ben Affleck, 2012), Green Book (Peter Farrelly, 2018), and CODA (Sian Heder, 2021)."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q013",
+      "query": "What's the record for the longest losing streak at the Oscars and who finally broke it?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Sound mixer Kevin O'Connell ended the longest losing streak in Oscar history when he won for Hacksaw Ridge at the 89th Academy Awards, after 20 unsuccessful nominations.",
+      "supporting_quotes": [
+        {
+          "text": "Kevin O'Connell finally ended the longest losing streak in Oscar history after 20 unsuccessful nominations for sound mixing, winning for Hacksaw Ridge.",
+          "source_file": "89th_Academy_Awards.html"
+        }
+      ],
+      "required_files": [
+        "89th_Academy_Awards.html"
+      ],
+      "relevant_files": [
+        "89th_Academy_Awards.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Note the records article gives a different count (20 unsuccessful nominations from 1983 until 2016); a good system should not fabricate a conflicting number.",
+      "required_aspects": [
+        "Sound mixer Kevin O'Connell ended the longest losing streak in Oscar history when he won for Hacksaw Ridge at the 89th Academy Awards, after 20 unsuccessful nominations."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q014",
+      "query": "For a paper on Oscar statistics, list the individual who holds the record for most nominations without ever winning a competitive award and the category involved.",
+      "information_need": "fact_lookup",
+      "motivation": "work_or_school",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Songwriter Diane Warren holds the record with 17 nominations and no competitive wins, all in the Best Original Song category, including nine consecutive nominations from 2017 to 2025.",
+      "supporting_quotes": [
+        {
+          "text": "Diane Warren in the Best Original Song category, including nine consecutive nominations from 2017 to 2025 (She received a Academy Honorary Award in 2022)",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "One person has received 17 nominations and no competitive wins:",
+          "source_file": "List_of_Academy_Award_records.html"
+        }
+      ],
+      "required_files": [
+        "List_of_Academy_Award_records.html"
+      ],
+      "relevant_files": [
+        "List_of_Academy_Award_records.html",
+        "95th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Tests fine-grained extraction from a densely bulleted records list where an adjacent entry (Greg P. Russell) could easily be confused for the answer.",
+      "required_aspects": [
+        "Songwriter Diane Warren holds the record with 17 nominations and no competitive wins, all in the Best Original Song category, including nine consecutive nominations from 2017 to 2025."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q021",
+      "query": "Which director has the most Best Director nominations without ever winning, and how many did he receive?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Clarence Brown, with six nominations and no wins. Alfred Hitchcock, King Vidor and Robert Altman each received five nominations without winning.",
+      "supporting_quotes": [
+        {
+          "text": "Clarence Brown has the most nominations without a win (6). Alfred Hitchcock, King Vidor, and Robert Altman each received 5 nominations without a win.",
+          "source_file": "Academy_Award_for_Best_Director.html"
+        }
+      ],
+      "required_files": [
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "relevant_files": [
+        "Academy_Award_for_Best_Director.html"
+      ],
+      "difficulty_notes": "Tests precision on a sentence containing multiple names and counts; a careless system may name Hitchcock.",
+      "required_aspects": [
+        "Clarence Brown, with six nominations and no wins.",
+        "Alfred Hitchcock, King Vidor and Robert Altman each received five nominations without winning."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q029",
+      "query": "Emmanuel Lubezki did something no cinematographer had managed before — what was it and for which films?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Lubezki won the Academy Award for Best Cinematography three consecutive times — for Gravity (2013), Birdman (2014) and The Revenant (2015) — becoming the first cinematographer to do so.",
+      "supporting_quotes": [
+        {
+          "text": "Lubezki won the award again in 2015 for Iñárritu's The Revenant, becoming a milestone for his third consecutive win and for being the first cinematographer to do so.",
+          "source_file": "Emmanuel_Lubezki.html"
+        },
+        {
+          "text": "86th Academy Awards: Best Cinematography, win, Gravity (2013)",
+          "source_file": "Emmanuel_Lubezki.html"
+        }
+      ],
+      "required_files": [
+        "Emmanuel_Lubezki.html"
+      ],
+      "relevant_files": [
+        "Emmanuel_Lubezki.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Familiar-reader phrasing withholds the achievement; tests whether the system identifies consecutive wins rather than total wins.",
+      "required_aspects": [
+        "Lubezki won the Academy Award for Best Cinematography three consecutive times — for Gravity (2013), Birdman (2014) and The Revenant (2015) — becoming the first cinematographer to do so."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q031",
+      "query": "The cinematographer on the Lord of the Rings films — what did he win and when did he die?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Andrew Lesnie won the Academy Award for Best Cinematography for The Lord of the Rings: The Fellowship of the Ring. He died of a heart attack at his Sydney home on 27 April 2015, aged 59.",
+      "supporting_quotes": [
+        {
+          "text": "He was best known for his collaboration with director Peter Jackson on The Hobbit trilogy (2012–2014) and The Lord of the Rings trilogy (2001–2003), with The Fellowship of the Ring earning him the Academy Award for Best Cinematography.",
+          "source_file": "Andrew_Lesnie.html"
+        },
+        {
+          "text": "Lesnie died of a heart attack in his Sydney home on 27 April 2015, after having suffered from a heart condition for half a year.",
+          "source_file": "Andrew_Lesnie.html"
+        }
+      ],
+      "required_files": [
+        "Andrew_Lesnie.html"
+      ],
+      "relevant_files": [
+        "Andrew_Lesnie.html"
+      ],
+      "difficulty_notes": "Familiar query omits the subject's name entirely; requires semantic retrieval from role description.",
+      "required_aspects": [
+        "Andrew Lesnie won the Academy Award for Best Cinematography for The Lord of the Rings: The Fellowship of the Ring.",
+        "He died of a heart attack at his Sydney home on 27 April 2015, aged 59."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q040",
+      "query": "Which Oscar-winning film had its 'In Memoriam' segment accompanied by a Joni Mitchell song, and who sang it?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "At the 89th Academy Awards, Sara Bareilles performed Joni Mitchell's 'Both Sides, Now' during the In Memoriam montage, which was introduced by Jennifer Aniston.",
+      "supporting_quotes": [
+        {
+          "text": "The annual \"In Memoriam\" segment was introduced by Jennifer Aniston, with Sara Bareilles performing a rendition of the Joni Mitchell song \"Both Sides, Now\" during the montage.",
+          "source_file": "89th_Academy_Awards.html"
+        }
+      ],
+      "required_files": [
+        "89th_Academy_Awards.html"
+      ],
+      "relevant_files": [
+        "89th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "The query mistakenly frames it as a 'film' when it is a ceremony segment; tests robustness to imprecise framing.",
+      "required_aspects": [
+        "At the 89th Academy Awards, Sara Bareilles performed Joni Mitchell's 'Both Sides, Now' during the In Memoriam montage, which was introduced by Jennifer Aniston."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q041",
+      "query": "An error was made in one of the In Memoriam slides — what happened?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The slide for Janet Patterson, an Australian costume designer, mistakenly used a photograph of the Australian producer Jan Chapman, who is still alive.",
+      "supporting_quotes": [
+        {
+          "text": "The slide for Janet Patterson, an Australian costume designer, mistakenly used a photograph of Australian producer Jan Chapman, who is still alive.",
+          "source_file": "89th_Academy_Awards.html"
+        }
+      ],
+      "required_files": [
+        "89th_Academy_Awards.html"
+      ],
+      "relevant_files": [
+        "89th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Familiar-style query omits year and ceremony; the corpus contains multiple In Memoriam sections, so retrieval must disambiguate by the error detail.",
+      "required_aspects": [
+        "The slide for Janet Patterson, an Australian costume designer, mistakenly used a photograph of the Australian producer Jan Chapman, who is still alive."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q044",
+      "query": "Where was the cowboy love story actually filmed, and why not in the state where it's set?",
+      "information_need": "fact_lookup",
+      "motivation": "personal_decision",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Although Proulx's story is set in Wyoming, Brokeback Mountain was shot almost entirely in the Canadian Rockies in southern Alberta. Annie Proulx gave Ang Lee a tour of the Wyoming locations, but he chose Alberta for financial reasons. Locations included Goat Creek, Upper Kananaskis Lake, Elbow Falls, Canyon Creek, Cowley, Fort Macleod and Calgary.",
+      "supporting_quotes": [
+        {
+          "text": "While the Proulx story is set in Wyoming, Brokeback Mountain was filmed almost entirely in the Canadian Rockies in southern Alberta.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "Lee was given a tour of the locations from the story in Wyoming by Proulx, but chose to shoot in Alberta citing financial reasons.",
+          "source_file": "Brokeback_Mountain.html"
+        },
+        {
+          "text": "Other scenes were filmed in Cowley, Fort Macleod, and Calgary.",
+          "source_file": "Brokeback_Mountain.html"
+        }
+      ],
+      "required_files": [
+        "Brokeback_Mountain.html"
+      ],
+      "relevant_files": [
+        "Brokeback_Mountain.html"
+      ],
+      "difficulty_notes": "Query avoids the film title entirely and tests whether the retriever can connect the setting and subject description to the correct film.",
+      "required_aspects": [
+        "Although Proulx's story is set in Wyoming, Brokeback Mountain was shot almost entirely in the Canadian Rockies in southern Alberta.",
+        "Annie Proulx gave Ang Lee a tour of the Wyoming locations, but he chose Alberta for financial reasons.",
+        "Locations included Goat Creek, Upper Kananaskis Lake, Elbow Falls, Canyon Creek, Cowley, Fort Macleod and Calgary."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q054",
+      "query": "Michael B. Jordan made history in the lead acting category — what exactly was the achievement?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Jordan won the Academy Award for Best Actor for his dual role as twin brothers Elijah 'Smoke' and Elias 'Stack' Moore in Sinners, becoming the seventh Black performer in history to win an Oscar in a lead acting category.",
+      "supporting_quotes": [
+        {
+          "text": "He earned further acclaim for his performances in Coogler's subsequent films, including Creed (2015), Black Panther (2018), and Sinners (2025); the latter earned him the Academy Award for Best Actor.",
+          "source_file": "Michael_B._Jordan.html"
+        },
+        {
+          "text": "Jordan is the seventh black performer to win an Oscar for a leading role",
+          "source_file": "Michael_B._Jordan.html"
+        }
+      ],
+      "required_files": [
+        "Michael_B._Jordan.html"
+      ],
+      "relevant_files": [
+        "Michael_B._Jordan.html",
+        "Academy_Award_for_Best_Actor.html",
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Recency-framed query; the systems must also register the dual-role element recorded in the Best Actor category article.",
+      "required_aspects": [
+        "Jordan won the Academy Award for Best Actor for his dual role as twin brothers Elijah 'Smoke' and Elias 'Stack' Moore in Sinners, becoming the seventh Black performer in history to win an Oscar in a lead acting category."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q057",
+      "query": "Which film produced three supporting actor nominations in a single year, and did that happen more than once?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "It happened three times. On the Waterfront (1954) produced three Best Supporting Actor nominations — Lee J. Cobb, Karl Malden and Rod Steiger — as did The Godfather (1972) with James Caan, Robert Duvall and Al Pacino, and The Godfather Part II (1974) with Robert De Niro, Michael V. Gazzo and Lee Strasberg.",
+      "supporting_quotes": [
+        {
+          "text": "There have been 23 instances in which films have produced more than one nominee within this category. All resulted in two nominations, with the exceptions of On the Waterfront (1954), The Godfather (1972), and The Godfather Part II (1974), which each obtained three.",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html"
+        },
+        {
+          "text": "The Godfather Part II (1974) – Robert De Niro, Michael V. Gazzo, and Lee Strasberg",
+          "source_file": "Academy_Award_for_Best_Supporting_Actor.html"
+        }
+      ],
+      "required_files": [
+        "Academy_Award_for_Best_Supporting_Actor.html"
+      ],
+      "relevant_files": [
+        "Academy_Award_for_Best_Supporting_Actor.html",
+        "The_Godfather_Part_II.html"
+      ],
+      "difficulty_notes": "Tests careful reading of an exception clause plus retrieval of the specific names from a long alphabetical list.",
+      "required_aspects": [
+        "It happened three times.",
+        "On the Waterfront (1954) produced three Best Supporting Actor nominations — Lee J.",
+        "Cobb, Karl Malden and Rod Steiger — as did The Godfather (1972) with James Caan, Robert Duvall and Al Pacino, and The Godfather Part II (1974) with Robert De Niro, Michael V.",
+        "Gazzo and Lee Strasberg."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q061",
+      "query": "Who was offered the Hyman Roth role and turned it down?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Coppola offered the role of Hyman Roth to James Cagney, who refused because he had retired from acting. The part went to Lee Strasberg.",
+      "supporting_quotes": [
+        {
+          "text": "Coppola offered James Cagney the role of Hyman Roth, but he refused as he had retired from acting.",
+          "source_file": "The_Godfather_Part_II.html"
+        },
+        {
+          "text": "Lee Strasberg as Hyman Roth",
+          "source_file": "The_Godfather_Part_II.html"
+        }
+      ],
+      "required_files": [
+        "The_Godfather_Part_II.html"
+      ],
+      "relevant_files": [
+        "The_Godfather_Part_II.html"
+      ],
+      "difficulty_notes": "Narrow trivia lookup requiring retrieval from a casting paragraph rather than the cast list.",
+      "required_aspects": [
+        "Coppola offered the role of Hyman Roth to James Cagney, who refused because he had retired from acting.",
+        "The part went to Lee Strasberg."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q065",
+      "query": "What did Nicholson say about the impact of Marlon Brando on his own acting?",
+      "information_need": "fact_lookup",
+      "motivation": "intrinsic_learning",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Nicholson said Brando influenced him strongly, adding that it is hard for people who weren't there to realize the impact Brando had on an audience, and calling him 'the patron saint of actors'. He also said he was part of the first generation that idolized Brando, and as a young assistant theatre manager he watched On the Waterfront about 40 times. He took a less sympathetic role in The Missouri Breaks (1976) specifically to work with Brando.",
+      "supporting_quotes": [
+        {
+          "text": "Marlon Brando influenced me strongly. Today, it's hard for people who weren't there to realize the impact that Brando had on an audience. ... He's always been the patron saint of actors",
+          "source_file": "Jack_Nicholson.html"
+        },
+        {
+          "text": "I'm part of the first generation that idolized Marlon Brando",
+          "source_file": "Jack_Nicholson.html"
+        },
+        {
+          "text": "Nicholson was especially inspired by Brando's acting ability, recalling that in his youth, as an assistant manager at a theater, he watched On the Waterfront about 40 times.",
+          "source_file": "Jack_Nicholson.html"
+        }
+      ],
+      "required_files": [
+        "Jack_Nicholson.html"
+      ],
+      "relevant_files": [
+        "Jack_Nicholson.html"
+      ],
+      "difficulty_notes": "Quotation-heavy answer; tests verbatim fidelity to an interview passage inside a long biography.",
+      "required_aspects": [
+        "Nicholson said Brando influenced him strongly, adding that it is hard for people who weren't there to realize the impact Brando had on an audience, and calling him 'the patron saint of actors'.",
+        "He also said he was part of the first generation that idolized Brando, and as a young assistant theatre manager he watched On the Waterfront about 40 times.",
+        "He took a less sympathetic role in The Missouri Breaks (1976) specifically to work with Brando."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q066",
+      "query": "Where does Whiplash rank among Sundance films, and what did the festival's anniversary survey find?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "In 2024, Whiplash topped the list of the Sundance Film Festival's Top 10 Films of All Time, as the result of a survey of 500 filmmakers and critics conducted in honor of the festival's 40th anniversary.",
+      "supporting_quotes": [
+        {
+          "text": "In 2024, it topped the list of the Sundance Film Festival's Top 10 Films of All Time as the result of a survey conducted with 500 filmmakers and critics in honor of the festival's 40th anniversary.",
+          "source_file": "Whiplash_(2014_film).html"
+        }
+      ],
+      "required_files": [
+        "Whiplash_(2014_film).html"
+      ],
+      "relevant_files": [
+        "Whiplash_(2014_film).html"
+      ],
+      "difficulty_notes": "Recency-flavored lookup that anchors to a dated survey; tests precision on the participant count.",
+      "required_aspects": [
+        "In 2024, Whiplash topped the list of the Sundance Film Festival's Top 10 Films of All Time, as the result of a survey of 500 filmmakers and critics conducted in honor of the festival's 40th anniversary."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q069",
+      "query": "Wait — was La La Land actually the first film to be announced wrongly, or has that happened before at the Oscars?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The corpus describes the La La Land / Moonlight mix-up as an event unprecedented in the history of the Oscars — La La Land was incorrectly announced as Best Picture and the error was corrected a few minutes later.",
+      "supporting_quotes": [
+        {
+          "text": "In an event unprecedented in the history of the Oscars, La La Land was incorrectly announced as the Best Picture, and, a few minutes later, the error was corrected and Moonlight was declared the winner.",
+          "source_file": "89th_Academy_Awards.html"
+        }
+      ],
+      "required_files": [
+        "89th_Academy_Awards.html"
+      ],
+      "relevant_files": [
+        "89th_Academy_Awards.html",
+        "Academy_Award_for_Best_Picture.html"
+      ],
+      "difficulty_notes": "Argument-settling conversational query; tests whether the system grounds 'first' in the corpus's own 'unprecedented' phrasing.",
+      "required_aspects": [
+        "The corpus describes the La La Land / Moonlight mix-up as an event unprecedented in the history of the Oscars — La La Land was incorrectly announced as Best Picture and the error was corrected a few minutes later."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q076",
+      "query": "Which Spielberg film was made after a chance conversation about a merit badge, and how did Scouting figure in his life?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The framing is slightly off: Spielberg did not make a film because of a merit badge, but in 1958 he became a Boy Scout and eventually attained the rank of Eagle Scout, fulfilling a photography merit badge requirement by making a nine-minute 8 mm Western called The Last Gunfight. Later, drawing on his Scouting experience, he helped the Boy Scouts of America develop a cinematography merit badge, launched at the 1989 National Scout Jamboree, and in 1989 he was presented with the Distinguished Eagle Scout Award.",
+      "supporting_quotes": [
+        {
+          "text": "In 1958, he became a Boy Scout, eventually attaining the rank of Eagle Scout. He fulfilled a requirement for the photography merit badge by making a nine-minute 8 mm Western, The Last Gunfight.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "Drawing from his own experiences in Scouting, Spielberg helped the Boy Scouts of America develop a merit badge in cinematography to promote filmmaking as a marketable skill; the badge was launched at the 1989 National Scout Jamboree.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "In 1989, Spielberg was presented with the Distinguished Eagle Scout Award.",
+          "source_file": "Steven_Spielberg.html"
+        }
+      ],
+      "required_files": [
+        "Steven_Spielberg.html"
+      ],
+      "relevant_files": [
+        "Steven_Spielberg.html"
+      ],
+      "difficulty_notes": "The query contains a mild mis-framing that the system should gently correct while still answering.",
+      "required_aspects": [
+        "The framing is slightly off: Spielberg did not make a film because of a merit badge, but in 1958 he became a Boy Scout and eventually attained the rank of Eagle Scout, fulfilling a photography merit badge requirement by making a nine-minute 8 mm Western called The Last Gunfight.",
+        "Later, drawing on his Scouting experience, he helped the Boy Scouts of America develop a cinematography merit badge, launched at the 1989 National Scout Jamboree, and in 1989 he was presented with the Distinguished Eagle Scout Award."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q077",
+      "query": "Why did Spielberg step down as an advisor to the Beijing Olympics?",
+      "information_need": "fact_lookup",
+      "motivation": "current_event",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "In February 2008, Spielberg resigned as advisor to the 2008 Summer Olympics in response to the Chinese government's inaction over the War in Darfur, saying his conscience would not allow him to continue business as usual and that Sudan's government bore the bulk of the responsibility but the international community, particularly China, should be doing more. IOC president Jacques Rogge respected the decision but expressed disappointment, and Chinese state media called Spielberg's comments 'unfair'.",
+      "supporting_quotes": [
+        {
+          "text": "In February 2008, Spielberg resigned as advisor to the 2008 Summer Olympics in response to the Chinese government's inaction over the War in Darfur.",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "I find that my conscience will not allow me to continue business as usual",
+          "source_file": "Steven_Spielberg.html"
+        },
+        {
+          "text": "The International Olympic Committee (IOC) respected Spielberg's decision but IOC president Jacques Rogge expressed disappointment",
+          "source_file": "Steven_Spielberg.html"
+        }
+      ],
+      "required_files": [
+        "Steven_Spielberg.html"
+      ],
+      "relevant_files": [
+        "Steven_Spielberg.html"
+      ],
+      "difficulty_notes": "Event-framed lookup requiring the reaction as well as the reason.",
+      "required_aspects": [
+        "In February 2008, Spielberg resigned as advisor to the 2008 Summer Olympics in response to the Chinese government's inaction over the War in Darfur, saying his conscience would not allow him to continue business as usual and that Sudan's government bore the bulk of the responsibility but the international community, particularly China, should be doing more.",
+        "IOC president Jacques Rogge respected the decision but expressed disappointment, and Chinese state media called Spielberg's comments 'unfair'."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q082",
+      "query": "There's a famous ice cream scene in that divorce film — was it scripted?",
+      "information_need": "fact_lookup",
+      "motivation": "media_reference",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "No. The ice cream scene in Kramer vs. Kramer, in which Billy defies Ted by skipping dinner and eating ice cream, was all improvised by Dustin Hoffman and Justin Henry. Benton encouraged Henry to improvise to make his performance more natural, and Hoffman contributed many personal moments and dialogue — Benton offered him shared screenplay credit, which Hoffman declined.",
+      "supporting_quotes": [
+        {
+          "text": "The ice cream scene in which Billy defies Ted by skipping dinner and eating ice cream was all improvised by Hoffman and Henry.",
+          "source_file": "Kramer_vs._Kramer.html"
+        },
+        {
+          "text": "Benton encouraged Henry to improvise to make his performance more natural.",
+          "source_file": "Kramer_vs._Kramer.html"
+        },
+        {
+          "text": "Hoffman contributed many personal moments and dialogue; Benton offered shared screenplay credit but Hoffman declined.",
+          "source_file": "Kramer_vs._Kramer.html"
+        }
+      ],
+      "required_files": [
+        "Kramer_vs._Kramer.html"
+      ],
+      "relevant_files": [
+        "Kramer_vs._Kramer.html"
+      ],
+      "difficulty_notes": "Media-reference approach with no title; the query's 'divorce film' descriptor must map to the correct article.",
+      "required_aspects": [
+        "No.",
+        "The ice cream scene in Kramer vs.",
+        "Kramer, in which Billy defies Ted by skipping dinner and eating ice cream, was all improvised by Dustin Hoffman and Justin Henry.",
+        "Benton encouraged Henry to improvise to make his performance more natural, and Hoffman contributed many personal moments and dialogue — Benton offered him shared screenplay credit, which Hoffman declined."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q084",
+      "query": "Which two people share the record for the shortest Oscar-nominated supporting performances by screen time?",
+      "information_need": "fact_lookup",
+      "motivation": "bored_random",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "For nominated (non-winning) supporting performances, the shortest for an actor is Ned Beatty in Network at 6 minutes exactly, and for an actress Hermione Baddeley in Room at the Top at 2 minutes 19 seconds. Among winners, the shortest are Ben Johnson in The Last Picture Show at 9 minutes 54 seconds and Beatrice Straight in Network at 5 minutes 2 seconds.",
+      "supporting_quotes": [
+        {
+          "text": "Ned Beatty in Network (1976) 6:00",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "Hermione Baddeley in Room at the Top (1959) 2:19",
+          "source_file": "List_of_Academy_Award_records.html"
+        },
+        {
+          "text": "Beatrice Straight in Network (1976) 5:02",
+          "source_file": "List_of_Academy_Award_records.html"
+        }
+      ],
+      "required_files": [
+        "List_of_Academy_Award_records.html"
+      ],
+      "relevant_files": [
+        "List_of_Academy_Award_records.html"
+      ],
+      "difficulty_notes": "Table-derived answer; tests careful separation of 'won' and 'nominated' rows in a dense table.",
+      "required_aspects": [
+        "For nominated (non-winning) supporting performances, the shortest for an actor is Ned Beatty in Network at 6 minutes exactly, and for an actress Hermione Baddeley in Room at the Top at 2 minutes 19 seconds.",
+        "Among winners, the shortest are Ben Johnson in The Last Picture Show at 9 minutes 54 seconds and Beatrice Straight in Network at 5 minutes 2 seconds."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q089",
+      "query": "Paul Mescal's Oscar nomination came from a film about a father and daughter on holiday — what's the film and what else did it earn him?",
+      "information_need": "fact_lookup",
+      "motivation": "media_reference",
+      "prior_familiarity": "familiar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "The film is Aftersun (2022), in which Mescal plays Calum Patterson, a troubled young father. It earned him a nomination for the Academy Award for Best Actor and a nomination for the BAFTA Award for Best Actor in a Leading Role.",
+      "supporting_quotes": [
+        {
+          "text": "For his performance as a troubled father in the coming-of-age drama Aftersun (2022), he received a nomination for the Academy Award for Best Actor.",
+          "source_file": "Paul_Mescal.html"
+        },
+        {
+          "text": "He received nominations for the Academy Award for Best Actor and the BAFTA Award for Best Actor in a Leading Role for the latter.",
+          "source_file": "Paul_Mescal.html"
+        }
+      ],
+      "required_files": [
+        "Paul_Mescal.html"
+      ],
+      "relevant_files": [
+        "Paul_Mescal.html",
+        "95th_Academy_Awards.html"
+      ],
+      "difficulty_notes": "Media-reference route into an actor biography; tests distinguishing Aftersun from God's Creatures, which premiered at the same festival.",
+      "required_aspects": [
+        "The film is Aftersun (2022), in which Mescal plays Calum Patterson, a troubled young father.",
+        "It earned him a nomination for the Academy Award for Best Actor and a nomination for the BAFTA Award for Best Actor in a Leading Role."
+      ],
+      "source_suite": "golden_suite.json"
+    },
+    {
+      "id": "Q095",
+      "query": "Who directed A Beautiful Day in the Neighborhood and what did Tom Hanks receive for it?",
+      "information_need": "fact_lookup",
+      "motivation": "conversation",
+      "prior_familiarity": "unfamiliar",
+      "scope": "single_document",
+      "answerable": true,
+      "adversarial_kind": null,
+      "expected_behavior": null,
+      "expected_answer": "Marielle Heller directed it, from a screenplay by Micah Fitzerman-Blue and Noah Harpster inspired by Tom Junod's 1998 Esquire article 'Can You Say ... Hero?'. Tom Hanks was nominated for Best Supporting Actor at the Academy Awards, as well as at the Golden Globes, Critics' Choice, Screen Actors Guild Awards and BAFTA Awards.",
+      "supporting_quotes": [
+        {
+          "text": "A Beautiful Day in the Neighborhood is a 2019 American biographical drama film on the TV host Fred Rogers, directed by Marielle Heller and written by Micah Fitzerman-Blue and Noah Harpster, inspired by the 1998 article \"Can You Say ... Hero?\" by Tom Junod, published in Esquire.",
+          "source_file": "A_Beautiful_Day_in_the_Neighborhood.html"
+        },
+        {
+          "text": "For his performance, Hanks was nominated for Best Supporting Actor at the Academy Awards, as well as the Golden Globes, Critics' Choice, Screen Actors Guild Awards, and BAFTA Awards, among others.",
+          "source_file": "A_Beautiful_Day_in_the_Neighborhood.html"
+        }
+      ],
+      "required_files": [
+        "A_Beautiful_Day_in_the_Neighborhood.html"
+      ],
+      "relevant_files": [
+        "A_Beautiful_Day_in_the_Neighborhood.html"
+      ],
+      "difficulty_notes": "Tests that the system says 'nominated', not 'won', for the acting award.",
+      "required_aspects": [
+        "Marielle Heller directed it, from a screenplay by Micah Fitzerman-Blue and Noah Harpster inspired by Tom Junod's 1998 Esquire article 'Can You Say ...",
+        "Hero?'.",
+        "Tom Hanks was nominated for Best Supporting Actor at the Academy Awards, as well as at the Golden Globes, Critics' Choice, Screen Actors Guild Awards and BAFTA Awards."
+      ],
+      "source_suite": "golden_suite.json"
+    }
+  ]
+}

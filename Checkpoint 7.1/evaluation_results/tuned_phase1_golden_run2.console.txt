@@ -1,0 +1,372 @@
+Loading chunk cache from C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 2.1\wikipedia_chunks2000_tables_cache (141126 chunks, 28054 nodes, 56761 edges)
+Loading existing tables chunk vector DB from C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 2.1\wikipedia_chunks2000_tables_chroma_db
+Loaded sparse BM25 index from C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 2.1\wikipedia_chunks2000_tables_cache\bm25_okapi_sparse
+Start-up: {'corpus_and_vector_db': 21.54, 'bm25': 1.06, 'expander_and_graph': 1.6}
+Checkpoint 7.1 - evaluation  |  agent: v2-hardened-tuned  |  17 records
+
+========================================================================
+Q006 (1/17): Compare how the Academy handled the introduction of the Best Animated Feature category with the way the Best Original Score category was split and then merged again in the 1990s.
+  retrieved=[('68th_Academy_Awards.html', 1.0), ('Academy_Award_for_Best_Picture.html', 0.652), ('74th_Academy_Awards.html', 0.552), ('Grammy_Award_for_Best_Metal_Performance.html', 0.344), ('Academy_Award_for_Best_Animated_Feature.html', 0.343), ('Avatar_(franchise).html', 0.324), ('Academy_Award_for_Best_Animated_Feature.html', 0.304), ('Trolls_(film).html', 0.247)]
+  correctness=FAIL grade=partial coverage=60.0% evidence_recall=1.0 unique_articles=7
+  answer: The Academy introduced the Best Animated Feature category beginning with the 74th Academy Awards as a new competitive award to honor animated feature films; it was first awarded in 2002 for films released in 2001, and the category was created because the Academy had been resistant to a regular award for animated features and had previously used only special awards for exceptional animated productions [74th_Academy_Awards.html] [Academy_Award_for_Best_Animated_Feature.html]. The Best Animated Feature category was created to recognize animated films as a separate awards category [74th_Academy_Awards.html].
+
+By contrast, beginning with the 68th Academy Awards, the music branch split Best Original Score into two categories, Best Dramatic Score and Best Musical or Comedy Score, in response to the dominance of Walt Disney Feature Animation films in the Original Score and Original Song categories; four years later, those two scoring categories were merged back into one category [68th_Academy_Awards.html].
+  [0] seed {"query": "Compare how the Academy handled the introduction of the Best Animated Feature category with the way the Best Original Score category was split and then merged again in the 1990s.", "parent": "none"}
+      -> 8 units, new files: ['68th_Academy_Awards.html', 'Academy_Award_for_Best_Picture.html', '74th_Academy_Awards.html', 'Grammy_Award_for_Best_Metal_Performance.html', 'Academy_Award_for_Best_Animated_Feature.html', 'Avatar_(franchise).html', 'Trolls_(film).html']
+  [answer] assessment: The evidence already states when Best Animated Feature was introduced and how Best Original Score was divided and later merged again.
+      fact: The Academy introduced a new competitive award for animated feature films beginning with the 74th ceremony. [74th_Academy_Awards.html] - verified
+      fact: Beginning with the 68th ceremony, the music branch divided Best Original Score into two categories, Best Dramatic Score and Best Musical or Comedy Score, and four years later they were merged back into one category. [68th_Academy_Awards.html] - verified
+      fact: The split was described as lasting for four years before the categories were merged back together. [68th_Academy_Awards.html] - verified
+  stop_reason=planner_answer  context=8 units, 8,160 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q045 (2/17): Compare the audience reactions and awards outcomes for the two films that lost Best Picture in the most talked-about upsets — the 2005 gay romance and the 2016 musical.
+  retrieved=[('Academy_Award_for_Best_Picture.html', 0.898), ('La_La_Land.html', 1.0), ('Brokeback_Mountain.html', 0.932), ('La_La_Land.html', 0.635), ('Brokeback_Mountain.html', 0.689), ('Brokeback_Mountain.html', 0.863), ('89th_Academy_Awards.html', 0.567), ('Academy_Award_for_Best_Picture.html', 0.521), ('Brokeback_Mountain.html', 0.536), ('Dark_Star_(film).html', 0.5), ('Brokeback_Mountain.html', 0.471), ('89th_Academy_Awards.html', 0.5)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=0.75 unique_articles=5
+  answer: The 2005 gay romance, *Brokeback Mountain*, was “heavily criticized” after losing Best Picture to *Crash*; some critics accused the Academy of homophobia, and the loss was described as one of the most notable Oscars upsets [Academy_Award_for_Best_Picture.html]. It was nominated for Best Picture at the 78th Academy Awards and won Best Director, Best Adapted Screenplay, and Original Score [Brokeback_Mountain.html].  
+
+The 2016 musical, *La La Land*, had a Best Picture loss that “made it the most-nominated film at the Oscars to lose Best Picture,” and during the ceremony it was mistakenly announced as the winner before *Moonlight* was confirmed as Best Picture [La_La_Land.html] [89th_Academy_Awards.html]. Its awards outcome at the 89th Academy Awards was six wins, the most of the evening, from a record-tying 14 nominations, including Best Director and Best Actress [89th_Academy_Awards.html].  
+
+The documents do not describe general audience reactions for *La La Land* beyond the Best Picture announcement error and the handling of it, while *Brokeback Mountain* is described as having sparked significant criticism over its Best Picture loss [Academy_Award_for_Best_Picture.html] [89th_Academy_Awards.html].
+  [0] seed {"query": "Compare the audience reactions and awards outcomes for the two films that lost Best Picture in the most talked-about upsets — the 2005 gay romance and the 2016 musical.", "parent": "none"}
+      -> 8 units, new files: ['Academy_Award_for_Best_Picture.html', 'Brokeback_Mountain.html', 'La_La_Land.html', 'List_of_Academy_Award_records.html']
+  [1] read_section {"file": "La_La_Land.html", "section": "Accolades", "query": "Best Picture loss, audience reaction, Oscars wins and nominations"}
+      assessment: The evidence identifies both upset films and gives some reactions and awards context, but it does not yet fully support the audience-reaction comparison or the complete awards outcomes for both films.
+      missing: ['explicit audience reaction for the 2016 musical', 'complete awards outcome details for the 2005 gay romance', 'complete awards outcome details for the 2016 musical']
+      -> 4 units, new files: []
+  [2] chunks {"query": "Brokeback Mountain audience reaction awards nominations wins Best Picture controversy critical response", "parent": "lead_section"}
+      assessment: The evidence identifies the two films and gives some upset-related reactions and awards results, but it does not yet fully support both films’ audience reactions and awards outcomes with explicit quotes.
+      missing: ['For Brokeback Mountain, a direct passage about audience reaction to the Best Picture loss beyond criticism/surprise.', 'For La La Land, a direct passage about audience reaction to the Best Picture gaffe/loss beyond the Oscar ceremony mistake itself.', 'For Brokeback Mountain, explicit awards outcome details tied to the film itself (e.g., Oscar wins/nominations) in the same evidence set.', 'For La La Land, explicit awards outcome details tied to the film itself (e.g., Oscar wins/nominations) are present, but the question asks to compare outcomes for both films, so matching Brokeback Mountain evidence is still missing.']
+      -> 6 units, new files: ['78th_Academy_Awards.html']
+  [3] chunks {"query": "Brokeback Mountain audience reaction criticized surprise upset audience reaction La La Land audience reaction Best Picture gaffe audience reaction", "parent": "article"}
+      assessment: The evidence still lacks direct, quotable audience reactions for at least one film, so the comparison cannot yet be completed.
+      missing: ['a direct audience reaction for the 2005 gay romance', 'a direct audience reaction for the 2016 musical']
+      -> 7 units, new files: ['89th_Academy_Awards.html', 'Dark_Star_(film).html', 'The_Thing_(1982_film).html', 'Wicked_(musical).html']
+  verification retries: 1
+  stop_reason=step_budget  context=12 units, 39,711 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q049 (3/17): Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?
+  retrieved=[('Academy_Award_for_Best_Actor.html', 0.425), ('Mark_Lee_(singer).html', 0.5), ('95th_Academy_Awards.html', 1.0), ('Academy_Award_for_Best_Supporting_Actor.html', 0.5), ('Academy_Award_for_Best_Actor.html', 1.0), ('95th_Academy_Awards.html', 1.0), ('Jin_(singer).html', 0.451), ('Academy_Award_for_Best_Actor.html', 1.0), ('95th_Academy_Awards.html', 1.0), ('Academy_Award_for_Best_Actor.html', 1.0), ('95th_Academy_Awards.html', 1.0), ('Baby_Vox.html', 0.365), ('Academy_Award_for_Best_Actor.html', 1.0), ('95th_Academy_Awards.html', 1.0), ('95th_Academy_Awards.html', 0.364), ('Academy_Award_for_Best_Actor.html', 1.0), ('95th_Academy_Awards.html', 1.0), ('Academy_Award_for_Best_Supporting_Actor.html', 0.316), ('Academy_Award_for_Best_Director.html', 0.307)]
+  correctness=FAIL grade=partial coverage=100.0% evidence_recall=0.6666666666666666 unique_articles=7
+  answer: Brendan Fraser won Best Actor in a Leading Role for *The Whale* at the 95th Academy Awards [95th_Academy_Awards.html]. The nominees for the 95th Academy Awards were announced on January 24, 2023, and *Everything Everywhere All at Once* led all nominees with eleven nominations; *All Quiet on the Western Front* and *The Banshees of Inisherin* tied for second with nine nominations each [95th_Academy_Awards.html].
+  [0] seed {"query": "Who won Best Actor at the 95th ceremony and what was notable about the whole nominee field that year?", "parent": "none"}
+      -> 8 units, new files: ['Mark_Lee_(singer).html', 'Academy_Award_for_Best_Supporting_Actor.html', 'Jin_(singer).html', 'Academy_Award_for_Best_Actor.html', 'Baby_Vox.html', '95th_Academy_Awards.html', 'Academy_Award_for_Best_Director.html']
+  [1] read_section {"file": "Academy_Award_for_Best_Actor.html", "section": "Winners and nominees", "query": "95th ceremony winner and nominees"}
+      assessment: The evidence identifies the 95th Academy Awards article and the Best Actor article, but it does not yet state the Best Actor winner or what was notable about the nominee field.
+      missing: ['the Best Actor winner at the 95th Academy Awards', 'what was notable about the whole nominee field that year']
+      -> 6 units, new files: []
+  [2] read_section {"file": "95th_Academy_Awards.html", "section": "Winners and nominees", "query": "Best Actor winner and nominee field"}
+      assessment: The evidence identifies the Best Actor article and the 95th Academy Awards page, but it does not yet state the Best Actor winner for the 95th ceremony or the notable feature of the full nominee field that year.
+      missing: ['the Best Actor winner at the 95th ceremony', 'what was notable about the whole nominee field that year']
+      -> 6 units, new files: []
+  [answer] assessment: The evidence identifies the Best Actor winner and states what was notable about the Best Actor nominees, but it does not explicitly name the whole nominee field as the question phrases it.
+      fact: Best Actor winner at the 95th ceremony was Brendan Fraser. [95th_Academy_Awards.html] - verified
+      fact: All five Best Actor nominees were first-time nominees. [95th_Academy_Awards.html] - verified
+  stop_reason=planner_answer  context=19 units, 17,761 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q019 (4/17): How did the director of La La Land get his start, and what connects his college years to that film's music?
+  retrieved=[('Damien_Chazelle.html', 0.887), ('Damien_Chazelle.html', 0.895), ('Damien_Chazelle.html', 0.756), ('La_La_Land.html', 0.783), ('Damien_Chazelle.html', 0.591), ('La_La_Land.html', 0.61), ('La_La_Land.html', 0.815), ('Alamo_Colleges_District.html (context: meets 1 of 2 facets)', 1.0), ('Damien_Chazelle.html', 0.651), ('Anthony_Minghella.html (context: meets 1 of 2 facets)', 1.0), ('Damien_Chazelle.html', 0.814), ('Whiplash_(2014_film).html', 0.507), ('Christopher_Nolan.html (context: meets 1 of 2 facets)', 1.0), ('Daisaku_Kimura.html (context: meets 1 of 2 facets)', 1.0), ('La_La_Land.html', 0.482), ('Freddie_Fox_(actor).html (context: meets 1 of 2 facets)', 1.0)]
+  correctness=FAIL grade=partial coverage=100.0% evidence_recall=1.0 unique_articles=8
+  answer: Damien Chazelle got his start by writing and directing his debut feature, *Guy and Madeline on a Park Bench*, as part of his senior thesis project with classmate Justin Hurwitz at Harvard, and after graduation he moved to Los Angeles and worked as a freelance writer in Hollywood before making *Whiplash* and then *La La Land* [Damien_Chazelle.html]. Chazelle’s college years connect to *La La Land*’s music because at Harvard he lived with composer Justin Hurwitz, and the two were among the original members of the indie-pop group Chester French; Chazelle also first conceptualized *La La Land* alongside Hurwitz while they were attending Harvard University together [Damien_Chazelle.html].
+  [0] seed {"query": "How did the director of La La Land get his start, and what connects his college years to that film's music?", "parent": "none"}
+      -> 8 units, new files: ['La_La_Land.html', 'Damien_Chazelle.html', 'Whiplash_(2014_film).html']
+  [0] graph {"query": "How did the director of La La Land get his start, and what connects his college years to that film's music?", "relations": ["category"], "facets": ["film director", "college years"]}
+      assessment: [agent: facet search from the question's properties]
+      -> 8 units, new files: ['Alamo_Colleges_District.html', 'Anthony_Minghella.html', 'Christopher_Nolan.html', 'Daisaku_Kimura.html', 'Freddie_Fox_(actor).html', 'James_Cameron.html', 'Joe_Wright.html', 'Sam_Mendes.html']
+      facets met by: [] (strictness level 2)
+  [1] chunks {"query": "Damien Chazelle early life education filmmaker start Harvard classmate Justin Hurwitz La La Land music", "parent": "lead_section"}
+      assessment: The evidence identifies Damien Chazelle as the La La Land director and says the film’s score was composed by his Harvard classmate, but it does not yet explicitly say how he got his start.
+      missing: ['what his early start in filmmaking was', "the direct connection between his college years and La La Land's music"]
+      -> 6 units, new files: []
+  [2] chunks {"query": "Damien Chazelle Harvard University music La La Land Justin Hurwitz college years classmate start began career interview", "parent": "article"}
+      assessment: The evidence identifies Damien Chazelle as the director of La La Land and says Whiplash was the project that got La La Land financed, but it does not yet explicitly explain his first start or the college-year connection to the film’s music.
+      missing: ["What Damien Chazelle's start was, in the sense asked by the question.", "What specifically connects his college years to La La Land's music."]
+      -> 7 units, new files: []
+  [3] chunks {"query": "Damien Chazelle got his start began his career first feature short film Harvard University music early career", "parent": "article"}
+      assessment: The evidence identifies Damien Chazelle as the director of La La Land and links his Harvard years to Justin Hurwitz, but it does not yet state how he got his start.
+      missing: ['how he got his start']
+      -> 7 units, new files: []
+  stop_reason=step_budget  context=16 units, 39,465 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q072 (5/17): What is the highest-grossing film of all time?
+  retrieved=[('Harry_Potter_(film_series).html', 0.673), ('Avatar_(2009_film).html', 0.614), ('The_Lion_King.html', 0.597), ('The_Lion_King.html', 0.554), ('The_Lord_of_the_Rings__The_Return_of_the_King.html', 0.519), ('List_of_1995_box_office_number-one_films_in_the_United_States.html', 0.5), ('E.T._the_Extra-Terrestrial.html', 0.492), ('Titanic_(1997_film).html', 0.413)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=0.6666666666666666 unique_articles=7
+  answer: *Avatar* became the highest-grossing film of all time worldwide on January 25, 2010, surpassing *Titanic* [Avatar_(2009_film).html]. *Titanic* had previously been the highest-grossing film of all time until *Avatar* surpassed it in 2010 [Titanic_(1997_film).html]. Therefore, the highest-grossing film of all time is *Avatar* [Avatar_(2009_film).html].
+  [0] seed {"query": "What is the highest-grossing film of all time?", "parent": "none"}
+      -> 8 units, new files: ['Harry_Potter_(film_series).html', 'Avatar_(2009_film).html', 'The_Lion_King.html', 'The_Lord_of_the_Rings__The_Return_of_the_King.html', 'List_of_1995_box_office_number-one_films_in_the_United_States.html', 'E.T._the_Extra-Terrestrial.html', 'Titanic_(1997_film).html']
+  [answer] assessment: The evidence already states that Avatar surpassed Titanic to become the highest-grossing film of all time worldwide.
+      fact: Avatar is the highest-grossing film of all time worldwide. [Avatar_(2009_film).html] - verified
+  stop_reason=planner_answer  context=8 units, 5,987 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q080 (6/17): Tell me about Anthony Minghella — what did he win and what happened at the Oscars after his death?
+  retrieved=[('Anthony_Minghella.html', 0.793), ('Anthony_Minghella.html', 0.719), ('Midnight_in_the_Garden_of_Good_and_Evil.html', 0.5), ('Anthony_Minghella.html', 0.439), ('Steve_Jobs.html', 0.436), ('Gus_Van_Sant.html', 0.433), ('Anthony_Minghella.html', 0.423), ('Anthony_Minghella.html', 0.422)]
+  correctness=PASS grade=substantially_complete coverage=60.0% evidence_recall=0.5 unique_articles=4
+  answer: Anthony Minghella received the Academy Award for Best Director for *The English Patient* [Anthony_Minghella.html]. He also received three more Academy Award nominations: Best Adapted Screenplay for *The English Patient* and *The Talented Mr. Ripley*, and a posthumous Best Picture nomination for *The Reader* as a producer [Anthony_Minghella.html]. After his death, he was posthumously nominated for Best Picture for *The Reader* at the Oscars [Anthony_Minghella.html].
+  [0] seed {"query": "Tell me about Anthony Minghella — what did he win and what happened at the Oscars after his death?", "parent": "none"}
+      -> 8 units, new files: ['Anthony_Minghella.html', 'Midnight_in_the_Garden_of_Good_and_Evil.html', 'Steve_Jobs.html', 'Gus_Van_Sant.html']
+  [answer] assessment: The evidence already states that Anthony Minghella won an Academy Award for Best Director and that he was posthumously nominated for Best Picture for The Reader, but it does not yet say what happened at the Oscars after his death in the specific form the question asks.
+      fact: He won the Academy Award for Best Director. [Anthony_Minghella.html] - verified
+      fact: After his death, he was posthumously nominated for Best Picture for The Reader. [Anthony_Minghella.html] - verified
+  stop_reason=planner_answer  context=8 units, 7,395 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q003 (7/17): Compare the Academy Awards ceremonies held a decade apart: who hosted the 85th and 95th ceremonies, and which film won Best Picture at each?
+  retrieved=[('List_of_awards_and_nominations_received_by_Steven_Spielberg.html', 0.541), ('85th_Academy_Awards.html', 1.0), ('The_Challenge_(TV_series).html', 0.8), ('Academy_Award_for_Best_Picture.html', 0.5), ('85th_Academy_Awards.html', 1.0), ('Super_Bowl.html', 0.615), ('Academy_Award_for_Best_Production_Design.html', 0.495), ('95th_Academy_Awards.html', 1.0), ('Super_Bowl.html', 0.591), ('Academy_Award_for_Best_Actor.html', 0.467), ('Super_Bowl.html', 0.56), ('Academy_Award_for_Best_Production_Design.html', 0.417), ('Super_Bowl.html', 0.501), ('Academy_Award_for_Best_Director.html', 0.406), ('Eurovision_Song_Contest_2023.html', 0.426), ('Academy_Award_for_Best_Supporting_Actor.html', 0.401), ('Joel_McHale.html', 0.411), ('Academy_Award_for_Best_Director.html', 0.393), ('Stanley_Tucci.html', 0.399)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=0.25 unique_articles=13
+  answer: The 85th Academy Awards were hosted by Seth MacFarlane, and *Argo* won Best Picture [85th_Academy_Awards.html]. The 95th Academy Awards were hosted by Jimmy Kimmel, and *Everything Everywhere All at Once* won Best Picture [95th_Academy_Awards.html].
+  [0] seed {"query": "Compare the Academy Awards ceremonies held a decade apart: who hosted the 85th and 95th ceremonies, and which film won Best Picture at each?", "parent": "none"}
+      -> 8 units, new files: ['List_of_awards_and_nominations_received_by_Steven_Spielberg.html', 'Academy_Award_for_Best_Picture.html', 'Academy_Award_for_Best_Production_Design.html', 'Academy_Award_for_Best_Actor.html', 'Academy_Award_for_Best_Director.html', 'Academy_Award_for_Best_Supporting_Actor.html']
+  [1] title_search {"pattern": "^85th_Academy_Awards$|^95th_Academy_Awards$", "query": "hosted by and Best Picture winner"}
+      assessment: The evidence only shows reference lists mentioning the 85th Academy Awards, plus the Best Picture article intro; it does not yet state the hosts or Best Picture winners for the 85th and 95th ceremonies.
+      missing: ['Who hosted the 85th ceremony', 'Which film won Best Picture at the 85th ceremony', 'Who hosted the 95th ceremony', 'Which film won Best Picture at the 95th ceremony']
+      -> 3 units, new files: ['85th_Academy_Awards.html', '95th_Academy_Awards.html']
+  [2] chunks {"query": "who hosted", "parent": "none"}
+      assessment: The evidence does state the hosts and Best Picture winners for both ceremonies, but the prior facts need fuller verification quotes. [agent: searching for an unsupported clue]
+      -> 8 units, new files: ['The_Challenge_(TV_series).html', 'Super_Bowl.html', 'Eurovision_Song_Contest_2023.html', 'Joel_McHale.html', 'Stanley_Tucci.html']
+  [answer] assessment: The evidence already states the hosts and Best Picture winners for both the 85th and 95th Academy Awards.
+      fact: 85th ceremony [85th_Academy_Awards.html] - verified
+      fact: 95th ceremony [95th_Academy_Awards.html] - verified
+      fact: Hosted by Seth MacFarlane [85th_Academy_Awards.html] - verified
+      fact: Hosted by Jimmy Kimmel [95th_Academy_Awards.html] - verified
+      fact: Best Picture | Argo [85th_Academy_Awards.html] - verified
+      fact: Best Picture | Everything Everywhere All at Once [95th_Academy_Awards.html] - verified
+  verification retries: 1
+  stop_reason=planner_answer  context=19 units, 18,362 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q005 (8/17): For each of the 1996, 2004, and 2008 Summer Olympics, list every city mentioned as having submitted a bid but not winning that edition's hosting contest.
+  retrieved=[('2008_Summer_Olympics.html', 0.541), ('1984_Summer_Olympics.html', 0.545), ('1996_Summer_Olympics.html', 0.578), ('2012_Summer_Olympics.html', 0.503), ('1996_Summer_Olympics.html', 1.0), ('1996_Summer_Olympics.html', 1.0), ('1996_Summer_Olympics.html', 1.0), ('2004_Summer_Olympics.html', 0.504), ('2004_Summer_Olympics.html', 2.212), ('1996_Summer_Olympics.html', 1.0), ('2000_Summer_Olympics.html', 1.981), ('1996_Summer_Olympics.html', 1.0), ('Australia_at_the_Olympics.html', 0.5), ('1936_Summer_Olympics.html', 1.784), ('List_of_Olympic_Games_host_cities.html', 0.376), ('List_of_Olympic_Games_host_cities.html', 0.372), ('Australia_at_the_Olympics.html', 1.704)]
+  correctness=PASS grade=substantially_complete coverage=100.0% evidence_recall=1.0 unique_articles=9
+  answer: 1996 Summer Olympics: Athens and Toronto are mentioned as bidding cities that did not win, and Belgrade, Melbourne, and Manchester are also listed among the bidding results for that contest [1996_Summer_Olympics.html]. Atlanta was the winner [1996_Summer_Olympics.html].
+
+2004 Summer Olympics: Rome, Cape Town, Stockholm, Buenos Aires, Istanbul, Lille, Rio de Janeiro, San Juan, Seville, and Saint Petersburg are mentioned as cities that submitted bids but did not win [2004_Summer_Olympics.html]. Athens was the winner [2004_Summer_Olympics.html].
+
+2008 Summer Olympics: Toronto, Paris, Istanbul, Osaka, Bangkok, Cairo, Havana, Kuala Lumpur, and Seville are mentioned as cities that submitted bids but did not win [2008_Summer_Olympics.html]. Beijing was the winner [2008_Summer_Olympics.html].
+  [0] seed {"query": "For each of the 1996, 2004, and 2008 Summer Olympics, list every city mentioned as having submitted a bid but not winning that edition's hosting contest.", "parent": "none"}
+      -> 8 units, new files: ['1996_Summer_Olympics.html', '1984_Summer_Olympics.html', '2008_Summer_Olympics.html', '2004_Summer_Olympics.html', '2012_Summer_Olympics.html', 'Australia_at_the_Olympics.html', 'List_of_Olympic_Games_host_cities.html']
+  [1] decompose {"query": "Find the bidding cities for the 1996 Summer Olympics, the 2004 Summer Olympics, and the 2008 Summer Olympics, including only cities that submitted bids but did not win."}
+      assessment: The evidence names the relevant Olympics and gives some bid/selection details, but it does not yet explicitly list every bidding city for the 1996 and 2004 Games, and the 2008 passage only partially lists unsuccessful bidders.
+      missing: ["For the 1996 Summer Olympics, every city mentioned as having submitted a bid but not winning that edition's hosting contest.", "For the 2004 Summer Olympics, every city mentioned as having submitted a bid but not winning that edition's hosting contest.", "For the 2008 Summer Olympics, every city mentioned as having submitted a bid but not winning that edition's hosting contest."]
+      -> 8 units, new files: ['2000_Summer_Olympics.html', '1936_Summer_Olympics.html']
+  [2] read_section {"file": "1996_Summer_Olympics.html", "section": "Host city selection", "query": "bidding cities and result"}
+      assessment: The evidence names the non-winning bid cities for 2004 and 2008, but it does not yet explicitly list the 1996 bidding cities.
+      missing: ['the 1996 Summer Olympics bid cities that submitted bids but did not win']
+      -> 0 units, new files: []
+      error: no section matching 'Host city selection'; sections: ['lead', 'Bidding process', 'Development and preparation', 'Development and preparation › Budget', 'Development and preparation › Venues and infrastructure', 'Development and preparation › Marketing', 'Calendar', 'Games', 'Games › Opening ceremony', 'Games › Closing ceremony', 'Games › Sports', 'Records', 'Medal table', 'Participating National Olympic Committees', 'Participating National Olympic Committees › Number of athletes by National Olympic Committee', 'Centennial Olympic Park bombing', 'Legacy', 'Sponsors', 'Reception', 'See also', 'References', 'External links']
+  [3] read_section {"file": "1996_Summer_Olympics.html", "section": "Bidding process", "query": "cities that submitted bids and the final result"}
+      assessment: The evidence already names the winning host cities and some non-winning bid cities for 2004 and 2008, but it does not yet explicitly give the 1996 bidding cities in the correct section.
+      missing: ['the 1996 Summer Olympics bidding cities that submitted bids but did not win', 'a verified quote from the 1996 article naming those cities']
+      -> 5 units, new files: []
+  stop_reason=step_budget  context=17 units, 13,425 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q009 (9/17): The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?
+  retrieved=[('1964_Nobel_Prize_in_Literature.html', 0.363), ('Nobel_Prize.html', 0.741), ('1964_Nobel_Prize_in_Literature.html', 0.5), ('Nobel_Peace_Prize.html', 0.363), ('Nobel_Prize.html', 0.354), ('Lists_of_earthquakes.html', 0.229), ('Alfred_A._Knopf.html', 0.306), ('1964_Alaska_earthquake.html', 0.994), ('List_of_Nobel_laureates_in_Physics.html', 0.5), ('1964_Alaska_earthquake.html', 0.918), ('1964_Alaska_earthquake.html', 0.643), ('John_Bardeen.html', 0.37), ('2006_Nobel_Prize_in_Literature.html (context: meets 1 of 2 facets)', 1.0), ('Sofi_Oksanen.html (context: meets 1 of 2 facets)', 1.0), ('1964_Nobel_Prize_in_Literature.html', 0.291), ('Lists_of_earthquakes.html', 0.472), ('Alaska.html', 0.471), ('List_of_Nobel_laureates_in_Literature.html', 0.228), ('1964_Alaska_earthquake.html', 0.444), ('1916.html', 0.217), ('Alaska.html', 0.39)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=0.75 unique_articles=13
+  answer: The same year a magnitude-9 earthquake struck Alaska was 1964: the 1964 Alaska earthquake is listed as occurring on March 27, 1964, with magnitude 9.2–9.3 [1964_Alaska_earthquake.html], and the 1964 Nobel Prize in Literature was awarded to Jean-Paul Sartre [1964_Nobel_Prize_in_Literature.html]. Sartre initially refused the honor [1964_Nobel_Prize_in_Literature.html]. He declined because he said he never accepted any official honours, did not want the writer to become an institution, and also gave political reasons, saying the Nobel Prize goes only to Westerners “or to rebels of the East” and that it was regrettable that the only Soviet work honored was one published abroad and forbidden in its own country [1964_Nobel_Prize_in_Literature.html].
+  [0] seed {"query": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?", "parent": "none"}
+      -> 8 units, new files: ['Nobel_Prize.html', 'List_of_Nobel_laureates_in_Physics.html', '1964_Nobel_Prize_in_Literature.html', 'John_Bardeen.html', 'Nobel_Peace_Prize.html', 'Alfred_A._Knopf.html']
+  [0] graph {"query": "The author who won the Nobel Prize in Literature the same year a magnitude-9 earthquake struck Alaska initially refused the honor — who was he, and why did he decline?", "relations": ["category"], "facets": ["authors", "Nobel Prize in Literature winners"]}
+      assessment: [agent: facet search from the question's properties]
+      -> 5 units, new files: ['2006_Nobel_Prize_in_Literature.html', 'Sofi_Oksanen.html']
+      facets met by: [] (strictness level 2)
+  [1] chunks {"query": "magnitude-9 earthquake struck Alaska 1964 Nobel Prize in Literature declined refused honor why did he decline", "parent": "none"}
+      assessment: The evidence identifies Jean-Paul Sartre as a declined Nobel Literature laureate, but it does not yet link the prize year to the Alaska earthquake year or give the answer to why he declined in the exact needed form.
+      missing: ['the same year a magnitude-9 earthquake struck Alaska', 'the author who won the Nobel Prize in Literature', 'initially refused the honor', 'why did he decline']
+      -> 8 units, new files: ['Lists_of_earthquakes.html', 'List_of_Nobel_laureates_in_Literature.html', '1916.html']
+  [2] chunks {"query": "1964 Alaska earthquake magnitude 9 Alaska earthquake March 27 1964", "parent": "none"}
+      assessment: The evidence identifies Jean-Paul Sartre as the 1964 Literature laureate and gives his reasons for refusing, but it does not yet explicitly state the Alaska earthquake year in a way tied to the clue set.
+      missing: ['the same year a magnitude-9 earthquake struck Alaska']
+      -> 8 units, new files: ['1964_Alaska_earthquake.html', 'Alaska.html']
+  [answer] assessment: The evidence identifies Jean-Paul Sartre as the 1964 Literature laureate and gives both the Alaska earthquake year and Sartre’s stated reasons for refusing, but the clue linking the earthquake year to the prize year still needs a direct, supported year match.
+      fact: The Alaska earthquake was in 1964, the same year as the prize. [1964_Alaska_earthquake.html] - verified
+      fact: Jean-Paul Sartre won the 1964 Nobel Prize in Literature. [1964_Nobel_Prize_in_Literature.html] - verified
+      fact: Sartre refused the prize. [1964_Nobel_Prize_in_Literature.html] - verified
+      fact: He said he never accepted official honours and did not want the writer to become an institution. [1964_Nobel_Prize_in_Literature.html] - verified
+  stop_reason=planner_answer  context=21 units, 21,106 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=['who was he']
+========================================================================
+Q014 (10/17): In the IOC vote that awarded the 1992 Winter Games, which two cities tied and were sent to a run-off, what were their run-off vote totals, and which city was eliminated after the very first round?
+  retrieved=[('1992_Winter_Olympics.html', 0.635), ('2004_Summer_Olympics.html', 0.985), ('1992_Winter_Olympics.html', 1.0), ('2004_Summer_Olympics.html', 0.678), ('1992_Winter_Olympics.html', 0.602), ('2020_Summer_Olympics.html', 0.507), ('South_Korea_at_the_Olympics.html', 0.334), ('Winter_Olympic_Games.html', 0.372), ('1972_Winter_Olympics.html', 0.429), ('1972_Winter_Olympics.html', 0.255), ('Winter_Olympic_Games.html', 0.368), ('1988_Winter_Olympics.html', 0.372), ('1936_Summer_Olympics.html', 0.248), ('1912_Summer_Olympics.html', 0.214)]
+  correctness=FAIL grade=incorrect coverage=33.3% evidence_recall=0.0 unique_articles=9
+  answer: Albertville and Sofia were the two cities that tied and were sent to a run-off; their run-off vote totals were 51 for Albertville and 25 for Sofia [1992_Winter_Olympics.html]. Berchtesgaden was eliminated after the very first round, with 6 votes [1992_Winter_Olympics.html].
+  [0] seed {"query": "In the IOC vote that awarded the 1992 Winter Games, which two cities tied and were sent to a run-off, what were their run-off vote totals, and which city was eliminated after the very first round?", "parent": "none"}
+      -> 8 units, new files: ['2004_Summer_Olympics.html', '1992_Winter_Olympics.html', '2020_Summer_Olympics.html', '1972_Winter_Olympics.html', '1988_Winter_Olympics.html', '1936_Summer_Olympics.html', 'List_of_Olympic_Games_host_cities.html', 'Winter_Olympic_Games.html']
+  [1] read_section {"file": "1992_Winter_Olympics.html", "section": "Host city selection", "query": "Round Run-off"}
+      assessment: The evidence supports the tied cities and first-round elimination, but the run-off vote totals need quotes copied exactly from the source passage.
+      missing: ['Verified exact quotes for the two run-off vote totals']
+      -> 1 units, new files: []
+  [2] chunks {"query": "1992 Winter Olympics bidding results tied run-off first round eliminated run-off vote totals", "parent": "section"}
+      assessment: The evidence identifies the 1992 Winter Olympics host vote and lists the round-by-round totals, but it does not explicitly state which two cities were sent to the run-off from the tied vote in the first round.
+      missing: ['the two cities that tied and were sent to a run-off', 'their run-off vote totals', 'which city was eliminated after the very first round']
+      -> 7 units, new files: ['South_Korea_at_the_Olympics.html', '2018_FIFA_World_Cup.html']
+  [3] chunks {"query": "1992 Winter Olympics tied run-off Falun Lillehammer round-off", "parent": "article"}
+      assessment: The evidence gives the 1992 bidding table and the round-by-round votes, but it still does not explicitly verify the tied cities sent to the run-off.
+      missing: ['which two cities tied and were sent to a run-off']
+      -> 7 units, new files: ['1912_Summer_Olympics.html']
+  verification retries: 2
+  stop_reason=step_budget  context=14 units, 39,294 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+G06 (11/17): Name another president besides Barack Obama who attended Harvard.
+  retrieved=[('Ivy_League.html', 0.755), ('Ivy_League.html', 0.705), ('List_of_presidents_of_the_United_States_by_education.html', 0.66), ('Ivy_League.html', 0.646), ('Barack_Obama.html', 0.633), ('Barack_Obama.html', 0.593), ('Harvard_University.html', 0.458), ('List_of_presidents_of_the_United_States_by_education.html', 0.375)]
+  correctness=PASS grade=substantially_complete coverage=100.0% evidence_recall=0.0 unique_articles=4
+  answer: John F. Kennedy attended Harvard; the documents list him with “School(s): Princeton University Harvard University” and note that he transferred from Princeton to Harvard [Ivy_League.html].
+  [0] seed {"query": "Name another president besides Barack Obama who attended Harvard.", "parent": "none"}
+      -> 8 units, new files: ['Ivy_League.html', 'List_of_presidents_of_the_United_States_by_education.html', 'Barack_Obama.html', 'Harvard_University.html']
+  [answer] assessment: The evidence shows several U.S. presidents attended Harvard, but it does not yet isolate a single valid answer as 'another president besides Barack Obama' with a direct Harvard-attendance fact for that person.
+      fact: A president other than Barack Obama who attended Harvard is John F. Kennedy. [Ivy_League.html] - verified
+      fact: John F. Kennedy attended Harvard University. [Ivy_League.html] - verified
+  stop_reason=planner_answer  context=8 units, 8,805 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+G07 (12/17): Name another president besides Bill Clinton who attended Yale.
+  retrieved=[('List_of_presidents_of_the_United_States_by_education.html', 0.99), ('Yale_University.html', 0.864), ('Yale_University.html', 0.853), ('Ivy_League.html', 0.79), ('Ivy_League.html', 0.696), ('List_of_presidents_of_the_United_States_by_education.html', 0.694), ('List_of_presidents_of_the_United_States_by_education.html', 0.631), ('Bill_Clinton.html', 0.426)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=0.3333333333333333 unique_articles=4
+  answer: Gerald Ford attended Yale Law School [Yale_University.html], and George H. W. Bush attended Yale University [Ivy_League.html].
+  [0] seed {"query": "Name another president besides Bill Clinton who attended Yale.", "parent": "none"}
+      -> 8 units, new files: ['List_of_presidents_of_the_United_States_by_education.html', 'Yale_University.html', 'Ivy_League.html', 'Bill_Clinton.html']
+  [0] graph {"query": "Name another president besides Bill Clinton who attended Yale.", "relations": ["category"], "facets": ["president", "attended Yale"]}
+      assessment: [agent: facet search from the question's properties]
+      -> 0 units, new files: []
+      facets met by: [] (strictness level 2)
+  [answer] assessment: The evidence already states multiple presidents who attended Yale, including George H. W. Bush as a Yale University undergraduate.
+      fact: George H. W. Bush attended Yale University. [Yale_University.html] - verified
+      fact: George H. W. Bush is listed as a president at Yale University. [Ivy_League.html] - verified
+  stop_reason=planner_answer  context=8 units, 8,867 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+G10 (13/17): Name two films by English directors that won Academy Awards.
+  retrieved=[('List_of_Academy_Award_records.html', 0.547), ('Academy_Award_for_Best_Director.html', 0.5), ('List_of_awards_and_nominations_received_by_Steven_Spielberg.html', 0.724), ('Pride_&_Prejudice_(2005_film).html', 0.831), ('Academy_Award_for_Best_Picture.html', 0.558), ('The_Lord_of_the_Rings__The_Return_of_the_King.html', 0.641)]
+  correctness=FAIL grade=incorrect coverage=50.0% evidence_recall=0.0 unique_articles=6
+  answer: *Pride & Prejudice* (2005 film) was directed by Joe Wright, who is an English director, and the film received four Academy Award nominations [Pride_&_Prejudice_(2005_film).html]. However, the documents do not state that it won an Academy Award.
+
+*The Lord of the Rings: The Return of the King* was directed by Peter Jackson, and the film won eleven Academy Awards [The_Lord_of_the_Rings__The_Return_of_the_King.html].
+  [0] seed {"query": "Name two films by English directors that won Academy Awards.", "parent": "none"}
+      -> 8 units, new files: ['Academy_Award_for_Best_Director.html', 'Academy_Award_for_Best_Picture.html', 'List_of_Academy_Award_records.html', 'Pride_&_Prejudice_(2005_film).html', 'Sam_Mendes.html', '74th_Academy_Awards.html']
+  [1] chunks {"query": "English director film Academy Awards wins", "parent": "lead_section"}
+      assessment: The evidence shows Academy Award-winning films and some director/award data, but it does not explicitly identify two films as being by English directors and winning Academy Awards.
+      missing: ['At least two films that are explicitly tied to English directors in the evidence', 'Evidence that each selected film won an Academy Award']
+      -> 6 units, new files: ['List_of_awards_and_nominations_received_by_Steven_Spielberg.html', 'Joe_Wright.html', 'Anthony_Minghella.html']
+  [2] chunks {"query": "English director won Academy Award film", "parent": "lead_section"}
+      assessment: The evidence shows some Academy Award–winning films and includes articles about several English directors, but it does not yet explicitly match two films to English directors and Academy Award wins.
+      missing: ['A first film that is explicitly tied to an English director and shown to have won an Academy Award.', 'A second film that is explicitly tied to an English director and shown to have won an Academy Award.']
+      -> 7 units, new files: ['The_Lord_of_the_Rings__The_Return_of_the_King.html', 'The_Godfather.html']
+  [3] chunks {"query": "English filmmaker film won Academy Awards", "parent": "lead_section"}
+      assessment: The evidence shows several English directors and some films with Academy Award wins, but it does not yet state two specific film-and-director pairs that satisfy both clues explicitly.
+      missing: ['A first film directed by an English director that won one or more Academy Awards, with a supporting quote for the director being English and the film winning Academy Awards.', 'A second film directed by a different English director that won one or more Academy Awards, with a supporting quote for the director being English and the film winning Academy Awards.']
+      -> 6 units, new files: ['Schindler_s_List.html']
+  stop_reason=step_budget  context=6 units, 39,584 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+G15 (14/17): Which city has the larger population, Sarajevo or Dunedin?
+  retrieved=[('Dunedin.html', 0.951), ('Otago.html', 0.757), ('Dunedin.html', 0.672), ('Dunedin.html', 0.67), ('Dunedin.html', 0.641), ('Dunedin.html', 0.639), ('Sarajevo.html', 0.589), ('Dunedin.html', 0.494)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=1.0 unique_articles=3
+  answer: Sarajevo has a population of 275,524 in its administrative limits [Sarajevo.html], while Dunedin has an estimated population of 132,800 as of June 2025 [Dunedin.html]. Sarajevo is the larger city by population [Sarajevo.html][Dunedin.html].
+  [0] seed {"query": "Which city has the larger population, Sarajevo or Dunedin?", "parent": "none"}
+      -> 8 units, new files: ['Dunedin.html', 'Otago.html', 'Sarajevo.html']
+  [answer] assessment: The evidence gives population figures for both Sarajevo and Dunedin, enough to compare them directly.
+      fact: Sarajevo has 275,524 in its administrative limits; Dunedin has 132,800 as of June 2025. [Sarajevo.html] - verified
+      fact: Sarajevo’s population is 275,524 in its administrative limits. [Sarajevo.html] - verified
+      fact: Dunedin’s population is 132,800 as of June 2025. [Dunedin.html] - verified
+      fact: Dunedin has 132,800 people. [Dunedin.html] - verified
+  stop_reason=planner_answer  context=8 units, 9,013 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+G16 (15/17): Was Charles III born before his mother's reign began?
+  retrieved=[('Charles_III.html', 0.842), ('List_of_British_monarchs.html', 0.778), ('James_II_of_England.html', 0.555), ('Elizabeth_II.html', 0.639), ('Charles_III.html', 0.465), ('List_of_longest-reigning_monarchs.html', 0.333), ('List_of_Scottish_monarchs.html', 0.453), ('List_of_prime_ministers_of_the_United_Kingdom.html', 0.33), ('Charles_III.html', 0.429), ('Anne,_Princess_Royal.html', 0.334), ('Charles_III.html', 0.314)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=0.0 unique_articles=8
+  answer: Charles III was born on 14 November 1948 [Charles_III.html]. Elizabeth II’s reign began on 6 February 1952 [Elizabeth_II.html]. 14 November 1948 is earlier than 6 February 1952 [Charles_III.html][Elizabeth_II.html]. Yes.
+  [0] seed {"query": "Was Charles III born before his mother's reign began?", "parent": "none"}
+      -> 8 units, new files: ['Charles_III.html', 'James_II_of_England.html', 'List_of_Scottish_monarchs.html', 'Anne,_Princess_Royal.html']
+  [1] chunks {"query": "Elizabeth II reign began accession 1952", "parent": "lead_section"}
+      assessment: The evidence gives Charles III’s birth date and says his mother was Elizabeth II, but it does not explicitly state when Elizabeth II’s reign began.
+      missing: ['the start date of Charles III’s mother Elizabeth II’s reign']
+      -> 4 units, new files: ['List_of_British_monarchs.html', 'Elizabeth_II.html', 'List_of_longest-reigning_monarchs.html', 'List_of_prime_ministers_of_the_United_Kingdom.html']
+  [answer] assessment: The evidence states Charles III’s birth date and Elizabeth II’s reign start date, but not yet in a single supported fact set answering the comparison explicitly.
+      fact: Charles III was born on 14 November 1948. [Charles_III.html] - verified
+      fact: Elizabeth II’s reign began on 6 February 1952. [Elizabeth_II.html] - verified
+  stop_reason=planner_answer  context=11 units, 39,948 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+G08 (16/17): Which president served in both the 20th and 21st centuries?
+  retrieved=[('President_of_the_United_States.html', 0.747), ('President_of_the_United_States.html', 0.722), ('George_W._Bush.html', 0.722), ('Massachusetts.html', 0.5), ('Massachusetts.html', 0.5), ('Massachusetts.html', 0.5), ('List_of_presidents_of_the_United_States.html', 0.5), ('List_of_presidents_of_the_United_States.html', 0.5), ('President_of_the_United_States.html', 0.542), ('George_W._Bush.html', 0.389)]
+  correctness=FAIL grade=incorrect coverage=0.0% evidence_recall=0.5 unique_articles=4
+  answer: George W. Bush served as the 43rd president of the United States from 2001 to 2009, so his presidency spanned the 20th and 21st centuries [George_W._Bush.html].
+  [0] seed {"query": "Which president served in both the 20th and 21st centuries?", "parent": "none"}
+      -> 8 units, new files: ['President_of_the_United_States.html', 'Massachusetts.html', 'List_of_presidents_of_the_United_States.html', 'Maine.html', 'List_of_presidents_of_the_United_States_who_died_in_office.html', 'Seattle.html']
+  [1] chunks {"query": "served in both the 20th and 21st centuries president", "parent": "article"}
+      assessment: The evidence only says the presidency carried over from the 20th into the 21st century, but it does not name which president served in both centuries.
+      missing: ['the specific president who served in both the 20th and 21st centuries']
+      -> 8 units, new files: ['United_States_presidential_election.html']
+  [2] chunks {"query": "served in both the 20th and 21st centuries president", "parent": "section"}
+      assessment: The evidence shows the presidency continued into the 21st century, but it does not yet identify a specific president who served across both centuries.
+      missing: ['the name of a president who served in both the 20th and 21st centuries']
+      -> 8 units, new files: []
+  [3] chunks {"query": "George W. Bush president served in both the 20th and 21st centuries", "parent": "lead_section"}
+      assessment: The evidence mentions that the presidency carried over from the 20th into the 21st century, but it does not yet identify which president served across both centuries.
+      missing: ['the name of the president who served in both the 20th and 21st centuries']
+      -> 8 units, new files: ['George_W._Bush.html', 'Bill_Clinton.html']
+  stop_reason=step_budget  context=10 units, 39,938 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+G13 (17/17): What was the former name of the university where Barack Obama earned his law degree?
+  retrieved=[('Barack_Obama.html', 0.559), ('Barack_Obama.html', 0.904), ('Harvard_University.html', 0.77), ('Barack_Obama.html', 0.783), ('Harvard_University.html', 0.718), ('Chicago.html', 0.632), ('Harvard_University.html', 0.655), ('Barack_Obama.html', 0.622), ('List_of_presidents_of_the_United_States_by_education.html', 0.609), ('Ivy_League.html', 0.5), ('Barack_Obama.html', 0.478), ('Harvard_University.html', 0.466)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=1.0 unique_articles=5
+  answer: Barack Obama earned his law degree at Harvard Law School, which is part of Harvard University [Barack_Obama.html]. Harvard University’s former name was Harvard College [Harvard_University.html].
+  [0] seed {"query": "What was the former name of the university where Barack Obama earned his law degree?", "parent": "none"}
+      -> 8 units, new files: ['Barack_Obama.html', 'Chicago.html']
+  [1] chunks {"query": "Harvard Law School former name", "parent": "article"}
+      assessment: The evidence shows Barack Obama earned his law degree at Harvard Law School, but it does not yet state Harvard Law School’s former name.
+      missing: ['the former name of Harvard Law School']
+      -> 8 units, new files: ['Harvard_University.html', 'List_of_presidents_of_the_United_States_by_education.html', 'Ivy_League.html']
+  [answer] assessment: The evidence shows Obama earned his law degree at Harvard Law School and that Harvard University’s former name was Harvard College.
+      fact: Obama earned his law degree at Harvard Law School, part of Harvard University. [Barack_Obama.html] - verified
+      fact: Harvard University’s former name was Harvard College. [Harvard_University.html] - verified
+  stop_reason=planner_answer  context=12 units, 39,244 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Retriever: agent_v2  (top_k=8, candidate_pool=40)
+Binary correctness: 11/17 (64.7%)
+Answer relevance: 17/17 (100.0%)
+Faithfulness (all claims grounded): 14/17 (82.4%)
+Mean graded groundedness: 96.1%
+Mean citation support rate: 94.9%
+Mean chunk attribution (grounded claims not reproducible closed-book): 48.0%
+Strict source recall@8 units: 64.7%
+Mean source recall@8 units: 70.6%
+Mean source recall@3 articles (matched-count vs baseline): 53.9%
+Mean chunk precision@8: 51.4%
+Mean article precision: 38.1%
+Mean unique articles retrieved: 6.82
+Mean evidence recall (golden quotes present in context): 55.4%
+Mean context size: 23,298 chars
+  single_document: 1/1 (100.0%)
+  multi_document: 10/16 (62.5%)
+Over-refusal rate: 0/16 (0.0%)
+Mean quote fidelity: 100.0%
+Mean quote attribution accuracy: 0.0%
+Mean citation precision: 85.3%
+Mean unsupported citation rate: 0.0%
+fact_lookup: mean latency=14.36s, mean tokens=42707, mean estimated cost=$0.035700
+in_depth: mean latency=18.69s, mean tokens=52613, mean estimated cost=$0.047233
+overview: mean latency=16.20s, mean tokens=32036, mean estimated cost=$0.028977
+------------------------------------------------------------------------
+Agent v2: mean planned steps=1.53  mean model calls (excl. judges)=5.47  mean planner calls=2.41
+Action mix: {'answer': 17, 'chunks': 18, 'decompose': 1, 'graph': 3, 'read_section': 6, 'seed': 17, 'title_search': 1}
+Stop reasons: {'planner_answer': 11, 'step_budget': 6}
+Answered from the seed alone: 5/17
+Judge repeats=3: majority pass 10/17, mean graded 0.686; 1/17 records got split verdicts
+Fact verification: 30/30 answer facts verified; 3/17 answers sent back at least once
+Mean source recall over everything retrieved: 79.4% (in final context: 70.6%)
+Mean evidence recall over everything retrieved: 61.3% (in final context: 55.4%)
+Latency p50=14.9s p90=21.6s (model + retrieval time, excluding throttle)
+Total estimated cost: $0.6280  (mean $0.0369 per query)
+Security: refused 0/17, input changed by a filter 0/17, filter failures 0
+Agent-only cost (judges excluded): $0.3333  (mean $0.0196 per query)
+Results JSON: C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 7.1\evaluation_results\evaluation_agent_v2-hardened-tuned_20261020_135840.json
+Results CSV:  C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 7.1\evaluation_results\evaluation_agent_v2-hardened-tuned_20261020_135840.csv

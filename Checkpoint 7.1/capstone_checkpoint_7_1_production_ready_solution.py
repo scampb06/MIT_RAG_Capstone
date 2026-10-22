@@ -475,10 +475,11 @@ class HardenedAgent(m51.WikipediaAgent):
 
     def run(self, question: str, mode: str = "batch", history: list[tuple[str, str]] | None = None) -> HardenedState:
         report, usage = self.guard_input(question)
-        if report["removals"] or report["refused"] or (report["filter"] or {}).get("spans_removed") \
-                or (report["filter"] or {}).get("status", "ok") != "ok":
-            log("SECURITY INPUT", json.dumps(report, ensure_ascii=False))
-        initial: HardenedState = {
+        return self.run_guarded(report, usage, mode, history)
+
+    def initial_state(self, report: dict[str, Any], usage: list[dict[str, Any]], mode: str,
+                      history: list[tuple[str, str]] | None) -> HardenedState:
+        return {
             "question": report["question"], "mode": mode, "version": self.version,
             "history": list(history or [])[-m51.HISTORY_TURNS:],
             "next_action": None, "steps": [], "planned_steps": 0, "clarify_count": 0, "clues": [],
@@ -487,6 +488,14 @@ class HardenedAgent(m51.WikipediaAgent):
             "pending_hits": [], "evidence": {}, "context": [], "response": "", "usage": usage,
             "security": report, "dropped_clues": [],
         }
+
+    def run_guarded(self, report: dict[str, Any], usage: list[dict[str, Any]], mode: str = "batch",
+                    history: list[tuple[str, str]] | None = None) -> HardenedState:
+        """The agent after guard_input; split out so a cache can sit between the two."""
+        if report["removals"] or report["refused"] or (report["filter"] or {}).get("spans_removed") \
+                or (report["filter"] or {}).get("status", "ok") != "ok":
+            log("SECURITY INPUT", json.dumps(report, ensure_ascii=False))
+        initial = self.initial_state(report, usage, mode, history)
         if report["refused"]:
             # Nothing left to answer about: no retrieval and no model call.
             return {**initial, "response": NO_QUESTION_REPLY, "stop_reason": "input_refused"}
@@ -588,7 +597,7 @@ class HardenedAgent(m51.WikipediaAgent):
                 frozen, planned["facts"] = m51._align_clues(frozen, planned["clues"], planned["facts"])
                 planned["clues"] = list(frozen)
             if planned["action"] == "answer" and update.get("stop_reason") == "planner_answer":
-                planned["facts"] = m51._verify_facts(planned["facts"], state["context"])
+                planned["facts"] = self._verify_facts(planned["facts"], state["context"])
                 failures = [fact for fact in planned["facts"] if not fact["verified"]]
                 uncovered = m51._uncovered_clues(planned["clues"], planned["facts"])
                 if (failures or uncovered or not planned["clues"]) and retries == 0:
@@ -701,6 +710,21 @@ class HardenedAgent(m51.WikipediaAgent):
                 entry["error"] = step["error"]
             actions.append(entry)
         return actions
+
+    # Extension points for the Checkpoint 7.1 tuned agent (capstone_checkpoint_7_1_tuned.py);
+    # here they reproduce the 5.1 behaviour exactly.
+    @staticmethod
+    def _verify_facts(facts: list[dict[str, Any]], context: list[Hit]) -> list[dict[str, Any]]:
+        return m51._verify_facts(facts, context)
+
+    def label_suffix(self) -> str:
+        return ""
+
+    def extra_configuration(self) -> dict[str, Any]:
+        return {}
+
+    def extra_metrics(self, state: dict[str, Any]) -> dict[str, Any]:
+        return {}
 
     def _sections(self, hit: Hit) -> str:
         positions = sorted(self.tools.positions(hit), key=lambda p: self.tools.expander.chunk_index_of[p])
@@ -859,7 +883,7 @@ def run_label(agent: HardenedAgent) -> str:
         label += "-reasoning-" + agent.reasoning_effort
     if agent.max_planned_steps != m51.MAX_PLANNED_STEPS:
         label += f"-steps{agent.max_planned_steps}"
-    return label
+    return label + agent.label_suffix()
 
 
 def configuration(agent: HardenedAgent) -> dict[str, Any]:
@@ -873,6 +897,7 @@ def configuration(agent: HardenedAgent) -> dict[str, Any]:
         "filter_price_per_million": m51.MODEL_PRICES.get(agent.filter_model),
         "max_planned_steps": agent.max_planned_steps,
         "planner_evidence_chars": agent.planner_evidence_chars,
+        **agent.extra_configuration(),
     }
 
 
@@ -918,6 +943,7 @@ def run_evaluation(agent: HardenedAgent, llm: Any, items: list[dict[str, Any]], 
         result, state = m51._evaluate_item(agent, llm, item, judge_repeats)
         result.update(security_metrics(agent, state))
         result.update(role_costs(state["usage"]))
+        result.update(agent.extra_metrics(state))
         result["agent_usage"] = state["usage"]      # every agent model call, by role (judges excluded)
         results.append(result)
         adv._print_progress(item, result, state["context"], index, len(items))

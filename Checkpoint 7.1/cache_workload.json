@@ -1,0 +1,34 @@
+{
+  "notes": "Checkpoint 7.1 cache test workload. Eight original questions with known answers in the corpus (from the simple one-hop suite and the benign set). Each has an exact repeat and a paraphrase, which should be served from the cache, and some have a near-miss: a question that looks similar but has a different answer, which must never be served the original's answer. Near-misses change a number (caught by the number guard) or ask for a different attribute of the same subject (the hard case for a similarity threshold). Requests are issued in this order.",
+  "requests": [
+    {"id": "O1", "kind": "original", "question": "Which film won Best Picture at the 68th Academy Awards?"},
+    {"id": "O2", "kind": "original", "question": "Who directed the 2005 film King Kong?"},
+    {"id": "O3", "kind": "original", "question": "Who wrote Nineteen Eighty-Four?"},
+    {"id": "O4", "kind": "original", "question": "In what year did cinematographer Andrew Lesnie die?"},
+    {"id": "O5", "kind": "original", "question": "What river does the Hoover Dam impound?"},
+    {"id": "O6", "kind": "original", "question": "Who was offered the Hyman Roth role and turned it down?"},
+    {"id": "O7", "kind": "original", "question": "Why did Spielberg step down as an advisor to the Beijing Olympics?"},
+    {"id": "O8", "kind": "original", "question": "Who directed A Beautiful Day in the Neighborhood and what did Tom Hanks receive for it?"},
+
+    {"id": "R1", "kind": "repeat", "of": "O1", "question": "Which film won Best Picture at the 68th Academy Awards?"},
+    {"id": "R3", "kind": "repeat", "of": "O3", "question": "Who wrote Nineteen Eighty-Four?"},
+    {"id": "R5", "kind": "repeat", "of": "O5", "question": "What river does the Hoover Dam impound?"},
+    {"id": "R7", "kind": "repeat", "of": "O7", "question": "Why did Spielberg step down as an advisor to the Beijing Olympics?"},
+
+    {"id": "P1", "kind": "paraphrase", "of": "O1", "question": "Which movie took Best Picture at the 68th Oscars?"},
+    {"id": "P2", "kind": "paraphrase", "of": "O2", "question": "Who was the director of the 2005 film King Kong?"},
+    {"id": "P3", "kind": "paraphrase", "of": "O3", "question": "Who is the author of Nineteen Eighty-Four?"},
+    {"id": "P4", "kind": "paraphrase", "of": "O4", "question": "When did the cinematographer Andrew Lesnie die?"},
+    {"id": "P5", "kind": "paraphrase", "of": "O5", "question": "Which river is impounded by the Hoover Dam?"},
+    {"id": "P6", "kind": "paraphrase", "of": "O6", "question": "Who turned down the role of Hyman Roth?"},
+    {"id": "P7", "kind": "paraphrase", "of": "O7", "question": "Why did Steven Spielberg quit as an adviser for the Beijing Olympics?"},
+    {"id": "P8", "kind": "paraphrase", "of": "O8", "question": "Who was the director of A Beautiful Day in the Neighborhood, and what did Tom Hanks get for it?"},
+
+    {"id": "N1", "kind": "near_miss", "of": "O1", "change": "number", "question": "Which film won Best Picture at the 89th Academy Awards?"},
+    {"id": "N2", "kind": "near_miss", "of": "O2", "change": "number", "question": "Who directed the 1976 film King Kong?"},
+    {"id": "N3", "kind": "near_miss", "of": "O3", "change": "entity", "question": "Who wrote Brave New World?"},
+    {"id": "N4", "kind": "near_miss", "of": "O4", "change": "attribute", "question": "In what year was cinematographer Andrew Lesnie born?"},
+    {"id": "N5", "kind": "near_miss", "of": "O5", "change": "attribute", "question": "What lake does the Hoover Dam create?"},
+    {"id": "N6", "kind": "near_miss", "of": "O6", "change": "attribute", "question": "Who played Hyman Roth in The Godfather Part II?"}
+  ]
+}

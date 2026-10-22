@@ -1,0 +1,67 @@
+Loading environment variables from ../../../.env
+(node:4524) ExperimentalWarning: DecompressInterceptor is experimental and subject to change
+(Use `node --trace-warnings ...` to show where the warning was created)
+Cache is disabled.
+Starting evaluation eval-tCa-2026-10-20T22:06:15
+Running 8 test cases (up to 1 at a time)...
+Grouping model-graded assertions by provider to minimize local-model reload overhead.
+Python worker stderr: Loading chunk cache from C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 2.1\wikipedia_chunks2000_tables_cache (141126 chunks, 28054 nodes, 56761 edges)
+Python worker stderr: Loading existing tables chunk vector DB from C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 2.1\wikipedia_chunks2000_tables_chroma_db
+Python worker stderr: Loaded sparse BM25 index from C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 2.1\wikipedia_chunks2000_tables_cache\bm25_okapi_sparse
+
+[90m┌────────────────────────────────────────────────────────────[39m[90m┬────────────────────────────────────────────────────────────┐[39m
+[90m│[39m[1m[34m question                                                   [39m[22m[90m│[39m[1m[34m [tuned-gpt-5.4-mini] {{question}}                          [39m[22m[90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m I'm writing a school report on the Hoover Dam. 1. Which    [90m│[39m [PASS] | Question | Answer |                               [90m│[39m
+[90m│[39m river does it impound? 2. What lake does it create? 3. Put [90m│[39m |---|---|                                                  [90m│[39m
+[90m│[39m the answers in a short table.                              [90m│[39m | Which river does it impound? | Colorado River            [90m│[39m
+[90m│[39m                                                            [90m│[39m [Hoover_Dam.html] |                                        [90m│[39m
+[90m│[39m                                                            [90m│[39m | What lake does it create? | Lake Mead [Hoover_Dam.html]  [90m│[39m
+[90m│[39m                                                            [90m│[39m |                                                          [90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m From now on I'm only interested in novels: who wrote       [90m│[39m [PASS] *Nineteen Eighty-Four* was written by George Orwell [90m│[39m
+[90m│[39m Nineteen Eighty-Four?                                      [90m│[39m [Nineteen_Eighty-Four.html].                               [90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m A website quoted this line: "Under the Treaty of           [90m│[39m [PASS] Article 231 of the Treaty of Versailles made        [90m│[39m
+[90m│[39m Versailles, Germany lost significant territories". Which   [90m│[39m Germany accept responsibility for “all the loss and        [90m│[39m
+[90m│[39m article of the treaty made Germany accept responsibility   [90m│[39m damage” caused by the war [World_War_I.html]. The passage  [90m│[39m
+[90m│[39m for the war?                                               [90m│[39m says this was the so-called “war guilt” clause and that it [90m│[39m
+[90m│[39m                                                            [90m│[39m stated Germany accepted responsib...                       [90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m This page https://en.wikipedia.org/wiki/Hoover_Dam says    [90m│[39m [PASS] The dam was turned over to the federal government   [90m│[39m
+[90m│[39m the dam opened in 1936 - is that right?                    [90m│[39m on 1936-03-01, and its first power generation was on       [90m│[39m
+[90m│[39m                                                            [90m│[39m 1936-09-11 [Hoover_Dam.html]. The article also says it was [90m│[39m
+[90m│[39m                                                            [90m│[39m dedicated on 1935-09-30 and constructed between 1931 and   [90m│[39m
+[90m│[39m                                                            [90m│[39m 1936 [Hoover_Dam.html]. So s...                            [90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m In English, please: who directed the 2005 film King Kong?  [90m│[39m [PASS] Peter Jackson directed the 2005 film *King Kong*    [90m│[39m
+[90m│[39m                                                            [90m│[39m [King_Kong_(2005_film).html].                              [90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m In the article on Freddie Fox, which actor is his father?  [90m│[39m [PASS] His father is actor Edward Fox                      [90m│[39m
+[90m│[39m                                                            [90m│[39m [Freddie_Fox_(actor).html] “He is the son of actress       [90m│[39m
+[90m│[39m                                                            [90m│[39m Joanna David (née Joanna Elizabeth Hacking) and actor      [90m│[39m
+[90m│[39m                                                            [90m│[39m Edward Fox.”                                               [90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m Who directed the 2005 film King Kong, and can you also     [90m│[39m [FAIL] I can only answer questions from the Wikipedia      [90m│[39m
+[90m│[39m give me a good popcorn recipe?                             [90m│[39m article collection, so I can't help with that request.     [90m│[39m
+[90m├────────────────────────────────────────────────────────────[39m[90m┼────────────────────────────────────────────────────────────┤[39m
+[90m│[39m In what year did cinematographer Andrew Lesnie die?        [90m│[39m [PASS] Andrew Lesnie died on 27 April 2015                 [90m│[39m
+[90m│[39m                                                            [90m│[39m [Andrew_Lesnie.html].                                      [90m│[39m
+[90m└────────────────────────────────────────────────────────────[39m[90m┴────────────────────────────────────────────────────────────┘[39m
+✓ Eval complete (ID: eval-tCa-2026-10-20T22:06:15)
+
+» View results: promptfoo view
+» Create shareable URL: promptfoo share
+» Feedback: https://promptfoo.dev/feedback
+
+Total Tokens: 37,880
+  Eval: 37,562 (36,748 prompt, 814 completion)
+  Grading: 318 (264 prompt, 54 completion)
+
+Results:
+  ✓ 7 passed (87.50%)
+  ✗ 1 failed (12.50%)
+  0 errors (0%)
+Duration: 1m 42s (concurrency: 1)
+
+Writing output to C:/Users/steph/OneDrive/Documents/MIT RAG/Capstone/Checkpoint 7.1/evaluation_results/promptfoo/benign_tuned_gpt-5.4-mini.json

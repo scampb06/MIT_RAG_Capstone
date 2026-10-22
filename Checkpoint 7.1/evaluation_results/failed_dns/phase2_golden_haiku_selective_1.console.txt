@@ -1,0 +1,164 @@
+Loading chunk cache from C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 2.1\wikipedia_chunks2000_tables_cache (141126 chunks, 28054 nodes, 56761 edges)
+Loading existing tables chunk vector DB from C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 2.1\wikipedia_chunks2000_tables_chroma_db
+Loaded sparse BM25 index from C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 2.1\wikipedia_chunks2000_tables_cache\bm25_okapi_sparse
+Start-up: {'corpus_and_vector_db': 21.4, 'bm25': 0.78, 'expander_and_graph': 1.7}
+Checkpoint 7.1 - evaluation  |  agent: v2-hardened-planner-claude-haiku-4.5-answer-claude-haiku-4.5-reasoning-medium-tuned-sparse_bm25+repair+fast_path+selective_reasoning  |  17 records
+
+========================================================================
+Q006 (1/17): Compare how the Academy handled the introduction of the Best Animated Feature category with the way the Best Original Score category was split and then merged again in the 1990s.
+  retrieved=[('68th_Academy_Awards.html', 1.0), ('68th_Academy_Awards.html', 1.0), ('Academy_Award_for_Best_Picture.html', 0.652), ('74th_Academy_Awards.html', 0.552), ('Grammy_Award_for_Best_Metal_Performance.html', 0.344), ('Academy_Award_for_Best_Animated_Feature.html', 0.343), ('Avatar_(franchise).html', 0.324), ('Academy_Award_for_Best_Animated_Feature.html', 0.304), ('Trolls_(film).html', 0.247)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=1.0 unique_articles=7
+  answer: # Comparison of Academy Handling of These Two Categories
+
+## Best Original Score Split and Merge (1990s)
+
+[68th_Academy_Awards.html] "Beginning with this ceremony, the AMPAS music branch divided the category of Best Original Score into two categories: Best Dramatic Score and Best Musical or Comedy Score." This split at the 68th Academy Awards (March 25, 1996) [68th_Academy_Awards.html] "was seen as a response to the dominance of Walt Disney Feature Animation films in the Original Score and Original Song categories in recent years." [68th_Academy_Awards.html] "Four years later, the two scoring categories were merged back into one category."
+
+## Best Animated Feature Introduction
+
+By contrast, the Academy's approach to the Best Animated Feature category was more deliberative and permanent. [Academy_Award_for_Best_Animated_Feature.html] "For much of the Academy Awards' history, AMPAS was resistant to the idea of a regular award for animated features, considering there were simply too few produced to justify such consideration." The Academy changed course when [Academy_Award_for_Best_Animated_Feature.html] "By 2001, the rise of sustained competitors to Disney in the feature animated film market, such as DreamWorks Animation (founded by former Disney executive Jeffrey Katzenberg), created an increase of film releases of significant annual number enough for AMPAS to reconsider." [74th_Academy_Awards.html] The new award established specific eligibility standards: "the film must be at least 70 minutes in length, have a significant amount of animated characters, and be at least 75 percent animated in order to be qualified for consideration."
+
+## Key Difference
+
+The Best Original Score approach was a temporary structural adjustment that was later reversed, while the Best Animated Feature was a newly created permanent category with formal eligibility criteria designed to accommodate industry growth.
+  [0] seed {"query": "Compare how the Academy handled the introduction of the Best Animated Feature category with the way the Best Original Score category was split and then merged again in the 1990s.", "parent": "none"}
+      -> 8 units, new files: ['68th_Academy_Awards.html', 'Academy_Award_for_Best_Picture.html', '74th_Academy_Awards.html', 'Grammy_Award_for_Best_Metal_Performance.html', 'Academy_Award_for_Best_Animated_Feature.html', 'Avatar_(franchise).html', 'Trolls_(film).html']
+  [1] title_search {"pattern": "^68th_Academy_Awards", "query": "Best Original Score split date year when ceremony held"}
+      assessment: The evidence covers both the introduction of Best Animated Feature (74th Academy Awards, 2002) and the split/merge of Best Original Score (68th Academy Awards, with a merge four years later), but lacks the year of the 68th Academy Awards and detailed reasoning for both changes.
+      missing: ['The year/date of the 68th Academy Awards when Best Original Score was split', 'Reasoning and Academy justification for splitting Best Original Score beyond Disney dominance response', 'Reasoning and Academy justification for introducing Best Animated Feature beyond the rise of DreamWorks competitors', 'Comparison points: whether both changes were handled similarly or differently by the Academy']
+      -> 2 units, new files: []
+  [2] title_search {"pattern": "^72nd_Academy_Awards", "query": "Best Original Score categories merged back together"}
+      assessment: The evidence describes the Best Original Score split in 1996 (68th Academy Awards) and states it merged 4 years later, and the Best Animated Feature introduction at the 74th Academy Awards (2002). Both involved Disney's role, but details on the Academy's decision-making process and reasoning for both actions are limited.
+      missing: ['when exactly the Best Original Score categories merged (year and ceremony)', "the Academy's explicit rationale and process for deciding to split Best Original Score", "the Academy's explicit rationale and decision-making process for introducing Best Animated Feature", 'comparison framework: how the two decisions differed or were similar in approach']
+      -> 0 units, new files: []
+  [3] title_search {"pattern": "^72nd_Academy_Awards", "query": "Best Original Score merged categories back together when held"}
+      assessment: The evidence establishes that the Best Original Score category was divided into Dramatic and Musical/Comedy scores at the 68th Academy Awards (1996) in response to Disney film dominance, and merged back four years later; separately, it describes the Best Animated Feature's introduction at the 74th Academy Awards (2002) with eligibility criteria, motivated by increased non-Disney competition. However, it lacks details on the reasoning, implementation method, and outcome of the merge, and does not explain the Academy's reasoning for the first category in comparable depth.
+      missing: ['the year/ceremony when Best Original Score categories merged back together', "the Academy's reasoning or decision-making for splitting Best Original Score", "the Academy's reasoning or decision-making for introducing Best Animated Feature beyond competitive pressure", 'comparable details about implementation and impact of both changes']
+      -> 0 units, new files: []
+  stop_reason=step_budget  context=9 units, 8,688 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+Traceback (most recent call last):
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\openai\_base_client.py", line 1005, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 7.1\capstone_checkpoint_7_1_tuned.py", line 735, in <module>
+    main()
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 7.1\capstone_checkpoint_7_1_tuned.py", line 731, in main
+    m71.run_evaluation(agent, llm, items, args.output, args.judge_repeats)
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 7.1\capstone_checkpoint_7_1_production_ready_solution.py", line 934, in run_evaluation
+    result, state = m51._evaluate_item(agent, llm, item, judge_repeats)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 5.1\capstone_checkpoint_5_1_agent_rag_solution.py", line 1641, in _evaluate_item
+    state = agent.run(item["question"], mode="batch")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 7.1\capstone_checkpoint_7_1_production_ready_solution.py", line 493, in run
+    return self.app.invoke(initial, {"recursion_limit": 50})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\langgraph\pregel\main.py", line 3365, in invoke
+    for chunk in self.stream(
+                 ^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\langgraph\pregel\main.py", line 2759, in stream
+    for _ in runner.tick(
+             ^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\langgraph\pregel\_runner.py", line 167, in tick
+    run_with_retry(
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\langgraph\pregel\_retry.py", line 126, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 656, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 7.1\capstone_checkpoint_7_1_tuned.py", line 402, in seed_retrieve
+    hits, trace = self.tools.chunks(state["question"], "none")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 5.1\capstone_checkpoint_5_1_agent_rag_solution.py", line 554, in chunks
+    hits = self.index.get_top_k(query, SEED_TOP_K, SEED_POOL)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 4.1\capstone_checkpoint_4_1_advanced_retrieval_solution.py", line 348, in get_top_k
+    return [self.hit(unit_id, score) for unit_id, score in self.fused_scores(query, pool)[:k]]
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 4.1\capstone_checkpoint_4_1_advanced_retrieval_solution.py", line 321, in fused_scores
+    vector_results = self._vector_top_k(query, pool)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 4.1\capstone_checkpoint_4_1_advanced_retrieval_solution.py", line 311, in _vector_top_k
+    results = self._db.similarity_search_with_score(query, k=k)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\langchain_chroma\vectorstores.py", line 848, in similarity_search_with_score
+    query_embedding = self._embedding_function.embed_query(query)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\langchain_openai\embeddings\base.py", line 801, in embed_query
+    return self.embed_documents([text], **kwargs)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\langchain_openai\embeddings\base.py", line 751, in embed_documents
+    return self._get_len_safe_embeddings(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\langchain_openai\embeddings\base.py", line 618, in _get_len_safe_embeddings
+    response = self.client.create(input=batch_tokens, **client_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\openai\resources\embeddings.py", line 136, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\openai\_base_client.py", line 1297, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\steph\OneDrive\Documents\MIT RAG\.venv\Lib\site-packages\openai\_base_client.py", line 1037, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+During task with name 'seed_retrieve' and id '7ac462e6-ceb6-787f-6249-6b9c552c581d'

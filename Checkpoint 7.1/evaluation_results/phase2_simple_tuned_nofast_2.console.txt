@@ -1,0 +1,430 @@
+Loading chunk cache from C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 2.1\wikipedia_chunks2000_tables_cache (141126 chunks, 28054 nodes, 56761 edges)
+Loading existing tables chunk vector DB from C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 2.1\wikipedia_chunks2000_tables_chroma_db
+Loaded sparse BM25 index from C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 2.1\wikipedia_chunks2000_tables_cache\bm25_okapi_sparse
+Start-up: {'corpus_and_vector_db': 24.06, 'bm25': 1.01, 'expander_and_graph': 1.9}
+Checkpoint 7.1 - evaluation  |  agent: v2-hardened-tuned-sparse_bm25+repair  |  24 records
+
+========================================================================
+Q001 (1/24): Which film won Best Picture at the 68th Academy Awards?
+  retrieved=[('Academy_Award_for_Best_Picture.html', 0.907), ('The_Lord_of_the_Rings__The_Return_of_the_King.html', 0.818), ('68th_Academy_Awards.html', 0.815), ('The_Lord_of_the_Rings__The_Return_of_the_King.html', 0.713), ('68th_Academy_Awards.html', 0.579), ('Gone_with_the_Wind_(film).html', 0.514), ('Emmanuel_Lubezki.html', 0.461), ('Kramer_vs._Kramer.html', 0.459)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=0.0 unique_articles=6
+  answer: *Braveheart* won Best Picture at the 68th Academy Awards [68th_Academy_Awards.html].
+  [0] seed {"query": "Which film won Best Picture at the 68th Academy Awards?", "parent": "none"}
+      -> 8 units, new files: ['Academy_Award_for_Best_Picture.html', 'The_Lord_of_the_Rings__The_Return_of_the_King.html', '68th_Academy_Awards.html', 'Gone_with_the_Wind_(film).html', 'Emmanuel_Lubezki.html', 'Kramer_vs._Kramer.html']
+  [answer] assessment: The evidence directly states the Best Picture winner for the 68th Academy Awards.
+      fact: Braveheart won Best Picture at the 68th Academy Awards [68th_Academy_Awards.html] - verified
+  stop_reason=planner_answer  context=8 units, 7,451 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q007 (2/24): What are the eligibility requirements a film must meet to be considered an animated feature at the Oscars?
+  retrieved=[('Academy_Award_for_Best_Animated_Feature.html', 1.0), ('74th_Academy_Awards.html', 0.732), ('Academy_Award_for_Best_Animated_Feature.html', 0.663), ('Academy_Award_for_Best_Animated_Feature.html', 0.505), ('Academy_Award_for_Best_Animated_Feature.html', 0.465), ('Academy_Award_for_Best_Picture.html', 0.333), ('List_of_Academy_Award_records.html', 0.331), ('United_States_presidential_election.html', 0.325)]
+  correctness=FAIL grade=partial coverage=50.0% evidence_recall=1.0 unique_articles=5
+  answer: A film must have a running time of more than 40 minutes, have a significant number of its major characters animated, and use animation in no less than 75 percent of its running time to be considered an animated feature at the Oscars [Academy_Award_for_Best_Animated_Feature.html]. The 74th Academy Awards description also says the film must be at least 70 minutes long, have a significant amount of animated characters, and be at least 75 percent animated to qualify for consideration [74th_Academy_Awards.html].
+  [0] seed {"query": "What are the eligibility requirements a film must meet to be considered an animated feature at the Oscars?", "parent": "none"}
+      -> 8 units, new files: ['Academy_Award_for_Best_Animated_Feature.html', '74th_Academy_Awards.html', 'Academy_Award_for_Best_Picture.html', 'List_of_Academy_Award_records.html', 'United_States_presidential_election.html']
+  [answer] assessment: The evidence already states the Oscar category’s eligibility rules for animated features, including runtime, animated characters, and percentage animated.
+      fact: running time of more than 40 minutes [Academy_Award_for_Best_Animated_Feature.html] - verified
+      fact: a significant number of the major characters animated [Academy_Award_for_Best_Animated_Feature.html] - verified
+      fact: at least 75 percent of the picture's running time including animation [Academy_Award_for_Best_Animated_Feature.html] - verified
+  stop_reason=planner_answer  context=8 units, 8,773 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q008 (3/24): which studio has won the most best picture oscars
+  retrieved=[('Academy_Award_for_Best_Picture.html', 0.902), ('William_Wyler.html', 0.5), ('List_of_Academy_Award_records.html', 0.43), ('Academy_Award_for_Best_Picture.html', 0.334), ('Academy_Award_for_Best_Director.html', 0.326), ('Academy_Award_for_Best_Picture.html', 0.314), ('La_La_Land.html', 0.289), ('List_of_Academy_Award_records.html', 0.262)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=1.0 unique_articles=5
+  answer: Columbia Pictures and United Artists have won the most Best Picture Oscars, with 12 wins each [Academy_Award_for_Best_Picture.html].
+  [0] seed {"query": "which studio has won the most best picture oscars", "parent": "none"}
+      -> 8 units, new files: ['Academy_Award_for_Best_Picture.html', 'William_Wyler.html', 'List_of_Academy_Award_records.html', 'Academy_Award_for_Best_Director.html', 'La_La_Land.html']
+  [answer] assessment: The evidence identifies the studios with the most Best Picture wins, but it does not explicitly resolve which one has won the single most if a tie matters.
+      fact: Columbia Pictures has 12 Best Picture wins [Academy_Award_for_Best_Picture.html] - verified
+      fact: United Artists has 12 Best Picture wins [Academy_Award_for_Best_Picture.html] - verified
+  stop_reason=planner_answer  context=8 units, 8,552 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q009 (4/24): Only six films have taken the top prize without their director being nominated — can you list them and their directors?
+  retrieved=[('Academy_Award_for_Best_Director.html', 0.793), ('Academy_Award_for_Best_Picture.html', 0.706), ('Academy_Award_for_Best_Director.html', 0.504), ('Academy_Award_for_Best_Director.html', 0.5), ('Academy_Award_for_Best_Picture.html', 0.449), ('Academy_Award_for_Best_Director.html', 0.446), ('David_Fincher.html', 0.266), ('Academy_Award_for_Best_Director.html', 0.261)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=1.0 unique_articles=3
+  answer: The six films are *Wings* directed by William A. Wellman; *Grand Hotel* directed by Edmund Goulding; *Driving Miss Daisy* directed by Bruce Beresford; *Argo* directed by Ben Affleck; *Green Book* directed by Peter Farrelly; and *CODA* directed by Sian Heder. [Academy_Award_for_Best_Picture.html]
+  [0] seed {"query": "Only six films have taken the top prize without their director being nominated — can you list them and their directors?", "parent": "none"}
+      -> 8 units, new files: ['Academy_Award_for_Best_Director.html', 'Academy_Award_for_Best_Picture.html', 'David_Fincher.html']
+  [answer] assessment: The evidence directly states the six Best Picture winners that lacked a Best Director nomination and names each director.
+      fact: Wings was one of the films and William A. Wellman was its director. [Academy_Award_for_Best_Picture.html] - verified
+      fact: Grand Hotel was one of the films and Edmund Goulding was its director. [Academy_Award_for_Best_Picture.html] - verified
+      fact: Driving Miss Daisy was one of the films and Bruce Beresford was its director. [Academy_Award_for_Best_Picture.html] - verified
+      fact: Argo was one of the films and Ben Affleck was its director. [Academy_Award_for_Best_Picture.html] - verified
+      fact: Green Book was one of the films and Peter Farrelly was its director. [Academy_Award_for_Best_Picture.html] - verified
+      fact: CODA was one of the films and Sian Heder was its director. [Academy_Award_for_Best_Picture.html] - verified
+  stop_reason=planner_answer  context=8 units, 9,025 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q013 (5/24): What's the record for the longest losing streak at the Oscars and who finally broke it?
+  retrieved=[('List_of_Academy_Award_records.html', 0.919), ('List_of_Academy_Award_records.html', 0.651), ('List_of_Major_League_Baseball_longest_winning_streaks.html', 0.5), ('2017_Cleveland_Indians_season.html', 0.317), ('85th_Academy_Awards.html', 0.328), ('List_of_Academy_Award_records.html', 0.712), ('89th_Academy_Awards.html', 0.703), ('89th_Academy_Awards.html', 0.658), ('List_of_Academy_Award_records.html', 0.535), ('Academy_Award_for_Best_Animated_Feature.html', 0.38), ('89th_Academy_Awards.html', 0.261)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=1.0 unique_articles=6
+  answer: Kevin O'Connell finally ended the longest losing streak in Oscar history after 20 unsuccessful nominations for sound mixing, winning for *Hacksaw Ridge* [89th_Academy_Awards.html]. The record for the longest Oscars losing streak is 20 unsuccessful nominations, and Kevin O'Connell broke it [89th_Academy_Awards.html].
+  [0] seed {"query": "What's the record for the longest losing streak at the Oscars and who finally broke it?", "parent": "none"}
+      -> 8 units, new files: ['List_of_Academy_Award_records.html', 'List_of_Major_League_Baseball_longest_winning_streaks.html', '89th_Academy_Awards.html', '85th_Academy_Awards.html', '2017_Cleveland_Indians_season.html', 'Eli_Manning.html', 'Pep_Guardiola.html']
+  [1] chunks {"query": "What's the record for the longest losing streak at the Oscars", "parent": "none"}
+      assessment: The evidence names the record-holder and gives the streak length in one Oscars passage, but the record clue still needs a tighter verified quote from the passage that explicitly states the record itself. [agent: searching for an unsupported clue]
+      missing: ['a verified quote explicitly stating the record for the longest losing streak at the Oscars']
+      -> 8 units, new files: ['Academy_Award_for_Best_Animated_Feature.html', '95th_Academy_Awards.html', 'Titanic_(1997_film).html']
+  [2] chunks {"query": "longest losing streak in Oscar history Kevin O'Connell 20 unsuccessful nominations sound mixing", "parent": "article"}
+      assessment: The evidence points to Oscar-record passages naming a 20-loss streak and a later 17-nomination streak, but it does not yet support the record and breaker cleanly from the relevant article.
+      missing: ['Which Oscar record is intended as the current longest losing streak record, with a directly supported quote.', 'Who finally broke that record, with a directly supported quote from the relevant article.']
+      -> 8 units, new files: ['Saving_Private_Ryan.html']
+  [3] chunks {"query": "longest losing streak in Oscar history 20 unsuccessful nominations sound mixing", "parent": "lead_section"}
+      assessment: The evidence already identifies the record-holder for the longest Oscar losing streak and names who ended it, but the exact record wording still needs a direct supporting quote.
+      missing: ['a direct quote stating the record for the longest losing streak at the Oscars']
+      -> 6 units, new files: []
+  verification retries: 1
+  stop_reason=step_budget  context=11 units, 39,613 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q014 (6/24): For a paper on Oscar statistics, list the individual who holds the record for most nominations without ever winning a competitive award and the category involved.
+  retrieved=[('List_of_Academy_Award_records.html', 0.487), ('List_of_Academy_Award_records.html', 0.69), ('List_of_Academy_Award_records.html', 1.0), ('List_of_Academy_Award_records.html', 0.545), ('List_of_Academy_Award_records.html', 0.796), ('List_of_Academy_Award_records.html', 0.67), ('Grammy_Award_for_Best_Metal_Performance.html', 0.5), ('List_of_Academy_Award_records.html', 0.601), ('List_of_Academy_Award_records.html', 1.0), ('List_of_Academy_Award_records.html', 0.5), ('Academy_Award_for_Best_Production_Design.html', 0.521), ('List_of_Academy_Award_records.html', 1.0), ('List_of_Academy_Award_records.html', 1.0), ('Academy_Award_for_Best_Supporting_Actor.html', 0.367)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=1.0 unique_articles=4
+  answer: Diane Warren holds the record for most nominations without ever winning a competitive award, with 17 nominations and no competitive wins in the Best Original Song category [List_of_Academy_Award_records.html].
+  [0] seed {"query": "For a paper on Oscar statistics, list the individual who holds the record for most nominations without ever winning a competitive award and the category involved.", "parent": "none"}
+      -> 8 units, new files: ['List_of_Academy_Award_records.html', 'Grammy_Award_for_Best_Metal_Performance.html', 'Academy_Award_for_Best_Supporting_Actor.html']
+  [1] chunks {"query": "most nominations without ever winning a competitive award Oscar record person category", "parent": "article"}
+      assessment: The evidence shows Oscar record pages with several nomination/award records, but it does not yet explicitly identify a person who has the most nominations without ever winning a competitive award or the category tied to that record.
+      missing: ['the individual who holds the record for most nominations without ever winning a competitive award', 'the category involved']
+      -> 6 units, new files: ['Academy_Award_for_Best_Production_Design.html']
+  [2] read_section {"file": "List_of_Academy_Award_records.html", "section": "lead / Miscellaneous records", "query": "Most total nominations without a win"}
+      assessment: The evidence identifies one record holder and gives the relevant category, but the category is not yet tied to the exact record phrasing needed.
+      missing: ['A passage explicitly stating the individual who holds the record for most nominations without ever winning a competitive award.', 'A passage explicitly stating the category involved for that record, if it is not already the same as the nomination category in the record statement.']
+      -> 6 units, new files: []
+  [answer] assessment: The evidence names the record holder and the relevant category, but one clue still needs a verbatim supporting quote from the subject article.
+      fact: Diane Warren is the record holder for most nominations without competitive wins. [List_of_Academy_Award_records.html] - verified
+      fact: The category involved is Best Original Song. [List_of_Academy_Award_records.html] - verified
+  stop_reason=planner_answer  context=14 units, 33,883 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q021 (7/24): Which director has the most Best Director nominations without ever winning, and how many did he receive?
+  retrieved=[('Academy_Award_for_Best_Director.html', 0.77), ('List_of_Academy_Award_records.html', 0.703), ('Alberto_Isaac.html (context: meets 1 of 2 facets)', 1.0), ('List_of_Academy_Award_records.html', 0.677), ('Anthony_Minghella.html (context: meets 1 of 2 facets)', 1.0), ('William_Wyler.html', 0.623), ('Christopher_Nolan.html (context: meets 1 of 2 facets)', 1.0), ('Academy_Award_for_Best_Picture.html', 0.616), ('Clint_Eastwood.html (context: meets 1 of 2 facets)', 1.0), ('List_of_Academy_Award_records.html', 0.58), ('Damien_Chazelle.html (context: meets 1 of 2 facets)', 1.0), ('Academy_Award_for_Best_Director.html', 0.5), ('David_Fincher.html (context: meets 1 of 2 facets)', 1.0), ('List_of_Academy_Award_records.html', 0.492), ('James_Cameron.html (context: meets 1 of 2 facets)', 1.0)]
+  correctness=PASS grade=complete coverage=50.0% evidence_recall=1.0 unique_articles=11
+  answer: Clarence Brown has the most Best Director nominations without a win, with 6 nominations [Academy_Award_for_Best_Director.html].
+  [0] seed {"query": "Which director has the most Best Director nominations without ever winning, and how many did he receive?", "parent": "none"}
+      -> 8 units, new files: ['Academy_Award_for_Best_Director.html', 'List_of_Academy_Award_records.html', 'William_Wyler.html', 'Academy_Award_for_Best_Picture.html']
+  [0] graph {"query": "Which director has the most Best Director nominations without ever winning, and how many did he receive?", "relations": ["category"], "facets": ["director", "Best Director nominations without ever winning"]}
+      assessment: [agent: facet search from the question's properties]
+      -> 8 units, new files: ['Alberto_Isaac.html', 'Anthony_Minghella.html', 'Christopher_Nolan.html', 'Clint_Eastwood.html', 'Damien_Chazelle.html', 'David_Fincher.html', 'James_Cameron.html']
+      facets met by: [] (strictness level 2)
+  [answer] assessment: The evidence already states the record-holder for most Best Director nominations without a win, but the answer should be verified against the question’s exact wording.
+      fact: Clarence Brown has the most nominations without a win [Academy_Award_for_Best_Director.html] - verified
+      fact: He received 6 nominations [Academy_Award_for_Best_Director.html] - verified
+  stop_reason=planner_answer  context=15 units, 16,095 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q029 (8/24): Emmanuel Lubezki did something no cinematographer had managed before — what was it and for which films?
+  retrieved=[('Emmanuel_Lubezki.html', 0.929), ('Birdman_(film).html', 0.644), ('Emmanuel_Lubezki.html', 0.501), ('Emmanuel_Lubezki.html', 0.5), ('Emmanuel_Lubezki.html', 0.475), ('Emmanuel_Lubezki.html', 0.447), ('Birdman_(film).html', 0.442), ('Emmanuel_Lubezki.html', 0.398)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=0.5 unique_articles=2
+  answer: He became the first cinematographer to win three consecutive Academy Awards for Best Cinematography [Emmanuel_Lubezki.html]. The films were *Gravity* (2013), *Birdman* (2014), and *The Revenant* (2015) [Emmanuel_Lubezki.html].
+  [0] seed {"query": "Emmanuel Lubezki did something no cinematographer had managed before — what was it and for which films?", "parent": "none"}
+      -> 8 units, new files: ['Emmanuel_Lubezki.html', 'Birdman_(film).html']
+  [answer] assessment: The evidence names the milestone and separately names the three films, but the previous quote for the film list was not exact enough.
+      fact: He became the first cinematographer to do so. [Emmanuel_Lubezki.html] - verified
+      fact: The films are Gravity, Birdman, and The Revenant. [Emmanuel_Lubezki.html] - verified
+  verification retries: 1
+  stop_reason=planner_answer  context=8 units, 7,533 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=['what was it']
+========================================================================
+Q031 (9/24): The cinematographer on the Lord of the Rings films — what did he win and when did he die?
+  retrieved=[('Andrew_Lesnie.html', 0.938), ('Andrew_Lesnie.html', 0.588), ('Andrew_Lesnie.html', 0.55), ('Andrew_Lesnie.html', 0.5), ('The_Lord_of_the_Rings__The_Return_of_the_King.html', 0.411), ('The_Lord_of_the_Rings__The_Return_of_the_King.html', 0.383), ('The_Lord_of_the_Rings__The_Return_of_the_King.html', 0.375), ('Andrew_Lesnie.html', 0.364)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=0.5 unique_articles=2
+  answer: Andrew Lesnie was the cinematographer on *The Lord of the Rings* films [Andrew_Lesnie.html]. His work on *The Fellowship of the Ring* earned him the Academy Award for Best Cinematography [Andrew_Lesnie.html]. He died on 27 April 2015 [Andrew_Lesnie.html].
+  [0] seed {"query": "The cinematographer on the Lord of the Rings films — what did he win and when did he die?", "parent": "none"}
+      -> 8 units, new files: ['Andrew_Lesnie.html', 'The_Lord_of_the_Rings__The_Return_of_the_King.html']
+  [answer] assessment: The evidence identifies the cinematographer as Andrew Lesnie and states both an award and his death date.
+      fact: Andrew Lesnie was the cinematographer on The Lord of the Rings trilogy. [Andrew_Lesnie.html] - verified
+      fact: He won the Academy Award for Best Cinematography. [Andrew_Lesnie.html] - verified
+      fact: He died on 27 April 2015. [Andrew_Lesnie.html] - verified
+  stop_reason=planner_answer  context=8 units, 7,806 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q040 (10/24): Which Oscar-winning film had its 'In Memoriam' segment accompanied by a Joni Mitchell song, and who sang it?
+  retrieved=[('89th_Academy_Awards.html', 0.997), ('68th_Academy_Awards.html', 0.338), ('70th_Academy_Awards.html', 0.376), ('85th_Academy_Awards.html', 0.408), ('78th_Academy_Awards.html', 0.371), ('68th_Academy_Awards.html', 1.0), ('89th_Academy_Awards.html', 1.0), ('89th_Academy_Awards.html', 0.937), ('95th_Academy_Awards.html', 0.445), ('70th_Academy_Awards.html', 1.0), ('74th_Academy_Awards.html', 1.0), ('74th_Academy_Awards.html', 1.0), ('78th_Academy_Awards.html', 1.0), ('Bro_Town.html', 0.332), ('85th_Academy_Awards.html', 1.0)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=1.0 unique_articles=8
+  answer: The 89th Academy Awards “In Memoriam” segment was accompanied by Joni Mitchell’s song “Both Sides, Now,” and it was sung by Sara Bareilles [89th_Academy_Awards.html].
+  [0] seed {"query": "Which Oscar-winning film had its 'In Memoriam' segment accompanied by a Joni Mitchell song, and who sang it?", "parent": "none"}
+      -> 8 units, new files: ['89th_Academy_Awards.html', '95th_Academy_Awards.html', '85th_Academy_Awards.html', '70th_Academy_Awards.html', '78th_Academy_Awards.html', '68th_Academy_Awards.html', 'Bro_Town.html']
+  [1] title_search {"pattern": "^.*Academy_Awards$", "query": "Joni Mitchell Both Sides Now In Memoriam"}
+      assessment: The evidence verifies the singer and song, but not the Oscar-winning film the question refers to.
+      missing: ["The Oscar-winning film that had its 'In Memoriam' segment accompanied by a Joni Mitchell song"]
+      -> 10 units, new files: ['74th_Academy_Awards.html']
+  [2] title_search {"pattern": "^89th_Academy_Awards$", "query": "Best Picture In Memoriam Joni Mitchell Sara Bareilles"}
+      assessment: The evidence shows the 2017 Oscars In Memoriam segment used Joni Mitchell’s “Both Sides, Now” and names the singer, but it does not yet state which Oscar-winning film the segment was for.
+      missing: ['the Oscar-winning film the question refers to']
+      -> 2 units, new files: []
+  [answer] assessment: The evidence identifies one Oscars ceremony where the In Memoriam segment featured Joni Mitchell’s song and names the performer, but it does not yet state which Oscar-winning film the question is asking about.
+      fact: The 89th Academy Awards had an In Memoriam segment with Joni Mitchell's song. [89th_Academy_Awards.html] - verified
+      fact: Sara Bareilles sang it. [89th_Academy_Awards.html] - verified
+  verification retries: 1
+  stop_reason=planner_answer  context=15 units, 13,856 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q041 (11/24): An error was made in one of the In Memoriam slides — what happened?
+  retrieved=[('89th_Academy_Awards.html', 0.558), ('Academy_Award_for_Best_Picture.html', 0.881), ('68th_Academy_Awards.html', 0.3), ('70th_Academy_Awards.html', 0.669), ('74th_Academy_Awards.html', 0.659), ('89th_Academy_Awards.html', 0.562), ('95th_Academy_Awards.html', 0.384), ('78th_Academy_Awards.html', 0.54), ('74th_Academy_Awards.html', 0.578), ('American_Airlines_Flight_11.html', 0.5), ('Academy_Award_for_Best_Actor.html', 0.5), ('James_Connolly.html', 0.474), ('USS_Maine_(1889).html', 0.474), ('Michael_Richards.html', 0.473)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=1.0 unique_articles=12
+  answer: The 89th Academy Awards article says the Academy Scientific and Technical Awards were presented on February 11, 2017, and its In Memoriam segment was introduced by Jennifer Aniston with Sara Bareilles performing during the montage. It also says the slide for Janet Patterson, an Australian costume designer, mistakenly used a photograph of Australian producer Jan Chapman, who is still alive. [95th_Academy_Awards.html]
+
+
+  [0] seed {"query": "An error was made in one of the In Memoriam slides — what happened?", "parent": "none"}
+      -> 8 units, new files: ['68th_Academy_Awards.html', '74th_Academy_Awards.html', 'American_Airlines_Flight_11.html', 'James_Connolly.html', 'USS_Maine_(1889).html', '89th_Academy_Awards.html', 'Michael_Richards.html', 'Technicolor.html']
+  [1] chunks {"query": "In Memoriam error slide mistake Academy Awards what happened", "parent": "article"}
+      assessment: The evidence shows several Academy Awards In Memoriam lists but does not yet identify which slide had the error or what the error was.
+      missing: ['Which specific In Memoriam slide had the error', 'What happened in that slide']
+      -> 7 units, new files: ['Academy_Award_for_Best_Picture.html', 'Academy_Award_for_Best_Actor.html', '95th_Academy_Awards.html', 'Dissolution_of_Czechoslovakia.html']
+  [2] chunks {"query": "\"In Memoriam\" slide error mistake incorrect person included Oscar tribute", "parent": "article"}
+      assessment: The evidence shows several Oscars In Memoriam sections and one 2017 Oscar mix-up note, but it does not yet identify the specific mistaken slide or what happened to the person on it.
+      missing: ['Which In Memoriam slide had the error', 'What exactly happened in that slide']
+      -> 8 units, new files: ['70th_Academy_Awards.html', '85th_Academy_Awards.html', '78th_Academy_Awards.html']
+  [3] chunks {"query": "89th Academy Awards In Memoriam mistakenly included person \"I am alive and well\"", "parent": "article"}
+      assessment: The evidence shows an Oscars In Memoriam mistake at the 89th Academy Awards, but not yet the specific person and incident behind it.
+      missing: ['Which person was mistakenly included in the In Memoriam tribute', 'What exactly happened to that person in the slide']
+      -> 8 units, new files: []
+  stop_reason=step_budget  context=14 units, 39,362 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q044 (12/24): Where was the cowboy love story actually filmed, and why not in the state where it's set?
+  retrieved=[('Lonesome_Dove.html', 0.739), ('Brokeback_Mountain.html', 0.5), ('War_and_Remembrance_(miniseries).html', 0.488), ('Lonesome_Dove.html', 0.477), ('Gus_Van_Sant.html', 0.474), ('Starman_(film).html', 0.438), ('Macklemore.html', 0.359), ('Happy_Days.html', 0.354)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=1.0 unique_articles=7
+  answer: The cowboy love story was filmed almost entirely in the Canadian Rockies in southern Alberta, with the mountain featured in the film being a composite of Mount Lougheed south of Canmore, Fortress, and Moose Mountain in Kananaskis Country, and other scenes filmed in Cowley, Fort Macleod, and Calgary [Brokeback_Mountain.html]. It was not filmed in Wyoming because Lee chose to shoot in Alberta, citing financial reasons [Brokeback_Mountain.html].
+  [0] seed {"query": "Where was the cowboy love story actually filmed, and why not in the state where it's set?", "parent": "none"}
+      -> 8 units, new files: ['Lonesome_Dove.html', 'Brokeback_Mountain.html', 'War_and_Remembrance_(miniseries).html', 'Gus_Van_Sant.html', 'Starman_(film).html', 'Macklemore.html', 'Happy_Days.html']
+  [answer] assessment: The evidence identifies the film as *Brokeback Mountain* and states it was filmed in southern Alberta for financial reasons, but it does not yet explicitly answer the first clue from a source tied to the question’s wording.
+      fact: It was filmed almost entirely in southern Alberta, in the Canadian Rockies. [Brokeback_Mountain.html] - verified
+      fact: The reason given for shooting there instead of Wyoming was financial. [Brokeback_Mountain.html] - verified
+  stop_reason=planner_answer  context=8 units, 9,464 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q054 (13/24): Michael B. Jordan made history in the lead acting category — what exactly was the achievement?
+  retrieved=[('Michael_B._Jordan.html', 0.687), ('Michael_B._Jordan.html', 0.566), ('Michael_B._Jordan.html', 0.392), ('Jack_Nicholson.html', 0.357), ('Michael_B._Jordan.html', 0.253), ('Michael_B._Jordan.html', 0.248), ('Michael_B._Jordan.html', 0.223), ('List_of_Academy_Award_records.html', 0.218)]
+  correctness=PASS grade=substantially_complete coverage=100.0% evidence_recall=0.5 unique_articles=3
+  answer: He became the seventh Black performer in history to win an Oscar in the lead acting category [Michael_B._Jordan.html]. The document also says he received the Academy Award for Best Actor and that he became the seventh Black performer in history to win an Oscar in the lead acting category [Michael_B._Jordan.html].
+  [0] seed {"query": "Michael B. Jordan made history in the lead acting category — what exactly was the achievement?", "parent": "none"}
+      -> 8 units, new files: ['Michael_B._Jordan.html', 'Jack_Nicholson.html', 'List_of_Academy_Award_records.html']
+  [answer] assessment: The evidence says Michael B. Jordan won an Academy Award for Best Actor and that this made him the seventh Black performer to win an Oscar in a lead acting category.
+      fact: He won the Academy Award for Best Actor. [Michael_B._Jordan.html] - verified
+      fact: He became the seventh Black performer in history to win an Oscar in the lead acting category. [Michael_B._Jordan.html] - verified
+  stop_reason=planner_answer  context=8 units, 7,166 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q057 (14/24): Which film produced three supporting actor nominations in a single year, and did that happen more than once?
+  retrieved=[('Academy_Award_for_Best_Supporting_Actor.html', 0.786), ('Modern_Family.html', 0.5), ('Academy_Award_for_Best_Supporting_Actor.html', 0.476), ('List_of_Academy_Award_records.html', 0.463), ('Freddie_Prinze_Jr..html', 0.455), ('Kramer_vs._Kramer.html', 0.453), ('List_of_Academy_Award_records.html', 0.427), ('BAFTA_Award_for_Best_Actor_in_a_Supporting_Role.html', 0.408)]
+  correctness=PASS grade=substantially_complete coverage=75.0% evidence_recall=0.5 unique_articles=6
+  answer: The film was *On the Waterfront* (1954), which had three Best Supporting Actor nominations: Lee J. Cobb, Karl Malden, and Rod Steiger [Academy_Award_for_Best_Supporting_Actor.html]. The same passage says there were three exceptions with three nominations: *On the Waterfront* (1954), *The Godfather* (1972), and *The Godfather Part II* (1974) [Academy_Award_for_Best_Supporting_Actor.html]. So yes, it happened more than once [Academy_Award_for_Best_Supporting_Actor.html].
+  [0] seed {"query": "Which film produced three supporting actor nominations in a single year, and did that happen more than once?", "parent": "none"}
+      -> 8 units, new files: ['Academy_Award_for_Best_Supporting_Actor.html', 'Modern_Family.html', 'List_of_Academy_Award_records.html', 'Freddie_Prinze_Jr..html', 'Kramer_vs._Kramer.html', 'BAFTA_Award_for_Best_Actor_in_a_Supporting_Role.html']
+  [answer] assessment: The evidence already states that the event happened more than once, but the previous quote did not directly support it with a clear excerpt.
+      fact: On the Waterfront (1954) produced three Best Supporting Actor nominations in a single year. [Academy_Award_for_Best_Supporting_Actor.html] - verified
+      fact: The Godfather (1972) produced three Best Supporting Actor nominations in a single year. [Academy_Award_for_Best_Supporting_Actor.html] - verified
+      fact: The Godfather Part II (1974) produced three Best Supporting Actor nominations in a single year. [Academy_Award_for_Best_Supporting_Actor.html] - verified
+      fact: The event happened more than once. [Academy_Award_for_Best_Supporting_Actor.html] - verified
+  verification retries: 1
+  stop_reason=planner_answer  context=8 units, 8,968 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q061 (15/24): Who was offered the Hyman Roth role and turned it down?
+  retrieved=[('Deconstructing_Harry.html', 0.951), ('Kramer_vs._Kramer.html', 0.603), ('The_Thing_(1982_film).html', 0.408), ('Schindler_s_List.html', 0.397), ('The_Godfather_Part_II.html', 0.355), ('Transformers_(film).html', 0.351), ('The_Expendables_(2010_film).html', 0.297), ('The_Princess_Bride_(film).html', 0.283)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=0.5 unique_articles=8
+  answer: James Cagney was offered the role of Hyman Roth, and he refused because he had retired from acting. [The_Godfather_Part_II.html]
+  [0] seed {"query": "Who was offered the Hyman Roth role and turned it down?", "parent": "none"}
+      -> 8 units, new files: ['Deconstructing_Harry.html', 'Kramer_vs._Kramer.html', 'The_Thing_(1982_film).html', 'Schindler_s_List.html', 'The_Godfather_Part_II.html', 'Transformers_(film).html', 'The_Expendables_(2010_film).html', 'The_Princess_Bride_(film).html']
+  [answer] assessment: The evidence identifies one Hyman Roth casting offer, but the quoted passage names only the actor who refused and does not state who was offered the role and turned it down in a way that directly answers the question.
+      fact: Coppola offered James Cagney the role of Hyman Roth. [The_Godfather_Part_II.html] - verified
+      fact: James Cagney refused the role. [The_Godfather_Part_II.html] - verified
+  stop_reason=planner_answer  context=8 units, 8,434 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q065 (16/24): What did Nicholson say about the impact of Marlon Brando on his own acting?
+  retrieved=[('Jack_Nicholson.html', 1.0), ('Jack_Nicholson.html', 0.489), ('Jack_Nicholson.html', 0.368), ('Jack_Nicholson.html', 0.296), ('Jack_Nicholson.html', 0.296), ('List_of_Academy_Award_records.html', 0.285), ('Jack_Nicholson.html', 0.265), ('Jack_Nicholson.html', 0.233)]
+  correctness=FAIL grade=partial coverage=66.7% evidence_recall=1.0 unique_articles=2
+  answer: Nicholson said, “Marlon Brando influenced me strongly,” and added that “it’s hard for people who weren’t there to realize the impact that Brando had on an audience.” He also said, “I’m part of the first generation that idolized Marlon Brando.” [Jack_Nicholson.html]
+  [0] seed {"query": "What did Nicholson say about the impact of Marlon Brando on his own acting?", "parent": "none"}
+      -> 8 units, new files: ['Jack_Nicholson.html', 'List_of_Academy_Award_records.html']
+  [answer] assessment: The evidence already states Nicholson’s comments about Brando’s influence on him, including a direct quote about Brando’s impact.
+      fact: Nicholson said Brando influenced him strongly. [Jack_Nicholson.html] - verified
+      fact: Nicholson said Brando had a major impact on audiences and called him "the patron saint of actors". [Jack_Nicholson.html] - verified
+  stop_reason=planner_answer  context=8 units, 11,421 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q066 (17/24): Where does Whiplash rank among Sundance films, and what did the festival's anniversary survey find?
+  retrieved=[('Whiplash_(2014_film).html', 0.813), ('Whiplash_(2014_film).html', 0.787), ('2014_Sundance_Film_Festival.html', 0.767), ('2014_Sundance_Film_Festival.html', 0.742), ('2014_Sundance_Film_Festival.html', 0.731), ('Whiplash_(2014_film).html', 0.639), ('Whiplash_(2014_film).html', 0.602), ('Damien_Chazelle.html', 0.587)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=1.0 unique_articles=3
+  answer: *Whiplash* topped the list of the Sundance Film Festival’s “Top 10 Films of All Time” in a 2024 survey conducted with 500 filmmakers and critics for the festival’s 40th anniversary.[Whiplash_(2014_film).html]
+
+The anniversary survey found that *Whiplash* ranked number 1 among the Sundance films on that list.[Whiplash_(2014_film).html]
+  [0] seed {"query": "Where does Whiplash rank among Sundance films, and what did the festival's anniversary survey find?", "parent": "none"}
+      -> 8 units, new files: ['Whiplash_(2014_film).html', '2014_Sundance_Film_Festival.html', 'Damien_Chazelle.html']
+  [answer] assessment: The evidence says Whiplash topped Sundance's Top 10 Films of All Time and that the ranking came from a 40th-anniversary survey, but it does not yet explicitly state Whiplash's rank as a standalone answerable fact in a quoted passage about the ranking source article.
+      fact: Whiplash ranked first on the Sundance Film Festival's Top 10 Films of All Time list [Whiplash_(2014_film).html] - verified
+      fact: The ranking came from a survey conducted with 500 filmmakers and critics in honor of the festival's 40th anniversary [Whiplash_(2014_film).html] - verified
+  stop_reason=planner_answer  context=8 units, 7,984 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q069 (18/24): Wait — was La La Land actually the first film to be announced wrongly, or has that happened before at the Oscars?
+  retrieved=[('La_La_Land.html', 0.833), ('89th_Academy_Awards.html', 0.892), ('Academy_Award_for_Best_Picture.html', 0.841), ('89th_Academy_Awards.html', 0.851), ('89th_Academy_Awards.html', 0.577), ('89th_Academy_Awards.html', 0.722), ('89th_Academy_Awards.html', 0.66), ('89th_Academy_Awards.html', 0.87), ('La_La_Land.html', 0.539)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=1.0 unique_articles=3
+  answer: At the 89th Academy Awards on February 26, 2017, Faye Dunaway read *La La Land* as the Best Picture winner, but it was later corrected to *Moonlight* [Academy Award for Best Picture.html]. The documents say this was “an event unprecedented in the history of the Oscars,” meaning it had not happened before at the Oscars [89th_Academy_Awards.html].
+  [0] seed {"query": "Wait — was La La Land actually the first film to be announced wrongly, or has that happened before at the Oscars?", "parent": "none"}
+      -> 8 units, new files: ['La_La_Land.html', '89th_Academy_Awards.html', 'Academy_Award_for_Best_Picture.html']
+  [1] chunks {"query": "earlier Oscars wrong Best Picture announcement before La La Land first time happened before Oscars", "parent": "article"}
+      assessment: The evidence shows the 2017 Oscars misannouncement involving La La Land, but it does not explicitly state whether this was the first such wrong announcement at the Oscars.
+      missing: ['Whether the Oscars had any earlier wrong film-announcement incidents before the La La Land mix-up']
+      -> 8 units, new files: []
+  [2] chunks {"query": "Oscars earlier wrong announcement before La La Land first film announced wrongly Academy Awards history", "parent": "article"}
+      assessment: The evidence shows the 2017 Oscars mix-up involving La La Land, but it does not yet say whether an earlier wrong announcement happened before at the Oscars.
+      missing: ['Whether La La Land was actually the first film to be announced wrongly', 'Whether that kind of mistake had happened before at the Oscars']
+      -> 7 units, new files: []
+  [3] chunks {"query": "Academy Awards earlier mistaken announced as winner Best Picture before La La Land", "parent": "article"}
+      assessment: The evidence shows La La Land was mistakenly announced as Best Picture in 2017, but it does not yet state whether any earlier Oscars had a similar wrong announcement.
+      missing: ['whether that happened before at the Oscars']
+      -> 7 units, new files: ['Emma_Stone.html']
+  stop_reason=step_budget  context=9 units, 39,138 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q076 (19/24): Which Spielberg film was made after a chance conversation about a merit badge, and how did Scouting figure in his life?
+  retrieved=[('Steven_Spielberg.html', 0.792), ('Saving_Private_Ryan.html', 0.388), ('Steven_Spielberg.html', 1.0), ('Steven_Spielberg.html', 0.75), ('Steven_Spielberg.html', 0.447), ('Steven_Spielberg.html', 0.355), ('Steven_Spielberg.html', 0.353), ('Saving_Private_Ryan.html', 0.449)]
+  correctness=FAIL grade=partial coverage=100.0% evidence_recall=1.0 unique_articles=2
+  answer: After a chance conversation led to Spielberg getting a three-day pass to Universal Studios, he later used his father’s movie camera to make amateur features and began taking the camera along on every Scout trip; he also became a Boy Scout in 1958 and eventually attained the rank of Eagle Scout [Steven_Spielberg.html]. He fulfilled a requirement for the photography merit badge by making a nine-minute 8mm Western, *The Last Gunfight* [Steven_Spielberg.html]. The film he made after that chance conversation was *Amblin’* (1968), a 26-minute short that Universal gave him the opportunity to write and direct for theatrical release [Steven_Spielberg.html].
+  [0] seed {"query": "Which Spielberg film was made after a chance conversation about a merit badge, and how did Scouting figure in his life?", "parent": "none"}
+      -> 8 units, new files: ['Steven_Spielberg.html', 'Saving_Private_Ryan.html', 'E.T._the_Extra-Terrestrial.html', 'Schindler_s_List.html']
+  [1] chunks {"query": "chance conversation merit badge Spielberg film", "parent": "lead_section"}
+      assessment: The evidence shows Spielberg’s Scouting involvement and one film developed from childhood experiences, but it does not yet identify the film linked to the merit-badge conversation.
+      missing: ['the specific Spielberg film made after the chance conversation about a merit badge']
+      -> 6 units, new files: []
+  [2] chunks {"query": "\"chance conversation\" merit badge film Spielberg Scouting Scouts camera", "parent": "lead_section"}
+      assessment: The evidence identifies Spielberg’s Scouting background and mentions a merit badge in the biography, but it does not yet state which film was made after the chance conversation about a merit badge.
+      missing: ['the specific Spielberg film made after the chance conversation about a merit badge', 'a direct statement connecting that chance conversation to a film', 'how Scouting figured in his life beyond earning Eagle Scout, making films for the photography merit badge, and taking a camera on Scout trips']
+      -> 6 units, new files: []
+  [3] chunks {"query": "\"chance conversation\" merit badge Spielberg film", "parent": "article"}
+      assessment: The evidence shows Spielberg was a Boy Scout, became an Eagle Scout, and made a photography-merit-badge film, but it does not yet identify the film tied to the chance conversation about a merit badge.
+      missing: ['the Spielberg film that was made after a chance conversation about a merit badge']
+      -> 8 units, new files: []
+  stop_reason=step_budget  context=8 units, 39,821 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q077 (20/24): Why did Spielberg step down as an advisor to the Beijing Olympics?
+  retrieved=[('Steven_Spielberg.html', 0.964), ('Steven_Spielberg.html', 0.747), ('Steven_Spielberg.html', 0.284), ('2008_Summer_Olympics.html', 0.276), ('2008_Summer_Olympics.html', 0.263), ('2008_Summer_Olympics.html', 0.179), ('Steven_Spielberg.html', 0.163), ('2008_Summer_Olympics.html', 0.161)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=1.0 unique_articles=2
+  answer: Spielberg resigned as advisor to the 2008 Summer Olympics in response to the Chinese government's inaction over the War in Darfur [Steven_Spielberg.html]. He said that his conscience would not allow him to continue and that Sudan's government bore most of the responsibility, but that the international community, particularly China, should be doing more [Steven_Spielberg.html].
+  [0] seed {"query": "Why did Spielberg step down as an advisor to the Beijing Olympics?", "parent": "none"}
+      -> 8 units, new files: ['Steven_Spielberg.html', '2008_Summer_Olympics.html']
+  [answer] assessment: The evidence already states Spielberg resigned over the Chinese government's inaction on Darfur, with his own explanation quoted.
+      fact: He resigned in response to the Chinese government's inaction over the War in Darfur. [Steven_Spielberg.html] - verified
+      fact: He said his conscience would not let him continue business as usual. [Steven_Spielberg.html] - verified
+  stop_reason=planner_answer  context=8 units, 8,700 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q082 (21/24): There's a famous ice cream scene in that divorce film — was it scripted?
+  retrieved=[('Kramer_vs._Kramer.html', 0.821), ('Kramer_vs._Kramer.html', 0.742), ('Kramer_vs._Kramer.html', 0.502), ('Kramer_vs._Kramer.html', 0.5), ('The_Seduction_of_Joe_Tynan.html', 0.392), ('Assault_on_Precinct_13_(1976_film).html', 0.925), ('Saturday_Night_Live.html', 0.622), ('Kramer_vs._Kramer.html', 0.338), ('Bad_Boys_(1995_film).html', 0.331), ('Roger_Moore.html', 0.319), ('La_La_Land.html', 0.315), ('Shrek.html', 0.311), ('The_Thing_(1982_film).html', 0.287)]
+  correctness=FAIL grade=incorrect coverage=0.0% evidence_recall=0.0 unique_articles=9
+  answer: The documents do not say whether the famous ice cream scene in *Kramer vs. Kramer* was scripted. They only mention the film’s content, reception, and a cultural influence note about Vivaldi, but nothing about an ice cream scene or whether any scene was improvised or scripted in that film [Kramer_vs._Kramer.html].
+  [0] seed {"query": "There's a famous ice cream scene in that divorce film — was it scripted?", "parent": "none"}
+      -> 8 units, new files: ['Assault_on_Precinct_13_(1976_film).html', 'Saturday_Night_Live.html', 'Kramer_vs._Kramer.html', 'Bad_Boys_(1995_film).html', 'Roger_Moore.html', 'La_La_Land.html', 'Shrek.html', 'The_Thing_(1982_film).html']
+  [1] chunks {"query": "Kramer vs. Kramer ice cream scene scripted", "parent": "article"}
+      assessment: The evidence mentions a divorce film and several ice-cream scenes, but it does not yet identify the specific film or say whether the scene was scripted.
+      missing: ["Which 'divorce film' the question refers to", 'Whether the famous ice cream scene in that film was scripted']
+      -> 7 units, new files: ['The_Seduction_of_Joe_Tynan.html']
+  [2] chunks {"query": "Kramer vs. Kramer ice cream scene scripted improvised interview", "parent": "article"}
+      assessment: The evidence identifies the divorce film as *Kramer vs. Kramer* and shows that it is about divorce, but it does not yet state whether the famous ice cream scene was scripted.
+      missing: ['Whether the famous ice cream scene in *Kramer vs. Kramer* was scripted']
+      -> 7 units, new files: []
+  [3] chunks {"query": "Kramer vs. Kramer ice cream scene improvised scripted interview", "parent": "article"}
+      assessment: The evidence identifies the divorce film as *Kramer vs. Kramer* and confirms it is about a couple's divorce, but it does not yet say whether the famous ice cream scene was scripted.
+      missing: ['Whether the famous ice cream scene in *Kramer vs. Kramer* was scripted']
+      -> 7 units, new files: []
+  stop_reason=step_budget  context=13 units, 38,203 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q084 (22/24): Which two people share the record for the shortest Oscar-nominated supporting performances by screen time?
+  retrieved=[('List_of_Academy_Award_records.html', 0.7), ('List_of_Academy_Award_records.html', 0.719), ('List_of_Academy_Award_records.html', 0.552), ('List_of_Academy_Award_records.html', 0.464), ('List_of_Academy_Award_records.html', 0.558), ('Academy_Award_for_Best_Animated_Feature.html', 0.362), ('Courteney_Cox.html', 0.163), ('95th_Academy_Awards.html', 0.18), ('List_of_Academy_Award_records.html', 0.161), ('List_of_Academy_Award_records.html', 0.339), ('List_of_Academy_Award_records.html', 0.218), ('List_of_Academy_Award_records.html', 0.165)]
+  correctness=FAIL grade=partial coverage=50.0% evidence_recall=1.0 unique_articles=4
+  answer: The record for the shortest Oscar-nominated supporting performances by screen time is shared by Ned Beatty in *Network* (1976), at 6:00, and Hermione Baddeley in *Room at the Top* (1959), at 2:19 [List_of_Academy_Award_records.html].
+  [0] seed {"query": "Which two people share the record for the shortest Oscar-nominated supporting performances by screen time?", "parent": "none"}
+      -> 8 units, new files: ['List_of_Academy_Award_records.html', '95th_Academy_Awards.html']
+  [1] chunks {"query": "shortest Oscar-nominated supporting performances by screen time shared record two people", "parent": "article"}
+      assessment: The evidence shows the record category and some related shortest-performance records, but it does not yet name the two people who share the shortest Oscar-nominated supporting performances by screen time.
+      missing: ['the two people who share the record for the shortest Oscar-nominated supporting performances by screen time']
+      -> 8 units, new files: ['Courteney_Cox.html', 'List_of_awards_and_nominations_received_by_Christopher_Plummer.html']
+  [2] chunks {"query": "\"shortest supporting nomination\" Oscar screen time shared record second person", "parent": "article"}
+      assessment: The evidence already shows one shortlist record holder for supporting nominations, but it does not yet name the second person who shares the record.
+      missing: ['the second person who shares the record for the shortest Oscar-nominated supporting performances by screen time']
+      -> 8 units, new files: ['Academy_Award_for_Best_Animated_Feature.html']
+  [3] chunks {"query": "\"RECORDS | Shortest performances\" \"shortest Oscar-nominated supporting performances\" names", "parent": "article"}
+      assessment: The evidence states the supporting-nomination screen-time records, but it does not explicitly identify the tied record-holders by name in the shown passages.
+      missing: ['the two people who share the record for the shortest Oscar-nominated supporting performances by screen time']
+      -> 7 units, new files: []
+  stop_reason=step_budget  context=12 units, 38,570 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q089 (23/24): Paul Mescal's Oscar nomination came from a film about a father and daughter on holiday — what's the film and what else did it earn him?
+  retrieved=[('Paul_Mescal.html', 1.0), ('Saltburn_(film).html', 0.459), ('Paul_Mescal.html', 0.333), ('BAFTA_Award_for_Best_Actor_in_a_Supporting_Role.html', 0.442), ('89th_Academy_Awards.html', 0.5), ('89th_Academy_Awards.html', 0.413), ('Priest_(1994_film).html', 0.417), ('Halloween_(1978_film).html', 0.5), ('Zooey_Deschanel.html', 0.47), ('Bill_Nighy.html', 0.328), ('Christopher_Nolan.html', 0.319)]
+  correctness=PASS grade=complete coverage=100.0% evidence_recall=1.0 unique_articles=9
+  answer: The film was *Aftersun*; the documents say Paul Mescal’s performance as “a troubled father in the coming-of-age drama *Aftersun* (2022)” earned him a nomination for the Academy Award for Best Actor [Paul_Mescal.html]. The same passage says he also received a BAFTA Award nomination for Best Actor in a Leading Role for that film [Paul_Mescal.html].
+  [0] seed {"query": "Paul Mescal's Oscar nomination came from a film about a father and daughter on holiday — what's the film and what else did it earn him?", "parent": "none"}
+      -> 8 units, new files: ['Paul_Mescal.html', 'Halloween_(1978_film).html', 'Zooey_Deschanel.html', '95th_Academy_Awards.html', 'Inception.html', 'Moana_(2016_film).html']
+  [1] chunks {"query": "Aftersun father daughter holiday earned him nomination BAFTA award", "parent": "article"}
+      assessment: The evidence identifies the film as *Aftersun* and states it earned Paul Mescal an Academy Award nomination, but it does not yet explicitly say the father-and-daughter holiday plot or give the other award/nomination asked for in the question.
+      missing: ['the film is explicitly described as being about a father and daughter on holiday', 'what else the film earned him besides the Oscar nomination']
+      -> 7 units, new files: ['Saltburn_(film).html', 'BAFTA_Award_for_Best_Actor_in_a_Supporting_Role.html', 'Shrek.html', 'Christopher_Nolan.html']
+  [2] chunks {"query": "Aftersun father daughter holiday Oscar nomination what else did it earn him", "parent": "article"}
+      assessment: The evidence already identifies the film as *Aftersun* and says it earned Paul Mescal an Academy Award nomination, but it does not yet support the exact holiday/father-daughter description in the clue or any additional award beyond that nomination.
+      missing: ['Which film is described as being about a father and daughter on holiday', 'What else the film earned him besides the Oscar nomination']
+      -> 8 units, new files: ['89th_Academy_Awards.html', 'Michelle_Williams_(actress).html', 'The_Wolf_of_Wall_Street_(2013_film).html', 'Schindler_s_List.html']
+  [3] chunks {"query": "Aftersun father daughter holiday what else did it earn him BAFTA nomination", "parent": "article"}
+      assessment: The evidence identifies Paul Mescal’s Oscar-nominated film as *Aftersun* and says it also earned him a BAFTA nomination, but not the exact award category from the film’s own article passage.
+      missing: ['the film explicitly described as about a father and daughter on holiday', "the exact 'what else did it earn him' award/category from the film article, if not already explicit"]
+      -> 8 units, new files: ['Priest_(1994_film).html', 'Bill_Nighy.html']
+  stop_reason=step_budget  context=11 units, 38,905 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Q095 (24/24): Who directed A Beautiful Day in the Neighborhood and what did Tom Hanks receive for it?
+  retrieved=[('A_Beautiful_Day_in_the_Neighborhood.html', 1.0), ('A_Beautiful_Day_in_the_Neighborhood.html', 0.763), ('A_Beautiful_Day_in_the_Neighborhood.html', 0.751), ('A_Beautiful_Day_in_the_Neighborhood.html', 0.702), ('A_Beautiful_Day_in_the_Neighborhood.html', 0.668), ('A_Beautiful_Day_in_the_Neighborhood.html', 0.656), ('A_Beautiful_Day_in_the_Neighborhood.html', 0.645), ('A_Beautiful_Day_in_the_Neighborhood.html', 0.614)]
+  correctness=FAIL grade=partial coverage=33.3% evidence_recall=0.5 unique_articles=1
+  answer: *A Beautiful Day in the Neighborhood* was directed by Marielle Heller [A_Beautiful_Day_in_the_Neighborhood.html]. Tom Hanks received a nomination for Best Supporting Actor at the Academy Awards for it [A_Beautiful_Day_in_the_Neighborhood.html].
+  [0] seed {"query": "Who directed A Beautiful Day in the Neighborhood and what did Tom Hanks receive for it?", "parent": "none"}
+      -> 8 units, new files: ['A_Beautiful_Day_in_the_Neighborhood.html']
+  [answer] assessment: The evidence identifies the film’s director and shows several award nominations and wins for Tom Hanks, but the specific award he received for this film is not yet pinned down.
+      fact: Directed by Marielle Heller [A_Beautiful_Day_in_the_Neighborhood.html] - verified
+      fact: Tom Hanks received a Best Supporting Actor award nomination at the Academy Awards for it [A_Beautiful_Day_in_the_Neighborhood.html] - verified
+  stop_reason=planner_answer  context=8 units, 8,992 chars
+  security: refused=None  sanitizer=-  filter=ok (injection=False, spans removed=0)  passage tags neutralized=0  dropped clues=-
+========================================================================
+Retriever: agent_v2  (top_k=8, candidate_pool=40)
+Binary correctness: 18/24 (75.0%)
+Answer relevance: 24/24 (100.0%)
+Faithfulness (all claims grounded): 23/24 (95.8%)
+Mean graded groundedness: 97.2%
+Mean citation support rate: 97.2%
+Mean chunk attribution (grounded claims not reproducible closed-book): 58.3%
+Strict source recall@8 units: 100.0%
+Mean source recall@8 units: 100.0%
+Mean source recall@3 articles (matched-count vs baseline): 91.7%
+Mean chunk precision@8: 49.4%
+Mean article precision: 33.4%
+Mean unique articles retrieved: 5.12
+Mean evidence recall (golden quotes present in context): 79.2%
+Mean context size: 19,071 chars
+  single_document: 24/24 (100.0%)
+Over-refusal rate: 0/24 (0.0%)
+Mean quote fidelity: 76.7%
+Mean quote attribution accuracy: 0.0%
+Mean citation precision: 91.7%
+Mean unsupported citation rate: 2.1%
+fact_lookup: mean latency=14.89s, mean tokens=34356, mean estimated cost=$0.028871
+------------------------------------------------------------------------
+Agent v2: mean planned steps=1.04  mean model calls (excl. judges)=4.92  mean planner calls=1.92
+Action mix: {'answer': 24, 'chunks': 22, 'graph': 1, 'read_section': 1, 'seed': 24, 'title_search': 2}
+Stop reasons: {'planner_answer': 17, 'step_budget': 7}
+Answered from the seed alone: 14/24
+Judge repeats=3: majority pass 18/24, mean graded 0.816; 6/24 records got split verdicts
+Fact verification: 41/41 answer facts verified; 4/24 answers sent back at least once
+Mean source recall over everything retrieved: 100.0% (in final context: 100.0%)
+Mean evidence recall over everything retrieved: 79.2% (in final context: 79.2%)
+Latency p50=15.0s p90=18.8s (model + retrieval time, excluding throttle)
+Total estimated cost: $0.6929  (mean $0.0289 per query)
+Security: refused 0/24, input changed by a filter 0/24, filter failures 0
+Agent-only cost (judges excluded): $0.3587  (mean $0.0149 per query)
+Results JSON: C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 7.1\evaluation_results\evaluation_agent_v2-hardened-tuned-sparse_bm25+repair_20261020_150823.json
+Results CSV:  C:\Users\steph\OneDrive\Documents\MIT RAG\Capstone\Checkpoint 7.1\evaluation_results\evaluation_agent_v2-hardened-tuned-sparse_bm25+repair_20261020_150823.csv
